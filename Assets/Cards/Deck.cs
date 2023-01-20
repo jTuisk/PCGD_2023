@@ -8,7 +8,8 @@ public class Deck : MonoBehaviour
     public List<Card> BattleDeck;
     public List<Card> BattleDiscardPile;
     public List<GameObject> EventDeck;
-    public List<GameObject> cardPrefabs;
+    public GameObject CardBasePrefab;
+    public List<BattleCardDataContainer> cardPrefabs;
     public List<int> deckList;
     public int money = 0;
     public int mana = 0;
@@ -108,7 +109,8 @@ public class Deck : MonoBehaviour
     {
         foreach(var i in deckList)
         {
-            var j = Instantiate(cardPrefabs[i]).GetComponent<Card>();
+            var j = Instantiate(CardBasePrefab).GetComponent<Card>();
+            j.createCard(cardPrefabs[i]);
             j.transform.position =new Vector2(1000000,100000);
             BattleDeck.Add(j);
 

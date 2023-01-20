@@ -25,6 +25,16 @@ public class Card : MonoBehaviour
 
     }
 
+    public void createCard(BattleCardDataContainer data) {
+        Damage = data.Damage;
+        block = data.block;
+        magic = data.magic;
+        money = data.money;
+        actionCost = data.actionCost;
+        effect = data.effect;
+    
+    }
+
     void Start()
     {
         
