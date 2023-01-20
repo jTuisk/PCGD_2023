@@ -15,3 +15,4 @@ MonoBehaviour:
   HP: 10
   MaxDamageRange: 6
   MinDamageRange: 1
+  CreatureBase: {fileID: 1923058948709319707, guid: 6671e36d1d116eb44b87cd53f63a7813, type: 3}

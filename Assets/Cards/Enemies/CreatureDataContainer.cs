@@ -10,4 +10,15 @@ public class CreatureDataContainer : ScriptableObject
     public int HP = 10;
     public int MaxDamageRange = 6;
     public int MinDamageRange = 1;
+
+    public GameObject CreatureBase;
+
+    public void Spawn()
+    {
+        Deck.Instance.enemy = Instantiate(CreatureBase).GetComponent<EnemyCard>();
+        Deck.Instance.enemy.Create(this);
+        Deck.Instance.inBattle = true;
+
+    }
+
 }
