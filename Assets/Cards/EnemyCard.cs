@@ -1,0 +1,32 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class EnemyCard : MonoBehaviour
+{
+    // Start is called before the first frame update
+    public int HP = 10;
+    public int MaxDamageRange = 6;
+    public int MinDamageRange = 1;
+    public int damage = 0;
+    public TMPro.TextMeshProUGUI text; 
+    void Start()
+    {
+        Deck.Instance.battleStart();
+    }
+
+
+    // Update is called once per frame
+    void Update()
+    {
+        text.text = damage + "\n" + HP;
+        if (HP <= 0)
+        {
+            Deck.Instance.enemy = null;
+            Deck.Instance.inBattle = false;
+            Deck.Instance.ResetDeck();
+            Destroy(gameObject);
+        }
+        
+    }
+}
