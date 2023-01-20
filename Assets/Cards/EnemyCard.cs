@@ -15,7 +15,14 @@ public class EnemyCard : MonoBehaviour
         Deck.Instance.battleStart();
     }
 
+    public void Create(CreatureDataContainer data)
+    {
+        HP = data.HP;
+        MaxDamageRange = data.MaxDamageRange;
+        MinDamageRange = data.MinDamageRange;
 
+
+    }
     // Update is called once per frame
     void Update()
     {

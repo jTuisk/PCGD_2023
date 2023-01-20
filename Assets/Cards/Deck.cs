@@ -7,7 +7,7 @@ public class Deck : MonoBehaviour
     public static Deck Instance { get; private set; }
     public List<Card> BattleDeck;
     public List<Card> BattleDiscardPile;
-    public List<GameObject> EventDeck;
+    public List<EventCardData> EventDeck;
     public GameObject CardBasePrefab;
     public List<BattleCardDataContainer> cardPrefabs;
     public List<int> deckList;
@@ -21,7 +21,7 @@ public class Deck : MonoBehaviour
     public bool eventVisible = false;
     public EnemyCard enemy;
     public GameObject Hand;
-
+    public GameObject eventBase;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -33,7 +33,7 @@ public class Deck : MonoBehaviour
     }
     public void DrawEventCard()
     {
-        Instantiate(EventDeck[Random.Range(0,EventDeck.Count)]);
+        Instantiate(eventBase).GetComponent<EventCard>().CreateEventCard(EventDeck[Random.Range(0, EventDeck.Count)]);
         eventVisible = true;
 
     }
