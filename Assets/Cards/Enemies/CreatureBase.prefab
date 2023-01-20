@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2786494953855687327}
   - component: {fileID: 6800869919338920927}
   m_Layer: 0
-  m_Name: Bat
+  m_Name: CreatureBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
