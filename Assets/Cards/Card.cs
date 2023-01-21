@@ -11,6 +11,7 @@ public class Card : MonoBehaviour
     public int magic = 0;
     public int money = 0;
     public int actionCost = 0;
+    public TMPro.TextMeshProUGUI description;
     public UnityEvent effect;
 
     public void Playcard()
@@ -26,6 +27,7 @@ public class Card : MonoBehaviour
     }
 
     public void createCard(BattleCardDataContainer data) {
+        description.text = data.effectDescriptor;
         Damage = data.Damage;
         block = data.block;
         magic = data.magic;

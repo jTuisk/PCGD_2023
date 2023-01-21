@@ -6,6 +6,7 @@ using UnityEngine.Events;
 [CreateAssetMenu (fileName ="New BattleCard", menuName ="Cards/Battle")]
 public class BattleCardDataContainer : ScriptableObject
 {
+    public string effectDescriptor = "";
     public int Damage = 0;
     public int block = 0;
     public int magic = 0;

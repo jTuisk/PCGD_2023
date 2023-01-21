@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2786494953855687327}
   - component: {fileID: -3056978810847564775}
   m_Layer: 0
-  m_Name: block
+  m_Name: BattleCardBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,6 +50,7 @@ MonoBehaviour:
   magic: 0
   money: 0
   actionCost: 1
+  description: {fileID: 2461034819953710743}
   effect:
     m_PersistentCalls:
       m_Calls: []
