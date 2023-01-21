@@ -18,6 +18,7 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //common script for UI elements
         switch (uiMode) {
             case UITextVisual.HEALTH:
                 HealthText.text = Deck.Instance.Hp + " ";

@@ -15,6 +15,7 @@ public class TurnButtinHider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //hide inactive UI Elements
         if (Deck.Instance.inBattle)
         {
             endTurnButton.SetActive(true);

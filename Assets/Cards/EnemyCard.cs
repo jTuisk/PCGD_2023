@@ -26,6 +26,7 @@ public class EnemyCard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Cange gamestate back to drawing event cards if player wins battle
         text.text = damage + "\n" + HP;
         if (HP <= 0)
         {

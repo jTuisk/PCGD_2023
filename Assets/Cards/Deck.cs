@@ -24,6 +24,7 @@ public class Deck : MonoBehaviour
     public GameObject eventBase;
     private void Awake()
     {
+        //singleton setup
         if (Instance != null && Instance != this)
         {
             Destroy(this);
@@ -40,6 +41,7 @@ public class Deck : MonoBehaviour
 
     public void inBattleEndTurn()
     {
+        //run at the end of the turn
         if (enemy != null)
         {
             Hp -= Mathf.Max(0,enemy.damage-block);
@@ -77,6 +79,7 @@ public class Deck : MonoBehaviour
     }
     public Card DrawCard()
     {
+        //pops card from deck
         if (BattleDeck.Count == 0)
         {
             shuffleDiscardPileBackInDeck();
@@ -90,6 +93,7 @@ public class Deck : MonoBehaviour
     }
     public void DrawCardInHand(int amount)
     {
+        //draws specified amount of cards to hand
         for(int i=0; i<amount; i++)
         {
             if (BattleDeck.Count > 0||BattleDiscardPile.Count>0)
@@ -101,12 +105,14 @@ public class Deck : MonoBehaviour
 
     }
     public void inBattleStartTurn() {
+        //run at the start of the turn
         DrawCardInHand(3);
         actionPoints = MaxactionPoints;
 
     }
     void Start()
     {
+        //inits all cards specified by their index
         foreach(var i in deckList)
         {
             var j = Instantiate(CardBasePrefab).GetComponent<Card>();
@@ -118,6 +124,7 @@ public class Deck : MonoBehaviour
     }
     public void ResetDeck()
     {
+        //moves all cards back to deck 
         shuffleDiscardPileBackInDeck();
         while (Hand.transform.childCount > 0)
         {
@@ -133,6 +140,7 @@ public class Deck : MonoBehaviour
     }
     public void battleStart()
     {
+        //run when battle starts
        DrawCardInHand(3);
     }
 

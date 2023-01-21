@@ -17,17 +17,12 @@ public class EventCard : MonoBehaviour
     }
     public void Activate()
     {
+        //activate event effect and change gamestate back to drawing event cards.
         e.Invoke();
         Deck.Instance.eventVisible = false;
         Destroy(gameObject);
     }
-    public void Spawn()
-    {
-        Deck.Instance.enemy = Instantiate(CreatureBase).GetComponent<EnemyCard>();
-        Deck.Instance.enemy.Create(Creature);
-        Deck.Instance.inBattle = true;
 
-    }
     // Update is called once per frame
     void Update()
     {
