@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa545c54708ee043afb4ae81f7da020, type: 3}
   m_Name: Loot
   m_EditorClassIdentifier: 
+  effectDescriptor: loot 1 ap 1 money
   Damage: 0
   block: 0
   magic: 0

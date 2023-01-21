@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9aa545c54708ee043afb4ae81f7da020, type: 3}
-  m_Name: Magic
+  m_Name: ManaSurge
   m_EditorClassIdentifier: 
-  effectDescriptor: magic 2 ap 1 magic
+  effectDescriptor: Manasurge 1ap  Gain 1 Magic
   Damage: 0
   block: 0
   magic: 1
   money: 0
-  actionCost: 2
+  actionCost: 1
   effect:
     m_PersistentCalls:
       m_Calls: []

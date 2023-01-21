@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa545c54708ee043afb4ae81f7da020, type: 3}
   m_Name: Block
   m_EditorClassIdentifier: 
+  effectDescriptor: Block 2 block 1 ap
   Damage: 0
   block: 2
   magic: 0
   money: 0
-  actionCost: 2
+  actionCost: 1
   effect:
     m_PersistentCalls:
       m_Calls: []

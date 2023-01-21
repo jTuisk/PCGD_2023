@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurnButtinHider : MonoBehaviour
+public class TurnButtonHider : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject endTurnButton;

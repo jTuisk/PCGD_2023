@@ -8,4 +8,13 @@ public class EventCardData : ScriptableObject
 {
     public UnityEvent e;
     public string eventText;
+
+
+
+    public void HealingFountain()
+    {
+        Deck.Instance.Hp += 5;
+
+
+    }
 }

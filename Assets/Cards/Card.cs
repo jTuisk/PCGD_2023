@@ -20,6 +20,7 @@ public class Card : MonoBehaviour
         {
             Deck.Instance.enemy.HP -= Damage;
         }
+        Deck.Instance.block += block;
         Deck.Instance.mana += magic;
         Deck.Instance.money -= money;
         effect.Invoke();

@@ -49,6 +49,7 @@ public class Deck : MonoBehaviour
             inBattleStartTurn();
             Debug.Log("HP: " + Hp);
         }
+        block = 0;
     }
     public void Shuffle<T>(List<T> list) {
         for(int i=0; i < list.Count; i++)
@@ -143,7 +144,17 @@ public class Deck : MonoBehaviour
         //run when battle starts
        DrawCardInHand(3);
     }
+    public void BattleDeckAddCard(int index) {
+        BattleDeckAddCardFromCardData(cardPrefabs[index]);
+    }
+    public void BattleDeckAddCardFromCardData(BattleCardDataContainer cardData) {
+        var j = Instantiate(CardBasePrefab).GetComponent<Card>();
+        j.createCard(cardData);
+        j.transform.position = new Vector2(1000000, 100000);
+        BattleDeck.Add(j);
 
+    }
+    
     // Update is called once per frame
     void Update()
     {

@@ -9,15 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9aa545c54708ee043afb4ae81f7da020, type: 3}
-  m_Name: Magic
+  m_Script: {fileID: 11500000, guid: e49b428c96ccf764f904a73dac0e4738, type: 3}
+  m_Name: Boar
   m_EditorClassIdentifier: 
-  effectDescriptor: magic 2 ap 1 magic
-  Damage: 0
-  block: 0
-  magic: 1
-  money: 0
-  actionCost: 2
-  effect:
-    m_PersistentCalls:
-      m_Calls: []
+  HP: 10
+  MaxDamageRange: 6
+  MinDamageRange: 1
+  CreatureBase: {fileID: 1923058948709319707, guid: 6671e36d1d116eb44b87cd53f63a7813, type: 3}
