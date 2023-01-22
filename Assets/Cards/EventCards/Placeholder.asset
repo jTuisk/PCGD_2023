@@ -12,9 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 800a222eec0efaf4682b867dcf1b7e2e, type: 3}
   m_Name: Placeholder
   m_EditorClassIdentifier: 
-  e:
-    m_PersistentCalls:
-      m_Calls: []
   eventText: LoremIpsum
-  eventButtonText: dolores
   options: []

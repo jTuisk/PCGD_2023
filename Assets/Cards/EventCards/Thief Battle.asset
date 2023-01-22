@@ -12,22 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 800a222eec0efaf4682b867dcf1b7e2e, type: 3}
   m_Name: Thief Battle
   m_EditorClassIdentifier: 
-  e:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: d68b1c7851900d840a70a306568283e0, type: 2}
-        m_TargetAssemblyTypeName: CreatureDataContainer, Assembly-CSharp
-        m_MethodName: Spawn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   eventText: You feel your pockets a bit lighter you turn to face the cloaked man
     and confront him. He pulls out a sharp dagger prepare to battle
-  eventButtonText: erb
-  options: []
+  options:
+  - description: Lousy rat
+    effect:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: d68b1c7851900d840a70a306568283e0, type: 2}
+          m_TargetAssemblyTypeName: CreatureDataContainer, Assembly-CSharp
+          m_MethodName: Spawn
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    conditions: []

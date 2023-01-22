@@ -12,21 +12,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 800a222eec0efaf4682b867dcf1b7e2e, type: 3}
   m_Name: BoarBattle
   m_EditorClassIdentifier: 
-  e:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: b957f083507101941831851bd9b8cc7e, type: 2}
-        m_TargetAssemblyTypeName: CreatureDataContainer, Assembly-CSharp
-        m_MethodName: Spawn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   eventText: As you walk along a path a enraged boar appears. prepare to fight.
-  eventButtonText: Attack
-  options: []
+  options:
+  - description: Hes not gonna know what hit him
+    effect:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: b957f083507101941831851bd9b8cc7e, type: 2}
+          m_TargetAssemblyTypeName: CreatureDataContainer, Assembly-CSharp
+          m_MethodName: Spawn
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    conditions: []
+  - description: God have mercy
+    effect:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: b957f083507101941831851bd9b8cc7e, type: 2}
+          m_TargetAssemblyTypeName: CreatureDataContainer, Assembly-CSharp
+          m_MethodName: Spawn
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    conditions:
+    - flag: 
+      Operation: 0
+      value: 10
+      a: 1
+      b: 2

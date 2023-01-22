@@ -12,21 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 800a222eec0efaf4682b867dcf1b7e2e, type: 3}
   m_Name: MageTraining
   m_EditorClassIdentifier: 
-  e:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: 0edd1fa40c2754746820f830b6c438e9, type: 2}
-        m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
-        m_MethodName: addCard
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   eventText: 
-  eventButtonText: poggers
-  options: []
+  options:
+  - description: poggers
+    effect:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: 0edd1fa40c2754746820f830b6c438e9, type: 2}
+          m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
+          m_MethodName: addCard
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    conditions: []
