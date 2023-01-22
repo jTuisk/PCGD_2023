@@ -29,3 +29,5 @@ MonoBehaviour:
         m_CallState: 2
   eventText: You feel your pockets a bit lighter you turn to face the cloaked man
     and confront him. He pulls out a sharp dagger prepare to battle
+  eventButtonText: erb
+  options: []

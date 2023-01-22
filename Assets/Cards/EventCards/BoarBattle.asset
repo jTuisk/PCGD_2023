@@ -28,3 +28,5 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   eventText: As you walk along a path a enraged boar appears. prepare to fight.
+  eventButtonText: Attack
+  options: []

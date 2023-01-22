@@ -29,3 +29,5 @@ MonoBehaviour:
         m_CallState: 2
   eventText: Woosh a arrow flashes past your shoulder a it's a goblin ambus prepare
     to fight
+  eventButtonText: aaah
+  options: []

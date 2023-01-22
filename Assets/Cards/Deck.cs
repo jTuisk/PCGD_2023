@@ -11,6 +11,7 @@ public class Deck : MonoBehaviour
     public GameObject CardBasePrefab;
     public List<BattleCardDataContainer> cardPrefabs;
     public List<int> deckList;
+    public List<string> flags;
     public int money = 0;
     public int mana = 0;
     public int Hp = 0;

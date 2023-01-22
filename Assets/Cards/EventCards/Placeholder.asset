@@ -16,3 +16,5 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   eventText: LoremIpsum
+  eventButtonText: dolores
+  options: []

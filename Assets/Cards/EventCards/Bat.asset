@@ -28,3 +28,9 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   eventText: 
+  eventButtonText: ...
+  options:
+  - description: 
+    effect:
+      m_PersistentCalls:
+        m_Calls: []

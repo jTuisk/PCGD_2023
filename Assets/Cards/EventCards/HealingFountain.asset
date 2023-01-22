@@ -28,3 +28,5 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   eventText: You visit an inn to refresh Heal 5
+  eventButtonText: Fantastic
+  options: []
