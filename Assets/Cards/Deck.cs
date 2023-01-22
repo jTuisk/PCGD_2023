@@ -45,8 +45,14 @@ public class Deck : MonoBehaviour
         //run at the end of the turn
         if (enemy != null)
         {
+            if(enemy.cards.Count!=0){
+                enemy.Playcard();
+                
+            }else{
             Hp -= Mathf.Max(0,enemy.damage-block);
             enemy.damage = Random.Range(enemy.MinDamageRange, enemy.MaxDamageRange);
+            
+            }
             inBattleStartTurn();
             Debug.Log("HP: " + Hp);
         }

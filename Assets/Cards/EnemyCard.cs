@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using  UnityEngine.UI;
 public class EnemyCard : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -9,19 +9,63 @@ public class EnemyCard : MonoBehaviour
     public int MaxDamageRange = 6;
     public int MinDamageRange = 1;
     public int damage = 0;
+
+    public List<Card> cards;
     public TMPro.TextMeshProUGUI text; 
+
+    public GameObject cardPrefab;
+    public GameObject enemyDeck;
     void Start()
     {
         Deck.Instance.battleStart();
     }
-
+public void reorganize(){
+    for(int j=0; j<enemyDeck.transform.childCount; j++){
+    enemyDeck.transform.GetChild(j).transform.position=new Vector2(enemyDeck.transform.position.x  + j * 2,enemyDeck.transform.position.y);
+    }
+}
     public void Create(CreatureDataContainer data)
     {
         HP = data.HP;
         MaxDamageRange = data.MaxDamageRange;
         MinDamageRange = data.MinDamageRange;
+        int j=0;
+        foreach(BattleCardDataContainer i in data.deck){
+            var card=Instantiate(cardPrefab).GetComponent<Card>();
+            card.createCard(i);
+            card.transform.localScale=new Vector3(0.3f,0.3f,0.3f);
+            cards.Add(card);
+            //card.transform.position=new Vector2(enemyDeck.transform.position.x-transform.childCount * 10/2  + j * 10,enemyDeck.transform.position.y);
+            card.transform.parent=enemyDeck.transform;
+            
+           
+            j++;
+        }
+        reorganize();
+        
+        Deck.Instance.Shuffle(cards);
+        
+    }
+    public void Playcard(){
+        if(enemyDeck.transform.childCount==0){
+            Deck.Instance.Shuffle(cards);
+            int j=0;
+            foreach(Card card in cards){
+                
+                //card.transform.position=new Vector2(enemyDeck.transform.position.x-transform.childCount * 10/2  + j * 10,enemyDeck.transform.position.y);
+                card.transform.parent=enemyDeck.transform;
+                
+                j++;
+            }
+            reorganize();
+        }else{
+            enemyDeck.transform.GetChild(0).GetComponent<Card>().EnemyPlayCard();
+            enemyDeck.transform.GetChild(0).transform.position=new Vector2(10000,100000);
+            enemyDeck.transform.GetChild(0).transform.parent=this.transform;
+            reorganize();
 
-
+            
+        }
     }
     // Update is called once per frame
     void Update()

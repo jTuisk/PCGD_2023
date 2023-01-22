@@ -10,7 +10,7 @@ public class CreatureDataContainer : ScriptableObject
     public int HP = 10;
     public int MaxDamageRange = 6;
     public int MinDamageRange = 1;
-
+    public List<BattleCardDataContainer> deck;
     public GameObject CreatureBase;
 
     public void Spawn()
