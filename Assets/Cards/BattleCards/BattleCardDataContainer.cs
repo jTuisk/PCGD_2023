@@ -20,4 +20,11 @@ public class BattleCardDataContainer : ScriptableObject
         Deck.Instance.BattleDeckAddCardFromCardData(this);
 
     }
+    public void drawCard(){
+        Deck.Instance.DrawCardInHand(1);
+    }
+    public void discardRandom(){
+        Deck.Instance.discardRandom();
+
+    }
 }

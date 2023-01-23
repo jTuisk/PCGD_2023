@@ -77,11 +77,20 @@ public class Deck : MonoBehaviour
     }
     public void PutHandInDiscardPile(){
         while(Hand.transform.childCount>0){
-            BattleDiscardPile.Add(Hand.transform.GetChild(0).GetComponent<Card>());
-            Hand.transform.GetChild(0).position=new Vector2(10000000,100000000);
-            Hand.transform.GetChild(0).transform.parent=null;
+            discard(0);
         }
 
+    }
+    public void discard(int CardIndex){
+        if(Hand.transform.childCount>0){
+            BattleDiscardPile.Add(Hand.transform.GetChild(CardIndex).GetComponent<Card>());
+            Hand.transform.GetChild(CardIndex).position=new Vector2(10000000,100000000);
+            Hand.transform.GetChild(CardIndex).transform.parent=null;
+        }
+    }
+    public void discardRandom(){
+        
+        discard(Random.Range(0,Hand.transform.childCount));
     }
     public void Shuffle<T>(List<T> list) {
         for(int i=0; i < list.Count; i++)
