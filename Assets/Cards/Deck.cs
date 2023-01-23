@@ -23,6 +23,7 @@ public class Deck : MonoBehaviour
     public EnemyCard enemy;
     public GameObject Hand;
     public GameObject eventBase;
+    public int CardsDrawnAtStartOfTurn=5;
     private void Awake()
     {
         //singleton setup
@@ -42,6 +43,7 @@ public class Deck : MonoBehaviour
 
     public void inBattleEndTurn()
     {
+        PutHandInDiscardPile();
         //run at the end of the turn
         if (enemy != null)
         {
@@ -57,6 +59,15 @@ public class Deck : MonoBehaviour
             Debug.Log("HP: " + Hp);
         }
         block = 0;
+        
+    }
+    public void PutHandInDiscardPile(){
+        while(Hand.transform.childCount>0){
+            BattleDiscardPile.Add(Hand.transform.GetChild(0).GetComponent<Card>());
+            Hand.transform.GetChild(0).position=new Vector2(10000000,100000000);
+            Hand.transform.GetChild(0).transform.parent=null;
+        }
+
     }
     public void Shuffle<T>(List<T> list) {
         for(int i=0; i < list.Count; i++)
@@ -114,7 +125,7 @@ public class Deck : MonoBehaviour
     }
     public void inBattleStartTurn() {
         //run at the start of the turn
-        DrawCardInHand(3);
+        DrawCardInHand(CardsDrawnAtStartOfTurn);
         actionPoints = MaxactionPoints;
 
     }
@@ -149,7 +160,7 @@ public class Deck : MonoBehaviour
     public void battleStart()
     {
         //run when battle starts
-       DrawCardInHand(3);
+       DrawCardInHand(CardsDrawnAtStartOfTurn);
     }
     public void BattleDeckAddCard(int index) {
         BattleDeckAddCardFromCardData(cardPrefabs[index]);

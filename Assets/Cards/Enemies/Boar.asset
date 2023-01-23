@@ -15,4 +15,6 @@ MonoBehaviour:
   HP: 10
   MaxDamageRange: 6
   MinDamageRange: 1
+  deck:
+  - {fileID: 11400000, guid: b9d5a8ba932956c449b64a2d035f0680, type: 2}
   CreatureBase: {fileID: 1923058948709319707, guid: 6671e36d1d116eb44b87cd53f63a7813, type: 3}

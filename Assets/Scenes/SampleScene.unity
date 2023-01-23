@@ -445,6 +445,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3349b2175928433429671804da709992, type: 2}
   - {fileID: 11400000, guid: 577c5869c00354b409c1f1fb43fd1278, type: 2}
   deckList: 0500000005000000050000000500000000000000000000000000000000000000000000000000000000000000
+  flags: []
   money: 0
   mana: 0
   Hp: 20
@@ -456,6 +457,7 @@ MonoBehaviour:
   enemy: {fileID: 0}
   Hand: {fileID: 1491589463}
   eventBase: {fileID: 1199459019132528113, guid: 50630785987eb424c83000cc971ff6fa, type: 3}
+  CardsDrawnAtStartOfTurn: 4
 --- !u!4 &417463227
 Transform:
   m_ObjectHideFlags: 0
