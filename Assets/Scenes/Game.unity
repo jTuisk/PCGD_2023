@@ -457,6 +457,8 @@ MonoBehaviour:
   enemy: {fileID: 0}
   Hand: {fileID: 1491589463}
   eventBase: {fileID: 1199459019132528113, guid: 50630785987eb424c83000cc971ff6fa, type: 3}
+  BossBattles:
+  - {fileID: 11400000, guid: a5f940e15fba7704fbfa301977580b85, type: 2}
   CardsDrawnAtStartOfTurn: 4
 --- !u!4 &417463227
 Transform:

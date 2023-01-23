@@ -14,6 +14,7 @@ public class Deck : MonoBehaviour
     public List<string> flags;
     public int money = 0;
     public int mana = 0;
+    private int bossCounter=0;
     public int Hp = 0;
     public int block = 0;
     public int MaxactionPoints = 3;
@@ -23,6 +24,8 @@ public class Deck : MonoBehaviour
     public EnemyCard enemy;
     public GameObject Hand;
     public GameObject eventBase;
+    public List<EventCardData> BossBattles=new List<EventCardData>();
+    
     public int CardsDrawnAtStartOfTurn=5;
     private void Awake()
     {
@@ -36,7 +39,15 @@ public class Deck : MonoBehaviour
     }
     public void DrawEventCard()
     {
-        Instantiate(eventBase).GetComponent<EventCard>().CreateEventCard(EventDeck[Random.Range(0, EventDeck.Count)]);
+        
+        if(bossCounter<=20){
+            Instantiate(eventBase).GetComponent<EventCard>().CreateEventCard(EventDeck[Random.Range(0, EventDeck.Count)]);
+            
+        }else{
+            Instantiate(eventBase).GetComponent<EventCard>().CreateEventCard(BossBattles[Random.Range(0, BossBattles.Count)]);
+            bossCounter=0;
+        }
+        bossCounter+=1;
         eventVisible = true;
 
     }
