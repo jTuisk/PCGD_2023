@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9aa545c54708ee043afb4ae81f7da020, type: 3}
-  m_Name: Slash
+  m_Name: Disappear
   m_EditorClassIdentifier: 
-  effectDescriptor: slash 2 damage 1ap
-  Damage: 2
-  block: 0
+  effectDescriptor: Disappear 2 block 1 ap
+  Damage: 0
+  block: 2
   magic: 0
   money: 0
   actionCost: 1

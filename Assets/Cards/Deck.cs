@@ -183,6 +183,7 @@ public class Deck : MonoBehaviour
     public void battleStart()
     {
         //run when battle starts
+        Shuffle(BattleDeck);
        DrawCardInHand(CardsDrawnAtStartOfTurn);
     }
     public void BattleDeckAddCard(int index) {
