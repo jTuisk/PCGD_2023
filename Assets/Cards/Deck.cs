@@ -57,6 +57,9 @@ public class Deck : MonoBehaviour
             }
             inBattleStartTurn();
             Debug.Log("HP: " + Hp);
+            if(Hp<=0){
+                SceneLoader.LoadGameOver();
+            }
         }
         block = 0;
         
@@ -176,6 +179,6 @@ public class Deck : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
