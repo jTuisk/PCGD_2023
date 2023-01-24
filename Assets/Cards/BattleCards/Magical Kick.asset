@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9aa545c54708ee043afb4ae81f7da020, type: 3}
-  m_Name: Kick
+  m_Name: Magical Kick
   m_EditorClassIdentifier: 
-  effectDescriptor: kick 3 ap 6 damage
+  effectDescriptor: Magical kick 3 ap 6 damage
   Damage: 6
   block: 0
   magic: 0

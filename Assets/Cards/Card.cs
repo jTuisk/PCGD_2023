@@ -27,7 +27,7 @@ public class Card : MonoBehaviour
 
     }
     public void EnemyPlayCard(){
-        Deck.Instance.Hp -= Mathf.Max(0,Damage-Deck.Instance.block);
+        Deck.Instance.takeDamage(Damage-Deck.Instance.block);
         effect.Invoke();
 
     }

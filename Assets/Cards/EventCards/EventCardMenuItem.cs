@@ -7,6 +7,7 @@ using UnityEngine.Events;
 [Serializable]
 public class EventCardMenuItem 
 {
+    [TextArea(3,10)]
     public string description="";
     public UnityEvent effect;
     public List<Condition> conditions;

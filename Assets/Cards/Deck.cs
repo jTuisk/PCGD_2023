@@ -51,7 +51,13 @@ public class Deck : MonoBehaviour
         eventVisible = true;
 
     }
+public void takeDamage(int amount){
 
+            Hp -= Mathf.Max(0,amount-block);
+            if(Hp<=0){
+                SceneLoader.LoadGameOver();
+            }            
+}
     public void inBattleEndTurn()
     {
         PutHandInDiscardPile();
@@ -62,15 +68,13 @@ public class Deck : MonoBehaviour
                 enemy.Playcard();
                 
             }else{
-            Hp -= Mathf.Max(0,enemy.damage-block);
+            takeDamage(enemy.damage);
             enemy.damage = Random.Range(enemy.MinDamageRange, enemy.MaxDamageRange);
             
             }
             inBattleStartTurn();
             Debug.Log("HP: " + Hp);
-            if(Hp<=0){
-                SceneLoader.LoadGameOver();
-            }
+            
         }
         block = 0;
         
