@@ -41,8 +41,10 @@ public class Deck : MonoBehaviour
     {
         
         if(bossCounter<=20){
-            Instantiate(eventBase).GetComponent<EventCard>().CreateEventCard(EventDeck[Random.Range(0, EventDeck.Count)]);
-            
+            Instantiate(eventBase).GetComponent<EventCard>().CreateEventCard(EventDeck[Random.Range(0, EventDeck.Count - 1)]);
+            //the below line is only for testing
+            //Instantiate(eventBase).GetComponent<EventCard>().CreateEventCard(EventDeck[5]); 
+
         }else{
             Instantiate(eventBase).GetComponent<EventCard>().CreateEventCard(BossBattles[Random.Range(0, BossBattles.Count)]);
             bossCounter=0;
@@ -134,8 +136,6 @@ public void takeDamage(int amount){
             BattleDeck.Remove(temp);
         
         return temp;
-        
-
     }
     public void DrawCardInHand(int amount)
     {
@@ -144,7 +144,17 @@ public void takeDamage(int amount){
         {
             if (BattleDeck.Count > 0||BattleDiscardPile.Count>0)
             {
-                DrawCard().gameObject.transform.parent = Hand.transform;
+                //DrawCard().gameObject.transform.parent = Hand.transform;
+
+                var card = DrawCard();
+                
+                var deckPos = Deck.Instance.getPosition();
+                card.transform.position = deckPos;
+                card.gameObject.transform.parent = Hand.transform;
+                
+                var startPos = new Vector3(deckPos.x, deckPos.y, transform.position.z);
+                var endPos = new Vector3(-amount * 10/2  + i * 10, -10, 0);
+                card.triggerMove(startPos, endPos);
             }
 
         }
@@ -158,10 +168,12 @@ public void takeDamage(int amount){
     }
     void Start()
     {
+        int index = 0;
         //inits all cards specified by their index
         foreach(var i in deckList)
         {
             var j = Instantiate(CardBasePrefab).GetComponent<Card>();
+            j.name += index; index++;
             j.createCard(cardPrefabs[i]);
             j.transform.position =new Vector2(1000000,100000);
             BattleDeck.Add(j);
@@ -198,9 +210,15 @@ public void takeDamage(int amount){
         j.createCard(cardData);
         j.transform.position = new Vector2(1000000, 100000);
         BattleDeck.Add(j);
-
     }
     
+    // Return the deck position under world coordination
+    public Vector3 getPosition()
+    {
+        var camPos = Camera.main.ScreenToWorldPoint(this.transform.position);
+        return new Vector3(camPos.x, camPos.y, 0);
+    }
+
     // Update is called once per frame
     void Update()
     {
