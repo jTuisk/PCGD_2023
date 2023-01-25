@@ -47,7 +47,6 @@ public class HandOrganizer : MonoBehaviour
             var mousepos = new Vector3(campos.x, campos.y, 0);
             if ((mousepos - child.position).magnitude < HitboxSize&& Input.GetMouseButton(0)||Input.GetMouseButton(0)&&heldCard==i)
             {
-                Debug.Log(heldCard+"=="+i);
                 heldCard=i;
                 child.position = mousepos;
             }
