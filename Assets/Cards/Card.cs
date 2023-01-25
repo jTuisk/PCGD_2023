@@ -94,6 +94,11 @@ public class Card : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moveToHand();
+        if(this.transform.parent!=null){
+            moveToHand();
+            
+        }else{
+            inHand=false;
+        }
     }
 }
