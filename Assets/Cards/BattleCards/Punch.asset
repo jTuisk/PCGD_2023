@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa545c54708ee043afb4ae81f7da020, type: 3}
   m_Name: Punch
   m_EditorClassIdentifier: 
-  effectDescriptor: Punch 1ap 1 damage
+  effectDescriptor: 
+  cardName: Punch
   Damage: 1
   block: 0
   magic: 0

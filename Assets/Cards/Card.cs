@@ -12,6 +12,8 @@ public class Card : MonoBehaviour
     public int money = 0;
     public int actionCost = 0;
     public TMPro.TextMeshProUGUI description;
+    public TMPro.TextMeshProUGUI apCost;
+        public TMPro.TextMeshProUGUI CardName;
     public UnityEvent effect;
 
     public void Playcard()
@@ -32,14 +34,17 @@ public class Card : MonoBehaviour
 
     }
     public void createCard(BattleCardDataContainer data) {
-        description.text = data.effectDescriptor;
+
+        
         Damage = data.Damage;
         block = data.block;
         magic = data.magic;
         money = data.money;
         actionCost = data.actionCost;
         effect = data.effect;
-    
+        apCost.text=actionCost+"";
+        CardName.text=data.cardName;
+        description.text =(data.Damage>0? "Deal " +data.Damage+" Damage":"")+(data.block>0? "Block "+data.block+" Damage":"")+(data.magic>0? "gain "+data.magic+"mana":"")+data.effectDescriptor;
     }
 
     private bool movable = false;

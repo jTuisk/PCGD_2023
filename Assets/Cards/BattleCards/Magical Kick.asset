@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa545c54708ee043afb4ae81f7da020, type: 3}
   m_Name: Magical Kick
   m_EditorClassIdentifier: 
-  effectDescriptor: Magical kick 3 ap 6 damage
+  effectDescriptor: 
+  cardName: Magical kick
   Damage: 6
   block: 0
   magic: 0

@@ -7,6 +7,7 @@ using UnityEngine.Events;
 public class BattleCardDataContainer : ScriptableObject
 {
     public string effectDescriptor = "";
+    public string cardName="";
     public int Damage = 0;
     public int block = 0;
     public int magic = 0;
