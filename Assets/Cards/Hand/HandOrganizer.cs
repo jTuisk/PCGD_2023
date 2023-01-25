@@ -31,6 +31,7 @@ public class HandOrganizer : MonoBehaviour
 
     // Update is called once per frame
     public float HitboxSize;
+    private float heldCard=-1;
     void Update()
     {
 
@@ -44,12 +45,18 @@ public class HandOrganizer : MonoBehaviour
             //move card to mouse position if player drags mouse and card distance of the cursor is lower than hitboxsize
             var campos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             var mousepos = new Vector3(campos.x, campos.y, 0);
-            if ((mousepos - child.position).magnitude < HitboxSize&& Input.GetMouseButton(0))
+            if ((mousepos - child.position).magnitude < HitboxSize&& Input.GetMouseButton(0)||Input.GetMouseButton(0)&&heldCard==i)
             {
-                    child.position = mousepos;
+                Debug.Log(heldCard+"=="+i);
+                heldCard=i;
+                child.position = mousepos;
             }
             else
             {
+                if(heldCard==i&&!Input.GetMouseButton(0)){
+                    heldCard=-1;
+                }
+
                 //when player releases card and its y position is above 700 and the player can afford it play the card
                 if (child.position.y > 5 && child.position.x < 700 && card.inHand == true)
                 {
