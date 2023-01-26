@@ -181,6 +181,7 @@ public class Deck : MonoBehaviour
         Card card = Hand.transform.GetChild(childIndex).GetComponent<Card>();
         card.createCard(toCard.BattleCardData);
     }
+
     public void ReplaceHandCards(int[] childIndexs, Card toCard)
     {
         foreach(int i in childIndexs)
@@ -189,7 +190,6 @@ public class Deck : MonoBehaviour
             card.createCard(toCard.BattleCardData);
         }
     }
-
 
     public void ReplaceAllHandCards(Card toCard)
     {
