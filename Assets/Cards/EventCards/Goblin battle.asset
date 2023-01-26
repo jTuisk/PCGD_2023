@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 800a222eec0efaf4682b867dcf1b7e2e, type: 3}
   m_Name: Goblin battle
   m_EditorClassIdentifier: 
-  eventText: Woosh a arrow flashes past your shoulder a it's a goblin ambus prepare
-    to fight
+  eName: 
+  eventText: "Whoosh! \nAn arrow flashes past your shoulder and it's a goblin ambush!
+    \nPrepare to fight."
   options:
-  - description: Battle
+  - description: To battle!!
     effect:
       m_PersistentCalls:
         m_Calls:
@@ -32,3 +33,6 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     conditions: []
+  ReplaceFrom: {fileID: 0}
+  ReplaceTo: {fileID: 0}
+  replaceEvent: {fileID: 0}

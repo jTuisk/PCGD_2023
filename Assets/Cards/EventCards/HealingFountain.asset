@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 800a222eec0efaf4682b867dcf1b7e2e, type: 3}
   m_Name: HealingFountain
   m_EditorClassIdentifier: 
-  eventText: You visit an inn to refresh Heal 5
+  eName: 
+  eventText: "You visit an inn to refresh. \nHealth gained: 5."
   options:
-  - description: Fantastic
+  - description: So relaxing!
     effect:
       m_PersistentCalls:
         m_Calls:
@@ -31,3 +32,6 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     conditions: []
+  ReplaceFrom: {fileID: 0}
+  ReplaceTo: {fileID: 0}
+  replaceEvent: {fileID: 0}

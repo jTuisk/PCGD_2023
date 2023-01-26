@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 800a222eec0efaf4682b867dcf1b7e2e, type: 3}
   m_Name: Thief Battle
   m_EditorClassIdentifier: 
-  eventText: You feel your pockets a bit lighter you turn to face the cloaked man
-    and confront him. He pulls out a sharp dagger prepare to battle
+  eName: 
+  eventText: "You feel your pockets a bit lighter. \nYou turn to face a cloaked man
+    and decide to confront him. \nHe pulls out a sharp dagger!! \nPrepare to battle."
   options:
-  - description: Lousy rat
+  - description: Lousy rat!!!
     effect:
       m_PersistentCalls:
         m_Calls:
@@ -32,3 +33,6 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     conditions: []
+  ReplaceFrom: {fileID: 0}
+  ReplaceTo: {fileID: 0}
+  replaceEvent: {fileID: 0}

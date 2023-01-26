@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 800a222eec0efaf4682b867dcf1b7e2e, type: 3}
   m_Name: BoarBattle
   m_EditorClassIdentifier: 
-  eventText: As you walk along a path a enraged boar appears. prepare to fight.
+  eName: 
+  eventText: "As you walk along a path an enraged boar appears. \nPrepare to fight."
   options:
   - description: Hes not gonna know what hit him
     effect:
@@ -53,3 +54,6 @@ MonoBehaviour:
       value: 10
       a: 1
       b: 2
+  ReplaceFrom: {fileID: 0}
+  ReplaceTo: {fileID: 0}
+  replaceEvent: {fileID: 0}

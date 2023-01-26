@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 800a222eec0efaf4682b867dcf1b7e2e, type: 3}
   m_Name: MagicalKickEncounter
   m_EditorClassIdentifier: 
+  eName: 
   eventText: "A magician approaches you.\n \u201CPsst, hey you do you want to learn
-    a new trick.\n It\u2019s called \u201DMagical kick\u201D\u201D \n\u201Cwhat\u2019s
+    a new trick.\n It\u2019s called \u201DMagical kick\u201D\u201D \n\u201CWhat\u2019s
     so magical about it?\u201D\n Thwap \n\nEverything fades to black."
   options:
-  - description: "Lose 6 HP gain 4 \u201Cmagical kick\u201D cards"
+  - description: "Lose 6 HP, gain 4 \u201Cmagical kick\u201D cards"
     effect:
       m_PersistentCalls:
         m_Calls:
@@ -141,3 +142,6 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     conditions: []
+  ReplaceFrom: {fileID: 0}
+  ReplaceTo: {fileID: 0}
+  replaceEvent: {fileID: 0}

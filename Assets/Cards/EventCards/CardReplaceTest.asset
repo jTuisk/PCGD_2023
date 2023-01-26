@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: CardReplaceTest
   m_EditorClassIdentifier: 
   eName: 
-  eventText: Replace Cards test
+  eventText: Replace Cards test event
   options:
-  - description: replace
+  - description: Replace
     effect:
       m_PersistentCalls:
         m_Calls:
@@ -34,3 +34,4 @@ MonoBehaviour:
     conditions: []
   ReplaceFrom: {fileID: 11400000, guid: 577c5869c00354b409c1f1fb43fd1278, type: 2}
   ReplaceTo: {fileID: 11400000, guid: b9d5a8ba932956c449b64a2d035f0680, type: 2}
+  replaceEvent: {fileID: 0}
