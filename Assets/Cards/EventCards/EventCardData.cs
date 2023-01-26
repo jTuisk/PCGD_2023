@@ -16,6 +16,8 @@ public class EventCardData : ScriptableObject
 
     public BattleCardDataContainer ReplaceFrom;
     public BattleCardDataContainer ReplaceTo;
+
+    public EventCardData replaceEvent;
     public void takeDamage(){
         Deck.Instance.takeDamage(1);
     }
@@ -28,5 +30,19 @@ public class EventCardData : ScriptableObject
     public void replaceCardWrapper(){
         Deck.Instance.ReplaceAllCardsOfType(Deck.Instance.BattleDeck,ReplaceFrom,ReplaceTo);
 
+    }
+    public void remove(){
+        Deck.Instance.EventDeck.Remove(this);
+    }
+    public void add(){
+        Deck.Instance.EventDeck.Add(this);
+    }
+    public void replaceWithThis(){
+        
+        for(int i=0; i< Deck.Instance.EventDeck.Count; i++){
+            if(Deck.Instance.EventDeck[i].name==replaceEvent.name){
+                Deck.Instance.EventDeck[i]=this;
+            }
+        }
     }
 }

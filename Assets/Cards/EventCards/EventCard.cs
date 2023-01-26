@@ -18,6 +18,7 @@ public class EventCard : MonoBehaviour
 
 
     public void CreateEventCard(EventCardData data) {
+        name=data.name;
         //e = data.e;
         text.text = data.eventText;
         //buttonText.text = data.eventButtonText;
