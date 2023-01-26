@@ -176,6 +176,7 @@ public class Deck : MonoBehaviour
         }
     }
     #region hand cards
+
     public void ReplaceHandCard(int childIndex, Card toCard)
     {
         Card card = Hand.transform.GetChild(childIndex).GetComponent<Card>();
