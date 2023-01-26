@@ -16,6 +16,8 @@ public class BattleCardDataContainer : ScriptableObject
     public UnityEvent effect;
 
 
+
+
     public void addCard()
     {
         Deck.Instance.BattleDeckAddCardFromCardData(this);
@@ -28,4 +30,5 @@ public class BattleCardDataContainer : ScriptableObject
         Deck.Instance.discardRandom();
 
     }
+
 }

@@ -6,6 +6,7 @@ using UnityEngine.Events;
 [CreateAssetMenu(fileName = "New EventCard", menuName = "Cards/Event/Normal")]
 public class EventCardData : ScriptableObject
 {
+    public string eName;
     //public UnityEvent e;
     [TextArea(3,10)]
     public string eventText;
@@ -13,6 +14,8 @@ public class EventCardData : ScriptableObject
 
     public List<EventCardMenuItem> options;
 
+    public BattleCardDataContainer ReplaceFrom;
+    public BattleCardDataContainer ReplaceTo;
     public void takeDamage(){
         Deck.Instance.takeDamage(1);
     }
@@ -20,6 +23,10 @@ public class EventCardData : ScriptableObject
     {
         Deck.Instance.Hp += 5;
 
+
+    }
+    public void replaceCardWrapper(){
+        Deck.Instance.ReplaceAllCardsOfType(Deck.Instance.BattleDeck,ReplaceFrom,ReplaceTo);
 
     }
 }

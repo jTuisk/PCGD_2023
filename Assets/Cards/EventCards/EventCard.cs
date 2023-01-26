@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class EventCard : MonoBehaviour
 {
    // public UnityEvent e;
+   public string eName;
     public TMPro.TextMeshProUGUI text;
     public TMPro.TextMeshProUGUI buttonText;
     public GameObject Menu;
@@ -63,4 +64,8 @@ public class EventCard : MonoBehaviour
     {
         
     }
+
+
+
+
 }

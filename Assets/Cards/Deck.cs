@@ -126,6 +126,13 @@ public class Deck : MonoBehaviour
 
         card.createCard(toCard.BattleCardData);
     }
+    public void ReplaceCard(Card card, BattleCardDataContainer toCard)
+    {
+        if (card == null || toCard == null)
+            return;
+
+        card.createCard(toCard);
+    }
 
     public void ReplaceCard(List<Card> list, int i, Card ToCard)
     {
@@ -158,7 +165,16 @@ public class Deck : MonoBehaviour
             ReplaceCard(list, i, toCard);
         }
     }
+    public void ReplaceAllCardsOfType(List<Card> list, BattleCardDataContainer fromCard,BattleCardDataContainer toCard)
+    {
+        foreach (Card c in list)
+        {
+            if(c.BattleCardData.name.Equals(fromCard.name)){
+                ReplaceCard(c, toCard);
+            }
 
+        }
+    }
     public void ReplaceCard(List<Card> list, Card card, Card ToCard)
     {
         int index = list.IndexOf(card);
