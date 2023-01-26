@@ -16,6 +16,8 @@ public class Card : MonoBehaviour
         public TMPro.TextMeshProUGUI CardName;
     public UnityEvent effect;
 
+    public BattleCardDataContainer BattleCardData { get; private set; }
+
     public void Playcard()
     {
         if (Deck.Instance.enemy != null)
@@ -35,7 +37,8 @@ public class Card : MonoBehaviour
     }
     public void createCard(BattleCardDataContainer data) {
 
-        
+        BattleCardData = data;
+
         Damage = data.Damage;
         block = data.block;
         magic = data.magic;

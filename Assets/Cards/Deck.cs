@@ -25,8 +25,10 @@ public class Deck : MonoBehaviour
     public GameObject Hand;
     public GameObject eventBase;
     public List<EventCardData> BossBattles=new List<EventCardData>();
-    
+
     public int CardsDrawnAtStartOfTurn=5;
+
+
     private void Awake()
     {
         //singleton setup
@@ -37,9 +39,23 @@ public class Deck : MonoBehaviour
         }
         Instance = this;
     }
+    void Start()
+    {
+        int index = 0;
+        //inits all cards specified by their index
+        foreach (var i in deckList)
+        {
+            var j = Instantiate(CardBasePrefab).GetComponent<Card>();
+            j.name += index; index++;
+            j.createCard(cardPrefabs[i]);
+            j.transform.position = new Vector2(1000000, 100000);
+            BattleDeck.Add(j);
+
+        }
+    }
+
     public void DrawEventCard()
     {
-        
         if(bossCounter<=20){
             Instantiate(eventBase).GetComponent<EventCard>().CreateEventCard(EventDeck[Random.Range(0, EventDeck.Count - 1)]);
             //the below line is only for testing
@@ -51,15 +67,17 @@ public class Deck : MonoBehaviour
         }
         bossCounter+=1;
         eventVisible = true;
-
     }
-public void takeDamage(int amount){
 
-            Hp -= Mathf.Max(0,amount-block);
-            if(Hp<=0){
-                SceneLoader.LoadGameOver();
-            }            
-}
+    public void takeDamage(int amount)
+    {
+        Hp -= Mathf.Max(0,amount-block);
+
+        if(Hp<=0){
+            SceneLoader.LoadGameOver();
+        }            
+    }
+
     public void inBattleEndTurn()
     {
         PutHandInDiscardPile();
@@ -79,14 +97,14 @@ public void takeDamage(int amount){
             
         }
         block = 0;
-        
     }
+
     public void PutHandInDiscardPile(){
         while(Hand.transform.childCount>0){
             discard(0);
         }
-
     }
+
     public void discard(int CardIndex){
         if(Hand.transform.childCount>0){
             BattleDiscardPile.Add(Hand.transform.GetChild(CardIndex).GetComponent<Card>());
@@ -94,28 +112,114 @@ public void takeDamage(int amount){
             Hand.transform.GetChild(CardIndex).transform.parent=null;
         }
     }
+
     public void discardRandom(){
         
         discard(Random.Range(0,Hand.transform.childCount));
     }
-    public void Shuffle<T>(List<T> list) {
+
+    #region Replace cards
+
+    public void ReplaceCard(Card card, Card toCard)
+    {
+        if (card == null || toCard == null)
+            return;
+
+        card.createCard(toCard.BattleCardData);
+    }
+
+    public void ReplaceCard(List<Card> list, int i, Card ToCard)
+    {
+        if (list.Count < i)
+            return;
+
+        ReplaceCard(list[i], ToCard);
+    }
+
+    public void ReplaceCards(Card[] cards, Card toCard)
+    {
+        foreach (Card card in cards)
+        {
+            ReplaceCard(card, toCard);
+        }
+    }
+
+    public void ReplaceCards(List<Card> list, int[] indexs, Card toCard)
+    {
+        foreach (int i in indexs)
+        {
+            ReplaceCard(list, i, toCard);
+        }
+    }
+
+    public void ReplaceAllCards(List<Card> list, Card toCard)
+    {
+        for (int i = 0; i < list.Count; i++)
+        {
+            ReplaceCard(list, i, toCard);
+        }
+    }
+
+    public void ReplaceCard(List<Card> list, Card card, Card ToCard)
+    {
+        int index = list.IndexOf(card);
+
+        if(index != -1)
+            ReplaceCard(list[index], ToCard);
+    }
+
+    public void ReplacedCards(List<Card> list, Card[] cards, Card toCard)
+    {
+        foreach (Card card in cards)
+        {
+            ReplaceCard(list, card, toCard);
+        }
+    }
+    #region hand cards
+    public void ReplaceHandCard(int childIndex, Card toCard)
+    {
+        Card card = Hand.transform.GetChild(childIndex).GetComponent<Card>();
+        card.createCard(toCard.BattleCardData);
+    }
+    public void ReplaceHandCards(int[] childIndexs, Card toCard)
+    {
+        foreach(int i in childIndexs)
+        {
+            Card card = Hand.transform.GetChild(i).GetComponent<Card>();
+            card.createCard(toCard.BattleCardData);
+        }
+    }
+
+
+    public void ReplaceAllHandCards(Card toCard)
+    {
+        foreach(Card card in Hand.GetComponentsInChildren<Card>())
+        {
+            card.createCard(toCard.BattleCardData);
+        }
+    }
+    #endregion
+
+    #endregion
+
+    public void Shuffle<T>(List<T> list)
+    {
         for(int i=0; i < list.Count; i++)
         {
             swap(i, Random.Range(0, list.Count), list);
 
         }
-    
     }
+
     public void swap<T>(int a,int b ,List<T> list)
     {
         var temp = list[a];
         list[a] = list[b];
         list[b] = temp;
     }
+
     public void shuffleDiscardPileBackInDeck()
     {
-
-
             foreach (var i in BattleDiscardPile)
             {
                 BattleDeck.Add(i);
@@ -123,8 +227,8 @@ public void takeDamage(int amount){
             Shuffle(BattleDeck);
             Debug.Log("Deck shuffled");
             BattleDiscardPile = new List<Card>();
-
     }
+
     public Card DrawCard()
     {
         //pops card from deck
@@ -137,6 +241,7 @@ public void takeDamage(int amount){
         
         return temp;
     }
+
     public void DrawCardInHand(int amount)
     {
         //draws specified amount of cards to hand
@@ -158,28 +263,16 @@ public void takeDamage(int amount){
             }
 
         }
-
     }
-    public void inBattleStartTurn() {
+
+    public void inBattleStartTurn()
+    {
         //run at the start of the turn
         DrawCardInHand(CardsDrawnAtStartOfTurn);
         actionPoints = MaxactionPoints;
 
     }
-    void Start()
-    {
-        int index = 0;
-        //inits all cards specified by their index
-        foreach(var i in deckList)
-        {
-            var j = Instantiate(CardBasePrefab).GetComponent<Card>();
-            j.name += index; index++;
-            j.createCard(cardPrefabs[i]);
-            j.transform.position =new Vector2(1000000,100000);
-            BattleDeck.Add(j);
 
-        }
-    }
     public void ResetDeck()
     {
         //moves all cards back to deck 
@@ -196,15 +289,18 @@ public void takeDamage(int amount){
         }
         actionPoints = MaxactionPoints;
     }
+
     public void battleStart()
     {
-        //run when battle starts
-        Shuffle(BattleDeck);
+       //run when battle starts
+       Shuffle(BattleDeck);
        DrawCardInHand(CardsDrawnAtStartOfTurn);
     }
+
     public void BattleDeckAddCard(int index) {
         BattleDeckAddCardFromCardData(cardPrefabs[index]);
     }
+
     public void BattleDeckAddCardFromCardData(BattleCardDataContainer cardData) {
         var j = Instantiate(CardBasePrefab).GetComponent<Card>();
         j.createCard(cardData);
