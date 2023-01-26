@@ -119,7 +119,6 @@ public class Deck : MonoBehaviour
     }
 
     #region Replace cards
-
     public void ReplaceCard(Card card, Card toCard)
     {
         if (card == null || toCard == null)
