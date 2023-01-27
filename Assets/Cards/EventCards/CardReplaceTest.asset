@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: CardReplaceTest
   m_EditorClassIdentifier: 
   eName: 
-  eventText: Replace Cards test
+  eventText: Replace Cards test event
   options:
-  - description: replace
+  - description: Replace
     effect:
       m_PersistentCalls:
         m_Calls:
