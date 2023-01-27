@@ -18,6 +18,7 @@ public class EventCardData : ScriptableObject
     public BattleCardDataContainer ReplaceTo;
 
     public EventCardData replaceEvent;
+    public string addedTag;
     public void takeDamage(){
         Deck.Instance.takeDamage(1);
     }
@@ -36,6 +37,10 @@ public class EventCardData : ScriptableObject
     }
     public void add(){
         Deck.Instance.EventDeck.Add(this);
+    }
+    public void addTag(){
+        Deck.Instance.flags.Add(addedTag);
+
     }
     public void replaceWithThis(){
         

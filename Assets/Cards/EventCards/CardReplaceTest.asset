@@ -31,6 +31,19 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 11400000}
+          m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+          m_MethodName: remove
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     conditions: []
   ReplaceFrom: {fileID: 11400000, guid: 577c5869c00354b409c1f1fb43fd1278, type: 2}
   ReplaceTo: {fileID: 11400000, guid: b9d5a8ba932956c449b64a2d035f0680, type: 2}
+  replaceEvent: {fileID: 0}
