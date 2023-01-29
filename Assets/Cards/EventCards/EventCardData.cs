@@ -22,12 +22,18 @@ public class EventCardData : ScriptableObject
     public void takeDamage(){
         Deck.Instance.takeDamage(1);
     }
-    public void HealingFountain()
+    public void addHealth()
     {
-        Deck.Instance.Hp += 5;
+        Deck.Instance.Hp += 1;
 
 
     }
+
+    public void addMana()
+    {
+        Deck.Instance.mana += 1;
+    }
+
     public void replaceCardWrapper(){
         Deck.Instance.ReplaceAllCardsOfType(Deck.Instance.BattleDeck,ReplaceFrom,ReplaceTo);
 
