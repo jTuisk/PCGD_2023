@@ -477,6 +477,7 @@ MonoBehaviour:
   flags: []
   money: 0
   mana: 0
+  MaxHp: 20
   Hp: 20
   block: 0
   MaxactionPoints: 3
@@ -488,6 +489,7 @@ MonoBehaviour:
   eventBase: {fileID: 1199459019132528113, guid: 50630785987eb424c83000cc971ff6fa, type: 3}
   BossBattles:
   - {fileID: 11400000, guid: 8a691fe5a485be348b66845a3b4d7962, type: 2}
+  statuses: []
   CardsDrawnAtStartOfTurn: 4
 --- !u!4 &417463227
 Transform:
