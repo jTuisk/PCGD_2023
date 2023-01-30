@@ -15,6 +15,7 @@ public class Deck : MonoBehaviour
     public int money = 0;
     public int mana = 0;
     private int bossCounter=0;
+    public int MaxHp = 20;
     public int Hp = 0;
     public int block = 0;
     public int MaxactionPoints = 3;
@@ -75,7 +76,11 @@ public class Deck : MonoBehaviour
 
         if(Hp<=0){
             SceneLoader.LoadGameOver();
-        }            
+        }
+        if (Hp > MaxHp)
+        {
+            Hp = MaxHp;
+        }
     }
 
     public void inBattleEndTurn()

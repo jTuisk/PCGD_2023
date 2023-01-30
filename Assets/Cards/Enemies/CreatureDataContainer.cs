@@ -12,7 +12,7 @@ public class CreatureDataContainer : ScriptableObject
     public int MinDamageRange = 1;
     public List<BattleCardDataContainer> deck;
     public GameObject CreatureBase;
-
+    public EventCardData postBattleEvent;
     public void Spawn()
     {
         Deck.Instance.enemy = Instantiate(CreatureBase).GetComponent<EnemyCard>();

@@ -26,9 +26,19 @@ public class BattleCardDataContainer : ScriptableObject
     public void drawCard(){
         Deck.Instance.DrawCardInHand(1);
     }
-    public void discardRandom(){
+    public void discardRandom()
+    {
         Deck.Instance.discardRandom();
 
+    }
+    public void removeRandomCardFromDeck()
+    {
+        if (Deck.Instance.BattleDeck.Count > 0)
+        {
+            var c = Deck.Instance.BattleDeck[Random.Range(0, Deck.Instance.BattleDeck.Count)];
+            Deck.Instance.BattleDeck.Remove(c);
+            Destroy(c.gameObject);
+        }
     }
 
 }

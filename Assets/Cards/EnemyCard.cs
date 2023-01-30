@@ -15,6 +15,7 @@ public class EnemyCard : MonoBehaviour
 
     public GameObject cardPrefab;
     public GameObject enemyDeck;
+    public EventCardData postBattleEvent;
     void Start()
     {
         Deck.Instance.battleStart();
@@ -29,6 +30,7 @@ public void reorganize(){
         HP = data.HP;
         MaxDamageRange = data.MaxDamageRange;
         MinDamageRange = data.MinDamageRange;
+        postBattleEvent = data.postBattleEvent;
         int j=0;
         foreach(BattleCardDataContainer i in data.deck){
             var card=Instantiate(cardPrefab).GetComponent<Card>();
@@ -77,6 +79,11 @@ public void reorganize(){
             Deck.Instance.enemy = null;
             Deck.Instance.inBattle = false;
             Deck.Instance.ResetDeck();
+            if (postBattleEvent != null)
+            {
+                Instantiate(Deck.Instance.eventBase).GetComponent<EventCard>().CreateEventCard(postBattleEvent);
+                Deck.Instance.eventVisible = true;
+            }
             Destroy(gameObject);
         }
         
