@@ -40,5 +40,27 @@ public class BattleCardDataContainer : ScriptableObject
             Destroy(c.gameObject);
         }
     }
+    public void shuffleEnemyDeck()
+    {
+        if (Deck.Instance.enemy != null) {
+            while (Deck.Instance.enemy.enemyDeck.transform.childCount > 0)
+            {
+                Card c = Deck.Instance.enemy.enemyDeck.transform.GetChild(0).GetComponent<Card>();
+                c.transform.parent = null;
+            }
+            Deck.Instance.Shuffle(Deck.Instance.enemy.cards);
+            int j = 0;
+            foreach (Card card in Deck.Instance.enemy.cards)
+            {
+
+                //card.transform.position=new Vector2(enemyDeck.transform.position.x-transform.childCount * 10/2  + j * 10,enemyDeck.transform.position.y);
+                card.transform.parent = Deck.Instance.enemy.enemyDeck.transform;
+
+                j++;
+            }
+            Deck.Instance.enemy.reorganize();
+        }
+        
+    }
 
 }
