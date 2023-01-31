@@ -5,6 +5,7 @@ using UnityEngine;
 public class HandOrganizer : MonoBehaviour
 {
     private bool[] cardInPlace = new bool[20];
+    
 
     // Called when the player draw a card from the deck, the card will then move from deck to hand
     void DrawACard()
@@ -47,12 +48,14 @@ public class HandOrganizer : MonoBehaviour
             var mousepos = new Vector3(campos.x, campos.y, 0);
             if ((mousepos - child.position).magnitude < HitboxSize&& Input.GetMouseButton(0)||Input.GetMouseButton(0)&&heldCard==i)
             {
+                child.gameObject.GetComponentInChildren<Canvas>().sortingOrder=20;
                 heldCard=i;
                 child.position = mousepos;
             }
             else
             {
                 if(heldCard==i&&!Input.GetMouseButton(0)){
+                    child.gameObject.GetComponentInChildren<Canvas>().sortingOrder=0;
                     heldCard=-1;
                 }
 
