@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
-public class Card : MonoBehaviour
+public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     // Start is called before the first frame update
     public int Damage = 0;
@@ -13,7 +14,7 @@ public class Card : MonoBehaviour
     public int actionCost = 0;
     public TMPro.TextMeshProUGUI description;
     public TMPro.TextMeshProUGUI apCost;
-        public TMPro.TextMeshProUGUI CardName;
+    public TMPro.TextMeshProUGUI CardName;
     public UnityEvent effect;
 
     public BattleCardDataContainer BattleCardData { get; private set; }
@@ -55,7 +56,11 @@ public class Card : MonoBehaviour
     private Vector3 moveTargetPosition;
     private float moveStartTime = 0.0f;
     private float moveDuration = 5.0f; //5.0 seconds
-    public bool inHand = false; 
+    public bool inHand = false;
+    
+    // The Card GameObject is a Child of Deck/Hand/Enermy ...
+    public enum BelongTo {Default, Deck, PlayerHand, Enermy, DiscardPile} 
+    public BelongTo status = BelongTo.Default;
 
     // Called by HandOrganizer to activate the card movement
     public void triggerMove(Vector3 startPos, Vector3 endPos)
@@ -109,4 +114,28 @@ public class Card : MonoBehaviour
             inHand=false;
         }
     }
+
+    // A function called from Update() when mouse is hovering upon the card
+    public void DisplayWhenMouseHovered()
+    {
+        switch (this.status)
+        {
+            case BelongTo.Enermy:
+            {
+                break;
+            }
+            case BelongTo.Default: break;
+        }
+    }
+
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        CardHandler.Instance.SetCurrentFocusedCard(this);
+    }
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        CardHandler.Instance.SetCurrentFocusedCard(null);
+    }
+
 }

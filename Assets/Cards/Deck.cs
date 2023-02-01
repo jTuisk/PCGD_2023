@@ -60,8 +60,8 @@ public class Deck : MonoBehaviour
     {
         if(bossCounter<=20){
             Instantiate(eventBase).GetComponent<EventCard>().CreateEventCard(EventDeck[Random.Range(0, EventDeck.Count - 1)]);
-            //the below line is only for testing
-            //Instantiate(eventBase).GetComponent<EventCard>().CreateEventCard(EventDeck[5]); 
+            //the below line is only for testing hovering tip-panel
+            //Instantiate(eventBase).GetComponent<EventCard>().CreateEventCard(EventDeck[19]); 
 
         }else{
             Instantiate(eventBase).GetComponent<EventCard>().CreateEventCard(BossBattles[Random.Range(0, BossBattles.Count)]);

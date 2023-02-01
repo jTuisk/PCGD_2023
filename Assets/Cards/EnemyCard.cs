@@ -39,7 +39,7 @@ public void reorganize(){
             cards.Add(card);
             //card.transform.position=new Vector2(enemyDeck.transform.position.x-transform.childCount * 10/2  + j * 10,enemyDeck.transform.position.y);
             card.transform.parent=enemyDeck.transform;
-            
+            card.status = Card.BelongTo.Enermy;
            
             j++;
         }
