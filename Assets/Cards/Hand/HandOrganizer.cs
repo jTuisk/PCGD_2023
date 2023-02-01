@@ -49,8 +49,14 @@ public class HandOrganizer : MonoBehaviour
             if ((mousepos - child.position).magnitude < HitboxSize&& Input.GetMouseButton(0)||Input.GetMouseButton(0)&&heldCard==i)
             {
                 child.gameObject.GetComponentInChildren<Canvas>().sortingOrder=20;
-                heldCard=i;
-                child.position = mousepos;
+                if(heldCard == -1) // haven't held a card
+                {
+                    heldCard=i;
+                }
+                if(heldCard == i) // only one card can be held at a time
+                {
+                    child.position = mousepos;
+                }
             }
             else
             {
