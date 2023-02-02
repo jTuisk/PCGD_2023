@@ -16,6 +16,7 @@ public class EnemyCard : MonoBehaviour
     public GameObject cardPrefab;
     public GameObject enemyDeck;
     public EventCardData postBattleEvent;
+    public bool confused=false;
     void Start()
     {
         Deck.Instance.battleStart();
@@ -61,7 +62,7 @@ public void reorganize(){
             }
             reorganize();
         }else{
-            enemyDeck.transform.GetChild(0).GetComponent<Card>().EnemyPlayCard();
+            enemyDeck.transform.GetChild(0).GetComponent<Card>().EnemyPlayCard(this);
             enemyDeck.transform.GetChild(0).transform.position=new Vector2(10000,100000);
             enemyDeck.transform.GetChild(0).transform.parent=this.transform;
             reorganize();

@@ -40,6 +40,12 @@ public class BattleCardDataContainer : ScriptableObject
             Destroy(c.gameObject);
         }
     }
+    public void ConfuseEnemy(){
+        Deck.Instance.enemy.confused=true;
+    }
+    public void ConfusePlayer(){
+        Deck.Instance.PlayerConfused=true;
+    }
     public void shuffleEnemyDeck()
     {
         if (Deck.Instance.enemy != null) {

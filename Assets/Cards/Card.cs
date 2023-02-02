@@ -31,8 +31,12 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         effect.Invoke();
 
     }
-    public void EnemyPlayCard(){
-        Deck.Instance.takeDamage(Damage-Deck.Instance.block);
+    public void EnemyPlayCard(EnemyCard e){
+        if(!e.confused){
+            Deck.Instance.takeDamage(Damage-Deck.Instance.block);
+        }else{
+            e.HP-=Damage;
+        }
         effect.Invoke();
 
     }
