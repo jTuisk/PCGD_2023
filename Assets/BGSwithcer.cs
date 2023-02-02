@@ -20,10 +20,12 @@ public class BGSwithcer : MonoBehaviour
     {
         if(bg.EVENT!=state&&Deck.Instance.inBattle!=true){
             state=bg.EVENT;
-            sr.sprite=BGEvent;
+            this.transform.GetChild(0).gameObject.SetActive(false);
+            //sr.sprite=BGEvent;
         }else if(bg.BATTLE!=state&&Deck.Instance.inBattle!=false){
             state=bg.BATTLE;
-            sr.sprite=BGBattle;
+            this.transform.GetChild(0).gameObject.SetActive(true);
+            //sr.sprite=BGBattle;
         }
     }
 }
