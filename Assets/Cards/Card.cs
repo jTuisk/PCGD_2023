@@ -33,6 +33,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     }
     public void EnemyPlayCard(){
         Deck.Instance.takeDamage(Damage-Deck.Instance.block);
+        this.status = BelongTo.DiscardPile; // used cards from enermy go to discard pile?
         effect.Invoke();
 
     }
@@ -115,27 +116,36 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         }
     }
 
-    // A function called from Update() when mouse is hovering upon the card
-    public void DisplayWhenMouseHovered()
-    {
-        switch (this.status)
-        {
-            case BelongTo.Enermy:
-            {
-                break;
-            }
-            case BelongTo.Default: break;
-        }
-    }
-
-
     public void OnPointerEnter(PointerEventData eventData)
     {
         CardHandler.Instance.SetCurrentFocusedCard(this);
+        DisplayOnPointerEnter(eventData);
     }
     public void OnPointerExit(PointerEventData eventData)
     {
-        CardHandler.Instance.SetCurrentFocusedCard(null);
+        CardHandler.Instance.RemoveCurrentFocusedCard();
+        DisplayOnPointerExit(eventData);
     }
 
+
+    private void DisplayOnPointerEnter(PointerEventData eventData)
+    {
+        if(status == BelongTo.PlayerHand)
+        {
+            // enlarge the card scale;
+            var scale = CardHandler.Instance.cardScaleInPlayerHandWhenHovering;
+            this.gameObject.transform.localScale = new Vector3(scale, scale, scale);
+            // todo render order
+        }
+    }
+
+    private void DisplayOnPointerExit(PointerEventData eventData)
+    {
+        if(status == BelongTo.PlayerHand)
+        {
+            // enlarge the card scale;
+            var scale = CardHandler.Instance.cardOriginalScale;
+            this.gameObject.transform.localScale = new Vector3(scale, scale, scale);
+        }
+    }
 }

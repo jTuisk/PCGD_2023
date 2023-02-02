@@ -9,9 +9,14 @@ public class CardHandler : MonoBehaviour
     public static CardHandler Instance { get; private set; }
     private static int UILayer;
     public string CardTag = "Card";
-    public Card currentFocusedCard; // Hovered by mouse
+    private Card currentFocusedCard; // Hovered by mouse
     private GameObject currentFocusedCardObj;
-    public float zoomCardSize = 1.5f;
+    public float cardScaleInEnermyDeck = 0.3f;
+
+    public float cardScaleInEnermyDeckWhenHovering = 1.5f;
+    public float cardScaleInPlayerHandWhenHovering = 1.2f;
+
+    public float cardOriginalScale {get; private set;} = 1.0f;
 
     void Awake()
     {
@@ -22,6 +27,8 @@ public class CardHandler : MonoBehaviour
             return;
         }
         Instance = this;
+
+        cardOriginalScale = Deck.Instance.CardBasePrefab.transform.localScale.x;
     }
 
     // Start is called before the first frame update
@@ -120,36 +127,59 @@ public class CardHandler : MonoBehaviour
     {
         for(int index = 0; index < cards.Count; index ++)
         {
-            cards[index].DisplayWhenMouseHovered();
         }
     }
 
     public void SetCurrentFocusedCard(Card card)
     {
+        if(!card)
+            return;
+        Debug.Log("Set " + card.name);
+
         currentFocusedCard = card;
-
-        //Destroy current gameObject
-        Destroy(currentFocusedCardObj);
-        currentFocusedCardObj = null;
-
-        //Set a new one
+        // currentFocusedCardObj is now only used to store card prefab instance
         if(card && card.status == Card.BelongTo.Enermy)
         {
             currentFocusedCardObj = Instantiate(card.gameObject);
             currentFocusedCardObj.name = "tipPanel";
             Destroy(currentFocusedCardObj.gameObject.GetComponent<Card>());
-            currentFocusedCardObj.transform.localScale = new Vector3(zoomCardSize, zoomCardSize, zoomCardSize);
+            var scale = CardHandler.Instance.cardScaleInEnermyDeckWhenHovering;
+            currentFocusedCardObj.transform.localScale = new Vector3(scale, scale, scale);
         }
+    }
+
+    public void RemoveCurrentFocusedCard()
+    {
+        Debug.Log("Remove " + currentFocusedCard.name);
+        currentFocusedCard = null;
+        //Destroy current gameObject
+        Destroy(currentFocusedCardObj);
+        currentFocusedCardObj = null;
     }
 
     void DisplayCurrentFocusedCard()
     {
-        
-        if(currentFocusedCard && currentFocusedCardObj)
+        if(!currentFocusedCard)
+            return;
+
+        switch (currentFocusedCard.status)
         {
-            var campos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            var mousepos = new Vector3(campos.x + 8, campos.y - 8, 0);
-            currentFocusedCardObj.transform.position = mousepos;
+            case Card.BelongTo.Enermy:
+            {
+                if(currentFocusedCardObj)
+                {
+                    // display a tip panel
+                    var campos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    var mousepos = new Vector3(campos.x + 8, campos.y - 8, 0);
+                    currentFocusedCardObj.transform.position = mousepos;
+                }
+                break;
+            }
+            case Card.BelongTo.PlayerHand:
+            {
+                break;
+            }
+            default: break;
         }
     }
 }

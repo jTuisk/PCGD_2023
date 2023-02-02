@@ -35,7 +35,8 @@ public void reorganize(){
         foreach(BattleCardDataContainer i in data.deck){
             var card=Instantiate(cardPrefab).GetComponent<Card>();
             card.createCard(i);
-            card.transform.localScale=new Vector3(0.3f,0.3f,0.3f);
+            var scale = CardHandler.Instance.cardScaleInEnermyDeck;
+            card.transform.localScale=new Vector3(scale, scale, scale);
             cards.Add(card);
             //card.transform.position=new Vector2(enemyDeck.transform.position.x-transform.childCount * 10/2  + j * 10,enemyDeck.transform.position.y);
             card.transform.parent=enemyDeck.transform;

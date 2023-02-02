@@ -36,7 +36,7 @@ public class BattleCardDataContainer : ScriptableObject
         if (Deck.Instance.BattleDeck.Count > 0)
         {
             var c = Deck.Instance.BattleDeck[Random.Range(0, Deck.Instance.BattleDeck.Count)];
-            Deck.Instance.BattleDeck.Remove(c);
+            Deck.Instance.BattleDeckRemove(c);
             Destroy(c.gameObject);
         }
     }

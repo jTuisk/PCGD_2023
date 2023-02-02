@@ -30,6 +30,19 @@ public class Deck : MonoBehaviour
 
     public int CardsDrawnAtStartOfTurn=5;
 
+    // wrap list<Card>.Add() function
+    public void BattleDeckAdd(Card card)
+    {
+        BattleDeck.Add(card);
+        card.status = Card.BelongTo.Deck;
+    }
+
+    // wrap list<Card>.Remove() function
+    public void BattleDeckRemove(Card card)
+    {
+        BattleDeck.Remove(card);
+        card.status = Card.BelongTo.Default;
+    }
 
     private void Awake()
     {
@@ -51,7 +64,7 @@ public class Deck : MonoBehaviour
             j.name += index; index++;
             j.createCard(cardPrefabs[i]);
             j.transform.position = new Vector2(1000000, 100000);
-            BattleDeck.Add(j);
+            BattleDeckAdd(j);
 
         }
     }
@@ -244,7 +257,7 @@ public class Deck : MonoBehaviour
     {
             foreach (var i in BattleDiscardPile)
             {
-                BattleDeck.Add(i);
+                BattleDeckAdd(i);
             }
             Shuffle(BattleDeck);
             Debug.Log("Deck shuffled");
@@ -259,7 +272,7 @@ public class Deck : MonoBehaviour
             shuffleDiscardPileBackInDeck();
         }
             var temp = BattleDeck[0];
-            BattleDeck.Remove(temp);
+            BattleDeckRemove(temp);
         
         return temp;
     }
@@ -274,7 +287,8 @@ public class Deck : MonoBehaviour
                 //DrawCard().gameObject.transform.parent = Hand.transform;
 
                 var card = DrawCard();
-                
+                card.status = Card.BelongTo.PlayerHand;
+
                 var deckPos = Deck.Instance.getPosition();
                 card.transform.position = deckPos;
                 card.gameObject.transform.parent = Hand.transform;
@@ -316,7 +330,7 @@ public class Deck : MonoBehaviour
             foreach (Transform i in Hand.transform)
             {
                 i.parent = null;
-                BattleDeck.Add(i.gameObject.GetComponent<Card>());
+                BattleDeckAdd(i.gameObject.GetComponent<Card>());
                 i.position = new Vector2(1000000, 100000);
                 continue;
             }
@@ -339,7 +353,7 @@ public class Deck : MonoBehaviour
         var j = Instantiate(CardBasePrefab).GetComponent<Card>();
         j.createCard(cardData);
         j.transform.position = new Vector2(1000000, 100000);
-        BattleDeck.Add(j);
+        BattleDeckAdd(j);
     }
     
     // Return the deck position under world coordination
