@@ -21,7 +21,7 @@ public class Health : MonoBehaviour
         //common script for UI elements
         switch (uiMode) {
             case UITextVisual.HEALTH:
-                HealthText.text = Deck.Instance.MaxHp+"    "+Deck.Instance.Hp + "";
+                HealthText.text = Deck.Instance.Hp+"    "+Deck.Instance.MaxHp + "";
                 break;
             case UITextVisual.MONEY:
                 HealthText.text = Deck.Instance.money + " money ";
@@ -30,7 +30,7 @@ public class Health : MonoBehaviour
                 HealthText.text = Deck.Instance.mana + "";
                 break;
             case UITextVisual.ACTIONPOINTS:
-                HealthText.text = Deck.Instance.MaxactionPoints+"/"+Deck.Instance.actionPoints+"";
+                HealthText.text = Deck.Instance.actionPoints+"/"+Deck.Instance.MaxactionPoints+"";
                 break;
             case UITextVisual.DECK_SIZE:
                 HealthText.text = Deck.Instance.BattleDeck.Count + "";
