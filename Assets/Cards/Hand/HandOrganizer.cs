@@ -48,6 +48,7 @@ public class HandOrganizer : MonoBehaviour
             var mousepos = new Vector3(campos.x, campos.y, 0);
             if ((mousepos - child.position).magnitude < HitboxSize&& Input.GetMouseButton(0)||Input.GetMouseButton(0)&&heldCard==i)
             {
+                card.terminateMove(); // when the card is grabbed, card moving animation should be turn off
                 child.gameObject.GetComponentInChildren<Canvas>().sortingOrder=20;
                 if(heldCard == -1) // haven't held a card
                 {
@@ -77,6 +78,7 @@ public class HandOrganizer : MonoBehaviour
                             Deck.Instance.actionPoints -= card.actionCost;
                             card.Playcard();
                             Deck.Instance.BattleDiscardPile.Add(card);
+                            card.status = Card.BelongTo.DiscardPile;
                             child.parent = null;
                             child.position = new Vector2(10000, 100000);
                             break;
