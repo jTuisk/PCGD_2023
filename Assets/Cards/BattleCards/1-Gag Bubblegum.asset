@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1-Gag Bubblegum
   m_EditorClassIdentifier: 
   effectDescriptor: Electrify the opponent for 3 turns
-  cardName: Gag Bubblegum
+  cardName: Gag Bubblegum (WIP)
   Damage: 0
   block: 0
   magic: -3

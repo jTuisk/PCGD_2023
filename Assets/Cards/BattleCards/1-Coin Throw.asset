@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1-Coin Throw
   m_EditorClassIdentifier: 
   effectDescriptor: Blind enemy for 1 turn
-  cardName: Coin Throw
+  cardName: Coin Throw (WIP)
   Damage: 0
   block: 0
   magic: 0

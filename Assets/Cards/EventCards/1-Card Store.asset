@@ -14,17 +14,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eName: 
   eventText: "You heard there is a card store at the arena. \nYou decide to take
-    a look before your final battle of the day."
+    a look before your final battle of the day.\n\n(WIP)"
   options:
   - description: Card A looks nice!
     effect:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 11400000}
+          m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+          m_MethodName: remove
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     conditions: []
   - description: 'I fancy card B! '
     effect:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 11400000}
+          m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+          m_MethodName: remove
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     conditions: []
   ReplaceFrom: {fileID: 0}
   ReplaceTo: {fileID: 0}

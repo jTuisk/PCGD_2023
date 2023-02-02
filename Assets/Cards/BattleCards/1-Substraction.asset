@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1-Substraction
   m_EditorClassIdentifier: 
   effectDescriptor: Take away one enemy card
-  cardName: Substraction
+  cardName: Substraction (WIP)
   Damage: 0
   block: 0
   magic: 0

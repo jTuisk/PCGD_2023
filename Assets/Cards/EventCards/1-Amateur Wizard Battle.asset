@@ -19,9 +19,9 @@ MonoBehaviour:
     effect:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 11400000, guid: 0934aacba4e81c14ab9e2af1c87b9b97, type: 2}
-          m_TargetAssemblyTypeName: CreatureDataContainer, Assembly-CSharp
-          m_MethodName: Spawn
+        - m_Target: {fileID: 11400000}
+          m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+          m_MethodName: addTag
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -31,9 +31,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 11400000}
-          m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
-          m_MethodName: addTag
+        - m_Target: {fileID: 11400000, guid: 0934aacba4e81c14ab9e2af1c87b9b97, type: 2}
+          m_TargetAssemblyTypeName: CreatureDataContainer, Assembly-CSharp
+          m_MethodName: Spawn
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

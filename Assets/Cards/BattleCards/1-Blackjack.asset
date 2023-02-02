@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1-Blackjack
   m_EditorClassIdentifier: 
   effectDescriptor: 2-10=1dmg, 10-20=2dmg, 21=5dmg
-  cardName: Blackjack
+  cardName: Blackjack (WIP)
   Damage: 0
   block: 0
   magic: 0

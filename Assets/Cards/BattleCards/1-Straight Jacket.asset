@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1-Straight Jacket
   m_EditorClassIdentifier: 
   effectDescriptor: After 2 missed turns you do double damage
-  cardName: Straight Jacket
+  cardName: Straight Jacket (WIP)
   Damage: 0
   block: 0
   magic: -1

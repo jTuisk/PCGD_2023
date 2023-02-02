@@ -17,3 +17,4 @@ MonoBehaviour:
   MinDamageRange: 1
   deck: []
   CreatureBase: {fileID: 1923058948709319707, guid: 6671e36d1d116eb44b87cd53f63a7813, type: 3}
+  postBattleEvent: {fileID: 11400000, guid: 6875d37fdca8a844e94e879b8b95f1c0, type: 2}
