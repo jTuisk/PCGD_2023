@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9aa545c54708ee043afb4ae81f7da020, type: 3}
-  m_Name: 1-The Four Aces
+  m_Name: 1-The Four Thieves
   m_EditorClassIdentifier: 
   effectDescriptor: 
-  cardName: The Four Aces
+  cardName: The Four Thieves
   Damage: 4
-  block: 0
+  block: 4
   magic: 0
   money: 0
-  actionCost: 2
+  actionCost: 3
   effect:
     m_PersistentCalls:
       m_Calls: []
