@@ -53,6 +53,8 @@ MonoBehaviour:
   text: {fileID: 2461034819953710743}
   cardPrefab: {fileID: 1923058948709319707, guid: a820adf569575a349be76d6d8ef88eec, type: 3}
   enemyDeck: {fileID: 4246534986805932599}
+  postBattleEvent: {fileID: 0}
+  confused: 0
 --- !u!1 &4246534986805932599
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,8 +371,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9064899577724588009}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 9.8625, y: 9.7875, z: 1}
+  m_LocalPosition: {x: -1.85, y: -2.21, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1486902235226810390}
@@ -417,7 +419,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 795574f08c236868fb476b3b8f8b2ac7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

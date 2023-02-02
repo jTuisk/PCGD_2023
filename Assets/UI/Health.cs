@@ -21,22 +21,22 @@ public class Health : MonoBehaviour
         //common script for UI elements
         switch (uiMode) {
             case UITextVisual.HEALTH:
-                HealthText.text = Deck.Instance.Hp + " HP ";
+                HealthText.text = Deck.Instance.MaxHp+"    "+Deck.Instance.Hp + "";
                 break;
             case UITextVisual.MONEY:
                 HealthText.text = Deck.Instance.money + " money ";
                 break;
             case UITextVisual.MAGIC:
-                HealthText.text = Deck.Instance.mana + " mana ";
+                HealthText.text = Deck.Instance.mana + "";
                 break;
             case UITextVisual.ACTIONPOINTS:
-                HealthText.text = Deck.Instance.actionPoints + " action points ";
+                HealthText.text = Deck.Instance.MaxactionPoints+"/"+Deck.Instance.actionPoints+"";
                 break;
             case UITextVisual.DECK_SIZE:
-                HealthText.text = Deck.Instance.BattleDeck.Count + " Cards in deck ";
+                HealthText.text = Deck.Instance.BattleDeck.Count + "";
                 break;
             case UITextVisual.DISCARD_PILE:
-                HealthText.text = Deck.Instance.BattleDiscardPile.Count + " cards in discard pile ";
+                HealthText.text = Deck.Instance.BattleDiscardPile.Count + "";
                 break;
         }
     }
