@@ -112,13 +112,19 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     }
 
     // Update is called once per frame
+    private bool reset=false;
     void Update()
     {
         if(this.transform.parent!=null){
             moveToHand();
+            reset=false;
             
         }else{
             inHand=false;
+            if(reset==false){
+            reset=true;
+            resetScale();
+            }
         }
     }
 
@@ -145,15 +151,27 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             gameObject.GetComponentInChildren<Canvas>().sortingOrder=20;
         }
     }
-
-    private void DisplayOnPointerExit(PointerEventData eventData)
-    {
-        if(status == BelongTo.PlayerHand)
-        {
+private void resetScale(){
+                // enlarge the card scale;
+            var scale = CardHandler.Instance.cardOriginalScale;
+            this.gameObject.transform.localScale = new Vector3(scale, scale, scale);
+            gameObject.GetComponentInChildren<Canvas>().sortingOrder=0;
+}
+private void DestroyFocused(){
             // enlarge the card scale;
             var scale = CardHandler.Instance.cardOriginalScale;
             this.gameObject.transform.localScale = new Vector3(scale, scale, scale);
             gameObject.GetComponentInChildren<Canvas>().sortingOrder=0;
+}
+    private void DisplayOnPointerExit(PointerEventData eventData)
+    {
+        if(status == BelongTo.PlayerHand)
+        {
+            resetScale();
+            // enlarge the card scale;
+            //var scale = CardHandler.Instance.cardOriginalScale;
+            //this.gameObject.transform.localScale = new Vector3(scale, scale, scale);
+            //gameObject.GetComponentInChildren<Canvas>().sortingOrder=0;
         }
     }
 }
