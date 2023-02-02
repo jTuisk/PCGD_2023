@@ -31,9 +31,15 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         effect.Invoke();
 
     }
-    public void EnemyPlayCard(){
-        Deck.Instance.takeDamage(Damage-Deck.Instance.block);
-        this.status = BelongTo.DiscardPile; // used cards from enermy go to discard pile?
+    public void EnemyPlayCard(EnemyCard e){
+        if(!e.confused){
+            Deck.Instance.takeDamage(Damage-Deck.Instance.block);
+        }else{
+            e.HP-=Damage;
+        }
+
+        // used cards from enermy go to discard pile?
+        this.status = BelongTo.DiscardPile;
         effect.Invoke();
 
     }

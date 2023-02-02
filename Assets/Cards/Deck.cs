@@ -83,7 +83,7 @@ public class Deck : MonoBehaviour
         bossCounter+=1;
         eventVisible = true;
     }
-
+    public bool PlayerConfused=false;
     public void takeDamage(int amount)
     {
         Hp -= Mathf.Max(0,amount-block);
@@ -104,10 +104,15 @@ public class Deck : MonoBehaviour
         if (enemy != null)
         {
             if(enemy.cards.Count!=0){
-                enemy.Playcard();
+                
+                    enemy.Playcard();
                 
             }else{
-            takeDamage(enemy.damage);
+                if(!enemy.confused){
+                    takeDamage(enemy.damage);
+                }else{
+                    enemy.HP-=enemy.damage;
+                }
             enemy.damage = Random.Range(enemy.MinDamageRange, enemy.MaxDamageRange);
             
             }
@@ -116,6 +121,8 @@ public class Deck : MonoBehaviour
             
         }
         block = 0;
+        PlayerConfused=false;
+        enemy.confused=false;
     }
 
     public void PutHandInDiscardPile(){
