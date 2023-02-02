@@ -34,7 +34,7 @@ public class Condition
 
     
     }
-    public enum type {LESS,EQUALS,FLAG };
+    public enum type {LESS,EQUALS,FLAG,NOFLAG };
     public enum target { HEALTH, MANA, FLOAT };
     public string flag;
     public type Operation;
@@ -47,6 +47,8 @@ public class Condition
 
         switch (Operation)
         {
+            case type.NOFLAG:
+                return !Deck.Instance.flags.Contains(flag);
             case type.FLAG:
                 return Deck.Instance.flags.Contains(flag);
             case type.LESS:

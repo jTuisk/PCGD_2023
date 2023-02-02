@@ -29,6 +29,16 @@ public class EventCardData : ScriptableObject
 
 
     }
+        public void addMaxHealth()
+    {
+        Deck.Instance.MaxHp+=5;
+
+    }
+    public void HealToFull(){
+        Deck.Instance.Hp += 1000000;
+        Deck.Instance.takeDamage(0);
+
+    }
     public void Trigger(){
             Instantiate(Deck.Instance.eventBase).GetComponent<EventCard>().CreateEventCard(this);
             Deck.Instance.eventVisible = true;
