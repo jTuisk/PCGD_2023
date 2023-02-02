@@ -48,8 +48,9 @@ public class EventCard : MonoBehaviour
     public void Activate(UnityEvent e)
     {
         //activate event effect and change gamestate back to drawing event cards.
-        e.Invoke();
+        
         Deck.Instance.eventVisible = false;
+        e.Invoke();
         Destroy(gameObject);
     }
     public void Activate()

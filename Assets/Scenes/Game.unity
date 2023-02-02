@@ -897,6 +897,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardTag: Card
+  currentFocusedCard: {fileID: 0}
+  zoomCardSize: 1.5
 --- !u!4 &830065931
 Transform:
   m_ObjectHideFlags: 0

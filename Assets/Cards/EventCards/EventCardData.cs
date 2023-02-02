@@ -29,7 +29,11 @@ public class EventCardData : ScriptableObject
 
 
     }
+    public void Trigger(){
+            Instantiate(Deck.Instance.eventBase).GetComponent<EventCard>().CreateEventCard(this);
+            Deck.Instance.eventVisible = true;
 
+    }
     public void addMana()
     {
         Deck.Instance.mana += 1;
