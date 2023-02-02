@@ -25,9 +25,9 @@ public class HandOrganizer : MonoBehaviour
     }
 
     // Start is called before the first frame update
+    public float cardDistanceScalar=0.5f;
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -40,7 +40,7 @@ public class HandOrganizer : MonoBehaviour
         int i = 0;
         foreach(Transform child in transform)
         {
-            var targetPos = new Vector3(-transform.childCount * 10/2  + i * 10, -10, 0);
+            var targetPos = new Vector3(-transform.childCount *cardDistanceScalar*10/2  + cardDistanceScalar*i * 10, -10-15*(1-child.localScale.x), 0);
             var card = child.GetComponent<Card>();
             
             //move card to mouse position if player drags mouse and card distance of the cursor is lower than hitboxsize
@@ -49,7 +49,7 @@ public class HandOrganizer : MonoBehaviour
             if ((mousepos - child.position).magnitude < HitboxSize&& Input.GetMouseButton(0)||Input.GetMouseButton(0)&&heldCard==i)
             {
                 card.terminateMove(); // when the card is grabbed, card moving animation should be turn off
-                child.gameObject.GetComponentInChildren<Canvas>().sortingOrder=20;
+
                 if(heldCard == -1) // haven't held a card
                 {
                     heldCard=i;
@@ -62,7 +62,7 @@ public class HandOrganizer : MonoBehaviour
             else
             {
                 if(heldCard==i&&!Input.GetMouseButton(0)){
-                    child.gameObject.GetComponentInChildren<Canvas>().sortingOrder=0;
+                    //child.gameObject.GetComponentInChildren<Canvas>().sortingOrder=0;
                     heldCard=-1;
                 }
 

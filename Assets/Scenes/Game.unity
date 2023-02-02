@@ -2055,6 +2055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dbf29e14dcaaff45aac3e30ec8c8110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardDistanceScalar: 0.75
   HitboxSize: 5
 --- !u!1 &1604978541
 GameObject:

@@ -142,6 +142,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             var scale = CardHandler.Instance.cardScaleInPlayerHandWhenHovering;
             this.gameObject.transform.localScale = new Vector3(scale, scale, scale);
             // todo render order
+            gameObject.GetComponentInChildren<Canvas>().sortingOrder=20;
         }
     }
 
@@ -152,6 +153,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             // enlarge the card scale;
             var scale = CardHandler.Instance.cardOriginalScale;
             this.gameObject.transform.localScale = new Vector3(scale, scale, scale);
+            gameObject.GetComponentInChildren<Canvas>().sortingOrder=0;
         }
     }
 }
