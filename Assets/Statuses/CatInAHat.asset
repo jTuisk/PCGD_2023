@@ -9,22 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9aa545c54708ee043afb4ae81f7da020, type: 3}
-  m_Name: 1-Cat in a Hat
+  m_Script: {fileID: 11500000, guid: 11f8fd2ce7d8ef04ea895fcd7fd93e1c, type: 3}
+  m_Name: CatInAHat
   m_EditorClassIdentifier: 
-  effectDescriptor: Cat scratches makes enemy take 1 dmg for 3 turns
-  cardName: Cat in a Hat (WIP)
-  Damage: 0
-  block: 0
-  magic: -2
-  money: 0
-  actionCost: 0
+  duration: 3
   effect:
-    m_PersistentCalls:
+  - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: c01d4752620f738bb928114d5bc812dd, type: 2}
+      - m_Target: {fileID: 11400000}
         m_TargetAssemblyTypeName: StatusEffect, Assembly-CSharp
-        m_MethodName: add
+        m_MethodName: DamageEnemy
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

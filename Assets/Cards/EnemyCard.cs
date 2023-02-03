@@ -23,6 +23,7 @@ public class EnemyCard : MonoBehaviour
     }
 public void reorganize(){
     for(int j=0; j<enemyDeck.transform.childCount; j++){
+    enemyDeck.transform.GetChild(j).GetComponent<Card>().status=Card.BelongTo.Enermy;
     enemyDeck.transform.GetChild(j).transform.position=new Vector2(enemyDeck.transform.position.x  + j * 2,enemyDeck.transform.position.y);
     }
 }

@@ -19,4 +19,7 @@ public class StatusEffect:ScriptableObject
         Deck.Instance.statuses.Add(stat);
 
     }
+    public void DamageEnemy(){
+        Deck.Instance.enemy.HP-=1;
+    }
 }

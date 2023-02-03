@@ -55,7 +55,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         effect = data.effect;
         apCost.text=actionCost+"";
         CardName.text=data.cardName;
-        description.text =(data.Damage>0? "Deal " +data.Damage+" Damage":"")+(data.block>0? "Block "+data.block+" Damage":"")+(data.magic>0? "gain "+data.magic+"mana":"")+data.effectDescriptor;
+        description.text =(data.Damage>0? "Deal " +data.Damage+" Damage":"")+(data.block>0? " Block "+data.block+" Damage":"")+(data.magic>0? " gain "+data.magic+" mana":"")+(data.magic<0? " Costs "+(-data.magic)+" mana":"")+data.effectDescriptor;
     }
 
     private bool movable = false;
