@@ -6,7 +6,7 @@ using UnityEngine;
 public class DayResource
 {
     public List<EventCardData> EventPrefabs;
-    public List<BattleCardDataContainer> BattlePrefabs;
+    //public List<BattleCardDataContainer> BattlePrefabs;
 }
 
 public class DayManager : MonoBehaviour
@@ -20,11 +20,11 @@ public class DayManager : MonoBehaviour
         currentDay = dayIndex + 1;
 
         // validation
-        for(int i = 0; i < Deck.Instance.deckList.Count; i++)
-        {
-            if (Deck.Instance.deckList[i] >= dayResources[dayIndex].BattlePrefabs.Count)
-                Deck.Instance.deckList[i] = 0;
-        }
+        // for(int i = 0; i < Deck.Instance.deckList.Count; i++)
+        // {
+        //     if (Deck.Instance.deckList[i] >= dayResources[dayIndex].BattlePrefabs.Count)
+        //         Deck.Instance.deckList[i] = 0;
+        // }
 
         // Remove all prefabs in the EventDeck & BattleCardDeck in Deck.Instance
         var limit = Deck.Instance.EventDeck.Count;
@@ -32,21 +32,21 @@ public class DayManager : MonoBehaviour
         {
             Deck.Instance.EventDeck.RemoveAt(0);
         }
-        limit = Deck.Instance.cardPrefabs.Count;
-        for(int index = 0; index < limit; index ++)
-        {
-            Deck.Instance.cardPrefabs.RemoveAt(0);
-        }
+        // limit = Deck.Instance.cardPrefabs.Count;
+        // for(int index = 0; index < limit; index ++)
+        // {
+        //     Deck.Instance.cardPrefabs.RemoveAt(0);
+        // }
 
         // set the EventDeck & BattleCardDeck in Deck.Instance
         foreach(var prefab in dayResources[dayIndex].EventPrefabs)
         {
             Deck.Instance.EventDeck.Add(prefab);
         }
-        foreach(var prefab in dayResources[dayIndex].BattlePrefabs)
-        {
-            Deck.Instance.cardPrefabs.Add(prefab);
-        }
+        // foreach(var prefab in dayResources[dayIndex].BattlePrefabs)
+        // {
+        //     Deck.Instance.cardPrefabs.Add(prefab);
+        // }
     }
 
 
