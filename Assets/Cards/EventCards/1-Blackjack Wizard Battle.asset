@@ -59,7 +59,12 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-    conditions: []
+    conditions:
+    - flag: 
+      Operation: 0
+      value: 0
+      a: 0
+      b: 0
   ReplaceFrom: {fileID: 0}
   ReplaceTo: {fileID: 0}
   replaceEvent: {fileID: 0}

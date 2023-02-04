@@ -41,7 +41,6 @@ public class Condition
     public float value;
     public target a;
     public target b;
-
     public bool Evaluate()
     {
 
