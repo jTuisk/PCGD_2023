@@ -23,7 +23,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         if (Deck.Instance.enemy != null)
         {
-            Deck.Instance.enemy.HP -= Damage;
+            Deck.Instance.enemy.takeDamage( Damage);
         }
         Deck.Instance.block += block;
         Deck.Instance.mana += magic;
@@ -35,7 +35,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         if(!e.confused){
             Deck.Instance.takeDamage(Damage-Deck.Instance.block);
         }else{
-            e.HP-=Damage;
+            e.takeDamage(Damage);
         }
 
         // used cards from enermy go to discard pile?

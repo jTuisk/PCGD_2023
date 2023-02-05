@@ -26,7 +26,15 @@ public class StatusEffect:ScriptableObject
     public void StunPlayer() {
         Deck.Instance.stunned = true;
     }
-    public void DamageEnemy(){
-        Deck.Instance.enemy.HP-=1;
+    public void DoubleEnemyDamageModifier()
+    {
+        Deck.Instance.enemy.EnemyDamageModifier = 2;
+    }
+    public void DoublePlayerDamageModifier()
+    {
+        Deck.Instance.PlayerDamageModifier = 2;
+    }
+        public void DamageEnemy(){
+        Deck.Instance.enemy.takeDamage(1);
     }
 }

@@ -18,6 +18,7 @@ public class EnemyCard : MonoBehaviour
     public EventCardData postBattleEvent;
     public bool confused=false;
     public bool stunned = false;
+    public float EnemyDamageModifier = 1;
     void Start()
     {
         Deck.Instance.battleStart();
@@ -28,6 +29,9 @@ public void reorganize(){
     enemyDeck.transform.GetChild(j).transform.position=new Vector2(enemyDeck.transform.position.x  + j * 2,enemyDeck.transform.position.y);
     }
 }
+    public void takeDamage(int amount) {
+        HP = (int) (HP - amount * EnemyDamageModifier);
+    }
     public void Create(CreatureDataContainer data)
     {
         HP = data.HP;

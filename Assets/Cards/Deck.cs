@@ -29,7 +29,7 @@ public class Deck : MonoBehaviour
     public List<StatusEffectInstance> statuses = new List<StatusEffectInstance>();
     public bool stunned=false;
     public int CardsDrawnAtStartOfTurn=5;
-
+    public float PlayerDamageModifier = 1;
     // wrap list<Card>.Add() function
     public void BattleDeckAdd(Card card)
     {
@@ -86,7 +86,7 @@ public class Deck : MonoBehaviour
     public bool PlayerConfused=false;
     public void takeDamage(int amount)
     {
-        Hp -= Mathf.Max(0,amount-block);
+        Hp -= Mathf.Max(0,(int)(PlayerDamageModifier*amount)-block);
 
         if(Hp<=0){
             SceneLoader.LoadGameOver();
@@ -326,6 +326,8 @@ public class Deck : MonoBehaviour
                 i--;
             }
         }
+        enemy.EnemyDamageModifier = 1;
+        PlayerDamageModifier = 1;
         if (stunned)
         {
             stunned = false;
