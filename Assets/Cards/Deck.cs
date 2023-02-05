@@ -27,7 +27,7 @@ public class Deck : MonoBehaviour
     public GameObject eventBase;
     public List<EventCardData> BossBattles=new List<EventCardData>();
     public List<StatusEffectInstance> statuses = new List<StatusEffectInstance>();
-
+    public bool stunned=false;
     public int CardsDrawnAtStartOfTurn=5;
 
     // wrap list<Card>.Add() function
@@ -310,6 +310,7 @@ public class Deck : MonoBehaviour
 
     public void inBattleStartTurn()
     {
+
         //run at the start of the turn
         DrawCardInHand(CardsDrawnAtStartOfTurn);
         actionPoints = MaxactionPoints;
@@ -324,6 +325,12 @@ public class Deck : MonoBehaviour
                 statuses.Remove(status);
                 i--;
             }
+        }
+        if (stunned)
+        {
+            stunned = false;
+            inBattleEndTurn();
+            return;
         }
 
     }

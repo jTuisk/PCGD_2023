@@ -17,6 +17,7 @@ public class EnemyCard : MonoBehaviour
     public GameObject enemyDeck;
     public EventCardData postBattleEvent;
     public bool confused=false;
+    public bool stunned = false;
     void Start()
     {
         Deck.Instance.battleStart();
@@ -52,6 +53,10 @@ public void reorganize(){
         
     }
     public void Playcard(){
+        if (stunned) {
+            stunned = false;
+            return;
+        }
         if(enemyDeck.transform.childCount==0){
             Deck.Instance.Shuffle(cards);
             int j=0;
