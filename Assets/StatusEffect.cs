@@ -32,7 +32,7 @@ public class StatusEffect:ScriptableObject
     }
     public void DoublePlayerDamageModifier()
     {
-        Deck.Instance.PlayerDamageModifier = 2;
+        Deck.Instance.PlayerDamageModifier *= 2;
     }
         public void DamageEnemy(){
         Deck.Instance.enemy.takeDamage(1);

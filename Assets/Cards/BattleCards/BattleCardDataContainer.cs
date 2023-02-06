@@ -23,6 +23,9 @@ public class BattleCardDataContainer : ScriptableObject
         Deck.Instance.BattleDeckAddCardFromCardData(this);
 
     }
+    public void EnemyDrawCard(){
+        Deck.Instance.enemy.Playcard();
+    }
     public void drawCard(){
         Deck.Instance.DrawCardInHand(1);
     }

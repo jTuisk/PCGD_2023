@@ -311,6 +311,8 @@ public class Deck : MonoBehaviour
     public void inBattleStartTurn()
     {
 
+        enemy.EnemyDamageModifier = 1;
+        PlayerDamageModifier = 1;
         //run at the start of the turn
         DrawCardInHand(CardsDrawnAtStartOfTurn);
         actionPoints = MaxactionPoints;
@@ -326,8 +328,6 @@ public class Deck : MonoBehaviour
                 i--;
             }
         }
-        enemy.EnemyDamageModifier = 1;
-        PlayerDamageModifier = 1;
         if (stunned)
         {
             stunned = false;

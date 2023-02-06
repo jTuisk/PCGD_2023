@@ -73,9 +73,11 @@ public void reorganize(){
             }
             reorganize();
         }else{
-            enemyDeck.transform.GetChild(0).GetComponent<Card>().EnemyPlayCard(this);
+            var temp=enemyDeck.transform.GetChild(0).GetComponent<Card>();
+            
             enemyDeck.transform.GetChild(0).transform.position=new Vector2(10000,100000);
             enemyDeck.transform.GetChild(0).transform.parent=this.transform;
+            temp.EnemyPlayCard(this);
             reorganize();
 
             
