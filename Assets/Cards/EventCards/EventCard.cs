@@ -34,8 +34,8 @@ public class EventCard : MonoBehaviour
             if (visible)
             {
                 var button = Instantiate(ButtonPrefab);
-                button.GetComponent<Button>().onClick.AddListener(delegate { Activate(option.effect); });
-                //button.GetComponent<Button>().onClick.AddListener(delegate { Activate(option.effects); });
+                //button.GetComponent<Button>().onClick.AddListener(delegate { Activate(option.effect); });
+                button.GetComponent<Button>().onClick.AddListener(delegate { Activate(option.effects); });
 
                 button.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = option.description;
                 button.transform.parent = Menu.transform;
