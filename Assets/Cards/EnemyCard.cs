@@ -9,12 +9,13 @@ public class EnemyCard : MonoBehaviour
     public int MaxDamageRange = 6;
     public int MinDamageRange = 1;
     public int damage = 0;
-
+    public GameObject DamageText;
     public List<Card> cards;
     public TMPro.TextMeshProUGUI text; 
 
     public GameObject cardPrefab;
     public GameObject enemyDeck;
+    public GameObject sprite;
     public EventCardData postBattleEvent;
     public bool confused=false;
     public bool stunned = false;
@@ -29,7 +30,28 @@ public void reorganize(){
     enemyDeck.transform.GetChild(j).transform.position=new Vector2(enemyDeck.transform.position.x  + j * 2,enemyDeck.transform.position.y);
     }
 }
+
+
+IEnumerator shake(){
+    Vector3 startPos=sprite.transform.position;
+    Vector3 startScale=sprite.transform.localScale;
+    float speed=20;
+    for(int i=0;i<speed;i++){
+        sprite.transform.position=startPos-new Vector3(0,Mathf.Lerp(0,5,(float)((i*1.0)/speed)),0);
+        sprite.transform.localScale=startScale-new Vector3(0,Mathf.Lerp(0,0.2f,(float)((i*1.0)/speed)),0);
+        yield return null;
+    }
+    for(int i=0;i<speed;i++){
+        sprite.transform.position=startPos-new Vector3(0,Mathf.Lerp(0,5,1.0f-((float)(i*1.0/speed))),0);
+        sprite.transform.localScale=startScale-new Vector3(0,Mathf.Lerp(0,0.2f,1.0f-((float)(i*1.0/speed))),0);
+        yield return null;
+    }
+}
     public void takeDamage(int amount) {
+        if(amount>0){
+            StartCoroutine("shake");
+            Instantiate(DamageText).GetComponent<DamageText>().changeTextString(""+amount*EnemyDamageModifier);
+        }
         HP = (int) (HP - amount * EnemyDamageModifier);
     }
     public void Create(CreatureDataContainer data)
