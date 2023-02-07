@@ -18,14 +18,10 @@ MonoBehaviour:
     Here, have this card as a token.'
   options:
   - description: sssd
-    effect:
-      m_PersistentCalls:
-        m_Calls: []
+    effects: []
     conditions: []
   - description: 
-    effect:
-      m_PersistentCalls:
-        m_Calls: []
+    effects: []
     conditions: []
   ReplaceFrom: {fileID: 0}
   ReplaceTo: {fileID: 0}

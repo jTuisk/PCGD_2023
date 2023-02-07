@@ -19,7 +19,7 @@ public class EventCardMenuItem
 {
     [TextArea(3,10)]
     public string description="";
-    public UnityEvent effect;
+    //public UnityEvent effect;
     public List<Effect> effects;
     public List<Condition> conditions;
 }
