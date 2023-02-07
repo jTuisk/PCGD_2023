@@ -35,6 +35,8 @@ public class EventCard : MonoBehaviour
             {
                 var button = Instantiate(ButtonPrefab);
                 button.GetComponent<Button>().onClick.AddListener(delegate { Activate(option.effect); });
+                //button.GetComponent<Button>().onClick.AddListener(delegate { Activate(option.effects); });
+
                 button.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = option.description;
                 button.transform.parent = Menu.transform;
             }
@@ -45,6 +47,30 @@ public class EventCard : MonoBehaviour
             button.transform.parent = Menu.transform;
         }
     }
+    
+    public void Activate(List<Effect> effects)
+    {
+        foreach(var effect in effects)
+        {
+            if(effect.possibility == 0)
+                continue;
+
+            var v = Random.value;
+            var p = effect.possibility;
+            if(v <= p)
+            {
+                effect.targetEvent.Invoke();
+                Debug.Log("'" + effect.name +"' takes place cuz a " + p * 100 + "% chance of happening is fulfilled by random value " + v);
+            }
+            else
+            {
+                Debug.Log("'" + effect.name +"' won't take place cuz a " + p * 100 + "% chance of happening is not fulfilled by random value " + v);
+            }
+        }
+        Deck.Instance.eventVisible = false;
+        Destroy(gameObject);
+    }
+
     public void Activate(UnityEvent e)
     {
         //activate event effect and change gamestate back to drawing event cards.

@@ -4,14 +4,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+
+[Serializable]
+public class Effect
+{
+    public string name; // a general description of the effect
+    [Range(0.0f, 1.0f)]
+    public float possibility; // percent chance
+    public UnityEvent targetEvent;
+}
+
 [Serializable]
 public class EventCardMenuItem 
 {
     [TextArea(3,10)]
     public string description="";
     public UnityEvent effect;
+    public List<Effect> effects;
     public List<Condition> conditions;
-
 }
 
 [Serializable]
