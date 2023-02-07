@@ -8,6 +8,7 @@ public class HandOrganizer : MonoBehaviour
     
 
     // Called when the player draw a card from the deck, the card will then move from deck to hand
+    public GameObject tpMessage;
     void DrawACard()
     {
         //pick a card randomly from the deck (deck.BattleDeck)
@@ -72,7 +73,7 @@ public class HandOrganizer : MonoBehaviour
                     Debug.Log("play Card");
                     if (Deck.Instance.mana + card.magic >= 0)
                     {
-
+                        
                         if (Deck.Instance.actionPoints >= card.actionCost)
                         {
                             Deck.Instance.actionPoints -= card.actionCost;
@@ -82,7 +83,11 @@ public class HandOrganizer : MonoBehaviour
                             child.parent = null;
                             child.position = new Vector2(10000, 100000);
                             break;
+                        }else{
+                            Instantiate(tpMessage).GetComponent<FailText>().changeTextString("Not enough toolpoints");
                         }
+                    }else{
+                                                    Instantiate(tpMessage).GetComponent<FailText>().changeTextString("Not enough mana");
                     }
                 }
                 
