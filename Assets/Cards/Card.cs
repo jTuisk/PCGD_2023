@@ -30,6 +30,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         Deck.Instance.money -= money;
         effect.Invoke();
 
+        AudioManager.Instance.PlayCardEffectsWhenCardPlayed(this);
     }
     public void EnemyPlayCard(EnemyCard e){
         if(!e.confused){
@@ -132,6 +133,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         CardHandler.Instance.SetCurrentFocusedCard(this);
         DisplayOnPointerEnter(eventData);
+        PlayAudioOnPointerEnter(eventData);
     }
     public void OnPointerExit(PointerEventData eventData)
     {
@@ -172,6 +174,14 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             //var scale = CardHandler.Instance.cardOriginalScale;
             //this.gameObject.transform.localScale = new Vector3(scale, scale, scale);
             //gameObject.GetComponentInChildren<Canvas>().sortingOrder=0;
+        }
+    }
+
+    private void PlayAudioOnPointerEnter(PointerEventData eventData)
+    {
+        if(status == BelongTo.PlayerHand)
+        {
+            AudioManager.Instance.PlayOneShot(AudioManager.AudioEffects.exploreCard);
         }
     }
 }

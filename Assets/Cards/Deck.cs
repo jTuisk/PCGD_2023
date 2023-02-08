@@ -286,6 +286,7 @@ public class Deck : MonoBehaviour
 
     public void DrawCardInHand(int amount)
     {
+        AudioManager.Instance.PlayOneShot(AudioManager.AudioEffects.shuffleDeck);
         var cardDistanceScalar = Hand.GetComponent<HandOrganizer>().cardDistanceScalar;
         var leftoverCardCount = Hand.transform.childCount;
 
