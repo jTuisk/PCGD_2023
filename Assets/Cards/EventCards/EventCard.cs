@@ -50,6 +50,7 @@ public class EventCard : MonoBehaviour
     
     public void Activate(List<Effect> effects)
     {
+        Deck.Instance.eventVisible = false;
         foreach(var effect in effects)
         {
             if(effect.possibility == 0)
@@ -57,6 +58,7 @@ public class EventCard : MonoBehaviour
 
             var v = Random.value;
             var p = effect.possibility;
+
             if(v <= p)
             {
                 effect.targetEvent.Invoke();
@@ -67,7 +69,7 @@ public class EventCard : MonoBehaviour
                 Debug.Log("'" + effect.name +"' won't take place cuz a " + p * 100 + "% chance of happening is not fulfilled by random value " + v);
             }
         }
-        Deck.Instance.eventVisible = false;
+
         Destroy(gameObject);
     }
 

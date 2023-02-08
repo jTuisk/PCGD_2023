@@ -7,7 +7,7 @@ public class Health : MonoBehaviour
     public TMPro.TextMeshProUGUI HealthText;
     // Start is called before the first frame update
     public enum UITextVisual{
-        MONEY,HEALTH,MAGIC,ACTIONPOINTS,DECK_SIZE,DISCARD_PILE
+        MONEY,HEALTH,MAGIC,ACTIONPOINTS,DECK_SIZE,DISCARD_PILE,BLOCK
     }
     public UITextVisual uiMode = UITextVisual.HEALTH;
     void Start()
@@ -37,6 +37,9 @@ public class Health : MonoBehaviour
                 break;
             case UITextVisual.DISCARD_PILE:
                 HealthText.text = Deck.Instance.BattleDiscardPile.Count + "";
+                break;
+            case UITextVisual.BLOCK:
+                HealthText.text = Deck.Instance.block + "";
                 break;
         }
     }
