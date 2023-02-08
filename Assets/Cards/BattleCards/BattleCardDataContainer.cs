@@ -49,6 +49,9 @@ public class BattleCardDataContainer : ScriptableObject
     public void ConfusePlayer(){
         Deck.Instance.PlayerConfused=true;
     }
+    public void AddAP(){
+        Deck.Instance.actionPoints+=1;
+    }
     public void shuffleEnemyDeck()
     {
         if (Deck.Instance.enemy != null) {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
@@ -14,9 +15,14 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public int actionCost = 0;
     public TMPro.TextMeshProUGUI description;
     public TMPro.TextMeshProUGUI apCost;
+    public TMPro.TextMeshProUGUI ManaCost;
     public TMPro.TextMeshProUGUI CardName;
     public UnityEvent effect;
 
+    public Sprite APSprite;
+    public Sprite ManaSprite;
+    public Image APImage;
+    public Image ManaImage;
     public BattleCardDataContainer BattleCardData { get; private set; }
 
     public void Playcard()
@@ -55,7 +61,22 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         actionCost = data.actionCost;
         effect = data.effect;
         apCost.text=actionCost+"";
+        ManaCost.text="";
         CardName.text=data.cardName;
+        
+        var temp=APImage.color;
+        
+        temp.a=1f;
+        APImage.color=temp;
+        APImage.sprite=APSprite;
+
+        if(magic<0){
+        temp=ManaImage.color;
+        temp.a=1f;
+        ManaImage.color=temp;
+        ManaImage.sprite=ManaSprite;
+        ManaCost.text+=-magic;
+        }
         description.text =(data.Damage>0? "Deal " +data.Damage+" Damage":"")+(data.block>0? " Block "+data.block+" Damage":"")+(data.magic>0? " gain "+data.magic+" mana":"")+(data.magic<0? " Costs "+(-data.magic)+" mana":"")+data.effectDescriptor;
     }
 
