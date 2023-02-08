@@ -134,7 +134,6 @@ public class CardHandler : MonoBehaviour
     {
         if(!card)
             return;
-        //Debug.Log("Set " + card.name);
 
         currentFocusedCard = card;
         // currentFocusedCardObj is now only used to store card prefab instance
@@ -150,7 +149,6 @@ public class CardHandler : MonoBehaviour
 
     public void RemoveCurrentFocusedCard()
     {
-        //Debug.Log("Remove " + currentFocusedCard.name);
         currentFocusedCard = null;
         //Destroy current gameObject
         Destroy(currentFocusedCardObj);

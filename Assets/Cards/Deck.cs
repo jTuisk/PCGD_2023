@@ -286,13 +286,14 @@ public class Deck : MonoBehaviour
 
     public void DrawCardInHand(int amount)
     {
+        var cardDistanceScalar = Hand.GetComponent<HandOrganizer>().cardDistanceScalar;
+        var leftoverCardCount = Hand.transform.childCount;
+
         //draws specified amount of cards to hand
         for(int i=0; i<amount; i++)
         {
             if (BattleDeck.Count > 0||BattleDiscardPile.Count>0)
             {
-                //DrawCard().gameObject.transform.parent = Hand.transform;
-
                 var card = DrawCard();
                 card.status = Card.BelongTo.PlayerHand;
 
@@ -301,8 +302,8 @@ public class Deck : MonoBehaviour
                 card.gameObject.transform.parent = Hand.transform;
                 
                 var startPos = new Vector3(deckPos.x, deckPos.y, transform.position.z);
-                var endPos = new Vector3(-amount * 10/2  + i * 10, -10, 0);
-                card.triggerMove(startPos, endPos);
+                var endPos = Hand.GetComponent<HandOrganizer>().CalculateCardPos(leftoverCardCount+amount, leftoverCardCount + i, card.transform.localScale.x);
+                card.triggerMove(startPos, endPos); 
             }
 
         }

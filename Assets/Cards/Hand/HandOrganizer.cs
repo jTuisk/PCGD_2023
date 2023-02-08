@@ -9,7 +9,7 @@ public class HandOrganizer : MonoBehaviour
 
     // Called when the player draw a card from the deck, the card will then move from deck to hand
     public GameObject tpMessage;
-    void DrawACard()
+    /*void DrawACard()
     {
         //pick a card randomly from the deck (deck.BattleDeck)
         var card = Deck.Instance.DrawCard();
@@ -23,7 +23,7 @@ public class HandOrganizer : MonoBehaviour
         // TODO: should not use the position of hand, instead use the calculated position of card.
 
         //after moving, set the card as a child of hand gameObject.
-    }
+    }*/
 
     // Start is called before the first frame update
     public float cardDistanceScalar=0.5f;
@@ -34,6 +34,12 @@ public class HandOrganizer : MonoBehaviour
     // Update is called once per frame
     public float HitboxSize;
     private float heldCard=-1;
+
+    public Vector3 CalculateCardPos(int cardCount, int cardIndex, float cardScale)
+    {
+        return new Vector3(-cardCount *cardDistanceScalar*10/2  + cardDistanceScalar*cardIndex * 10, -10-15*(1-cardScale), 0);
+    }
+
     void Update()
     {
 
@@ -41,7 +47,8 @@ public class HandOrganizer : MonoBehaviour
         int i = 0;
         foreach(Transform child in transform)
         {
-            var targetPos = new Vector3(-transform.childCount *cardDistanceScalar*10/2  + cardDistanceScalar*i * 10, -10-15*(1-child.localScale.x), 0);
+            //var targetPos = new Vector3(-transform.childCount *cardDistanceScalar*10/2  + cardDistanceScalar*i * 10, -10-15*(1-child.localScale.x), 0);
+            var targetPos = CalculateCardPos(transform.childCount, i, child.localScale.x);
             var card = child.GetComponent<Card>();
             
             //move card to mouse position if player drags mouse and card distance of the cursor is lower than hitboxsize
@@ -87,7 +94,7 @@ public class HandOrganizer : MonoBehaviour
                             Instantiate(tpMessage).GetComponent<FailText>().changeTextString("Not enough toolpoints");
                         }
                     }else{
-                                                    Instantiate(tpMessage).GetComponent<FailText>().changeTextString("Not enough mana");
+                        Instantiate(tpMessage).GetComponent<FailText>().changeTextString("Not enough mana");
                     }
                 }
                 

@@ -73,7 +73,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public void triggerMove(Vector3 startPos, Vector3 endPos)
     {
         // TODO: Consider if the card is the child of Deck, should firstly unbound
-        // to make sure the transform.position is in the same hierarchy with startPos & endPos
+        // to make sure the transform.position is in the same hierarchy with startPos & endPos        
 
         //moveStartPosition = startPos;
         moveTargetPosition = endPos;
@@ -151,18 +151,18 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             gameObject.GetComponentInChildren<Canvas>().sortingOrder=20;
         }
     }
-private void resetScale(){
-                // enlarge the card scale;
-            var scale = CardHandler.Instance.cardOriginalScale;
-            this.gameObject.transform.localScale = new Vector3(scale, scale, scale);
-            gameObject.GetComponentInChildren<Canvas>().sortingOrder=0;
-}
-private void DestroyFocused(){
-            // enlarge the card scale;
-            var scale = CardHandler.Instance.cardOriginalScale;
-            this.gameObject.transform.localScale = new Vector3(scale, scale, scale);
-            gameObject.GetComponentInChildren<Canvas>().sortingOrder=0;
-}
+    private void resetScale(){
+        // enlarge the card scale;
+        var scale = CardHandler.Instance.cardOriginalScale;
+        this.gameObject.transform.localScale = new Vector3(scale, scale, scale);
+        gameObject.GetComponentInChildren<Canvas>().sortingOrder=0;
+    }
+    private void DestroyFocused(){
+        // enlarge the card scale;
+        var scale = CardHandler.Instance.cardOriginalScale;
+        this.gameObject.transform.localScale = new Vector3(scale, scale, scale);            
+        gameObject.GetComponentInChildren<Canvas>().sortingOrder=0;
+    }
     private void DisplayOnPointerExit(PointerEventData eventData)
     {
         if(status == BelongTo.PlayerHand)
