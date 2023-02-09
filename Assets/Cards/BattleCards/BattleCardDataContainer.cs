@@ -21,6 +21,10 @@ public class BattleCardDataContainer : ScriptableObject
         Deck.Instance.BattleDeckAddCardFromCardData(this);
 
     }
+    public void removeStatusEffects(){
+        Deck.Instance.statuses=new List<StatusEffectInstance>();
+
+    }
     public void EnemyDrawCard(){
         Deck.Instance.enemy.Playcard();
     }
