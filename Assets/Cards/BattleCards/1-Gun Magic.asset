@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa545c54708ee043afb4ae81f7da020, type: 3}
   m_Name: 1-Gun Magic
   m_EditorClassIdentifier: 
-  effectDescriptor: 
-  cardName: Handgun
+  effectDescriptor: ' Shoot with a handgun'
+  cardName: Handgun Magic
   Damage: 9
   block: 0
   magic: -3

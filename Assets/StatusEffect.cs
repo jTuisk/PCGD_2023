@@ -37,4 +37,8 @@ public class StatusEffect:ScriptableObject
         public void DamageEnemy(){
         Deck.Instance.enemy.takeDamage(1);
     }
+    public void DamagePlayer()
+    {
+        Deck.Instance.takeDamage(1);
+    }
 }

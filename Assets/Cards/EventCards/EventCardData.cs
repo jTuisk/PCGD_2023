@@ -31,7 +31,7 @@ public class EventCardData : ScriptableObject
     }
         public void addMaxHealth()
     {
-        Deck.Instance.MaxHp+=5;
+        Deck.Instance.MaxHp+=1;
 
     }
     public void HealToFull(){

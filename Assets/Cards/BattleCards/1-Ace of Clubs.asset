@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa545c54708ee043afb4ae81f7da020, type: 3}
   m_Name: 1-Ace of Clubs
   m_EditorClassIdentifier: 
-  effectDescriptor: 
-  cardName: Ace of Clubs
-  Damage: 5
+  effectDescriptor: ' (1x/Combat)'
+  cardName: Ace of Clubs (WIP)
+  Damage: 4
   block: 0
   magic: 0
   money: 0

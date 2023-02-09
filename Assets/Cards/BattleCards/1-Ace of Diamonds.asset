@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa545c54708ee043afb4ae81f7da020, type: 3}
   m_Name: 1-Ace of Diamonds
   m_EditorClassIdentifier: 
-  effectDescriptor: 
-  cardName: Ace of Diamonds
+  effectDescriptor: ' (1x/Combat)'
+  cardName: Ace of Diamonds (WIP)
   Damage: 0
-  block: 2
+  block: 4
   magic: 0
   money: 0
   actionCost: 1
