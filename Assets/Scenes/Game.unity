@@ -1237,12 +1237,12 @@ GameObject:
   - component: {fileID: 569819659}
   - component: {fileID: 569819660}
   m_Layer: 5
-  m_Name: ContentsOfDec
+  m_Name: ContentsOfDeck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &569819659
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1286,9 +1286,9 @@ MonoBehaviour:
   _discardPile: []
   _battleDeck: []
   _handCards: []
-  _discardPileParent: {fileID: 583511058}
-  _battleDeckParent: {fileID: 586655067}
-  _handCardsParent: {fileID: 1051849514}
+  _discardPilePosition: {x: 0, y: 0}
+  _battleDeckPosition: {x: 0, y: 0}
+  _handCardsPosition: {x: 0, y: 0}
   _customOverlay: 1
   _overlayColor: {r: 0, g: 0, b: 1, a: 1}
   _selectedCards: []
