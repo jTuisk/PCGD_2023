@@ -16,8 +16,17 @@ public class StatusEffect:ScriptableObject
         var stat = new StatusEffectInstance();
         stat.duration = this.duration;
         stat.effect = this.effect;
+        stat.id=this.name;
         Deck.Instance.statuses.Add(stat);
 
+    }
+    public void remove(){
+        for(int i =0; i<Deck.Instance.statuses.Count; i++){
+        if(Deck.Instance.statuses[i].id.Equals(name)){
+            Deck.Instance.statuses.RemoveAt(i);
+            i--;
+        }
+        }
     }
 
     public void StunEnemy() {

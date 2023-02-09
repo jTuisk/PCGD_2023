@@ -9,6 +9,8 @@ public class StatusEffectInstance
     // Start is called before the first frame update
     public int duration = 1;
     public List<UnityEvent> effect = new List<UnityEvent>();
+    internal string id;
+
     public void trigger()
     {
 
