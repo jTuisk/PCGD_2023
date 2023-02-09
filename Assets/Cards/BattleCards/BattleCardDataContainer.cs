@@ -1,11 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+
 [CreateAssetMenu (fileName ="New BattleCard", menuName ="Cards/Battle")]
 public class BattleCardDataContainer : ScriptableObject
 {
+
+
     public string effectDescriptor = "";
     public string cardName="";
     public int Damage = 0;
@@ -14,6 +18,7 @@ public class BattleCardDataContainer : ScriptableObject
     public int money = 0;
     public int actionCost = 0;
     public UnityEvent effect;
+    public List<BattleCardMenuItem> conditionalEffects;    
     public bool exaust=false;
 
     public void addCard()
@@ -40,7 +45,7 @@ public class BattleCardDataContainer : ScriptableObject
     {
         if (Deck.Instance.BattleDeck.Count > 0)
         {
-            var c = Deck.Instance.BattleDeck[Random.Range(0, Deck.Instance.BattleDeck.Count)];
+            var c = Deck.Instance.BattleDeck[UnityEngine.Random.Range(0, Deck.Instance.BattleDeck.Count)];
             Deck.Instance.BattleDeckRemove(c);
             Destroy(c.gameObject);
         }

@@ -22,3 +22,8 @@ MonoBehaviour:
   effect:
     m_PersistentCalls:
       m_Calls: []
+  conditionalEffects:
+  - independentRNG: 0
+    ConditionalEffects: []
+    conditions: []
+  exaust: 0

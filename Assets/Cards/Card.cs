@@ -25,7 +25,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public Image APImage;
     public Image ManaImage;
     public BattleCardDataContainer BattleCardData { get; private set; }
-
+    List<BattleCardMenuItem> conditionalEffects;
     public void Playcard()
     {
         if (Deck.Instance.enemy != null)
@@ -37,6 +37,19 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         Deck.Instance.money -= money;
         effect.Invoke();
 
+        foreach(BattleCardMenuItem i in conditionalEffects){
+            bool exec=true;
+            
+            foreach(var j in i.conditions){
+                if(!j.Evaluate()){
+                    exec=false;
+                }
+            }
+            if(exec){
+                BattleCardMenuItem.Activate(i.ConditionalEffects,i.independentRNG);
+            }
+            
+        }
         AudioManager.Instance.PlayCardEffectsWhenCardPlayed(this);
     }
     public void EnemyPlayCard(EnemyCard e){
@@ -65,7 +78,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         apCost.text=actionCost+"";
         ManaCost.text="";
         CardName.text=data.cardName;
-        
+        conditionalEffects=data.conditionalEffects;
         var temp=APImage.color;
         
         temp.a=1f;
