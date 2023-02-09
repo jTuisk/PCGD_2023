@@ -20,6 +20,7 @@ public class EventCardMenuItem
     [TextArea(3,10)]
     public string description="";
     //public UnityEvent effect;
+    public bool independentRNG=true;
     public List<Effect> effects;
     public List<Condition> conditions;
 }

@@ -40,7 +40,7 @@ public class EventCard : MonoBehaviour
             {
                 var button = Instantiate(ButtonPrefab);
                 //button.GetComponent<Button>().onClick.AddListener(delegate { Activate(option.effect); });
-                button.GetComponent<Button>().onClick.AddListener(delegate { Activate(option.effects); });
+                button.GetComponent<Button>().onClick.AddListener(delegate { Activate(option.effects,option.independentRNG); });
 
                 button.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = option.description;
                 button.transform.parent = Menu.transform;
@@ -53,8 +53,9 @@ public class EventCard : MonoBehaviour
         }
     }
     
-    public void Activate(List<Effect> effects)
+    public void Activate(List<Effect> effects,bool Independent)
     {
+        var sumOfprob=0.0f;
         Deck.Instance.eventVisible = false;
         foreach(var effect in effects)
         {
@@ -64,14 +65,29 @@ public class EventCard : MonoBehaviour
             var v = Random.value;
             var p = effect.possibility;
 
-            if(v <= p)
+            if(sumOfprob+p >= v && v >= sumOfprob)
             {
                 effect.targetEvent.Invoke();
+                if(Independent){
                 Debug.Log("'" + effect.name +"' takes place cuz a " + p * 100 + "% chance of happening is fulfilled by random value " + v);
+            
+            }else{
+                Debug.Log("'" + effect.name +"' takes place cuz rolled " + v + "is between " + p+sumOfprob+" and "+sumOfprob);
+            
+            }
             }
             else
             {
+                if(!Independent){
+                    Debug.Log("'" + effect.name +"'wont take take place cuz rolled " + v + "is not between " + p+sumOfprob+" and "+sumOfprob);
+                }
                 Debug.Log("'" + effect.name +"' won't take place cuz a " + p * 100 + "% chance of happening is not fulfilled by random value " + v);
+            }
+            if(!Independent){
+                sumOfprob+=effect.possibility;
+                if(sumOfprob>1){
+                    Debug.Log("Warning sum of propabilities is greater than 1 this might make some events unable to trigger. if this was intended change the mode to IndependentRNG");
+                }
             }
         }
 
