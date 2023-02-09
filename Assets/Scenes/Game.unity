@@ -1286,9 +1286,9 @@ MonoBehaviour:
   _discardPile: []
   _battleDeck: []
   _handCards: []
-  _discardPilePosition: {x: 0, y: 0}
-  _battleDeckPosition: {x: 0, y: 0}
-  _handCardsPosition: {x: 0, y: 0}
+  _discardPilePosition: {x: 0, y: 15}
+  _battleDeckPosition: {x: 0, y: 2}
+  _handCardsPosition: {x: 0, y: -11}
   _customOverlay: 1
   _overlayColor: {r: 0, g: 0, b: 1, a: 1}
   _selectedCards: []

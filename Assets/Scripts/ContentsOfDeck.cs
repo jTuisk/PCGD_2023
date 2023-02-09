@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class ContentsOfDeck : MonoBehaviour
 {
+    public static ContentsOfDeck Instance { get; private set; }
     /*TODO
-     *  Fix z position.
-     *  
      *  Later I found out that we also can use Card.Status to get List of cards and if we edit GetListOfCards to it, we can get rid of GetHandsCards function.
      */
 
@@ -34,6 +33,18 @@ public class ContentsOfDeck : MonoBehaviour
     [SerializeField] Color _overlayColor = Color.blue;
 
     [SerializeField] List<Card> _selectedCards; // to private later
+
+    [SerializeField] GameObject enemyGO;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+            return;
+        }
+        Instance = this;
+    }
 
     private void Update()
     {
@@ -167,28 +178,43 @@ public class ContentsOfDeck : MonoBehaviour
         }
     }
 
+
+    private void DisableEnemyGO(bool disable)
+    {
+        if(disable == true) //This is because GameObject.Find does not find disabled gameobjects
+            enemyGO = GameObject.Find("CreatureBase(Clone)");
+
+        if (enemyGO != null)
+        {
+            enemyGO.SetActive(!disable);
+        }
+    }
+
     private void OnEnable()
     {
         _playerHand.GetComponent<HandOrganizer>().enabled = false;
+        DisableEnemyGO(true);
     }
 
     private void OnDisable()
     {
+        foreach (GameObject cardGO in _discardPile)
+        {
+            cardGO.transform.position = new Vector2(1000000, 100000);
+        }
+
+        foreach(GameObject cardGO in _battleDeck)
+        {
+            cardGO.transform.position = new Vector2(1000000, 100000);
+        }
+
+        foreach(GameObject cardGO in _handCards)
+        {
+            //Move cards back to hand position
+        }
+
         _playerHand.GetComponent<HandOrganizer>().enabled = true;
-        // Found bug, after enabling card moves back to inhand location, it tries to use it as "player dragged it"
-        // -> fix can be that we move every card back to orginal position with corountie and after that we set HandOrganizer to true.
+        DisableEnemyGO(false);
 
-
-
-        //Move discarded card to ..
-            // i.parent = null;
-            //  i.position = new Vector2(1000000, 100000);
-
-        //Move battledeck cards to ..
-            // i.parent = null;
-            //  i.position = new Vector2(1000000, 100000);
-
-        //Move hand cards to ..
-            //_playerHand.GetComponent<HandOrganizer>().enabled = true;
     }
 }
