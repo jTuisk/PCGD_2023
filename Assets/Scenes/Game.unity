@@ -916,6 +916,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endTurnButton: {fileID: 1373997083}
   DrawEventCard: {fileID: 2076280089}
+  deckImage: {fileID: 744660474}
+  discardPileImage: {fileID: 115949907}
 --- !u!1 &359755207
 GameObject:
   m_ObjectHideFlags: 0
@@ -2128,8 +2130,8 @@ MonoBehaviour:
   m_Padding:
     m_Left: 0
     m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
+    m_Top: 20
+    m_Bottom: 20
   m_ChildAlignment: 4
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
