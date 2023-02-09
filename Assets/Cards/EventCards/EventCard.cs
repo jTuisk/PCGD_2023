@@ -8,6 +8,7 @@ public class EventCard : MonoBehaviour
    // public UnityEvent e;
    public string eName;
     public TMPro.TextMeshProUGUI text;
+    public TMPro.TextMeshProUGUI title;
     public TMPro.TextMeshProUGUI buttonText;
     public GameObject Menu;
     public GameObject ButtonPrefab;
@@ -18,11 +19,15 @@ public class EventCard : MonoBehaviour
 
 
     public void CreateEventCard(EventCardData data) {
-        name=data.name;
+        eName=data.eName;
+        if(eName.Equals("")){
+            eName=data.name;
+        }
         //e = data.e;
         text.text = data.eventText;
         //buttonText.text = data.eventButtonText;
         options = data.options;
+        title.text=eName;
         foreach (EventCardMenuItem option in options) {
             bool visible = true;
             foreach (Condition con in option.conditions) {

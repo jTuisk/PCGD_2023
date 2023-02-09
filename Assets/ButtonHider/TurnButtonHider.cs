@@ -7,6 +7,8 @@ public class TurnButtonHider : MonoBehaviour
     // Start is called before the first frame update
     public GameObject endTurnButton;
     public GameObject DrawEventCard;
+    public GameObject deckImage;
+    public GameObject discardPileImage;
     void Start()
     {
         
@@ -19,8 +21,12 @@ public class TurnButtonHider : MonoBehaviour
         if (Deck.Instance.inBattle)
         {
             endTurnButton.SetActive(true);
+            deckImage.SetActive(true);
+            discardPileImage.SetActive(true);
         }
         else {
+            deckImage.SetActive(false);
+            discardPileImage.SetActive(false);
             endTurnButton.SetActive(false);
         }
 
