@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa545c54708ee043afb4ae81f7da020, type: 3}
   m_Name: 1-Reverse
   m_EditorClassIdentifier: 
-  effectDescriptor: Enemy does it's intended damage to itself
-  cardName: Reverse
+  effectDescriptor: Enemy does it's intended damage to itself (1x/Combat)
+  cardName: Reverse (WIP)
   Damage: 0
   block: 0
   magic: 0

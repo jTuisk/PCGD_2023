@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa545c54708ee043afb4ae81f7da020, type: 3}
   m_Name: 1-Straight Jacket
   m_EditorClassIdentifier: 
-  effectDescriptor: After 2 missed turns you do double damage
+  effectDescriptor: After this turn you do double damage for 1 hand (1x/Combat)
   cardName: Straight Jacket (WIP)
   Damage: 0
   block: 0
-  magic: -1
+  magic: -2
   money: 0
   actionCost: 3
   effect:

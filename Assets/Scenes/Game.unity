@@ -779,7 +779,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -71, y: -28.815979}
+  m_AnchoredPosition: {x: -70.99994, y: -28.815979}
   m_SizeDelta: {x: -0.19995117, y: -57.63098}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &359755209
@@ -896,6 +896,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 78b6b850ddd591741a83284e521536dd, type: 2}
   - {fileID: 11400000, guid: 84d75064006b7904f8a40b06574423d5, type: 2}
   - {fileID: 11400000, guid: a5fa48b538b10c24680672aa6c3b23b3, type: 2}
+  - {fileID: 11400000, guid: 5b1410001ec70344a9b65608de28d807, type: 2}
+  - {fileID: 11400000, guid: 790c7afe06d54214187cc1fa6a94db18, type: 2}
+  - {fileID: 11400000, guid: 1c02f5d4d03ccfd488341fd4de89dfa5, type: 2}
+  - {fileID: 11400000, guid: 0a9dee4528339e04fa746753ce2b98d9, type: 2}
+  - {fileID: 11400000, guid: b19d1393a1522074d9e80a8cdf0fad97, type: 2}
+  - {fileID: 11400000, guid: b21dd676c4b5e534aa40eabc701fff2a, type: 2}
+  - {fileID: 11400000, guid: 29fce653c8934e647bc03b62761ba52e, type: 2}
+  - {fileID: 11400000, guid: cccddf60a89dd6d4ca60377bd23e3fd8, type: 2}
+  - {fileID: 11400000, guid: 166921eadf698694683dee1e7f52a789, type: 2}
+  - {fileID: 11400000, guid: b94e53e664c49b34ab479e668a24153f, type: 2}
   deckList: 09000000090000000f0000000f0000000f0000000f0000000d00000012000000120000000e0000000800000008000000030000000300000002000000020000000200000002000000
   flags: []
   money: 0

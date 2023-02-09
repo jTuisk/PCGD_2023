@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1-Cat in a Hat
   m_EditorClassIdentifier: 
   effectDescriptor: Cat scratches makes enemy take 1 dmg for 3 turns
-  cardName: Cat in a Hat (WIP)
+  cardName: Cat in a Hat
   Damage: 0
   block: 0
   magic: -2

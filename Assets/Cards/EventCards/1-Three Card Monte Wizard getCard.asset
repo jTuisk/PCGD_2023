@@ -20,7 +20,7 @@ MonoBehaviour:
   options:
   - description: Learn Three Card Monte
     effects:
-    - name: Add a card
+    - name: Learn Three Card Monte
       possibility: 1
       targetEvent:
         m_PersistentCalls:

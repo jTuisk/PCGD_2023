@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa545c54708ee043afb4ae81f7da020, type: 3}
   m_Name: 1-Ace of Hearts
   m_EditorClassIdentifier: 
-  effectDescriptor: Heal 2
-  cardName: Ace of Hearts
+  effectDescriptor: Heal 2 (1x/Combat)
+  cardName: Ace of Hearts (WIP)
   Damage: 0
   block: 0
   magic: 0

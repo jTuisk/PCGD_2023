@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa545c54708ee043afb4ae81f7da020, type: 3}
   m_Name: 1-Credit Card
   m_EditorClassIdentifier: 
-  effectDescriptor: 
-  cardName: Credit Card
+  effectDescriptor: ' (1x/Combat)'
+  cardName: Credit Card (WIP)
   Damage: 0
   block: 0
-  magic: 2
+  magic: 4
   money: 0
-  actionCost: 1
+  actionCost: 2
   effect:
     m_PersistentCalls:
       m_Calls: []
