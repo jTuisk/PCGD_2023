@@ -14,9 +14,7 @@ public class BattleCardDataContainer : ScriptableObject
     public int money = 0;
     public int actionCost = 0;
     public UnityEvent effect;
-
-
-
+    public bool exaust=false;
 
     public void addCard()
     {

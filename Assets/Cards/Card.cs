@@ -13,6 +13,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public int magic = 0;
     public int money = 0;
     public int actionCost = 0;
+    public bool exaust=false;
     public TMPro.TextMeshProUGUI description;
     public TMPro.TextMeshProUGUI apCost;
     public TMPro.TextMeshProUGUI ManaCost;
@@ -58,6 +59,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         block = data.block;
         magic = data.magic;
         money = data.money;
+        exaust=data.exaust;
         actionCost = data.actionCost;
         effect = data.effect;
         apCost.text=actionCost+"";

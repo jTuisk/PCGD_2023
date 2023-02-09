@@ -7,7 +7,9 @@ public class Deck : MonoBehaviour
     public static Deck Instance { get; private set; }
     public List<Card> BattleDeck;
     public List<Card> BattleDiscardPile;
+    public List<Card> ExaustPile;
     public List<EventCardData> EventDeck;
+
     public GameObject CardBasePrefab;
     public List<BattleCardDataContainer> cardPrefabs;
     public List<int> deckList;
@@ -30,6 +32,7 @@ public class Deck : MonoBehaviour
     public bool stunned=false;
     public int CardsDrawnAtStartOfTurn=5;
     public float PlayerDamageModifier = 1;
+    
     // wrap list<Card>.Add() function
     public void BattleDeckAdd(Card card)
     {
@@ -68,7 +71,18 @@ public class Deck : MonoBehaviour
 
         }
     }
-
+public void exaustCard(int CardIndex){
+        if(Hand.transform.childCount>0){
+            ExaustPile.Add(Hand.transform.GetChild(CardIndex).GetComponent<Card>());
+            Hand.transform.GetChild(CardIndex).position=new Vector2(10000000,100000000);
+            Hand.transform.GetChild(CardIndex).GetComponent<Card>().status=Card.BelongTo.DiscardPile;
+            Hand.transform.GetChild(CardIndex).transform.parent=null;
+        }    
+}
+    public void exaustRandom(){
+        
+        exaustCard(Random.Range(0,Hand.transform.childCount));
+    }
     public void DrawEventCard()
     {
         if(bossCounter<=20){
@@ -270,6 +284,15 @@ public class Deck : MonoBehaviour
             Debug.Log("Deck shuffled");
             BattleDiscardPile = new List<Card>();
     }
+    public void putExaustPileBackInDeck(){
+            foreach (var i in ExaustPile)
+            {
+                BattleDeckAdd(i);
+            }
+            Shuffle(BattleDeck);
+            Debug.Log("Deck shuffled");
+            ExaustPile = new List<Card>();
+    }
 
     public Card DrawCard()
     {
@@ -341,6 +364,7 @@ public class Deck : MonoBehaviour
 
     public void ResetDeck()
     {
+        putExaustPileBackInDeck();
         //moves all cards back to deck 
         shuffleDiscardPileBackInDeck();
         while (Hand.transform.childCount > 0)
@@ -362,6 +386,7 @@ public class Deck : MonoBehaviour
        Shuffle(BattleDeck);
        DrawCardInHand(CardsDrawnAtStartOfTurn);
     }
+    
 
     public void BattleDeckAddCard(int index) {
         BattleDeckAddCardFromCardData(cardPrefabs[index]);

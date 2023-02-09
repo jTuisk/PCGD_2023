@@ -22,3 +22,4 @@ MonoBehaviour:
   effect:
     m_PersistentCalls:
       m_Calls: []
+  exaust: 1

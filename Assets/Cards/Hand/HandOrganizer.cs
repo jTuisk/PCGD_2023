@@ -85,7 +85,11 @@ public class HandOrganizer : MonoBehaviour
                         {
                             Deck.Instance.actionPoints -= card.actionCost;
                             card.Playcard();
-                            Deck.Instance.BattleDiscardPile.Add(card);
+                            if(!card.exaust){
+                                Deck.Instance.BattleDiscardPile.Add(card);
+                            }else{
+                                Deck.Instance.ExaustPile.Add(card);
+                            }
                             card.status = Card.BelongTo.DiscardPile;
                             child.parent = null;
                             child.position = new Vector2(10000, 100000);

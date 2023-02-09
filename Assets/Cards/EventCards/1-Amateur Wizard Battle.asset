@@ -16,9 +16,10 @@ MonoBehaviour:
   eventText: "Your next opponent is...\nAmateur Wizard! \nGet ready!"
   options:
   - description: An amateur wizard..??
+    independentRNG: 1
     effects:
     - name: trigger a battle
-      possibility: 1
+      possibility: 0.5
       targetEvent:
         m_PersistentCalls:
           m_Calls:
