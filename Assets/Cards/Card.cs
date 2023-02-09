@@ -164,7 +164,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     private void DisplayOnPointerEnter(PointerEventData eventData)
     {
-        if(status == BelongTo.PlayerHand || ContentsOfDeck.Instance.gameObject.activeSelf)
+        if(status == BelongTo.PlayerHand || (ContentsOfDeck.Instance != null && ContentsOfDeck.Instance.gameObject.activeSelf))
         {
             // enlarge the card scale;
             var scale = CardHandler.Instance.cardScaleInPlayerHandWhenHovering;
@@ -187,7 +187,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     }
     private void DisplayOnPointerExit(PointerEventData eventData)
     {
-        if(status == BelongTo.PlayerHand || ContentsOfDeck.Instance.gameObject.activeSelf)
+        if(status == BelongTo.PlayerHand || (ContentsOfDeck.Instance != null && ContentsOfDeck.Instance.gameObject.activeSelf))
         {
             resetScale();
             // enlarge the card scale;
