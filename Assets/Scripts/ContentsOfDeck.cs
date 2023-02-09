@@ -5,13 +5,13 @@ using UnityEngine;
 public class ContentsOfDeck : MonoBehaviour
 {
     public static ContentsOfDeck Instance { get; private set; }
+
     /*TODO
      *  Later I found out that we also can use Card.Status to get List of cards and if we edit GetListOfCards to it, we can get rid of GetHandsCards function.
      */
 
     [SerializeField] GameObject _playerHand;
     [SerializeField] Deck _playerDeck;
-
 
     [Header("Game cards")]
     [SerializeField] bool _updateCardsInGame = true;
@@ -20,10 +20,9 @@ public class ContentsOfDeck : MonoBehaviour
     [SerializeField] List<GameObject> _battleDeck;
     [SerializeField] List<GameObject> _handCards;
 
+    [SerializeField] List<Card> _selectedCards; // remove seriaalizeField later
+
     [Header("Card positions")]
-    /*[SerializeField] Transform _discardPileParent;
-    [SerializeField] Transform _battleDeckParent;
-    [SerializeField] Transform _handCardsParent;*/
     [SerializeField] Vector2 _discardPilePosition;
     [SerializeField] Vector2 _battleDeckPosition;
     [SerializeField] Vector2 _handCardsPosition;
@@ -31,9 +30,6 @@ public class ContentsOfDeck : MonoBehaviour
     [Header("Others")]
     [SerializeField] bool _customOverlay = true;
     [SerializeField] Color _overlayColor = Color.blue;
-
-    [SerializeField] List<Card> _selectedCards; // to private later
-
     [SerializeField] GameObject enemyGO;
 
     private void Awake()
@@ -114,7 +110,7 @@ public class ContentsOfDeck : MonoBehaviour
      */
     private Vector3 CalculateCardPosition(Vector2 pos, int cardCount, int cardIndex, float cardScale, float distanceScalar, float z)
     {
-        float x = -cardCount * distanceScalar * 10f / 2f + distanceScalar * cardIndex * 10f + pos.x; // need to do something with this, Maybe position card in multiple line?
+        float x = -cardCount * distanceScalar * 10f / 2f + distanceScalar * cardIndex * 10f + pos.x; // need to do something with this, Maybe place cards in several rows?
         float y = pos.y;
 
         return new Vector3(x, y, z);
@@ -178,22 +174,21 @@ public class ContentsOfDeck : MonoBehaviour
         }
     }
 
-
-    private void DisableEnemyGO(bool disable)
+    private void DisplayEnemyGO(bool disable)
     {
-        if(disable == true) //This is because GameObject.Find does not find disabled gameobjects
+        if(!disable == true) //This is because GameObject.Find does not find disabled gameobjects
             enemyGO = GameObject.Find("CreatureBase(Clone)");
 
         if (enemyGO != null)
         {
-            enemyGO.SetActive(!disable);
+            enemyGO.SetActive(disable);
         }
     }
 
     private void OnEnable()
     {
         _playerHand.GetComponent<HandOrganizer>().enabled = false;
-        DisableEnemyGO(true);
+        DisplayEnemyGO(false);
     }
 
     private void OnDisable()
@@ -208,13 +203,12 @@ public class ContentsOfDeck : MonoBehaviour
             cardGO.transform.position = new Vector2(1000000, 100000);
         }
 
-        foreach(GameObject cardGO in _handCards)
+        /*foreach(GameObject cardGO in _handCards)
         {
-            //Move cards back to hand position
-        }
+            //Move cards back to hand position -> enabling HandOrganizer does it.
+        }*/
 
         _playerHand.GetComponent<HandOrganizer>().enabled = true;
-        DisableEnemyGO(false);
-
+        DisplayEnemyGO(true);
     }
 }
