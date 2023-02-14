@@ -393,6 +393,23 @@ public void exaustCard(int CardIndex){
         actionPoints = MaxactionPoints;
     }
 
+
+    public void UpdateEveryCardDescription()
+    {
+        //Seaches for all game objects tagged with "Card"
+        GameObject[] cardsInGame = GameObject.FindGameObjectsWithTag("Card");
+        foreach(GameObject cardGO in cardsInGame)
+        {
+            Card card;
+
+            //Checks if game object has a component called Card and if so, sets card value to it and returns true
+            if(cardGO.TryGetComponent<Card>(out card))
+            {
+                card.UpdateDescriptionText(PlayerDamageModifier);
+            }
+        }
+    }
+
     public void battleStart()
     {
        //run when battle starts

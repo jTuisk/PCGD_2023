@@ -219,4 +219,14 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             AudioManager.Instance.PlayOneShot(AudioManager.AudioEffects.exploreCard);
         }
     }
+
+    public void UpdateDescriptionText(float damageModifier = 1f, float blockModifier = 1f, float magicModifier = 1f, float costModifier = 1f)
+    {
+        Debug.Log($"{Damage*damageModifier}");
+        description.text = (Damage > 0 ? "Deal " + Damage*damageModifier + " Damage" : "")
+                            + (block > 0 ? " Block " + block * blockModifier + " Damage" : "")
+                            + (magic > 0 ? " gain " + magic * magicModifier + " mana" : "")
+                            + (magic < 0 ? " Costs " + (-magic * costModifier) + " mana" : "")
+                            +BattleCardData.effectDescriptor;
+    }
 }

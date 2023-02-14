@@ -22,6 +22,11 @@ public class ContentsOfDeck : MonoBehaviour
 
     [SerializeField] List<Card> _selectedCards; // remove seriaalizeField later
 
+    [Header("Show deck")]
+    [SerializeField] bool _showDiscardPile = true;
+    [SerializeField] bool _showBattleDeck = true;
+    [SerializeField] bool _showHandCards = true;
+
     [Header("Card positions")]
     [SerializeField] Vector2 _discardPilePosition;
     [SerializeField] Vector2 _battleDeckPosition;
@@ -65,6 +70,9 @@ public class ContentsOfDeck : MonoBehaviour
 
     private void DisplayDiscardedDeck()
     {
+        if (!_showDiscardPile)
+            return;
+
         Debug.Log($"discard deck pile count: {_playerDeck.BattleDiscardPile.Count} -> {_discardPile.Count}"); //Used this to make sure everything is correct.
 
         if(_discardPile.Count > 0)
@@ -75,6 +83,9 @@ public class ContentsOfDeck : MonoBehaviour
 
     private void DisplayBattleDeck()
     {
+        if (!_showBattleDeck)
+            return;
+
         Debug.Log($"battle deck pile count: {_playerDeck.BattleDeck.Count} -> {_battleDeck.Count}"); //Used this to make sure everything is correct.
 
         if(_battleDeck.Count > 0)
@@ -85,6 +96,9 @@ public class ContentsOfDeck : MonoBehaviour
     
     private void DisplayHandCards()
     {
+        if (!_showHandCards)
+            return;
+
         Debug.Log($"hand cards count: {_playerHand.transform.childCount} -> {_handCards.Count}"); //Used this to make sure everything is correct.
 
         if (_handCards.Count > 0)

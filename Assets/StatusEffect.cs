@@ -42,8 +42,9 @@ public class StatusEffect:ScriptableObject
     public void DoublePlayerDamageModifier()
     {
         Deck.Instance.PlayerDamageModifier *= 2;
+        Deck.Instance.UpdateEveryCardDescription();
     }
-        public void DamageEnemy(){
+    public void DamageEnemy(){
         Deck.Instance.enemy.takeDamage(1);
     }
     public void DamagePlayer()
