@@ -1120,14 +1120,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dff0bd6b755a2104b95bf3d52a217263, type: 2}
   - {fileID: 11400000, guid: 510d8eaf6dacae643813a9d2785b093d, type: 2}
   - {fileID: 11400000, guid: 339a938a496a52e4cb40933cee03b9b9, type: 2}
-  - {fileID: 11400000, guid: 24a4508e36bd8374686e2c5623087abb, type: 2}
-  - {fileID: 11400000, guid: a667bf4af6e6a4347bcc45c826e4a83b, type: 2}
-  - {fileID: 11400000, guid: 9db346c061419dc469103e5ea82b9a04, type: 2}
-  - {fileID: 11400000, guid: 58eb35d1a972e7544b69def813a68922, type: 2}
-  - {fileID: 11400000, guid: b508febfb4df3df448aefd3f4cbbbe4e, type: 2}
-  - {fileID: 11400000, guid: 9b4a9a6fa307426499a65f14360838d8, type: 2}
-  - {fileID: 11400000, guid: 8c52a8f269f060343830b18dcee6b182, type: 2}
-  - {fileID: 11400000, guid: 65816d853d763fa4eba25ba35da00666, type: 2}
   CardBasePrefab: {fileID: 1923058948709319707, guid: a820adf569575a349be76d6d8ef88eec, type: 3}
   cardPrefabs:
   - {fileID: 11400000, guid: 255d6e21614b8054c9f3ebdd592a1509, type: 2}
@@ -1175,8 +1167,16 @@ MonoBehaviour:
   enemy: {fileID: 0}
   Hand: {fileID: 1491589463}
   eventBase: {fileID: 1199459019132528113, guid: 50630785987eb424c83000cc971ff6fa, type: 3}
-  BossBattles:
+  BossBattles: []
+  BossBattlePool:
   - {fileID: 11400000, guid: 8a691fe5a485be348b66845a3b4d7962, type: 2}
+  - {fileID: 11400000, guid: 65816d853d763fa4eba25ba35da00666, type: 2}
+  - {fileID: 11400000, guid: a667bf4af6e6a4347bcc45c826e4a83b, type: 2}
+  - {fileID: 11400000, guid: 9b4a9a6fa307426499a65f14360838d8, type: 2}
+  - {fileID: 11400000, guid: 58eb35d1a972e7544b69def813a68922, type: 2}
+  - {fileID: 11400000, guid: 8c52a8f269f060343830b18dcee6b182, type: 2}
+  - {fileID: 11400000, guid: b508febfb4df3df448aefd3f4cbbbe4e, type: 2}
+  - {fileID: 11400000, guid: 9db346c061419dc469103e5ea82b9a04, type: 2}
   statuses: []
   stunned: 0
   CardsDrawnAtStartOfTurn: 4
