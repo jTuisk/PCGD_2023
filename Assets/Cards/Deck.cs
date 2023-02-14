@@ -28,6 +28,7 @@ public class Deck : MonoBehaviour
     public GameObject Hand;
     public GameObject eventBase;
     public List<EventCardData> BossBattles=new List<EventCardData>();
+    public List<EventCardData> BossBattlePool=new List<EventCardData>();
     public List<StatusEffectInstance> statuses = new List<StatusEffectInstance>();
     public bool stunned=false;
     public int CardsDrawnAtStartOfTurn=5;
@@ -70,6 +71,11 @@ public class Deck : MonoBehaviour
             BattleDeckAdd(j);
 
         }
+        for(int i=0; i<5;i++){
+            var temp=BossBattlePool[Random.Range(0, BossBattlePool.Count - 1)];
+            BossBattles.Add(temp);
+            BossBattlePool.Remove(temp);
+        }
     }
 public void exaustCard(int CardIndex){
         if(Hand.transform.childCount>0){
@@ -83,10 +89,17 @@ public void exaustCard(int CardIndex){
         
         exaustCard(Random.Range(0,Hand.transform.childCount));
     }
+    int bosses=0;
     public void DrawEventCard()
     {
-        if(bossCounter<=20){
-            Instantiate(eventBase).GetComponent<EventCard>().CreateEventCard(EventDeck[Random.Range(0, EventDeck.Count - 1)]);
+        if(bossCounter+bosses<=15){
+            if(bossCounter<=10 &&(bosses>=5|Random.value<0.50)){
+                Instantiate(eventBase).GetComponent<EventCard>().CreateEventCard(EventDeck[Random.Range(0, EventDeck.Count - 1)]);
+                bossCounter+=1;
+            }else{
+                Instantiate(eventBase).GetComponent<EventCard>().CreateEventCard(BossBattles[bosses]);
+                bosses+=1;
+            }
             //the below line is only for testing hovering tip-panel
             //Instantiate(eventBase).GetComponent<EventCard>().CreateEventCard(EventDeck[19]); 
 
@@ -94,7 +107,7 @@ public void exaustCard(int CardIndex){
             Instantiate(eventBase).GetComponent<EventCard>().CreateEventCard(BossBattles[Random.Range(0, BossBattles.Count)]);
             bossCounter=0;
         }
-        bossCounter+=1;
+        
         eventVisible = true;
     }
     public bool PlayerConfused=false;
