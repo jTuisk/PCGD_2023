@@ -58,7 +58,19 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         }else{
             e.takeDamage(Damage);
         }
-
+        foreach(BattleCardMenuItem i in conditionalEffects){
+            bool exec=true;
+            
+            foreach(var j in i.conditions){
+                if(!j.Evaluate()){
+                    exec=false;
+                }
+            }
+            if(exec){
+                BattleCardMenuItem.Activate(i.ConditionalEffects,i.independentRNG);
+            }
+            
+        }
         // used cards from enermy go to discard pile?
         this.status = BelongTo.DiscardPile;
         effect.Invoke();
