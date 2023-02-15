@@ -144,6 +144,7 @@ public class CardHandler : MonoBehaviour
             Destroy(currentFocusedCardObj.gameObject.GetComponent<Card>());
             var scale = CardHandler.Instance.cardScaleInEnermyDeckWhenHovering;
             currentFocusedCardObj.transform.localScale = new Vector3(scale, scale, scale);
+            currentFocusedCardObj.GetComponentInChildren<Canvas>().sortingOrder = 20;
         }
     }
 
@@ -168,8 +169,8 @@ public class CardHandler : MonoBehaviour
                 {
                     // display a tip panel
                     var campos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                    var mousepos = new Vector3(campos.x + 8, campos.y - 8, 0);
-                    currentFocusedCardObj.transform.position = mousepos;
+                    var mousepos = new Vector3(campos.x + 9f, campos.y - 9f, 0);
+                    currentFocusedCardObj.transform.position = mousepos;                    
                 }
                 break;
             }
