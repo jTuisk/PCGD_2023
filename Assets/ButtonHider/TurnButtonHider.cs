@@ -24,7 +24,11 @@ public class TurnButtonHider : MonoBehaviour
         //hide inactive UI Elements
         if (Deck.Instance.inBattle)
         {
-            endTurnButton.SetActive(true);
+            if(Deck.Instance.enemyTurn){
+                endTurnButton.SetActive(true);
+            }else{
+                endTurnButton.SetActive(false);
+            }
             deckImage.gameObject.SetActive(true);
             EventdeckImage.gameObject.SetActive(false);
             discardPileImage.SetActive(true);

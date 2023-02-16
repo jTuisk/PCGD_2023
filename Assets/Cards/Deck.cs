@@ -33,7 +33,7 @@ public class Deck : MonoBehaviour
     public bool stunned=false;
     public int CardsDrawnAtStartOfTurn=5;
     public float PlayerDamageModifier = 1;
-    
+    public bool reversed=false;
     // wrap list<Card>.Add() function
     public void BattleDeckAdd(Card card)
     {
@@ -113,8 +113,11 @@ public void exaustCard(int CardIndex){
     public bool PlayerConfused=false;
     public void takeDamage(int amount)
     {
-        Hp -= Mathf.Max(0,(int)(PlayerDamageModifier*amount)-block);
-
+        if(!reversed){
+            Hp -= Mathf.Max(0,(int)(PlayerDamageModifier*amount)-block);
+        }else{
+            Hp += Mathf.Max(0,(int)(PlayerDamageModifier*amount)-block);
+        }
         if(Hp<=0){
             SceneLoader.LoadGameOver();
         }
@@ -143,7 +146,9 @@ public void exaustCard(int CardIndex){
             enemy.damage = Random.Range(enemy.MinDamageRange, enemy.MaxDamageRange);
             
             }
-            inBattleStartTurn();
+            enemyTurn=false;
+            Invoke("inBattleStartTurn",3);
+            //inBattleStartTurn();
             Debug.Log("HP: " + Hp);
             
         }
@@ -345,10 +350,11 @@ public void exaustCard(int CardIndex){
 
         }
     }
-
+internal bool enemyTurn=true;
     public void inBattleStartTurn()
     {
-
+        enemyTurn=true;
+        reversed=false;
         enemy.EnemyDamageModifier = 1;
         PlayerDamageModifier = 1;
         //run at the start of the turn

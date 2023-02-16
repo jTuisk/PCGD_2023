@@ -42,7 +42,11 @@ public class BattleCardDataContainer : ScriptableObject
 
     }
     public void enemyTakeDamage(){
-        Deck.Instance.enemy.takeDamage(1);
+        if(!Deck.Instance.reversed){
+            Deck.Instance.enemy.takeDamage(1);
+        }else{
+            Deck.Instance.enemy.takeDamage(-1);
+        }
     }
     public void removeRandomCardFromDeck()
     {
@@ -54,16 +58,34 @@ public class BattleCardDataContainer : ScriptableObject
         }
     }
     public void ConfuseEnemy(){
-        Deck.Instance.enemy.confused=true;
+            if(!Deck.Instance.reversed){
+                Deck.Instance.enemy.confused=true;
+            }else{
+                Deck.Instance.enemy.confused=false;
+            }
     }
     public void ConfusePlayer(){
-        Deck.Instance.PlayerConfused=true;
+        if(!Deck.Instance.reversed){
+            Deck.Instance.PlayerConfused=true;
+        }else{
+            Deck.Instance.PlayerConfused=false;
+        }
     }
     public void AddAP(){
-        Deck.Instance.actionPoints+=1;
+        if(!Deck.Instance.reversed){        
+            Deck.Instance.actionPoints+=1;
+        }else{
+            if(Deck.Instance.actionPoints>0){
+                Deck.Instance.actionPoints-=1;
+            }
+        }
     }
     public void enemyHeal(){
-        Deck.Instance.enemy.HP +=1;
+        if(!Deck.Instance.reversed){
+            Deck.Instance.enemy.HP +=1;
+        }else{
+            Deck.Instance.enemy.HP -=1;
+        }
     }
     public void shuffleEnemyDeck()
     {

@@ -1181,7 +1181,10 @@ MonoBehaviour:
   stunned: 0
   CardsDrawnAtStartOfTurn: 4
   PlayerDamageModifier: 1
+  reversed: 0
+  endturnButton: {fileID: 1373997083}
   PlayerConfused: 0
+  enemyTurn: 0
 --- !u!4 &417463227
 Transform:
   m_ObjectHideFlags: 0
@@ -1506,6 +1509,9 @@ MonoBehaviour:
   _battleDeck: []
   _handCards: []
   _selectedCards: []
+  _showDiscardPile: 1
+  _showBattleDeck: 1
+  _showHandCards: 1
   _discardPilePosition: {x: 0, y: 15}
   _battleDeckPosition: {x: 0, y: 2}
   _handCardsPosition: {x: 0, y: -11}

@@ -52,7 +52,11 @@ IEnumerator shake(){
             StartCoroutine("shake");
             Instantiate(DamageText).GetComponent<DamageText>().changeTextString(""+amount*EnemyDamageModifier);
         }
+        if(!Deck.Instance.reversed){
         HP = (int) (HP - amount * EnemyDamageModifier);
+        }else{
+            HP = (int) (HP + amount * EnemyDamageModifier);
+        }
     }
     public void Create(CreatureDataContainer data)
     {
