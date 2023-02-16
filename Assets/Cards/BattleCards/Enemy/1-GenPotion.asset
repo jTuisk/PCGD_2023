@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9aa545c54708ee043afb4ae81f7da020, type: 3}
-  m_Name: 1-GenericEnemyCard
+  m_Name: 1-GenPotion
   m_EditorClassIdentifier: 
-  effectDescriptor: ' (Casts a spell of 1-5dmg)'
-  cardName: Cast a spell (WIP)
-  Damage: 1
+  effectDescriptor: 
+  cardName: 
+  Damage: 0
   block: 0
   magic: 0
   money: 0
@@ -22,3 +22,5 @@ MonoBehaviour:
   effect:
     m_PersistentCalls:
       m_Calls: []
+  conditionalEffects: []
+  exaust: 0

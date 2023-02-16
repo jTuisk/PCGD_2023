@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9aa545c54708ee043afb4ae81f7da020, type: 3}
-  m_Name: 1-GenericEnemyCard 1
+  m_Name: 1-GenBackfire
   m_EditorClassIdentifier: 
-  effectDescriptor: Block 2 damage
-  cardName: Shield
+  effectDescriptor: 
+  cardName: 
   Damage: 0
   block: 0
   magic: 0
@@ -22,3 +22,5 @@ MonoBehaviour:
   effect:
     m_PersistentCalls:
       m_Calls: []
+  conditionalEffects: []
+  exaust: 0
