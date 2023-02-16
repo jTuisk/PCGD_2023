@@ -34,6 +34,7 @@ public class Deck : MonoBehaviour
     public int CardsDrawnAtStartOfTurn=5;
     public float PlayerDamageModifier = 1;
     public bool reversed=false;
+    public List<BattleCardDataContainer> cardsToRemoveFromEnemies=new List<BattleCardDataContainer>();
     // wrap list<Card>.Add() function
     public void BattleDeckAdd(Card card)
     {

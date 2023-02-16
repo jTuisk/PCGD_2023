@@ -44,6 +44,9 @@ public class BattleCardDataContainer : ScriptableObject
     public void reverse(){
         Deck.Instance.reversed=true;
     }
+    public void removeFromEnemy(){
+        Deck.Instance.cardsToRemoveFromEnemies.Add(this);
+    }
     public void enemyTakeDamage(){
         if(!Deck.Instance.reversed){
             Deck.Instance.enemy.takeDamage(1);
