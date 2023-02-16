@@ -25,7 +25,7 @@ public class BattleCardMenuItem
                 Debug.Log("'" + effect.name +"' takes place cuz a " + p * 100 + "% chance of happening is fulfilled by random value " + v);
             
             }else{
-                Debug.Log("'" + effect.name +"' takes place cuz rolled " + v + "is between " + p+sumOfprob+" and "+sumOfprob);
+                Debug.Log("'" + effect.name +"' takes place cuz rolled " + v + "is between " + (float)(p+sumOfprob)+" and "+sumOfprob);
             
             }
             }
