@@ -100,6 +100,10 @@ IEnumerator shake(){
             enemyDeck.transform.GetChild(0).transform.position=new Vector2(10000,100000);
             enemyDeck.transform.GetChild(0).transform.parent=this.transform;
             temp.EnemyPlayCard(this);
+            if(temp.exaust){
+                cards.Remove(temp);
+                Destroy(temp.gameObject);
+            }
             reorganize();
 
             
