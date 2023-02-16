@@ -62,6 +62,9 @@ public class BattleCardDataContainer : ScriptableObject
     public void AddAP(){
         Deck.Instance.actionPoints+=1;
     }
+    public void enemyHeal(){
+        Deck.Instance.enemy.HP +=1;
+    }
     public void shuffleEnemyDeck()
     {
         if (Deck.Instance.enemy != null) {
