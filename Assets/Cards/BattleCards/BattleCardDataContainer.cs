@@ -41,6 +41,9 @@ public class BattleCardDataContainer : ScriptableObject
         Deck.Instance.discardRandom();
 
     }
+    public void reverse(){
+        Deck.Instance.reversed=true;
+    }
     public void enemyTakeDamage(){
         if(!Deck.Instance.reversed){
             Deck.Instance.enemy.takeDamage(1);
