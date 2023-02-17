@@ -9,13 +9,14 @@ public class BattleCardMenuItem
     public static void Activate(List<Effect> effects,bool Independent)
     {
         var sumOfprob=0.0f;
+        var v = UnityEngine.Random.value;
         Deck.Instance.eventVisible = false;
         foreach(var effect in effects)
         {
             if(effect.possibility == 0)
                 continue;
 
-            var v = UnityEngine.Random.value;
+
             var p = effect.possibility;
 
             if(sumOfprob+p >= v && v >= sumOfprob)

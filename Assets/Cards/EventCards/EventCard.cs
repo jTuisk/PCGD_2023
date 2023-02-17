@@ -57,12 +57,13 @@ public class EventCard : MonoBehaviour
     {
         var sumOfprob=0.0f;
         Deck.Instance.eventVisible = false;
+        var v = Random.value;
         foreach(var effect in effects)
         {
             if(effect.possibility == 0)
                 continue;
 
-            var v = Random.value;
+
             var p = effect.possibility;
 
             if(sumOfprob+p >= v && v >= sumOfprob)

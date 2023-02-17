@@ -20,8 +20,11 @@ public class EnemyCard : MonoBehaviour
     public bool confused=false;
     public bool stunned = false;
     public float EnemyDamageModifier = 1;
+    public Image img;
     void Start()
     {
+        img=sprite.GetComponent<Image>();
+        Debug.Log(img);
         Deck.Instance.battleStart();
     }
 public void reorganize(){
@@ -65,6 +68,9 @@ IEnumerator shake(){
         MinDamageRange = data.MinDamageRange;
         postBattleEvent = data.postBattleEvent;
         int j=0;
+        if(data.Picture!=null){
+            img.sprite=data.Picture;
+        }
         foreach(BattleCardDataContainer i in data.deck){
             if(!( Deck.Instance.cardsToRemoveFromEnemies.Contains(i)) ){
             var card=Instantiate(cardPrefab).GetComponent<Card>();
