@@ -1163,6 +1163,7 @@ MonoBehaviour:
   MaxactionPoints: 3
   actionPoints: 3
   inBattle: 0
+  inReward: 0
   eventVisible: 0
   enemy: {fileID: 0}
   Hand: {fileID: 1491589463}
@@ -1182,9 +1183,9 @@ MonoBehaviour:
   CardsDrawnAtStartOfTurn: 4
   PlayerDamageModifier: 1
   reversed: 0
-  endturnButton: {fileID: 1373997083}
+  cardsToRemoveFromEnemies: []
+  allEnemies: []
   PlayerConfused: 0
-  enemyTurn: 0
 --- !u!4 &417463227
 Transform:
   m_ObjectHideFlags: 0
@@ -1457,6 +1458,7 @@ GameObject:
   m_Component:
   - component: {fileID: 569819659}
   - component: {fileID: 569819660}
+  - component: {fileID: 569819661}
   m_Layer: 5
   m_Name: ContentsOfDeck
   m_TagString: Untagged
@@ -1512,12 +1514,26 @@ MonoBehaviour:
   _showDiscardPile: 1
   _showBattleDeck: 1
   _showHandCards: 1
-  _discardPilePosition: {x: 0, y: 15}
-  _battleDeckPosition: {x: 0, y: 2}
-  _handCardsPosition: {x: 0, y: -11}
+  _gridStartPosition: {x: -30, y: 15}
+  _numbersOfCardsInRow: 7
+  _rowHeight: 13
+  _columnWidth: 8.5
+  _maximumNumberOfSelectedCards: 2
   _customOverlay: 1
   _overlayColor: {r: 0, g: 0, b: 1, a: 1}
   enemyGO: {fileID: 0}
+--- !u!225 &569819661
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569819658}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &583511057
 GameObject:
   m_ObjectHideFlags: 0

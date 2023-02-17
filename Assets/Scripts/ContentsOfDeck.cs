@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class ContentsOfDeck : MonoBehaviour
 {
@@ -9,6 +11,11 @@ public class ContentsOfDeck : MonoBehaviour
     /*TODO
      *  Later I found out that we also can use Card.Status to get List of cards and if we edit GetListOfCards to it, we can get rid of GetHandsCards function.
      */
+
+    public enum DeckTask { view, selectStartDeck, removeCardFromDeck }
+
+    [SerializeField] DeckTask _currentTask = DeckTask.view;
+    [SerializeField] int _maximumNumberOfSelectedCards = 2;
 
     [SerializeField] GameObject _playerHand;
     [SerializeField] Deck _playerDeck;
@@ -20,22 +27,22 @@ public class ContentsOfDeck : MonoBehaviour
     [SerializeField] List<GameObject> _battleDeck;
     [SerializeField] List<GameObject> _handCards;
 
-    [SerializeField] List<Card> _selectedCards; // remove seriaalizeField later
+    [SerializeField] List<Card> _selectedCards; 
 
-    [Header("Show deck")]
+    [Header("Show deck")] // delete later?
     [SerializeField] bool _showDiscardPile = true;
     [SerializeField] bool _showBattleDeck = true;
     [SerializeField] bool _showHandCards = true;
 
     [Header("Card positions")]
-    [SerializeField] Vector2 _discardPilePosition;
-    [SerializeField] Vector2 _battleDeckPosition;
-    [SerializeField] Vector2 _handCardsPosition;
+    [SerializeField] Vector2 _gridStartPosition = Vector2.zero;
+    [SerializeField, Range(1, 7)] int _numbersOfCardsInRow = 5;
+    [SerializeField] float _rowHeight = 10f;
+    [SerializeField] float _columnWidth = 10f;
 
     [Header("Others")]
-    [SerializeField] bool _customOverlay = true;
-    [SerializeField] Color _overlayColor = Color.blue;
     [SerializeField] GameObject enemyGO;
+
 
     private void Awake()
     {
@@ -51,9 +58,12 @@ public class ContentsOfDeck : MonoBehaviour
     {
         GetCardsInGame();
 
-        DisplayDiscardedDeck();
-        DisplayBattleDeck();
-        DisplayHandCards();
+        DisplayListOfCards(new List<GameObject>(_cardsInGame));
+        //DisplayDiscardedDeck();
+        //DisplayBattleDeck();
+        //DisplayHandCards();
+
+        HandlePlayerInput();
     }
 
     private void GetCardsInGame()
@@ -77,7 +87,7 @@ public class ContentsOfDeck : MonoBehaviour
 
         if(_discardPile.Count > 0)
         {
-            DisplayListOfCards(_discardPile, _discardPilePosition);
+            DisplayListOfCards(_discardPile);
         }
     }
 
@@ -90,7 +100,7 @@ public class ContentsOfDeck : MonoBehaviour
 
         if(_battleDeck.Count > 0)
         {
-            DisplayListOfCards(_battleDeck, _battleDeckPosition);
+            DisplayListOfCards(_battleDeck);
         }
     }
     
@@ -103,33 +113,35 @@ public class ContentsOfDeck : MonoBehaviour
 
         if (_handCards.Count > 0)
         {
-            DisplayListOfCards(_handCards, _handCardsPosition);
+            DisplayListOfCards(_handCards);
         }
     }
 
-    private void DisplayListOfCards(List<GameObject> listOfCards, Vector2 parent)
+    private void DisplayListOfCards(List<GameObject> listOfCards)
     {
-        float cardDistanceScalar = 0.5f;
         float cardZvalue = 0f;
 
-        for (int i = 0; i < listOfCards.Count; i++)
+        Vector2 gridStartPosition = _gridStartPosition;
+
+        int totalRows = listOfCards.Count / _numbersOfCardsInRow + 1;
+
+        for (int i = 0; i < totalRows; i++)
         {
-            GameObject cardGO = listOfCards[i];
-            cardGO.transform.position = CalculateCardPosition(parent, listOfCards.Count, i, cardGO.transform.localScale.x, cardDistanceScalar, cardZvalue);
+            float currentRowPosition = gridStartPosition.y - (i* _rowHeight);
+
+            for (int j = 0; j < _numbersOfCardsInRow; j++)
+            {
+                int cardIndex = i * _numbersOfCardsInRow + j;
+
+                if (cardIndex >= listOfCards.Count)
+                    break;
+
+                GameObject cardGO = listOfCards[cardIndex];
+                Vector3 cardFinalPosition = new Vector3(gridStartPosition.x + (j * _columnWidth), currentRowPosition, cardZvalue);
+                cardGO.transform.position = cardFinalPosition;
+            }
         }
-
     }
-    /**
-     *  edited from HandOrganizer.CalculateCardPos(cardCount, cardIndex, cardScale)
-     */
-    private Vector3 CalculateCardPosition(Vector2 pos, int cardCount, int cardIndex, float cardScale, float distanceScalar, float z)
-    {
-        float x = -cardCount * distanceScalar * 10f / 2f + distanceScalar * cardIndex * 10f + pos.x; // need to do something with this, Maybe place cards in several rows?
-        float y = pos.y;
-
-        return new Vector3(x, y, z);
-    }
-
 
     private List<GameObject> GetHandCards()
     {
@@ -177,17 +189,6 @@ public class ContentsOfDeck : MonoBehaviour
         return finalList;
     }
 
-    private void AddOutLineToSelectedCards()
-    {
-        if (!_customOverlay)
-            return;
-
-        foreach(Card card in _selectedCards)
-        {
-            
-        }
-    }
-
     private void DisplayEnemyGO(bool disable)
     {
         if(!disable == true) //This is because GameObject.Find does not find disabled gameobjects
@@ -196,6 +197,107 @@ public class ContentsOfDeck : MonoBehaviour
         if (enemyGO != null)
         {
             enemyGO.SetActive(disable);
+        }
+    }
+
+    private void HandlePlayerInput()
+    {
+        if (Input.GetKeyUp(KeyCode.Mouse0) && _currentTask != DeckTask.view)
+        {
+            PointerEventData eventData = new PointerEventData(EventSystem.current);
+            eventData.position = Input.mousePosition;
+
+            List<RaycastResult> raysastResults = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(eventData, raysastResults);
+
+            if (raysastResults.Count > 0)
+            {
+                if (raysastResults[0].gameObject != null && raysastResults[0].gameObject.transform.root.tag == "Card")
+                {
+                    GameObject cardGO = raysastResults[0].gameObject.transform.root.gameObject;
+                    Card card;
+
+                    if (cardGO.TryGetComponent<Card>(out card))
+                    {
+                        AddOrRemoveCardFromSelectedList(card);
+                    }
+                    Debug.Log($"{cardGO.name}");
+                }
+            }
+            /*foreach(RaycastResult result in raysastResults)
+            {
+                if(result.gameObject != null && result.gameObject.transform.root.tag == "Card")
+                {
+                    GameObject cardGO = result.gameObject.transform.root.gameObject;
+                    Card card;
+
+                    if (cardGO.TryGetComponent<Card>(out card))
+                    {
+                        AddOrRemoveCardFromSelectedList(card);
+                    }
+                    Debug.Log($"{cardGO.name}");
+                }
+            }*/
+        }
+    }
+    public void ChangeCurrentTask(DeckTask newTask = DeckTask.view, int maxSelected = 0)
+    {
+        _currentTask = newTask;
+        //remove outline.
+        _selectedCards.Clear();
+        _maximumNumberOfSelectedCards = maxSelected;
+    }
+
+    public void FinishDeckTask()
+    {
+        switch (_currentTask)
+        {
+            case DeckTask.selectStartDeck:
+                foreach (Card card in _selectedCards)
+                {
+                    //Start game with selected cards.
+                }
+                ChangeCurrentTask();
+                gameObject.SetActive(false);
+                break;
+
+            case DeckTask.removeCardFromDeck:
+                foreach(Card card in _selectedCards)
+                {
+                    //Remove game object from every list and then destroy gameobject
+                }
+                ChangeCurrentTask();
+                gameObject.SetActive(false);
+                break;
+
+
+            default:
+                ChangeCurrentTask();
+                gameObject.SetActive(false);
+                break;
+        }
+    }
+
+
+    private void AddOrRemoveCardFromSelectedList(Card card)
+    {
+        if (_selectedCards.Contains(card))
+        {
+            _selectedCards.Remove(card);
+            //remove outline 
+        }
+        else
+        {
+            if (_selectedCards.Count < _maximumNumberOfSelectedCards)
+            {
+                _selectedCards.Add(card);
+                //Add outline
+            }
+            else
+            {
+                Debug.Log($"Too many cards selected! ({_selectedCards.Count}/{_maximumNumberOfSelectedCards})");
+                //Display error message.
+            }
         }
     }
 
