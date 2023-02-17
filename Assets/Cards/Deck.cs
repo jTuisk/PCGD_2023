@@ -23,6 +23,7 @@ public class Deck : MonoBehaviour
     public int MaxactionPoints = 3;
     public int actionPoints = 3;
     public bool inBattle=false;
+    public bool inReward = false;
     public bool eventVisible = false;
     public EnemyCard enemy;
     public GameObject Hand;
@@ -35,6 +36,26 @@ public class Deck : MonoBehaviour
     public float PlayerDamageModifier = 1;
     public bool reversed=false;
     public List<BattleCardDataContainer> cardsToRemoveFromEnemies=new List<BattleCardDataContainer>();
+
+    [HideInInspector]
+    public List<CreatureDataContainer> allEnemies;
+    public Dictionary<CreatureDataContainer, int> enemyAffectedByCombatRewards;
+    
+    private void FindAllCreatureContainers()
+    {
+        allEnemies = new List<CreatureDataContainer>();
+        enemyAffectedByCombatRewards = new Dictionary<CreatureDataContainer, int>();
+
+        string path = "Assets/Cards/Enemies";
+        string[] files = System.IO.Directory.GetFiles(path, "*.asset", System.IO.SearchOption.TopDirectoryOnly);
+        foreach (var file in files)
+        {
+            var creature = (CreatureDataContainer)UnityEditor.AssetDatabase.LoadAssetAtPath(file, typeof(CreatureDataContainer));
+            allEnemies.Add(creature);
+        }
+    }
+
+
     // wrap list<Card>.Add() function
     public void BattleDeckAdd(Card card)
     {
@@ -77,6 +98,8 @@ public class Deck : MonoBehaviour
             BossBattles.Add(temp);
             BossBattlePool.Remove(temp);
         }
+
+        FindAllCreatureContainers();
     }
 public void exaustCard(int CardIndex){
         if(Hand.transform.childCount>0){
@@ -447,5 +470,11 @@ internal bool enemyTurn=true;
     void Update()
     {
 
+    }
+
+    public void GainMaxHpByMama()
+    {
+        Hp = MaxHp;
+        mana = 0;
     }
 }

@@ -8,7 +8,7 @@ using UnityEngine.Events;
 [CreateAssetMenu (fileName ="New BattleCard", menuName ="Cards/Battle")]
 public class BattleCardDataContainer : ScriptableObject
 {
-
+    public bool IsEnemySpecialCard;
 
     public string effectDescriptor = "";
     public string cardName="";

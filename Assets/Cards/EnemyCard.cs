@@ -17,6 +17,12 @@ public class EnemyCard : MonoBehaviour
     public GameObject enemyDeck;
     public GameObject sprite;
     public EventCardData postBattleEvent;
+
+    public GameObject combatReward;
+
+    [HideInInspector]
+    public CreatureDataContainer creatureDataContainer;
+
     public bool confused=false;
     public bool stunned = false;
     public float EnemyDamageModifier = 1;
@@ -63,6 +69,11 @@ IEnumerator shake(){
     }
     public void Create(CreatureDataContainer data)
     {
+        creatureDataContainer = data;
+        // check if the battle card is banned by a previous battle reward
+        int affectedBattleCardIndex = (Deck.Instance.enemyAffectedByCombatRewards.ContainsKey(data))?
+            Deck.Instance.enemyAffectedByCombatRewards[data] : -1;
+
         HP = data.HP;
         MaxDamageRange = data.MaxDamageRange;
         MinDamageRange = data.MinDamageRange;
@@ -73,6 +84,15 @@ IEnumerator shake(){
         }
         foreach(BattleCardDataContainer i in data.deck){
             if(!( Deck.Instance.cardsToRemoveFromEnemies.Contains(i)) ){
+            
+            // Skip instantiating if the card is banned
+            if(affectedBattleCardIndex == j)
+            {
+                Deck.Instance.enemyAffectedByCombatRewards.Remove(data);
+                j++;
+                continue;
+            }
+
             var card=Instantiate(cardPrefab).GetComponent<Card>();
             card.createCard(i);
             var scale = CardHandler.Instance.cardScaleInEnermyDeck;
@@ -131,7 +151,16 @@ IEnumerator shake(){
             Deck.Instance.enemy = null;
             Deck.Instance.inBattle = false;
             Deck.Instance.ResetDeck();
-            if (postBattleEvent != null)
+
+            if(combatReward != null)
+            {
+                var combatRewardObj = Instantiate(combatReward);
+                combatRewardObj.GetComponent<CombatReward>().OnCreate(creatureDataContainer);
+
+                Deck.Instance.inReward = true;
+                Deck.Instance.eventVisible = true;
+            }
+            else if (postBattleEvent != null)
             {
                 Instantiate(Deck.Instance.eventBase).GetComponent<EventCard>().CreateEventCard(postBattleEvent);
                 Deck.Instance.eventVisible = true;

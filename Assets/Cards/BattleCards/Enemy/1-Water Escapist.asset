@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa545c54708ee043afb4ae81f7da020, type: 3}
   m_Name: 1-Water Escapist
   m_EditorClassIdentifier: 
+  IsEnemySpecialCard: 1
   effectDescriptor: Enemy has an allergic reaction for 3 turns, dealing 1 dmg each
     turn
   cardName: Watertank Escape
@@ -35,3 +36,5 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  conditionalEffects: []
+  exaust: 0

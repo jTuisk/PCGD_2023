@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa545c54708ee043afb4ae81f7da020, type: 3}
   m_Name: 1-Blackjack
   m_EditorClassIdentifier: 
+  IsEnemySpecialCard: 1
   effectDescriptor: 2-10=1dmg, 10-20=2dmg, 21=5dmg
   cardName: Blackjack (WIP)
   Damage: 0

@@ -42,7 +42,12 @@ public class TurnButtonHider : MonoBehaviour
             deckText.text="Cards left in event deck "+Deck.Instance.EventDeck.Count;
         }
 
-        if (!Deck.Instance.eventVisible&& !Deck.Instance.inBattle)
+        if(Deck.Instance.inReward)
+        {
+            deckText.text="";
+        }
+
+        if (!Deck.Instance.eventVisible && !Deck.Instance.inBattle && !Deck.Instance.inReward)
         {
             DrawEventCard.SetActive(true);
         }
