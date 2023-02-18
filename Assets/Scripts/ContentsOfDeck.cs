@@ -257,16 +257,18 @@ public class ContentsOfDeck : MonoBehaviour
                 {
                     GetCardsInGame();
                     //Removes every card that is not selected.
-                    foreach (Card card in _selectedCards)
+
+                    foreach(GameObject cardGO in _cardsInGame)
                     {
-                        GameObject cardGO = card.gameObject;
+                        Card card;
 
-                        if (!_cardsInGame.Contains(cardGO))
+                        if(cardGO.TryGetComponent(out card))
                         {
-                            _playerDeck.RemoveAndDestroyCard(card);
+                            if (!_selectedCards.Contains(card))
+                            {
+                                _playerDeck.RemoveAndDestroyCard(card);
+                            }
                         }
-
-                    //Start game with selected cards.
                     }
                     ChangeCurrentTask();
                     gameObject.SetActive(false);
