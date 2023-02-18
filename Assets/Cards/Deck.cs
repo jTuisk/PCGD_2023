@@ -70,6 +70,16 @@ public class Deck : MonoBehaviour
         card.status = Card.BelongTo.Default;
     }
 
+
+    public void RemoveAndDestroyCard(Card card)
+    {
+        BattleDeck.Remove(card);
+        BattleDiscardPile.Remove(card);
+        ExaustPile.Remove(card);
+
+        Destroy(card.gameObject);
+    }
+
     private void Awake()
     {
         //singleton setup

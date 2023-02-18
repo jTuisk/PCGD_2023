@@ -252,12 +252,25 @@ public class ContentsOfDeck : MonoBehaviour
         switch (_currentTask)
         {
             case DeckTask.selectStartDeck:
-                foreach (Card card in _selectedCards)
+
+                if (_selectedCards.Count == _maximumNumberOfSelectedCards)
                 {
+                    GetCardsInGame();
+                    //Removes every card that is not selected.
+                    foreach (Card card in _selectedCards)
+                    {
+                        GameObject cardGO = card.gameObject;
+
+                        if (!_cardsInGame.Contains(cardGO))
+                        {
+                            _playerDeck.RemoveAndDestroyCard(card);
+                        }
+
                     //Start game with selected cards.
-                }
-                ChangeCurrentTask();
-                gameObject.SetActive(false);
+                    }
+                    ChangeCurrentTask();
+                    gameObject.SetActive(false);
+                 }
                 break;
 
             case DeckTask.removeCardFromDeck:
@@ -265,24 +278,17 @@ public class ContentsOfDeck : MonoBehaviour
                 {
                     foreach (Card card in _selectedCards)
                     {
-                        GameObject cardGO = card.gameObject;
-
                         //_cardsInGame.Remove(cardGO); 
                         //_discardPile.Remove(cardGO);
                         //_battleDeck.Remove(cardGO);
                         //_handCards.Remove(cardGO);
 
-                        _playerDeck.BattleDeck.Remove(card);
-                        _playerDeck.BattleDiscardPile.Remove(card);
-                        _playerDeck.ExaustPile.Remove(card);
-
-                        Destroy(cardGO);
+                        _playerDeck.RemoveAndDestroyCard(card);
                     }
                     ChangeCurrentTask(_currentTask, _maximumNumberOfSelectedCards);
                     gameObject.SetActive(false);
                 }
                 break;
-
 
             default:
                 ChangeCurrentTask();
