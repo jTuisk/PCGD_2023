@@ -26,6 +26,10 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public Image ManaImage;
     public BattleCardDataContainer BattleCardData { get; private set; }
     List<BattleCardMenuItem> conditionalEffects;
+
+    public GameObject CardHighlightLine;
+    public Color DefaultHighlightLineColor;
+
     public void Playcard()
     {
         if (Deck.Instance.enemy != null)
@@ -155,9 +159,11 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         transform.position = Vector3.Lerp(transform.position, targetPos, (Time.time - moveStartTime)/moveDuration);
     }
+
     void Start()
     {
-        
+        SetHighlightAlpha(0f);
+        SetHighlightColor(DefaultHighlightLineColor);
     }
 
     // Update is called once per frame
@@ -221,6 +227,32 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             //var scale = CardHandler.Instance.cardOriginalScale;
             //this.gameObject.transform.localScale = new Vector3(scale, scale, scale);
             //gameObject.GetComponentInChildren<Canvas>().sortingOrder=0;
+        }
+    }
+
+    public void SetHighlightColor(Color newColor)
+    {
+        if(CardHighlightLine != null)
+        {
+            Image image;
+
+            if(CardHighlightLine.TryGetComponent<Image>(out image))
+            {
+                image.color = newColor;
+            }
+        }
+    }
+
+    public void SetHighlightAlpha(float newAlpha)
+    {
+        if (CardHighlightLine != null)
+        {
+            CanvasGroup canvasGroup;
+
+            if (CardHighlightLine.TryGetComponent<CanvasGroup>(out canvasGroup))
+            {
+                canvasGroup.alpha = newAlpha;
+            }
         }
     }
 

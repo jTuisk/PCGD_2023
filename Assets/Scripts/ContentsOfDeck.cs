@@ -15,14 +15,14 @@ public class ContentsOfDeck : MonoBehaviour
     public enum DeckTask { view, selectStartDeck, removeCardFromDeck }
 
     [SerializeField] DeckTask _currentTask = DeckTask.view;
-    [SerializeField] int _maximumNumberOfSelectedCards = 2;
+    [SerializeField] uint _maximumNumberOfSelectedCards = 2;
 
     [SerializeField] GameObject _playerHand;
     [SerializeField] Deck _playerDeck;
 
     [Header("Game cards")]
     [SerializeField] bool _updateCardsInGame = true;
-    [SerializeField] GameObject[] _cardsInGame;
+    [SerializeField] List<GameObject> _cardsInGame;
     [SerializeField] List<GameObject> _discardPile;
     [SerializeField] List<GameObject> _battleDeck;
     [SerializeField] List<GameObject> _handCards;
@@ -40,9 +40,14 @@ public class ContentsOfDeck : MonoBehaviour
     [SerializeField] float _rowHeight = 10f;
     [SerializeField] float _columnWidth = 10f;
 
+    [Header("Buttons")]
+    [SerializeField] GameObject _closeButton;
+    [SerializeField] GameObject _actionButton;
+
     [Header("Others")]
     [SerializeField] GameObject enemyGO;
-
+    [SerializeField] Color HighlightColor = Color.red;
+    [SerializeField] float timer = 1f;
 
     private void Awake()
     {
@@ -56,14 +61,11 @@ public class ContentsOfDeck : MonoBehaviour
 
     private void Update()
     {
-        GetCardsInGame();
-
-        DisplayListOfCards(new List<GameObject>(_cardsInGame));
-        //DisplayDiscardedDeck();
-        //DisplayBattleDeck();
-        //DisplayHandCards();
+        DisplayCards(); //Remove this line after testing
 
         HandlePlayerInput();
+        UpdateUIText();
+        HandleActionButton();
     }
 
     private void GetCardsInGame()
@@ -71,7 +73,7 @@ public class ContentsOfDeck : MonoBehaviour
         if (!_updateCardsInGame)
             return;
 
-        _cardsInGame = GameObject.FindGameObjectsWithTag("Card");
+        _cardsInGame = new List<GameObject>(GameObject.FindGameObjectsWithTag("Card"));
 
         _discardPile = GetListOfCards(_playerDeck.BattleDiscardPile);
         _battleDeck = GetListOfCards(_playerDeck.BattleDeck);
@@ -212,6 +214,9 @@ public class ContentsOfDeck : MonoBehaviour
 
             if (raysastResults.Count > 0)
             {
+                Debug.Log($"selected root tag: {raysastResults[0].gameObject.transform.root.tag}"); // Current
+
+                //Currently you cannot select cards that are in your hand. That's because the root tag is no longer "Card". Hand card root tag is = "Untagged")
                 if (raysastResults[0].gameObject != null && raysastResults[0].gameObject.transform.root.tag == "Card")
                 {
                     GameObject cardGO = raysastResults[0].gameObject.transform.root.gameObject;
@@ -240,16 +245,10 @@ public class ContentsOfDeck : MonoBehaviour
             }*/
         }
     }
-    public void ChangeCurrentTask(DeckTask newTask = DeckTask.view, int maxSelected = 0)
-    {
-        _currentTask = newTask;
-        //remove outline.
-        _selectedCards.Clear();
-        _maximumNumberOfSelectedCards = maxSelected;
-    }
 
     public void FinishDeckTask()
     {
+        Debug.Log("FinishTask: " + _currentTask);
         switch (_currentTask)
         {
             case DeckTask.selectStartDeck:
@@ -262,12 +261,26 @@ public class ContentsOfDeck : MonoBehaviour
                 break;
 
             case DeckTask.removeCardFromDeck:
-                foreach(Card card in _selectedCards)
+                if(_selectedCards.Count == _maximumNumberOfSelectedCards)
                 {
-                    //Remove game object from every list and then destroy gameobject
+                    foreach (Card card in _selectedCards)
+                    {
+                        GameObject cardGO = card.gameObject;
+
+                        //_cardsInGame.Remove(cardGO); 
+                        //_discardPile.Remove(cardGO);
+                        //_battleDeck.Remove(cardGO);
+                        //_handCards.Remove(cardGO);
+
+                        _playerDeck.BattleDeck.Remove(card);
+                        _playerDeck.BattleDiscardPile.Remove(card);
+                        _playerDeck.ExaustPile.Remove(card);
+
+                        Destroy(cardGO);
+                    }
+                    ChangeCurrentTask(_currentTask, _maximumNumberOfSelectedCards);
+                    gameObject.SetActive(false);
                 }
-                ChangeCurrentTask();
-                gameObject.SetActive(false);
                 break;
 
 
@@ -277,21 +290,28 @@ public class ContentsOfDeck : MonoBehaviour
                 break;
         }
     }
-
+    public void ChangeCurrentTask(DeckTask newTask = DeckTask.view, uint maxSelected = 0)
+    {
+        _currentTask = newTask;
+        RemoveSelectedCardsHighlight();
+        _selectedCards.Clear();
+        _maximumNumberOfSelectedCards = maxSelected;
+    }
 
     private void AddOrRemoveCardFromSelectedList(Card card)
     {
         if (_selectedCards.Contains(card))
         {
             _selectedCards.Remove(card);
-            //remove outline 
+            card.SetHighlightAlpha(0f);
         }
         else
         {
             if (_selectedCards.Count < _maximumNumberOfSelectedCards)
             {
                 _selectedCards.Add(card);
-                //Add outline
+                card.SetHighlightColor(HighlightColor);
+                card.SetHighlightAlpha(1f);
             }
             else
             {
@@ -299,6 +319,73 @@ public class ContentsOfDeck : MonoBehaviour
                 //Display error message.
             }
         }
+    }
+
+    private void RemoveSelectedCardsHighlight()
+    {
+        foreach(Card card in _selectedCards)
+        {
+            card.SetHighlightAlpha(0f);
+        }
+    }
+
+    public void DisplayCards()
+    {
+        DisplayCards(_currentTask, _maximumNumberOfSelectedCards);
+    }
+
+    public void DisplayCards(DeckTask deckTask = DeckTask.view, uint maxSelected = 0)
+    {
+        GetCardsInGame();
+        DisplayCards(_cardsInGame, deckTask, maxSelected);
+    }
+
+    public void DisplayCards(List<GameObject> cards, DeckTask deckTask = DeckTask.view, uint maxSelected = 0)
+    {
+        gameObject.SetActive(true);
+        _currentTask = deckTask;
+        _maximumNumberOfSelectedCards = maxSelected;
+        HandleButtonUI();
+        DisplayListOfCards(cards);
+    }
+
+    private void HandleButtonUI()
+    {
+        switch (_currentTask)
+        {
+            case DeckTask.selectStartDeck:
+            case DeckTask.removeCardFromDeck:
+                _closeButton.SetActive(false);
+                _actionButton.SetActive(true);
+                break;
+
+            default:
+                _closeButton.SetActive(true);
+                _actionButton.SetActive(false);
+                break;
+        }
+    }
+
+    private void HandleActionButton()
+    {
+        if (_actionButton.activeSelf)
+        {
+            if(_currentTask != DeckTask.view)
+            {
+                Button button = _actionButton.GetComponentInChildren<Button>();
+                    
+                if(button != null)
+                {
+                    button.interactable = _selectedCards.Count == _maximumNumberOfSelectedCards;
+                }
+            }
+        }
+    }
+
+    private void UpdateUIText()
+    {
+        //Task
+        //selected
     }
 
     private void OnEnable()
@@ -309,6 +396,7 @@ public class ContentsOfDeck : MonoBehaviour
 
     private void OnDisable()
     {
+        RemoveSelectedCardsHighlight();
         foreach (GameObject cardGO in _discardPile)
         {
             cardGO.transform.position = new Vector2(1000000, 100000);
@@ -323,8 +411,9 @@ public class ContentsOfDeck : MonoBehaviour
         {
             //Move cards back to hand position -> enabling HandOrganizer does it.
         }*/
-
-        _playerHand.GetComponent<HandOrganizer>().enabled = true;
+        HandOrganizer ho = _playerHand.GetComponent<HandOrganizer>();
+        ho.SetWaitTime(timer);
+        ho.enabled = true;
         DisplayEnemyGO(true);
     }
 }
