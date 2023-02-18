@@ -1428,7 +1428,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &569819659
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1482,11 +1482,10 @@ MonoBehaviour:
   _rowHeight: 13
   _columnWidth: 8.5
   _closeButton: {fileID: 1396521910}
-  _ActionButton: {fileID: 782068698}
-  _showCloseButton: 1
-  _showActionButton: 1
+  _actionButton: {fileID: 782068698}
   enemyGO: {fileID: 0}
   HighlightColor: {r: 1, g: 0, b: 0, a: 1}
+  timer: 1
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
