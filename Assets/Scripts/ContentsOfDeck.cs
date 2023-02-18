@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
 
 public class ContentsOfDeck : MonoBehaviour
 {
     public static ContentsOfDeck Instance { get; private set; }
 
-    /*TODO
-     *  Later I found out that we also can use Card.Status to get List of cards and if we edit GetListOfCards to it, we can get rid of GetHandsCards function.
+    /*
+     * To use this script just simply call any DisplayCards function.
+     *  DisplayCards() // Displays every card, without changing DeckTask and maxSelected.
+     *  DisplayCards(DeckTask deckTask, uint maxSelected = 0) // Displays every card, need to set DeckTask.
+     *  DisplayCards(List<GameObject> cards, DeckTask deckTask = DeckTask.view, uint maxSelected = 0) // Displays every card that is in card list.
      */
 
     public enum DeckTask { view, selectStartDeck, removeCardFromDeck }
@@ -44,6 +48,11 @@ public class ContentsOfDeck : MonoBehaviour
     [SerializeField] GameObject _closeButton;
     [SerializeField] GameObject _actionButton;
 
+    [Header("Text")]
+    [SerializeField] TextMeshProUGUI _titleTMP;
+    [SerializeField] TextMeshProUGUI _actionButtonTMP;
+
+
     [Header("Others")]
     [SerializeField] GameObject enemyGO;
     [SerializeField] Color HighlightColor = Color.red;
@@ -61,7 +70,7 @@ public class ContentsOfDeck : MonoBehaviour
 
     private void Update()
     {
-        DisplayCards(); //Remove this line after testing
+        //DisplayCards(); //Remove this line after testing
 
         HandlePlayerInput();
         UpdateUIText();
@@ -214,35 +223,15 @@ public class ContentsOfDeck : MonoBehaviour
 
             if (raysastResults.Count > 0)
             {
-                Debug.Log($"selected root tag: {raysastResults[0].gameObject.transform.root.tag}"); // Current
-
-                //Currently you cannot select cards that are in your hand. That's because the root tag is no longer "Card". Hand card root tag is = "Untagged")
-                if (raysastResults[0].gameObject != null && raysastResults[0].gameObject.transform.root.tag == "Card")
+                if(raysastResults[0].gameObject != null)
                 {
-                    GameObject cardGO = raysastResults[0].gameObject.transform.root.gameObject;
-                    Card card;
-
-                    if (cardGO.TryGetComponent<Card>(out card))
+                    Card card = raysastResults[0].gameObject.GetComponentInParent<Card>();
+                    if (card != null)
                     {
                         AddOrRemoveCardFromSelectedList(card);
                     }
-                    Debug.Log($"{cardGO.name}");
                 }
             }
-            /*foreach(RaycastResult result in raysastResults)
-            {
-                if(result.gameObject != null && result.gameObject.transform.root.tag == "Card")
-                {
-                    GameObject cardGO = result.gameObject.transform.root.gameObject;
-                    Card card;
-
-                    if (cardGO.TryGetComponent<Card>(out card))
-                    {
-                        AddOrRemoveCardFromSelectedList(card);
-                    }
-                    Debug.Log($"{cardGO.name}");
-                }
-            }*/
         }
     }
 
@@ -251,13 +240,12 @@ public class ContentsOfDeck : MonoBehaviour
         Debug.Log("FinishTask: " + _currentTask);
         switch (_currentTask)
         {
+            //Removes every card that is not selected.
             case DeckTask.selectStartDeck:
 
                 if (_selectedCards.Count == _maximumNumberOfSelectedCards)
                 {
                     GetCardsInGame();
-                    //Removes every card that is not selected.
-
                     foreach(GameObject cardGO in _cardsInGame)
                     {
                         Card card;
@@ -275,6 +263,7 @@ public class ContentsOfDeck : MonoBehaviour
                  }
                 break;
 
+            //Remove every card that is selected.
             case DeckTask.removeCardFromDeck:
                 if(_selectedCards.Count == _maximumNumberOfSelectedCards)
                 {
@@ -342,7 +331,7 @@ public class ContentsOfDeck : MonoBehaviour
         DisplayCards(_currentTask, _maximumNumberOfSelectedCards);
     }
 
-    public void DisplayCards(DeckTask deckTask = DeckTask.view, uint maxSelected = 0)
+    public void DisplayCards(DeckTask deckTask, uint maxSelected = 0)
     {
         GetCardsInGame();
         DisplayCards(_cardsInGame, deckTask, maxSelected);
@@ -392,8 +381,37 @@ public class ContentsOfDeck : MonoBehaviour
 
     private void UpdateUIText()
     {
-        //Task
-        //selected
+        string buttonText = "";
+        switch (_currentTask)
+        {
+            case DeckTask.selectStartDeck:
+                SetTitleText("Create custom Deck");
+                buttonText = _selectedCards.Count != _maximumNumberOfSelectedCards ? $"{_selectedCards.Count} / {_maximumNumberOfSelectedCards}" : "Finish deck";
+                SetActionButtonText(buttonText);
+                break;
+
+            case DeckTask.removeCardFromDeck:
+                SetTitleText("Remove cards");
+                buttonText = _selectedCards.Count != _maximumNumberOfSelectedCards ? $"{_selectedCards.Count} / {_maximumNumberOfSelectedCards}" : "Remove cards";
+                SetActionButtonText(buttonText);
+                break;
+
+            default:
+                SetTitleText();
+                SetActionButtonText();
+                break;
+        }
+    }
+
+    private void SetTitleText(string newTitle = "")
+    {
+        if(_titleTMP != null)
+            _titleTMP.text = newTitle;
+    }
+    private void SetActionButtonText(string newText = "")
+    {
+        if (_actionButtonTMP != null)
+            _actionButtonTMP.text = newText;
     }
 
     private void OnEnable()
@@ -415,10 +433,6 @@ public class ContentsOfDeck : MonoBehaviour
             cardGO.transform.position = new Vector2(1000000, 100000);
         }
 
-        /*foreach(GameObject cardGO in _handCards)
-        {
-            //Move cards back to hand position -> enabling HandOrganizer does it.
-        }*/
         HandOrganizer ho = _playerHand.GetComponent<HandOrganizer>();
         ho.SetWaitTime(timer);
         ho.enabled = true;
