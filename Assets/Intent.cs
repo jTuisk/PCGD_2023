@@ -17,6 +17,7 @@ public class Intent : Card
     public Image iMana;
         public TMPro.TextMeshProUGUI MText;
     public Image iblock;
+    public Image iSpecial;
         public TMPro.TextMeshProUGUI Btext; 
     override
     public void createCard(BattleCardDataContainer data){
@@ -56,6 +57,9 @@ public class Intent : Card
             Btext.text=""+data.block;
         }else{
             iblock.gameObject.SetActive(false);
+        }
+        if(this.effect.GetPersistentEventCount()>0|this.conditionalEffects.Count>0){
+            iSpecial.gameObject.SetActive(true);
         }
     }
     // Update is called once per frame

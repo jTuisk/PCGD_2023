@@ -14,6 +14,8 @@ public class EnemyCard : MonoBehaviour
     public List<Card> cards;
     public TMPro.TextMeshProUGUI text; 
 
+    public TMPro.TextMeshProUGUI DeckSize; 
+
     public GameObject cardPrefab;
     public GameObject enemyDeck;
     public GameObject sprite;
@@ -28,8 +30,10 @@ public class EnemyCard : MonoBehaviour
     public bool stunned = false;
     public float EnemyDamageModifier = 1;
     public Image img;
+    int decks;
     void Start()
     {
+
         img=sprite.GetComponent<Image>();
         Debug.Log(img);
         Deck.Instance.battleStart();
@@ -37,8 +41,14 @@ public class EnemyCard : MonoBehaviour
 public void reorganize(){
     for(int j=0; j<enemyDeck.transform.childCount; j++){
     enemyDeck.transform.GetChild(j).GetComponent<Card>().status=Card.BelongTo.Enermy;
-    enemyDeck.transform.GetChild(j).transform.position=new Vector2(enemyDeck.transform.position.x  + j * 2,enemyDeck.transform.position.y);
-    }
+    if(j==0){
+        enemyDeck.transform.GetChild(j).transform.position=new Vector2(enemyDeck.transform.position.x  + (j-1) * 5,enemyDeck.transform.position.y);
+        enemyDeck.transform.GetChild(j).transform.localScale=new Vector3(0.6f,0.6f,0.52f);
+    }else{
+    enemyDeck.transform.GetChild(j).transform.localScale=new Vector3(0.5f,0.5f,0.5f);
+    enemyDeck.transform.GetChild(j).transform.position=new Vector2(enemyDeck.transform.position.x  + j * 5,enemyDeck.transform.position.y);
+    }}
+    DeckSize.text=""+(decks-enemyDeck.transform.childCount);
 }
 
 
@@ -106,6 +116,8 @@ IEnumerator shake(){
             j++;
         }
         }
+        
+        decks=enemyDeck.transform.childCount;
         reorganize();
         
         Deck.Instance.Shuffle(cards);
@@ -145,6 +157,7 @@ IEnumerator shake(){
     // Update is called once per frame
     void Update()
     {
+
         //Cange gamestate back to drawing event cards if player wins battle
         text.text = damage + "\n" + HP;
         if (HP <= 0)
