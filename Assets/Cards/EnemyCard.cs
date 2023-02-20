@@ -7,6 +7,7 @@ public class EnemyCard : MonoBehaviour
     // Start is called before the first frame update
     public int HP = 10;
     public int MaxDamageRange = 6;
+    public int block=0;
     public int MinDamageRange = 1;
     public int damage = 0;
     public GameObject DamageText;
@@ -59,10 +60,10 @@ IEnumerator shake(){
     public void takeDamage(int amount) {
         if(amount>0){
             StartCoroutine("shake");
-            Instantiate(DamageText).GetComponent<DamageText>().changeTextString(""+amount*EnemyDamageModifier);
+            Instantiate(DamageText).GetComponent<DamageText>().changeTextString(""+(amount*EnemyDamageModifier-block));
         }
         if(!Deck.Instance.reversed){
-        HP = (int) (HP - amount * EnemyDamageModifier);
+        HP = Mathf.Min((int) (HP +block- amount * EnemyDamageModifier),HP);
         }else{
             HP = (int) (HP + amount * EnemyDamageModifier);
         }
@@ -93,7 +94,7 @@ IEnumerator shake(){
                 continue;
             }
 
-            var card=Instantiate(cardPrefab).GetComponent<Card>();
+            var card=Instantiate(cardPrefab).GetComponent<Intent>();
             card.createCard(i);
             var scale = CardHandler.Instance.cardScaleInEnermyDeck;
             card.transform.localScale=new Vector3(scale, scale, scale);

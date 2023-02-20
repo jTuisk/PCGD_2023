@@ -30,6 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1486902235226810390}
+  - {fileID: 4754623073051635183}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -47,12 +48,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 10
   MaxDamageRange: 6
+  block: 0
   MinDamageRange: 1
   damage: 0
   DamageText: {fileID: 7037418072275712077, guid: d26709527594e5e61903767d5a3e74cf, type: 3}
   cards: []
   text: {fileID: 2461034819953710743}
-  cardPrefab: {fileID: 1923058948709319707, guid: a820adf569575a349be76d6d8ef88eec, type: 3}
+  cardPrefab: {fileID: 4233883916310150930, guid: 7c85a5bda8d354a1ca9f5977fee97b99, type: 3}
   enemyDeck: {fileID: 4246534986805932599}
   sprite: {fileID: 9064899577724588009}
   postBattleEvent: {fileID: 0}
@@ -86,18 +88,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4246534986805932599}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1486902235226810390}
-  m_RootOrder: 2
+  m_Father: {fileID: 2786494953855687327}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -8.83, y: 12.49}
-  m_SizeDelta: {x: 45.1086, y: 0}
+  m_AnchoredPosition: {x: -8.83, y: 8.24}
+  m_SizeDelta: {x: 55.1086, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5798507917897131331
 MonoBehaviour:
@@ -283,7 +285,6 @@ RectTransform:
   m_Children:
   - {fileID: 1313309282990829429}
   - {fileID: 4280147882558681008}
-  - {fileID: 4754623073051635183}
   - {fileID: 4127581632701193334}
   m_Father: {fileID: 2786494953855687327}
   m_RootOrder: 0
@@ -504,7 +505,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4181936299481653353, guid: 69b423281289165adb3968055e63e11b, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4181936299481653353, guid: 69b423281289165adb3968055e63e11b, type: 3}
       propertyPath: m_AnchorMax.x

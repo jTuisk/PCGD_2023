@@ -129,19 +129,21 @@ public class CardHandler : MonoBehaviour
         {
         }
     }
-
+    public GameObject IntentTipPanel;
     public void SetCurrentFocusedCard(Card card)
     {
         if(!card)
             return;
 
         currentFocusedCard = card;
+
         // currentFocusedCardObj is now only used to store card prefab instance
         if(card && card.status == Card.BelongTo.Enermy)
         {
-            currentFocusedCardObj = Instantiate(card.gameObject);
+            currentFocusedCardObj = Instantiate(IntentTipPanel);
+            currentFocusedCardObj.GetComponent<IntentLarge>().createCard(card.BattleCardData);
             currentFocusedCardObj.name = "tipPanel";
-            Destroy(currentFocusedCardObj.gameObject.GetComponent<Card>());
+            //Destroy(currentFocusedCardObj.gameObject.GetComponent<Card>());
             var scale = CardHandler.Instance.cardScaleInEnermyDeckWhenHovering;
             currentFocusedCardObj.transform.localScale = new Vector3(scale, scale, scale);
             currentFocusedCardObj.GetComponentInChildren<Canvas>().sortingOrder = 20;
