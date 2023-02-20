@@ -21,21 +21,25 @@ MonoBehaviour:
   options:
   - description: 'Cups? If I wanted to watch people embarass themselves failing simple
       parlor tricks I''d go to a college frat party. '
-    effect:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 11400000, guid: 5831c272018b202b7b086087f8b682cd, type: 2}
-          m_TargetAssemblyTypeName: CreatureDataContainer, Assembly-CSharp
-          m_MethodName: Spawn
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+    independentRNG: 1
+    effects:
+    - name: 
+      possibility: 1
+      targetEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: 5831c272018b202b7b086087f8b682cd, type: 2}
+            m_TargetAssemblyTypeName: CreatureDataContainer, Assembly-CSharp
+            m_MethodName: Spawn
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
     conditions: []
   ReplaceFrom: {fileID: 0}
   ReplaceTo: {fileID: 0}

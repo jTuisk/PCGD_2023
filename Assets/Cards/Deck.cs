@@ -23,6 +23,7 @@ public class Deck : MonoBehaviour
     public int MaxactionPoints = 3;
     public int actionPoints = 3;
     public bool inBattle=false;
+    public bool inReward = false;
     public bool eventVisible = false;
     public EnemyCard enemy;
     public GameObject Hand;
@@ -33,7 +34,28 @@ public class Deck : MonoBehaviour
     public bool stunned=false;
     public int CardsDrawnAtStartOfTurn=5;
     public float PlayerDamageModifier = 1;
+    public bool reversed=false;
+    public List<BattleCardDataContainer> cardsToRemoveFromEnemies=new List<BattleCardDataContainer>();
+
+    [HideInInspector]
+    public List<CreatureDataContainer> allEnemies;
+    public Dictionary<CreatureDataContainer, int> enemyAffectedByCombatRewards;
     
+    private void FindAllCreatureContainers()
+    {
+        allEnemies = new List<CreatureDataContainer>();
+        enemyAffectedByCombatRewards = new Dictionary<CreatureDataContainer, int>();
+
+        string path = "Assets/Cards/Enemies";
+        string[] files = System.IO.Directory.GetFiles(path, "*.asset", System.IO.SearchOption.TopDirectoryOnly);
+        foreach (var file in files)
+        {
+            var creature = (CreatureDataContainer)UnityEditor.AssetDatabase.LoadAssetAtPath(file, typeof(CreatureDataContainer));
+            allEnemies.Add(creature);
+        }
+    }
+
+
     // wrap list<Card>.Add() function
     public void BattleDeckAdd(Card card)
     {
@@ -46,6 +68,16 @@ public class Deck : MonoBehaviour
     {
         BattleDeck.Remove(card);
         card.status = Card.BelongTo.Default;
+    }
+
+
+    public void RemoveAndDestroyCard(Card card)
+    {
+        BattleDeck.Remove(card);
+        BattleDiscardPile.Remove(card);
+        ExaustPile.Remove(card);
+
+        Destroy(card.gameObject);
     }
 
     private void Awake()
@@ -76,6 +108,8 @@ public class Deck : MonoBehaviour
             BossBattles.Add(temp);
             BossBattlePool.Remove(temp);
         }
+
+        FindAllCreatureContainers();
     }
 public void exaustCard(int CardIndex){
         if(Hand.transform.childCount>0){
@@ -113,8 +147,11 @@ public void exaustCard(int CardIndex){
     public bool PlayerConfused=false;
     public void takeDamage(int amount)
     {
-        Hp -= Mathf.Max(0,(int)(PlayerDamageModifier*amount)-block);
-
+        if(!reversed){
+            Hp -= Mathf.Max(0,(int)(PlayerDamageModifier*amount)-block);
+        }else{
+            Hp += Mathf.Max(0,(int)(PlayerDamageModifier*amount)-block);
+        }
         if(Hp<=0){
             SceneLoader.LoadGameOver();
         }
@@ -143,7 +180,9 @@ public void exaustCard(int CardIndex){
             enemy.damage = Random.Range(enemy.MinDamageRange, enemy.MaxDamageRange);
             
             }
-            inBattleStartTurn();
+            enemyTurn=false;
+            Invoke("inBattleStartTurn",3);
+            //inBattleStartTurn();
             Debug.Log("HP: " + Hp);
             
         }
@@ -345,10 +384,11 @@ public void exaustCard(int CardIndex){
 
         }
     }
-
+internal bool enemyTurn=true;
     public void inBattleStartTurn()
     {
-
+        enemyTurn=true;
+        reversed=false;
         enemy.EnemyDamageModifier = 1;
         PlayerDamageModifier = 1;
         //run at the start of the turn
@@ -440,5 +480,11 @@ public void exaustCard(int CardIndex){
     void Update()
     {
 
+    }
+
+    public void GainMaxHpByMama()
+    {
+        Hp = MaxHp;
+        mana = 0;
     }
 }

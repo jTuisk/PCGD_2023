@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Graphics/Enemies/gun_mage.png.meta
 guid: a3f614b077334e44c92af3b57ca16de3
+=======
+guid: 5463cbb2f676ec4f293a1ee253767b30
+>>>>>>> e1d34e8712efd9fd128395abec3c3150502c029f:Assets/Graphics/Graphics Instructions/enemy_intent_instructions.jpg.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}

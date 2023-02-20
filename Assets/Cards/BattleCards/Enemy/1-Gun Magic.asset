@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa545c54708ee043afb4ae81f7da020, type: 3}
   m_Name: 1-Gun Magic
   m_EditorClassIdentifier: 
+  IsEnemySpecialCard: 1
   effectDescriptor: Shoot the opponent with a handgun
   cardName: Gun Magic
   Damage: 9
@@ -22,3 +23,5 @@ MonoBehaviour:
   effect:
     m_PersistentCalls:
       m_Calls: []
+  conditionalEffects: []
+  exaust: 0

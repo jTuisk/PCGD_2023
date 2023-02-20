@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa545c54708ee043afb4ae81f7da020, type: 3}
   m_Name: 1-Substraction
   m_EditorClassIdentifier: 
+  IsEnemySpecialCard: 1
   effectDescriptor: Take away one enemy card
   cardName: Substraction (WIP)
   Damage: 0
@@ -22,3 +23,5 @@ MonoBehaviour:
   effect:
     m_PersistentCalls:
       m_Calls: []
+  conditionalEffects: []
+  exaust: 0

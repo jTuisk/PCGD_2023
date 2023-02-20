@@ -1,41 +1,62 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using TMPro;
 
 public class ContentsOfDeck : MonoBehaviour
 {
     public static ContentsOfDeck Instance { get; private set; }
 
-    /*TODO
-     *  Later I found out that we also can use Card.Status to get List of cards and if we edit GetListOfCards to it, we can get rid of GetHandsCards function.
+    /*
+     * To use this script just simply call any DisplayCards function.
+     *  DisplayCards() // Displays every card, without changing DeckTask and maxSelected.
+     *  DisplayCards(DeckTask deckTask, uint maxSelected = 0) // Displays every card, need to set DeckTask.
+     *  DisplayCards(List<GameObject> cards, DeckTask deckTask = DeckTask.view, uint maxSelected = 0) // Displays every card that is in card list.
      */
+
+    public enum DeckTask { view, selectStartDeck, removeCardFromDeck }
+
+    [SerializeField] DeckTask _currentTask = DeckTask.view;
+    [SerializeField] uint _maximumNumberOfSelectedCards = 2;
 
     [SerializeField] GameObject _playerHand;
     [SerializeField] Deck _playerDeck;
 
     [Header("Game cards")]
     [SerializeField] bool _updateCardsInGame = true;
-    [SerializeField] GameObject[] _cardsInGame;
+    [SerializeField] List<GameObject> _cardsInGame;
     [SerializeField] List<GameObject> _discardPile;
     [SerializeField] List<GameObject> _battleDeck;
     [SerializeField] List<GameObject> _handCards;
 
-    [SerializeField] List<Card> _selectedCards; // remove seriaalizeField later
+    [SerializeField] List<Card> _selectedCards; 
 
-    [Header("Show deck")]
+    [Header("Show deck")] // delete later?
     [SerializeField] bool _showDiscardPile = true;
     [SerializeField] bool _showBattleDeck = true;
     [SerializeField] bool _showHandCards = true;
 
     [Header("Card positions")]
-    [SerializeField] Vector2 _discardPilePosition;
-    [SerializeField] Vector2 _battleDeckPosition;
-    [SerializeField] Vector2 _handCardsPosition;
+    [SerializeField] Vector2 _gridStartPosition = Vector2.zero;
+    [SerializeField, Range(1, 7)] int _numbersOfCardsInRow = 5;
+    [SerializeField] float _rowHeight = 10f;
+    [SerializeField] float _columnWidth = 10f;
+
+    [Header("Buttons")]
+    [SerializeField] GameObject _closeButton;
+    [SerializeField] GameObject _actionButton;
+
+    [Header("Text")]
+    [SerializeField] TextMeshProUGUI _titleTMP;
+    [SerializeField] TextMeshProUGUI _actionButtonTMP;
+
 
     [Header("Others")]
-    [SerializeField] bool _customOverlay = true;
-    [SerializeField] Color _overlayColor = Color.blue;
     [SerializeField] GameObject enemyGO;
+    [SerializeField] Color HighlightColor = Color.red;
+    [SerializeField] float timer = 1f;
 
     private void Awake()
     {
@@ -49,11 +70,11 @@ public class ContentsOfDeck : MonoBehaviour
 
     private void Update()
     {
-        GetCardsInGame();
+        //DisplayCards(); //Remove this line after testing
 
-        DisplayDiscardedDeck();
-        DisplayBattleDeck();
-        DisplayHandCards();
+        HandlePlayerInput();
+        UpdateUIText();
+        HandleActionButton();
     }
 
     private void GetCardsInGame()
@@ -61,7 +82,7 @@ public class ContentsOfDeck : MonoBehaviour
         if (!_updateCardsInGame)
             return;
 
-        _cardsInGame = GameObject.FindGameObjectsWithTag("Card");
+        _cardsInGame = new List<GameObject>(GameObject.FindGameObjectsWithTag("Card"));
 
         _discardPile = GetListOfCards(_playerDeck.BattleDiscardPile);
         _battleDeck = GetListOfCards(_playerDeck.BattleDeck);
@@ -77,7 +98,7 @@ public class ContentsOfDeck : MonoBehaviour
 
         if(_discardPile.Count > 0)
         {
-            DisplayListOfCards(_discardPile, _discardPilePosition);
+            DisplayListOfCards(_discardPile);
         }
     }
 
@@ -90,7 +111,7 @@ public class ContentsOfDeck : MonoBehaviour
 
         if(_battleDeck.Count > 0)
         {
-            DisplayListOfCards(_battleDeck, _battleDeckPosition);
+            DisplayListOfCards(_battleDeck);
         }
     }
     
@@ -103,33 +124,35 @@ public class ContentsOfDeck : MonoBehaviour
 
         if (_handCards.Count > 0)
         {
-            DisplayListOfCards(_handCards, _handCardsPosition);
+            DisplayListOfCards(_handCards);
         }
     }
 
-    private void DisplayListOfCards(List<GameObject> listOfCards, Vector2 parent)
+    private void DisplayListOfCards(List<GameObject> listOfCards)
     {
-        float cardDistanceScalar = 0.5f;
         float cardZvalue = 0f;
 
-        for (int i = 0; i < listOfCards.Count; i++)
+        Vector2 gridStartPosition = _gridStartPosition;
+
+        int totalRows = listOfCards.Count / _numbersOfCardsInRow + 1;
+
+        for (int i = 0; i < totalRows; i++)
         {
-            GameObject cardGO = listOfCards[i];
-            cardGO.transform.position = CalculateCardPosition(parent, listOfCards.Count, i, cardGO.transform.localScale.x, cardDistanceScalar, cardZvalue);
+            float currentRowPosition = gridStartPosition.y - (i* _rowHeight);
+
+            for (int j = 0; j < _numbersOfCardsInRow; j++)
+            {
+                int cardIndex = i * _numbersOfCardsInRow + j;
+
+                if (cardIndex >= listOfCards.Count)
+                    break;
+
+                GameObject cardGO = listOfCards[cardIndex];
+                Vector3 cardFinalPosition = new Vector3(gridStartPosition.x + (j * _columnWidth), currentRowPosition, cardZvalue);
+                cardGO.transform.position = cardFinalPosition;
+            }
         }
-
     }
-    /**
-     *  edited from HandOrganizer.CalculateCardPos(cardCount, cardIndex, cardScale)
-     */
-    private Vector3 CalculateCardPosition(Vector2 pos, int cardCount, int cardIndex, float cardScale, float distanceScalar, float z)
-    {
-        float x = -cardCount * distanceScalar * 10f / 2f + distanceScalar * cardIndex * 10f + pos.x; // need to do something with this, Maybe place cards in several rows?
-        float y = pos.y;
-
-        return new Vector3(x, y, z);
-    }
-
 
     private List<GameObject> GetHandCards()
     {
@@ -177,17 +200,6 @@ public class ContentsOfDeck : MonoBehaviour
         return finalList;
     }
 
-    private void AddOutLineToSelectedCards()
-    {
-        if (!_customOverlay)
-            return;
-
-        foreach(Card card in _selectedCards)
-        {
-            
-        }
-    }
-
     private void DisplayEnemyGO(bool disable)
     {
         if(!disable == true) //This is because GameObject.Find does not find disabled gameobjects
@@ -199,6 +211,209 @@ public class ContentsOfDeck : MonoBehaviour
         }
     }
 
+    private void HandlePlayerInput()
+    {
+        if (Input.GetKeyUp(KeyCode.Mouse0) && _currentTask != DeckTask.view)
+        {
+            PointerEventData eventData = new PointerEventData(EventSystem.current);
+            eventData.position = Input.mousePosition;
+
+            List<RaycastResult> raysastResults = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(eventData, raysastResults);
+
+            if (raysastResults.Count > 0)
+            {
+                if(raysastResults[0].gameObject != null)
+                {
+                    Card card = raysastResults[0].gameObject.GetComponentInParent<Card>();
+                    if (card != null)
+                    {
+                        AddOrRemoveCardFromSelectedList(card);
+                    }
+                }
+            }
+        }
+    }
+
+    public void FinishDeckTask()
+    {
+        Debug.Log("FinishTask: " + _currentTask);
+        switch (_currentTask)
+        {
+            //Removes every card that is not selected.
+            case DeckTask.selectStartDeck:
+
+                if (_selectedCards.Count == _maximumNumberOfSelectedCards)
+                {
+                    GetCardsInGame();
+                    foreach(GameObject cardGO in _cardsInGame)
+                    {
+                        Card card;
+
+                        if(cardGO.TryGetComponent(out card))
+                        {
+                            if (!_selectedCards.Contains(card))
+                            {
+                                _playerDeck.RemoveAndDestroyCard(card);
+                            }
+                        }
+                    }
+                    ChangeCurrentTask();
+                    gameObject.SetActive(false);
+                 }
+                break;
+
+            //Remove every card that is selected.
+            case DeckTask.removeCardFromDeck:
+                if(_selectedCards.Count == _maximumNumberOfSelectedCards)
+                {
+                    foreach (Card card in _selectedCards)
+                    {
+                        //_cardsInGame.Remove(cardGO); 
+                        //_discardPile.Remove(cardGO);
+                        //_battleDeck.Remove(cardGO);
+                        //_handCards.Remove(cardGO);
+
+                        _playerDeck.RemoveAndDestroyCard(card);
+                    }
+                    ChangeCurrentTask(_currentTask, _maximumNumberOfSelectedCards);
+                    gameObject.SetActive(false);
+                }
+                break;
+
+            default:
+                ChangeCurrentTask();
+                gameObject.SetActive(false);
+                break;
+        }
+    }
+    public void ChangeCurrentTask(DeckTask newTask = DeckTask.view, uint maxSelected = 0)
+    {
+        _currentTask = newTask;
+        RemoveSelectedCardsHighlight();
+        _selectedCards.Clear();
+        _maximumNumberOfSelectedCards = maxSelected;
+    }
+
+    private void AddOrRemoveCardFromSelectedList(Card card)
+    {
+        if (_selectedCards.Contains(card))
+        {
+            _selectedCards.Remove(card);
+            card.SetHighlightAlpha(0f);
+        }
+        else
+        {
+            if (_selectedCards.Count < _maximumNumberOfSelectedCards)
+            {
+                _selectedCards.Add(card);
+                card.SetHighlightColor(HighlightColor);
+                card.SetHighlightAlpha(1f);
+            }
+            else
+            {
+                Debug.Log($"Too many cards selected! ({_selectedCards.Count}/{_maximumNumberOfSelectedCards})");
+                //Display error message.
+            }
+        }
+    }
+
+    private void RemoveSelectedCardsHighlight()
+    {
+        foreach(Card card in _selectedCards)
+        {
+            card.SetHighlightAlpha(0f);
+        }
+    }
+
+    public void DisplayCards()
+    {
+        DisplayCards(_currentTask, _maximumNumberOfSelectedCards);
+    }
+
+    public void DisplayCards(DeckTask deckTask, uint maxSelected = 0)
+    {
+        GetCardsInGame();
+        DisplayCards(_cardsInGame, deckTask, maxSelected);
+    }
+
+    public void DisplayCards(List<GameObject> cards, DeckTask deckTask = DeckTask.view, uint maxSelected = 0)
+    {
+        gameObject.SetActive(true);
+        _currentTask = deckTask;
+        _maximumNumberOfSelectedCards = maxSelected;
+        HandleButtonUI();
+        DisplayListOfCards(cards);
+    }
+
+    private void HandleButtonUI()
+    {
+        switch (_currentTask)
+        {
+            case DeckTask.selectStartDeck:
+            case DeckTask.removeCardFromDeck:
+                _closeButton.SetActive(false);
+                _actionButton.SetActive(true);
+                break;
+
+            default:
+                _closeButton.SetActive(true);
+                _actionButton.SetActive(false);
+                break;
+        }
+    }
+
+    private void HandleActionButton()
+    {
+        if (_actionButton.activeSelf)
+        {
+            if(_currentTask != DeckTask.view)
+            {
+                Button button = _actionButton.GetComponentInChildren<Button>();
+                    
+                if(button != null)
+                {
+                    button.interactable = _selectedCards.Count == _maximumNumberOfSelectedCards;
+                }
+            }
+        }
+    }
+
+    private void UpdateUIText()
+    {
+        string buttonText = "";
+        switch (_currentTask)
+        {
+            case DeckTask.selectStartDeck:
+                SetTitleText("Create custom Deck");
+                buttonText = _selectedCards.Count != _maximumNumberOfSelectedCards ? $"{_selectedCards.Count} / {_maximumNumberOfSelectedCards}" : "Finish deck";
+                SetActionButtonText(buttonText);
+                break;
+
+            case DeckTask.removeCardFromDeck:
+                SetTitleText("Remove cards");
+                buttonText = _selectedCards.Count != _maximumNumberOfSelectedCards ? $"{_selectedCards.Count} / {_maximumNumberOfSelectedCards}" : "Remove cards";
+                SetActionButtonText(buttonText);
+                break;
+
+            default:
+                SetTitleText();
+                SetActionButtonText();
+                break;
+        }
+    }
+
+    private void SetTitleText(string newTitle = "")
+    {
+        if(_titleTMP != null)
+            _titleTMP.text = newTitle;
+    }
+    private void SetActionButtonText(string newText = "")
+    {
+        if (_actionButtonTMP != null)
+            _actionButtonTMP.text = newText;
+    }
+
     private void OnEnable()
     {
         _playerHand.GetComponent<HandOrganizer>().enabled = false;
@@ -207,6 +422,7 @@ public class ContentsOfDeck : MonoBehaviour
 
     private void OnDisable()
     {
+        RemoveSelectedCardsHighlight();
         foreach (GameObject cardGO in _discardPile)
         {
             cardGO.transform.position = new Vector2(1000000, 100000);
@@ -217,12 +433,9 @@ public class ContentsOfDeck : MonoBehaviour
             cardGO.transform.position = new Vector2(1000000, 100000);
         }
 
-        /*foreach(GameObject cardGO in _handCards)
-        {
-            //Move cards back to hand position -> enabling HandOrganizer does it.
-        }*/
-
-        _playerHand.GetComponent<HandOrganizer>().enabled = true;
+        HandOrganizer ho = _playerHand.GetComponent<HandOrganizer>();
+        ho.SetWaitTime(timer);
+        ho.enabled = true;
         DisplayEnemyGO(true);
     }
 }

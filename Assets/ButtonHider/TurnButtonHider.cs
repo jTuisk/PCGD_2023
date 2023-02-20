@@ -24,7 +24,11 @@ public class TurnButtonHider : MonoBehaviour
         //hide inactive UI Elements
         if (Deck.Instance.inBattle)
         {
-            endTurnButton.SetActive(true);
+            if(Deck.Instance.enemyTurn){
+                endTurnButton.SetActive(true);
+            }else{
+                endTurnButton.SetActive(false);
+            }
             deckImage.gameObject.SetActive(true);
             EventdeckImage.gameObject.SetActive(false);
             discardPileImage.SetActive(true);
@@ -38,7 +42,12 @@ public class TurnButtonHider : MonoBehaviour
             deckText.text="Cards left in event deck "+Deck.Instance.EventDeck.Count;
         }
 
-        if (!Deck.Instance.eventVisible&& !Deck.Instance.inBattle)
+        if(Deck.Instance.inReward)
+        {
+            deckText.text="";
+        }
+
+        if (!Deck.Instance.eventVisible && !Deck.Instance.inBattle && !Deck.Instance.inReward)
         {
             DrawEventCard.SetActive(true);
         }

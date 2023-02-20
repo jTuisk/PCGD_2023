@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "New EventCard", menuName = "Cards/Creature")]
 public class CreatureDataContainer : ScriptableObject
@@ -13,6 +14,7 @@ public class CreatureDataContainer : ScriptableObject
     public List<BattleCardDataContainer> deck;
     public GameObject CreatureBase;
     public EventCardData postBattleEvent;
+    public Sprite Picture;
     public void Spawn()
     {
         Deck.Instance.enemy = Instantiate(CreatureBase).GetComponent<EnemyCard>();

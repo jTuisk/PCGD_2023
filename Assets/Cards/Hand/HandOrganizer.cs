@@ -5,7 +5,12 @@ using UnityEngine;
 public class HandOrganizer : MonoBehaviour
 {
     private bool[] cardInPlace = new bool[20];
-    
+
+    /*
+     * This timer is used to ensure that no card is used after it has been relased from ContenstOfDeck grid, as some cards y position will be above 700. For more information ask from Janek.
+     *      -> //when player releases card and its y position is above 700 and the player can afford it play the card
+     */
+    private float timer = 0f; 
 
     // Called when the player draw a card from the deck, the card will then move from deck to hand
     public GameObject tpMessage;
@@ -42,6 +47,8 @@ public class HandOrganizer : MonoBehaviour
 
     void Update()
     {
+        if (timer > 0)
+            timer -= Time.deltaTime;
 
         
         int i = 0;
@@ -75,7 +82,7 @@ public class HandOrganizer : MonoBehaviour
                 }
 
                 //when player releases card and its y position is above 700 and the player can afford it play the card
-                if (child.position.y > 5 && child.position.x < 700 && card.inHand == true)
+                if (child.position.y > 5 && child.position.x < 700 && card.inHand == true && timer <= 0)
                 {
                     Debug.Log("play Card");
                     if (Deck.Instance.mana + card.magic >= 0)
@@ -117,5 +124,8 @@ public class HandOrganizer : MonoBehaviour
         }
     }
 
-    
+    public void SetWaitTime(float newTime)
+    {
+        timer = newTime;
+    }
 }
