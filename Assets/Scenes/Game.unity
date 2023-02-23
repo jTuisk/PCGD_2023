@@ -1883,6 +1883,7 @@ MonoBehaviour:
   cardScaleInEnermyDeck: 0.3
   cardScaleInEnermyDeckWhenHovering: 1.5
   cardScaleInPlayerHandWhenHovering: 1.2
+  IntentTipPanel: {fileID: 4233883916310150930, guid: 3c052fac7305ccf99b412ab59e25a6c1, type: 3}
 --- !u!4 &830065931
 Transform:
   m_ObjectHideFlags: 0

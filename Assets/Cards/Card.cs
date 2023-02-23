@@ -24,8 +24,8 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public Sprite ManaSprite;
     public Image APImage;
     public Image ManaImage;
-    public BattleCardDataContainer BattleCardData { get; private set; }
-    List<BattleCardMenuItem> conditionalEffects;
+    public BattleCardDataContainer BattleCardData { get; protected set; }
+    protected List<BattleCardMenuItem> conditionalEffects;
 
     public GameObject CardHighlightLine;
     public Color DefaultHighlightLineColor;
@@ -57,6 +57,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         AudioManager.Instance.PlayCardEffectsWhenCardPlayed(this);
     }
     public void EnemyPlayCard(EnemyCard e){
+        e.block+=block;
         if(!e.confused){
             Deck.Instance.takeDamage(Damage-Deck.Instance.block);
         }else{
@@ -80,7 +81,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         effect.Invoke();
 
     }
-    public void createCard(BattleCardDataContainer data) {
+    public virtual void createCard(BattleCardDataContainer data) {
 
         BattleCardData = data;
 

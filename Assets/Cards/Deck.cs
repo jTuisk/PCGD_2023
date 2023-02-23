@@ -163,6 +163,7 @@ public void exaustCard(int CardIndex){
 
     public void inBattleEndTurn()
     {
+        enemy.block=0;
         PutHandInDiscardPile();
         //run at the end of the turn
         if (enemy != null)
