@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
+using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "New Status", menuName = "Cards/Status")]
 public class StatusEffect:ScriptableObject
@@ -11,14 +11,19 @@ public class StatusEffect:ScriptableObject
     // Start is called before the first frame update
     public int duration = 1;
     public List<UnityEvent> effect = new List<UnityEvent>();
+    public Sprite icon;
+    string desc;
+
     public void add()
     {
         var stat = new StatusEffectInstance();
         stat.duration = this.duration;
         stat.effect = this.effect;
         stat.id=this.name;
+        stat.icon=this.icon;
+        
         Deck.Instance.statuses.Add(stat);
-
+        stat.desc=this.desc;
     }
     public void remove(){
         for(int i =0; i<Deck.Instance.statuses.Count; i++){

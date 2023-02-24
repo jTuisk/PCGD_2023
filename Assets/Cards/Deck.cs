@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using UnityEngine;
 
 public class Deck : MonoBehaviour
@@ -30,7 +31,7 @@ public class Deck : MonoBehaviour
     public GameObject eventBase;
     public List<EventCardData> BossBattles=new List<EventCardData>();
     public List<EventCardData> BossBattlePool=new List<EventCardData>();
-    public List<StatusEffectInstance> statuses = new List<StatusEffectInstance>();
+    public ObservableCollection<StatusEffectInstance> statuses = new ObservableCollection<StatusEffectInstance>();
     public bool stunned=false;
     public int CardsDrawnAtStartOfTurn=5;
     public float PlayerDamageModifier = 1;
@@ -86,7 +87,6 @@ public class Deck : MonoBehaviour
         if (Instance != null && Instance != this)
         {
             Destroy(this);
-            return;
         }
         Instance = this;
     }

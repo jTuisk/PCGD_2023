@@ -1142,7 +1142,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8c52a8f269f060343830b18dcee6b182, type: 2}
   - {fileID: 11400000, guid: b508febfb4df3df448aefd3f4cbbbe4e, type: 2}
   - {fileID: 11400000, guid: 9db346c061419dc469103e5ea82b9a04, type: 2}
-  statuses: []
   stunned: 0
   CardsDrawnAtStartOfTurn: 4
   PlayerDamageModifier: 1
@@ -2294,6 +2293,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1052016115}
   m_CullTransparentMesh: 1
+--- !u!1 &1224439783
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1224439785}
+  - component: {fileID: 1224439784}
+  m_Layer: 0
+  m_Name: StatusContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1224439784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224439783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43b1a0d93b97c2ac98d82555e5480ee1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StatusObjectPrefab: {fileID: 551292779428628739, guid: 961d620d8ea78d1c099b6988851e146f, type: 3}
+--- !u!4 &1224439785
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224439783}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 30.1, y: 8.6, z: -0.1826926}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1230003143
 GameObject:
   m_ObjectHideFlags: 0

@@ -28,3 +28,4 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  icon: {fileID: 21300000, guid: 68e5a78013e33f247822a837e55b0ab4, type: 3}

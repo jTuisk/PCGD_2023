@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
+
 [Serializable]
 public class StatusEffectInstance 
 {
@@ -10,6 +12,8 @@ public class StatusEffectInstance
     public int duration = 1;
     public List<UnityEvent> effect = new List<UnityEvent>();
     internal string id;
+    public Sprite icon;
+    public string desc;
 
     public void trigger()
     {
