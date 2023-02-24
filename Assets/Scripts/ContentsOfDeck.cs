@@ -66,6 +66,12 @@ public class ContentsOfDeck : MonoBehaviour
             return;
         }
         Instance = this;
+        //gameObject.SetActive(false);
+    }
+
+    private void Start()
+    {
+        DisplayCards(DeckTask.selectStartDeck, 8);
     }
 
     private void Update()

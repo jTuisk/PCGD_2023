@@ -63,6 +63,13 @@ public class EventCardData : ScriptableObject
         Deck.Instance.flags.Add(addedTag);
 
     }
+    public void StartSelectDeck(int n){
+        ContentsOfDeck.Instance.DisplayCards(ContentsOfDeck.DeckTask.selectStartDeck, (uint) n);
+    }
+
+    public void RemoveCard(int n){
+        ContentsOfDeck.Instance.DisplayCards(ContentsOfDeck.DeckTask.removeCardFromDeck, (uint) n);
+    }
     public void replaceWithThis(){
         
         for(int i=0; i< Deck.Instance.EventDeck.Count; i++){

@@ -2322,6 +2322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43b1a0d93b97c2ac98d82555e5480ee1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  statusImages: []
   StatusObjectPrefab: {fileID: 551292779428628739, guid: 961d620d8ea78d1c099b6988851e146f, type: 3}
 --- !u!4 &1224439785
 Transform:
