@@ -21,3 +21,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e346cac6b32ca5d468ef64cc8ce7ed05, type: 2}
   CreatureBase: {fileID: 1923058948709319707, guid: 6671e36d1d116eb44b87cd53f63a7813, type: 3}
   postBattleEvent: {fileID: 11400000, guid: 6355ae4feac74594abcbbd7eeb0381d0, type: 2}
+  Picture: {fileID: 21300000, guid: 5e77c76e1140d474f9cf1c892e491c5c, type: 3}

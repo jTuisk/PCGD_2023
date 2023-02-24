@@ -390,7 +390,10 @@ internal bool enemyTurn=true;
     {
         enemyTurn=true;
         reversed=false;
-        enemy.EnemyDamageModifier = 1;
+        if (enemy != null)
+        {
+            enemy.EnemyDamageModifier = 1;
+        }
         PlayerDamageModifier = 1;
         //run at the start of the turn
         DrawCardInHand(CardsDrawnAtStartOfTurn);

@@ -12,7 +12,7 @@ public class StatusEffect:ScriptableObject
     public int duration = 1;
     public List<UnityEvent> effect = new List<UnityEvent>();
     public Sprite icon;
-    string desc;
+    public string desc;
 
     public void add()
     {
