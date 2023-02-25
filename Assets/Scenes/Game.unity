@@ -1141,6 +1141,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 58eb35d1a972e7544b69def813a68922, type: 2}
   - {fileID: 11400000, guid: 8c52a8f269f060343830b18dcee6b182, type: 2}
   - {fileID: 11400000, guid: b508febfb4df3df448aefd3f4cbbbe4e, type: 2}
+  - {fileID: 11400000, guid: 24a4508e36bd8374686e2c5623087abb, type: 2}
   - {fileID: 11400000, guid: 9db346c061419dc469103e5ea82b9a04, type: 2}
   stunned: 0
   CardsDrawnAtStartOfTurn: 4
