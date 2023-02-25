@@ -44,4 +44,10 @@ public void init(StatusEffectInstance status,StatusAnimator animator){
         Debug.Log("exited");
         Destroy(focused);
     }
+    private void OnDestroy()
+    {
+        if (focused != null) {
+            Destroy(focused);
+        }
+    }
 }
