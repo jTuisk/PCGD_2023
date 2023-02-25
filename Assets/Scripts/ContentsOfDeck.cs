@@ -71,7 +71,7 @@ public class ContentsOfDeck : MonoBehaviour
 
     private void Start()
     {
-        DisplayCards(DeckTask.selectStartDeck, 8);
+        DisplayCards(DeckTask.selectStartDeck, 10);
     }
 
     private void Update()
