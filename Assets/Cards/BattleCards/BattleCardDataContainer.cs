@@ -27,7 +27,7 @@ public class BattleCardDataContainer : ScriptableObject
 
     }
     public void removeStatusEffects(){
-        Deck.Instance.statuses=new System.Collections.ObjectModel.ObservableCollection<StatusEffectInstance>();
+        Deck.Instance.removeAllStatuses();
 
     }
     public void EnemyDrawCard(){

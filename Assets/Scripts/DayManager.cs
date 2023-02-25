@@ -6,6 +6,9 @@ using UnityEngine;
 public class DayResource
 {
     public List<EventCardData> EventPrefabs;
+    public List<EventCardData> BossPool;
+
+    public List<EventCardData> FinalBossPool;
     //public List<BattleCardDataContainer> BattlePrefabs;
 }
 
@@ -15,7 +18,7 @@ public class DayManager : MonoBehaviour
     private int dayCount = 3;
     private int currentDay = 1;
 
-    private void SwitchDay (int dayIndex)
+    public void SwitchDay (int dayIndex)
     {
         currentDay = dayIndex + 1;
 

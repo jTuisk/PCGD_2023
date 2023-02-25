@@ -25,7 +25,7 @@ public void init(StatusEffectInstance status,StatusAnimator animator){
     void Update()
     {
         text.text=""+stat.duration;
-        if(stat.duration<=0){
+        if(stat.duration<=0||!( Deck.Instance.statuses.Contains(stat))){
             animator.statusImages.Remove(this.gameObject);
             Destroy(this.gameObject);
         }
