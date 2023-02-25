@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Socialize
   m_EditorClassIdentifier: 
   eName: 
-  eventText: Who do you want to go out with?
+  eventText: Who do you want to go out with? (WIP)
   options:
   - description: 
     independentRNG: 0

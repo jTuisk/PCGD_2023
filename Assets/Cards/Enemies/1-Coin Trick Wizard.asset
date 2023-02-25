@@ -16,8 +16,13 @@ MonoBehaviour:
   MaxDamageRange: 3
   MinDamageRange: 1
   deck:
-  - {fileID: 11400000, guid: 2fc8a35b133382545b015367c91cc625, type: 2}
-  - {fileID: 11400000, guid: 6e22346bd8c91054a846dad7627ae4e2, type: 2}
   - {fileID: 11400000, guid: b097a2c8c62bb8647ac82ae84a3fec27, type: 2}
+  - {fileID: 11400000, guid: 6e22346bd8c91054a846dad7627ae4e2, type: 2}
+  - {fileID: 11400000, guid: 2fc8a35b133382545b015367c91cc625, type: 2}
+  - {fileID: 11400000, guid: b097a2c8c62bb8647ac82ae84a3fec27, type: 2}
+  - {fileID: 11400000, guid: d101106bd11b0f748b1c3d5c94a11218, type: 2}
+  - {fileID: 11400000, guid: 6e22346bd8c91054a846dad7627ae4e2, type: 2}
+  - {fileID: 11400000, guid: 6f56ef93e442a994b985a8721e3368be, type: 2}
   CreatureBase: {fileID: 1923058948709319707, guid: 6671e36d1d116eb44b87cd53f63a7813, type: 3}
   postBattleEvent: {fileID: 11400000, guid: 6875d37fdca8a844e94e879b8b95f1c0, type: 2}
+  Picture: {fileID: 0}

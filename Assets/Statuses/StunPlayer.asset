@@ -29,4 +29,5 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   icon: {fileID: 0}
-  desc: stun player
+  desc: Stun player
+  targetsEnemy: 0

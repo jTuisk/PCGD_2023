@@ -19,7 +19,7 @@ MonoBehaviour:
     pay for everything the wizard can eat, and they overindulge themselves with the
     abundance of food available'
   options:
-  - description: I'll pay for everything you can eat! (Mana -> 0)
+  - description: I'll pay for everything you can eat!
     independentRNG: 0
     effects:
     - name: Enemy becomes stunned for three turns WIP

@@ -29,4 +29,5 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   icon: {fileID: 0}
-  desc: Enemy takes 1 damage
+  desc: Enemy takes one damage
+  targetsEnemy: 0
