@@ -54,6 +54,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             }
             
         }
+        ExplosionManager.Instance.playCard(this);
         AudioManager.Instance.PlayCardEffectsWhenCardPlayed(this);
     }
     public void EnemyPlayCard(EnemyCard e){

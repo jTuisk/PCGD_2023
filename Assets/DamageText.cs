@@ -6,6 +6,7 @@ public class DamageText : MonoBehaviour
 {
     // Start is called before the first frame update
     public TMPro.TextMeshProUGUI text;
+    public float speed=1;
     public void die(){
         Destroy(gameObject);
 
@@ -13,7 +14,7 @@ public class DamageText : MonoBehaviour
     void Start()
     {
         Invoke("die",3);
-        text.transform.position+=new Vector3(Random.Range(-30,30),0,0);
+        text.transform.position+=new Vector3(Random.Range(-10,10),0,0);
     }
     public void changeTextString(string tex){
         text.text=tex;
@@ -23,7 +24,7 @@ public class DamageText : MonoBehaviour
     void Update()
     {
         text.alpha=Mathf.Lerp(1,0,time/3);
-        text.transform.position+=Vector3.up;
+        text.transform.position+=Vector3.up*speed;
         time+=Time.deltaTime;
     }
 }

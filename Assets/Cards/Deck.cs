@@ -149,6 +149,7 @@ public void exaustCard(int CardIndex){
     {
         if(!reversed){
             Hp -= Mathf.Max(0,(int)(PlayerDamageModifier*amount)-block);
+            ExplosionManager.Instance.PlayHealthAnimation(Mathf.Max(0,(int)(PlayerDamageModifier*amount)-block));
         }else{
             Hp += Mathf.Max(0,(int)(PlayerDamageModifier*amount)-block);
         }
