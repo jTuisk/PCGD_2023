@@ -74,7 +74,7 @@ IEnumerator shake(){
             ExplosionManager.Instance.PlayHealthAnimation((int)(amount*EnemyDamageModifier-block),new Vector3(0,0,0));
         }
         if(!Deck.Instance.reversed){
-        HP = Mathf.Min((int) (HP +block- amount * EnemyDamageModifier),HP);
+        HP = Mathf.Min((int) (HP +block- amount * EnemyDamageModifier),amount>0?HP:HP-amount);
         }else{
             HP = (int) (HP + amount * EnemyDamageModifier);
         }
