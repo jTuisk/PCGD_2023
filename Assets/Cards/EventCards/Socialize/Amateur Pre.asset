@@ -13,8 +13,33 @@ MonoBehaviour:
   m_Name: Amateur Pre
   m_EditorClassIdentifier: 
   eName: 
-  eventText: 
-  options: []
+  eventText: Hey don't mess with me man or imma cap yo ass!
+  options:
+  - description: Mess with him
+    independentRNG: 0
+    effects:
+    - name: Health = 10
+      possibility: 1
+      targetEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000}
+            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+            m_MethodName: AmateurEncounter
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    conditions: []
+  - description: Leave him be
+    independentRNG: 0
+    effects: []
+    conditions: []
   ReplaceFrom: {fileID: 0}
   ReplaceTo: {fileID: 0}
   replaceEvent: {fileID: 0}

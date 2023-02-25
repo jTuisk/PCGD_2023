@@ -13,8 +13,13 @@ MonoBehaviour:
   m_Name: Straight Pre
   m_EditorClassIdentifier: 
   eName: 
-  eventText: 
-  options: []
+  eventText: Hey this guy seems to be mentally ill.. What if I give him this pill
+    I got in my pockets?
+  options:
+  - description: Give them the pill WIP (Remove straight jacket wizard from the pool)
+    independentRNG: 0
+    effects: []
+    conditions: []
   ReplaceFrom: {fileID: 0}
   ReplaceTo: {fileID: 0}
   replaceEvent: {fileID: 0}

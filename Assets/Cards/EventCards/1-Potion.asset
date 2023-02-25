@@ -17,6 +17,7 @@ MonoBehaviour:
     looking potions. Fancy your changes?
   options:
   - description: Yes, I'll take the red one!
+    independentRNG: 1
     effects:
     - name: Take 10 damages
       possibility: 1
@@ -157,6 +158,7 @@ MonoBehaviour:
             m_CallState: 2
     conditions: []
   - description: The blue one looks good!
+    independentRNG: 1
     effects:
     - name: Add 5 mana
       possibility: 1
@@ -236,7 +238,41 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
     conditions: []
+  - description: The purple one looks intriguing!
+    independentRNG: 1
+    effects:
+    - name: 
+      possibility: 1
+      targetEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000}
+            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+            m_MethodName: remove
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+          - m_Target: {fileID: 11400000, guid: b94e53e664c49b34ab479e668a24153f, type: 2}
+            m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
+            m_MethodName: addCard
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    conditions: []
   - description: I'm fine, thanks.
+    independentRNG: 1
     effects:
     - name: Remove this event card
       possibility: 1

@@ -13,8 +13,19 @@ MonoBehaviour:
   m_Name: Three Card Pre
   m_EditorClassIdentifier: 
   eName: 
-  eventText: 
-  options: []
+  eventText: 'You go out for pints with the wizard, and they get absolutely plastered
+    after you make them down shots.
+
+    When they leave, you see them drop half
+    their belongings to the streets, along with one of their cards.'
+  options:
+  - description: 'Hopefully this will help with the battle... WIP
+
+      (Enemy becomes
+      stunned when playing three card monte)'
+    independentRNG: 0
+    effects: []
+    conditions: []
   ReplaceFrom: {fileID: 0}
   ReplaceTo: {fileID: 0}
   replaceEvent: {fileID: 0}

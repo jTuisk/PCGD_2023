@@ -13,8 +13,16 @@ MonoBehaviour:
   m_Name: Math Pre Win
   m_EditorClassIdentifier: 
   eName: 
-  eventText: 
-  options: []
+  eventText: 'Wait what? You beat me at my own game?
+
+    ... Is that a calculator?!
+    How DARE you... Ugh, I should''ve specified...'
+  options:
+  - description: Har-har! In your face, loser! (Math Wizard becomes stunned in the
+      first turn) WIP
+    independentRNG: 0
+    effects: []
+    conditions: []
   ReplaceFrom: {fileID: 0}
   ReplaceTo: {fileID: 0}
   replaceEvent: {fileID: 0}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa545c54708ee043afb4ae81f7da020, type: 3}
   m_Name: 1-GenSpell
   m_EditorClassIdentifier: 
-  IsEnemySpecialCard: 1
+  IsEnemySpecialCard: 0
   effectDescriptor: ' Casts a spell of 1-5dmg'
   cardName: Cast a spell
   Damage: 0
