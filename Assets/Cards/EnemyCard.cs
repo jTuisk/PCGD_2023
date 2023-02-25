@@ -183,4 +183,44 @@ IEnumerator shake(){
         }
         
     }
+    float attackAnimationDuration=1;
+    public void moveToPos(Vector3 startpos,Vector3 targetPos,float time,float duration){
+        var r=NonLinInterpolationUtil.Interpolate(0,1,time/(duration),NonLinInterpolationUtil.EaseType.Quadratic,NonLinInterpolationUtil.EaseType.Quadratic);
+        sprite.transform.position=startpos+r*targetPos;
+    }
+    IEnumerator attackAnimation(){
+        //Anticipation
+        Vector3 startpos=sprite.transform.position;
+        float time=0;
+        while(time<attackAnimationDuration/3){
+        time+=Time.deltaTime;
+        moveToPos(startpos,new Vector3(-2.5f,0,0),time,attackAnimationDuration/3);
+        yield return 0;
+        }
+        //attack and overshoot
+        time=0;
+        Vector3 posStage2=sprite.transform.position;
+        while(time<attackAnimationDuration/6){
+        time+=Time.deltaTime;
+        moveToPos(posStage2,new Vector3(20,0,0),time,attackAnimationDuration/6);
+        yield return 0;
+        }
+        //overshoot
+        time=0;
+        posStage2=sprite.transform.position;
+        while(time<attackAnimationDuration/(24)){
+        time+=Time.deltaTime;
+        moveToPos(posStage2,new Vector3(-3,0,0),time,attackAnimationDuration/(24));
+        yield return 0;
+        }
+        //return
+        time=0;
+         posStage2=sprite.transform.position;
+        while(time<attackAnimationDuration/3){
+        time+=Time.deltaTime;
+        moveToPos(posStage2,startpos-posStage2,time,attackAnimationDuration/3);
+        yield return 0;
+        }
+        sprite.transform.position=startpos;
+    }
 }

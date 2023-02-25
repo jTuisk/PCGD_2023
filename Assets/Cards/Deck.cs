@@ -172,6 +172,7 @@ public void exaustCard(int CardIndex){
             if(enemy.cards.Count!=0){
                 
                     enemy.Playcard();
+                    enemy.StartCoroutine("attackAnimation");
                 
             }else{
                 if(!enemy.confused){
@@ -183,7 +184,7 @@ public void exaustCard(int CardIndex){
             
             }
             enemyTurn=false;
-            Invoke("inBattleStartTurn",3);
+            Invoke("inBattleStartTurn",1.5f);
             //inBattleStartTurn();
             Debug.Log("HP: " + Hp);
             
