@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e49b428c96ccf764f904a73dac0e4738, type: 3}
-  m_Name: 1-Straight Jacket Wizard
+  m_Name: Straight Jacket Wizard
   m_EditorClassIdentifier: 
   HP: 18
   MaxDamageRange: 10

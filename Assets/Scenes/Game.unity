@@ -1081,7 +1081,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 510d8eaf6dacae643813a9d2785b093d, type: 2}
   - {fileID: 11400000, guid: 6fdea7bcc1b280043b7b8c803989e001, type: 2}
   - {fileID: 11400000, guid: 339a938a496a52e4cb40933cee03b9b9, type: 2}
-  - {fileID: 11400000, guid: 339a938a496a52e4cb40933cee03b9b9, type: 2}
+  - {fileID: 11400000, guid: c70f723c069c371409e984a11ffcafab, type: 2}
+  - {fileID: 11400000, guid: ac5b9f1e48f455c48822f98235b1cdaf, type: 2}
   CardBasePrefab: {fileID: 1923058948709319707, guid: a820adf569575a349be76d6d8ef88eec, type: 3}
   cardPrefabs:
   - {fileID: 11400000, guid: 255d6e21614b8054c9f3ebdd592a1509, type: 2}
@@ -1428,7 +1429,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &569819659
 RectTransform:
   m_ObjectHideFlags: 0
