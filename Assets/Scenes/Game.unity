@@ -233,12 +233,12 @@ MonoBehaviour:
   audioSource: {fileID: 152355094}
   exploreCardAudioEffect: {fileID: 8300000, guid: 6e198615198637c4499d7137df2c77a1, type: 3}
   flipCardAudioEffect: {fileID: 8300000, guid: 9cd76216d04cbac4d8c17a78eee82fe4, type: 3}
-  playCardAudioEffect: {fileID: 0}
+  playCardAudioEffect: {fileID: 8300000, guid: 54614f55684bdc086bc7b7c5c6f6832e, type: 3}
   dealDamageAudioEffect: {fileID: 8300000, guid: 9e24a48415c560e42a8611ae018fc812, type: 3}
   healSelfAudioEffect: {fileID: 0}
   getManaAudioEffect: {fileID: 8300000, guid: 2061c5d9d4748ea459f6e3b0392f0e0c, type: 3}
   loseManaAudioEffect: {fileID: 8300000, guid: 4c996ae232a07734db5f161d78a6faa2, type: 3}
-  shuffleDeckAudioEffect: {fileID: 8300000, guid: 8569c71309c2f4b469b14113f9b985fd, type: 3}
+  shuffleDeckAudioEffect: {fileID: 8300000, guid: 1753f1837cf3bbe04999c5373d28639e, type: 3}
   battleBGM: {fileID: 0}
 --- !u!82 &152355094
 AudioSource:
@@ -3964,6 +3964,56 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BGEvent: {fileID: 21300000, guid: 0300adce45023b0c08c279c052ad4b78, type: 3}
   BGBattle: {fileID: 21300000, guid: 361935bbdd7bbb2e6a47df75e09e9b67, type: 3}
+--- !u!1 &1903212947
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1903212949}
+  - component: {fileID: 1903212948}
+  m_Layer: 0
+  m_Name: ExplosionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1903212948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903212947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 733f0c86ae313b892b0d514a958eb7cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heartExplosion: {fileID: 7065928661677174765, guid: 04c3966d407addc098585e23f256a0cb, type: 3}
+  heartExplosionTarget: {fileID: 1321829567}
+  armorExplosion: {fileID: 7065928661677174765, guid: 555c59ed2f1ef80adbeaf4a4f491bedb, type: 3}
+  armorExplosionTarget: {fileID: 838721074}
+  manaExplosion: {fileID: 7065928661677174765, guid: 0c07bb88ab97daeebbb42889b647d6f9, type: 3}
+  manaExplosionTarget: {fileID: 1293751137}
+--- !u!4 &1903212949
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903212947}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 910.5, y: 490.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1912762316
 GameObject:
   m_ObjectHideFlags: 0
