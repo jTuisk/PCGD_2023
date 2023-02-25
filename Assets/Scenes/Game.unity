@@ -1148,6 +1148,7 @@ MonoBehaviour:
   PlayerDamageModifier: 1
   reversed: 0
   cardsToRemoveFromEnemies: []
+  day: {fileID: 0}
   allEnemies: []
   PlayerConfused: 0
 --- !u!4 &417463227
@@ -2325,6 +2326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statusImages: []
   StatusObjectPrefab: {fileID: 551292779428628739, guid: 961d620d8ea78d1c099b6988851e146f, type: 3}
+  enemyStatusPanel: {fileID: 1902629919}
 --- !u!4 &1224439785
 Transform:
   m_ObjectHideFlags: 0
@@ -3079,6 +3081,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 9b4a9a6fa307426499a65f14360838d8, type: 2}
     - {fileID: 11400000, guid: 8c52a8f269f060343830b18dcee6b182, type: 2}
     - {fileID: 11400000, guid: 65816d853d763fa4eba25ba35da00666, type: 2}
+    BossPool: []
+    FinalBossPool: []
 --- !u!4 &1429135959
 Transform:
   m_ObjectHideFlags: 0
@@ -3965,6 +3969,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BGEvent: {fileID: 21300000, guid: 0300adce45023b0c08c279c052ad4b78, type: 3}
   BGBattle: {fileID: 21300000, guid: 361935bbdd7bbb2e6a47df75e09e9b67, type: 3}
+--- !u!1 &1902629918
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1902629919}
+  m_Layer: 0
+  m_Name: EnemyStatusContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1902629919
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902629918}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.5, y: 6.7, z: -0.52932984}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1903212947
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,9 +5,9 @@ using System.Collections.Specialized;
 public class StatusAnimator : MonoBehaviour
 {
     // Start is called before the first frame update
-    public List<GameObject> statusImages=new List<GameObject>();
+    public List<StatusVisual> statusImages=new List<StatusVisual>();
     public GameObject StatusObjectPrefab;
-
+    public Transform enemyStatusPanel;
      void Start()
      {
          StartCoroutine(LateStart(0.1f));
@@ -34,9 +34,10 @@ public class StatusAnimator : MonoBehaviour
         if(e.NewItems!=null){
         foreach(StatusEffectInstance i in e.NewItems){
             var stat=Instantiate(StatusObjectPrefab);
-            stat.GetComponent<StatusVisual>().init(i,this);
+            var s = stat.GetComponent<StatusVisual>();
+            s.init(i,this);
             stat.transform.position=this.transform.position+new Vector3(statusImages.Count*4,0,0);
-            statusImages.Add(stat);
+            statusImages.Add(s);
             Debug.Log("Status added");
         }
         }
@@ -46,7 +47,7 @@ public class StatusAnimator : MonoBehaviour
         Deck.Instance.statuses.CollectionChanged-=RecalculateStatusList;
     }
     // Update is called once per frame
-    float distance=2f;
+    float distance=4f;
     bool dir=true;
     float t1;
     float tmax=1.5f;
@@ -79,12 +80,20 @@ return (NonLinInterpolationUtil.Interpolate((t1/tmax),NonLinInterpolationUtil.Ea
     {
         t1+=Time.deltaTime;
         int index=0;
+        int enemyIndex=0;
         foreach(var i in statusImages){
             var y=(i.transform.position.y-transform.position.y);
             y=Bounce(y);
             //Debug.Log(y);
-            i.transform.position=new Vector3(transform.position.x-((statusImages.Count/2.0f)*distance)+(index*distance),transform.position.y+y,transform.position.z);
-            index++;
+            if (!i.stat.targetsEnemy)
+            {
+                i.transform.position = new Vector3(transform.position.x - ((statusImages.Count / 2.0f) * distance) + (index * distance), transform.position.y + y, transform.position.z);
+                index++;
+            }
+            else {
+                i.transform.position = new Vector3(enemyStatusPanel.position.x - ((statusImages.Count / 2.0f) * distance) + (enemyIndex * distance), enemyStatusPanel.position.y + y, enemyStatusPanel.position.z);
+                enemyIndex++;
+            }
         }
         
     }

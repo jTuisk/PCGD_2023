@@ -14,7 +14,7 @@ public class StatusEffectInstance
     internal string id;
     public Sprite icon;
     public string desc;
-
+    public bool targetsEnemy;
     public void trigger()
     {
 

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class StatusVisual : MonoBehaviour , IPointerEnterHandler,IPointerExitHandler
 {
     // Start is called before the first frame update
-     StatusEffectInstance stat;
+    public StatusEffectInstance stat;
     public Image statImage; 
     public TMPro.TextMeshProUGUI text;
     StatusAnimator animator;
@@ -26,7 +26,7 @@ public void init(StatusEffectInstance status,StatusAnimator animator){
     {
         text.text=""+stat.duration;
         if(stat.duration<=0||!( Deck.Instance.statuses.Contains(stat))){
-            animator.statusImages.Remove(this.gameObject);
+            animator.statusImages.Remove(this);
             Destroy(this.gameObject);
         }
     }
