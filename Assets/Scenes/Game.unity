@@ -1081,6 +1081,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 510d8eaf6dacae643813a9d2785b093d, type: 2}
   - {fileID: 11400000, guid: 6fdea7bcc1b280043b7b8c803989e001, type: 2}
   - {fileID: 11400000, guid: 339a938a496a52e4cb40933cee03b9b9, type: 2}
+  - {fileID: 11400000, guid: 339a938a496a52e4cb40933cee03b9b9, type: 2}
   CardBasePrefab: {fileID: 1923058948709319707, guid: a820adf569575a349be76d6d8ef88eec, type: 3}
   cardPrefabs:
   - {fileID: 11400000, guid: 255d6e21614b8054c9f3ebdd592a1509, type: 2}
@@ -1146,7 +1147,7 @@ MonoBehaviour:
   PlayerDamageModifier: 1
   reversed: 0
   cardsToRemoveFromEnemies: []
-  day: {fileID: 0}
+  day: {fileID: 1429135958}
   allEnemies: []
   PlayerConfused: 0
 --- !u!4 &417463227

@@ -139,6 +139,7 @@ public class Deck : MonoBehaviour
     bool finalBattle = false;
     public void DrawEventCard()
     {
+        Debug.Log(15+">="+(bossCounter + bosses));
         if(bossCounter+bosses<=15){
             if(bossCounter<=10 &&(bosses>=5|Random.value<0.50)){
                 Instantiate(eventBase).GetComponent<EventCard>().CreateEventCard(EventDeck[Random.Range(0, EventDeck.Count - 1)]);
@@ -159,8 +160,7 @@ public class Deck : MonoBehaviour
             }
             else
             {
-                if(
-                !day.SwitchDay(dayindex))
+                if( !day.SwitchDay(dayindex))
                 {
                     return;
                 }
