@@ -37,7 +37,7 @@ public class Deck : MonoBehaviour
     public float PlayerDamageModifier = 1;
     public bool reversed=false;
     public List<BattleCardDataContainer> cardsToRemoveFromEnemies=new List<BattleCardDataContainer>();
-
+    public DayManager day;
     [HideInInspector]
     public List<CreatureDataContainer> allEnemies;
     public Dictionary<CreatureDataContainer, int> enemyAffectedByCombatRewards;
@@ -124,6 +124,7 @@ public void exaustCard(int CardIndex){
         exaustCard(Random.Range(0,Hand.transform.childCount));
     }
     int bosses=0;
+    int dayindex = 0;
     public void DrawEventCard()
     {
         if(bossCounter+bosses<=15){
@@ -138,6 +139,8 @@ public void exaustCard(int CardIndex){
             //Instantiate(eventBase).GetComponent<EventCard>().CreateEventCard(EventDeck[19]); 
 
         }else{
+            day.SwitchDay(0);
+            dayindex++;
             Instantiate(eventBase).GetComponent<EventCard>().CreateEventCard(BossBattles[Random.Range(0, BossBattles.Count)]);
             bossCounter=0;
         }
@@ -423,7 +426,9 @@ internal bool enemyTurn=true;
 
     public void ResetDeck()
     {
+        removeAllStatuses();
         putExaustPileBackInDeck();
+        Debug.Log("Reset Deck");
         //moves all cards back to deck 
         shuffleDiscardPileBackInDeck();
         while (Hand.transform.childCount > 0)
@@ -438,7 +443,13 @@ internal bool enemyTurn=true;
         }
         actionPoints = MaxactionPoints;
     }
-
+    public void removeAllStatuses()
+    {
+        while (statuses.Count > 0)
+        {
+            statuses.RemoveAt(0);
+        }
+    }
 
     public void UpdateEveryCardDescription()
     {
