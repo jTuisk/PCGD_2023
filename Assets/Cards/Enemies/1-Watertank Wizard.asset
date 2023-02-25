@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e49b428c96ccf764f904a73dac0e4738, type: 3}
   m_Name: 1-Watertank Wizard
   m_EditorClassIdentifier: 
-  HP: 10
+  HP: 14
   MaxDamageRange: 6
   MinDamageRange: 1
   deck:
