@@ -71,6 +71,7 @@ IEnumerator shake(){
         if(amount>0){
             StartCoroutine("shake");
             Instantiate(DamageText).GetComponent<DamageText>().changeTextString(""+(amount*EnemyDamageModifier-block));
+            ExplosionManager.Instance.PlayHealthAnimation((int)(amount*EnemyDamageModifier-block),new Vector3(0,0,0));
         }
         if(!Deck.Instance.reversed){
         HP = Mathf.Min((int) (HP +block- amount * EnemyDamageModifier),HP);
@@ -155,8 +156,18 @@ IEnumerator shake(){
         }
     }
     // Update is called once per frame
+    float idletime=0;
+    float idleMaxtime=0.5f;
+    bool idleDir=true;
+    public void idleAnim(){
+        idletime+=Time.deltaTime;
+        float anim=NonLinInterpolationUtil.QuadraticBounce(ref idletime,idleMaxtime,ref idleDir);
+        sprite.transform.localScale= new Vector3(sprite.transform.localScale.x,1-anim*0.05f,transform.localScale.z);
+    }
     void Update()
     {
+        idleAnim();
+
 
         //Cange gamestate back to drawing event cards if player wins battle
         text.text = damage + "\n" + HP;

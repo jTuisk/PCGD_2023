@@ -460,6 +460,7 @@ internal bool enemyTurn=true;
     {
        //run when battle starts
        Shuffle(BattleDeck);
+       AudioManager.Instance.playBattleBGM();
        DrawCardInHand(CardsDrawnAtStartOfTurn);
     }
     

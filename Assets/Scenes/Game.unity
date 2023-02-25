@@ -239,7 +239,7 @@ MonoBehaviour:
   getManaAudioEffect: {fileID: 8300000, guid: 2061c5d9d4748ea459f6e3b0392f0e0c, type: 3}
   loseManaAudioEffect: {fileID: 8300000, guid: 4c996ae232a07734db5f161d78a6faa2, type: 3}
   shuffleDeckAudioEffect: {fileID: 8300000, guid: 1753f1837cf3bbe04999c5373d28639e, type: 3}
-  battleBGM: {fileID: 0}
+  battleBGM: {fileID: 8300000, guid: dcbf88d3ed3e547689fe6f2c17e29b32, type: 3}
 --- !u!82 &152355094
 AudioSource:
   m_ObjectHideFlags: 0
@@ -254,7 +254,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

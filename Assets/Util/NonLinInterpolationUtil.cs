@@ -5,6 +5,32 @@ using UnityEngine;
 public class NonLinInterpolationUtil
 {
     public enum EaseType{None,Quadratic}
+
+      public static float QuadraticBounce(ref float t,float tmax,ref bool dir){
+        if(dir){
+
+        if(t<tmax){
+            return (NonLinInterpolationUtil.Interpolate((t/tmax),NonLinInterpolationUtil.EaseType.Quadratic,NonLinInterpolationUtil.EaseType.Quadratic));            
+        }else{
+            t=0.0001f;
+            dir=false;
+        return 1-(NonLinInterpolationUtil.Interpolate((t/tmax),NonLinInterpolationUtil.EaseType.Quadratic,NonLinInterpolationUtil.EaseType.Quadratic));
+
+        }
+
+        }else{
+            if(t<tmax){
+        return 1-(NonLinInterpolationUtil.Interpolate((t/tmax),NonLinInterpolationUtil.EaseType.Quadratic,NonLinInterpolationUtil.EaseType.Quadratic));
+             }else{
+                t=0.0001f;
+                dir=true;
+               return (NonLinInterpolationUtil.Interpolate((t/tmax),NonLinInterpolationUtil.EaseType.Quadratic,NonLinInterpolationUtil.EaseType.Quadratic));            
+
+            }
+            
+        
+        }
+    }
  public static float getQuadratic(float start,float end,float pos){
     return Mathf.Lerp(start,end,Mathf.Pow(pos,2));
  }

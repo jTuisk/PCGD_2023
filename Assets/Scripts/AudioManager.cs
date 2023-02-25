@@ -86,6 +86,10 @@ public class AudioManager : MonoBehaviour
         }
         // TODO heal
     }
+    public void playBattleBGM(){
+        audioSource.clip=battleBGM;
+        audioSource.Play();
+    }
 
     void Awake()
     {
@@ -93,6 +97,12 @@ public class AudioManager : MonoBehaviour
 
         // check audio source is available
 
+    }
+    void Update(){
+        if(Deck.Instance.enemy==null && audioSource.clip==battleBGM){
+            audioSource.Stop();
+            audioSource.clip=null;
+        }
     }
 
 }

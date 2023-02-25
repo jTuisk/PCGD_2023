@@ -59,6 +59,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     }
     public void EnemyPlayCard(EnemyCard e){
         e.block+=block;
+        ExplosionManager.Instance.PlayArmorAnimation(e.block,new Vector3(0,0,0));
         if(!e.confused){
             Deck.Instance.takeDamage(Damage-Deck.Instance.block);
         }else{

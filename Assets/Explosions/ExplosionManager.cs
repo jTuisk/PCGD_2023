@@ -37,12 +37,24 @@ public class ExplosionManager : MonoBehaviour
         t.text=(damage>0?"-":"+") +Mathf.Abs(damage);
         i.transform.position=heartExplosionTarget.position;
     }
+        public void PlayHealthAnimation(int damage,Vector3 pos){
+        var i=Instantiate(heartExplosion);
+        var t=i.GetComponentInChildren<TMPro.TextMeshProUGUI>();
+        t.text=(damage>0?"-":"+") +Mathf.Abs(damage);
+        i.transform.position=pos;
+    }
         public void PlayArmorAnimation(int block){
         var i=Instantiate(armorExplosion);
         i.transform.position=armorExplosionTarget.position;
         var t=i.GetComponentInChildren<TMPro.TextMeshProUGUI>();
         t.text=(block>0?"-":"+") +Mathf.Abs(block);
         i.transform.position=armorExplosionTarget.position;
+    }
+    public void PlayArmorAnimation(int block,Vector3 pos){
+        var i=Instantiate(armorExplosion);
+        var t=i.GetComponentInChildren<TMPro.TextMeshProUGUI>();
+        t.text=(block>0?"-":"+") +Mathf.Abs(block);
+        i.transform.position=pos;
     }
         public void PlayManaAnimation(int mana){
         var i=Instantiate(manaExplosion);
