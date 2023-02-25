@@ -18,10 +18,14 @@ public class DayManager : MonoBehaviour
     private int dayCount = 3;
     private int currentDay = 1;
 
-    public void SwitchDay (int dayIndex)
+    public bool SwitchDay (int dayIndex)
     {
         currentDay = dayIndex + 1;
-
+        if (dayIndex == dayResources.Count-1)
+        {
+            SceneLoader.LoadGameVictory();
+            return false;
+        }
         // validation
         // for(int i = 0; i < Deck.Instance.deckList.Count; i++)
         // {
@@ -50,6 +54,25 @@ public class DayManager : MonoBehaviour
         // {
         //     Deck.Instance.cardPrefabs.Add(prefab);
         // }
+         limit = Deck.Instance.BossBattlePool.Count;
+        for (int index = 0; index < limit; index++)
+        {
+            Deck.Instance.BossBattlePool.RemoveAt(0);
+        }
+        foreach (var prefab in dayResources[dayIndex].BossPool)
+        {
+            Deck.Instance.BossBattlePool.Add(prefab);
+        }
+        limit = Deck.Instance.finalbossPool.Count;
+        for (int index = 0; index < limit; index++)
+        {
+            Deck.Instance.finalbossPool.RemoveAt(0);
+        }
+        foreach (var prefab in dayResources[dayIndex].FinalBossPool)
+        {
+            Deck.Instance.finalbossPool.Add(prefab);
+        }
+        return true;
     }
 
 

@@ -26,6 +26,7 @@ public class Deck : MonoBehaviour
     public bool inBattle=false;
     public bool inReward = false;
     public bool eventVisible = false;
+    public List<EventCardData> finalbossPool;
     public EnemyCard enemy;
     public GameObject Hand;
     public GameObject eventBase;
@@ -111,7 +112,17 @@ public class Deck : MonoBehaviour
 
         FindAllCreatureContainers();
     }
-public void exaustCard(int CardIndex){
+    private void ResetBosses()
+    {
+        BossBattles = new List<EventCardData>();
+        for (int i = 0; i < 5; i++)
+        {
+            var temp = BossBattlePool[Random.Range(0, BossBattlePool.Count - 1)];
+            BossBattles.Add(temp);
+            BossBattlePool.Remove(temp);
+        }
+    }
+    public void exaustCard(int CardIndex){
         if(Hand.transform.childCount>0){
             ExaustPile.Add(Hand.transform.GetChild(CardIndex).GetComponent<Card>());
             Hand.transform.GetChild(CardIndex).position=new Vector2(10000000,100000000);
@@ -125,6 +136,7 @@ public void exaustCard(int CardIndex){
     }
     int bosses=0;
     int dayindex = 0;
+    bool finalBattle = false;
     public void DrawEventCard()
     {
         if(bossCounter+bosses<=15){
@@ -139,10 +151,24 @@ public void exaustCard(int CardIndex){
             //Instantiate(eventBase).GetComponent<EventCard>().CreateEventCard(EventDeck[19]); 
 
         }else{
-            day.SwitchDay(0);
-            dayindex++;
-            Instantiate(eventBase).GetComponent<EventCard>().CreateEventCard(BossBattles[Random.Range(0, BossBattles.Count)]);
-            bossCounter=0;
+
+            if (!finalBattle)
+            {
+                Instantiate(eventBase).GetComponent<EventCard>().CreateEventCard(finalbossPool[Random.Range(0, finalbossPool.Count)]);
+                finalBattle = true;
+            }
+            else
+            {
+                if(
+                !day.SwitchDay(dayindex))
+                {
+                    return;
+                }
+                bosses = 0;
+                dayindex++;
+                bossCounter = 0;
+                ResetBosses();
+            }
         }
         
         eventVisible = true;

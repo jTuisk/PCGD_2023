@@ -1125,6 +1125,8 @@ MonoBehaviour:
   inBattle: 0
   inReward: 0
   eventVisible: 0
+  finalbossPool:
+  - {fileID: 11400000, guid: 856adb58d203670c3ac6cbb4342d076b, type: 2}
   enemy: {fileID: 0}
   Hand: {fileID: 1491589463}
   eventBase: {fileID: 1199459019132528113, guid: 50630785987eb424c83000cc971ff6fa, type: 3}

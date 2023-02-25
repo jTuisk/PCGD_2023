@@ -14,5 +14,9 @@ public class SceneLoader : MonoBehaviour
         static public void LoadGameOver(){
             SceneManager.LoadScene("GameOver");
         }
-        
+    static public void LoadGameVictory()
+    {
+        SceneManager.LoadScene("VictoryScreen");
+    }
+
 }
