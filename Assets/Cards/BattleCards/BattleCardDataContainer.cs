@@ -54,6 +54,9 @@ public class BattleCardDataContainer : ScriptableObject
             Deck.Instance.enemy.takeDamage(-1);
         }
     }
+    public void playerTakeDamage(){
+        Deck.Instance.Hp -=1;
+    }
     public void removeRandomCardFromDeck()
     {
         if (Deck.Instance.BattleDeck.Count > 0)
