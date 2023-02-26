@@ -41,6 +41,11 @@ MonoBehaviour:
       value: 0
       a: 0
       b: 0
+    - flag: StraightBeat
+      Operation: 3
+      value: 0
+      a: 0
+      b: 0
   - description: Straight Jacket Wizard
     independentRNG: 0
     effects:
@@ -62,7 +67,7 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
     conditions:
-    - flag: StraightPre
+    - flag: StraightBeat
       Operation: 2
       value: 0
       a: 0
@@ -93,6 +98,11 @@ MonoBehaviour:
       value: 0
       a: 0
       b: 0
+    - flag: ThreeBeat
+      Operation: 3
+      value: 0
+      a: 0
+      b: 0
   - description: Three Card Monte Wizard
     independentRNG: 0
     effects:
@@ -114,7 +124,7 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
     conditions:
-    - flag: ThreePre
+    - flag: ThreeBeat
       Operation: 2
       value: 0
       a: 0
@@ -145,6 +155,11 @@ MonoBehaviour:
       value: 0
       a: 0
       b: 0
+    - flag: WaterBeat
+      Operation: 3
+      value: 0
+      a: 0
+      b: 0
   - description: Watertank Escapist Wizard
     independentRNG: 0
     effects:
@@ -166,7 +181,7 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
     conditions:
-    - flag: WaterPre
+    - flag: WaterBeat
       Operation: 2
       value: 0
       a: 0
