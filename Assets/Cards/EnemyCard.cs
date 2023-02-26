@@ -191,6 +191,7 @@ IEnumerator shake(){
                 Deck.Instance.eventVisible = true;
             }
             Destroy(gameObject);
+            AudioManager.Instance.PlayDrawEventCardBGM();
         }
         
     }

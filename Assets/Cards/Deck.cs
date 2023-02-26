@@ -111,6 +111,7 @@ public class Deck : MonoBehaviour
         }
 
         FindAllCreatureContainers();
+        AudioManager.Instance.PlayDrawEventCardBGM();
     }
     private void ResetBosses()
     {
