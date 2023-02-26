@@ -20,6 +20,7 @@ MonoBehaviour:
     Get ready!'
   options:
   - description: I have a bad feeling about this...
+    independentRNG: 1
     effects:
     - name: trigger a battle
       possibility: 1
@@ -62,13 +63,8 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
-    conditions:
-    - flag: 
-      Operation: 0
-      value: 0
-      a: 0
-      b: 0
+    conditions: []
   ReplaceFrom: {fileID: 0}
   ReplaceTo: {fileID: 0}
   replaceEvent: {fileID: 0}
-  addedTag: Blackjack Wizard Battle
+  addedTag: BlackjackPre

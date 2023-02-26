@@ -14,7 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eName: 
   eventText: 
-  options: []
+  options:
+  - description: 
+    independentRNG: 0
+    effects: []
+    conditions: []
   ReplaceFrom: {fileID: 0}
   ReplaceTo: {fileID: 0}
   replaceEvent: {fileID: 0}

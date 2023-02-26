@@ -21,6 +21,7 @@ MonoBehaviour:
     ready!'
   options:
   - description: Oh I just hate water...
+    independentRNG: 1
     effects:
     - name: Trigger battle
       possibility: 1
@@ -67,4 +68,4 @@ MonoBehaviour:
   ReplaceFrom: {fileID: 0}
   ReplaceTo: {fileID: 0}
   replaceEvent: {fileID: 0}
-  addedTag: Watertank Escapist Wizard Battle
+  addedTag: WaterPre
