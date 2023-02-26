@@ -17,6 +17,10 @@ public class AudioManager : MonoBehaviour
 
     public AudioClip battleBGM; 
 
+    public AudioClip eventCardDraw;
+    public AudioClip eventCardSlide;
+    public AudioClip eventCardFlip;
+
     [HideInInspector]
     public enum AudioEffects {exploreCard, flipCard, playCard, 
         healSelf, getMana, loseMana, dealDamage, 
@@ -86,6 +90,23 @@ public class AudioManager : MonoBehaviour
         }
         // TODO heal
     }
+
+    public void PlayEventCardDrawSound()
+    {
+        audioSource.PlayOneShot(eventCardDraw);
+    }
+
+    public void PlayEventCardSlideSound()
+    {
+        audioSource.PlayOneShot(eventCardSlide);
+    }
+
+    public void PlayEventCardFlipSound()
+    {
+        audioSource.PlayOneShot(eventCardFlip);
+    }
+
+
     public void playBattleBGM(){
         audioSource.clip=battleBGM;
         audioSource.Play();

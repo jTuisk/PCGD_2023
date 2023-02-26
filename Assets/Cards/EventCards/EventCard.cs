@@ -141,6 +141,8 @@ public class EventCard : MonoBehaviour
     
     private void CardBornFromDeck()
     {
+        AudioManager.Instance.PlayEventCardDrawSound();
+
         // Calculate the deck_image's local position under cardBack's parent
         // First, get deck_image localPosition under its parent Canvas
         Vector2 deckImageLocalPos;
@@ -176,12 +178,13 @@ public class EventCard : MonoBehaviour
         eventCardBack.SetActive(true);
 
         StartCoroutine("CardSlideToCenter");
-
-        // TODO audio
     }
 
     IEnumerator CardSlideToCenter() 
     {
+        //play audio sound
+        AudioManager.Instance.PlayEventCardSlideSound();
+
         var slideStartTime = Time.time;
         var slideStartPos = eventCardBack.transform.localPosition;
 
@@ -205,6 +208,9 @@ public class EventCard : MonoBehaviour
     IEnumerator CardFlip()
     {
         yield return new WaitForSeconds(0.3f);
+
+        //play audio sound
+        AudioManager.Instance.PlayEventCardFlipSound();
 
         var flipStartTime = Time.time;
 
