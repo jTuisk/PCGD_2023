@@ -15,11 +15,11 @@ MonoBehaviour:
   IsEnemySpecialCard: 0
   effectDescriptor: -One use per combat
   cardName: The Four Thieves
-  Damage: 4
-  block: 4
+  Damage: 2
+  block: 2
   magic: 0
   money: 0
-  actionCost: 3
+  actionCost: 2
   effect:
     m_PersistentCalls:
       m_Calls: []

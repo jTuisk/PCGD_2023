@@ -15,9 +15,9 @@ MonoBehaviour:
   IsEnemySpecialCard: 0
   effectDescriptor: and stun the enemy for 1 turn.
   cardName: Sucker Punch
-  Damage: 2
+  Damage: 4
   block: 0
-  magic: -5
+  magic: -3
   money: 0
   actionCost: 0
   effect:

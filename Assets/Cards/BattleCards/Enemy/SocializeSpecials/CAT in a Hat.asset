@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
   effectDescriptor: 
-  cardName: 
-  Damage: 0
+  cardName: CAT in a Hat
+  Damage: 15
   block: 0
   magic: 0
   money: 0
@@ -24,4 +24,4 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   conditionalEffects: []
-  exaust: 0
+  exaust: 1

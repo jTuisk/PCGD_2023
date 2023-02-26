@@ -17,9 +17,9 @@ MonoBehaviour:
   cardName: Credit Card
   Damage: 0
   block: 0
-  magic: 4
+  magic: 5
   money: 0
-  actionCost: 2
+  actionCost: 1
   effect:
     m_PersistentCalls:
       m_Calls: []
