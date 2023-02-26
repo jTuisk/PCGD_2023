@@ -41,6 +41,11 @@ MonoBehaviour:
       value: 0
       a: 0
       b: 0
+    - flag: ChairBeat
+      Operation: 3
+      value: 0
+      a: 0
+      b: 0
   - description: Chair Wizard
     independentRNG: 0
     effects:
@@ -62,7 +67,7 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
     conditions:
-    - flag: ChairPre
+    - flag: ChairBeat
       Operation: 2
       value: 0
       a: 0
@@ -93,6 +98,11 @@ MonoBehaviour:
       value: 0
       a: 0
       b: 0
+    - flag: CoinBeat
+      Operation: 3
+      value: 0
+      a: 0
+      b: 0
   - description: Coin Wizard
     independentRNG: 0
     effects:
@@ -114,7 +124,7 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
     conditions:
-    - flag: CoinPre
+    - flag: CoinBeat
       Operation: 2
       value: 0
       a: 0
@@ -145,6 +155,11 @@ MonoBehaviour:
       value: 0
       a: 0
       b: 0
+    - flag: MathBeat
+      Operation: 3
+      value: 0
+      a: 0
+      b: 0
   - description: Math Wizard
     independentRNG: 0
     effects:
@@ -166,7 +181,7 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
     conditions:
-    - flag: MathPre
+    - flag: MathBeat
       Operation: 2
       value: 0
       a: 0

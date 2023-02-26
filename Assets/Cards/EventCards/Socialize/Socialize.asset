@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Socialize
   m_EditorClassIdentifier: 
   eName: 
-  eventText: Who do you want to go out with? (WIP)
+  eventText: Who do you want to go out with?
   options:
   - description: Amateur Wizard
     independentRNG: 0
@@ -41,6 +41,11 @@ MonoBehaviour:
       value: 0
       a: 0
       b: 0
+    - flag: AmateurBeat
+      Operation: 3
+      value: 0
+      a: 0
+      b: 0
   - description: Amateur Wizard
     independentRNG: 0
     effects:
@@ -62,7 +67,7 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
     conditions:
-    - flag: AmateurPre
+    - flag: AmateurBeat
       Operation: 2
       value: 0
       a: 0
@@ -93,6 +98,11 @@ MonoBehaviour:
       value: 0
       a: 0
       b: 0
+    - flag: BlackjackBeat
+      Operation: 3
+      value: 0
+      a: 0
+      b: 0
   - description: Blackjack Wizard
     independentRNG: 0
     effects:
@@ -114,7 +124,7 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
     conditions:
-    - flag: BlackjackPre
+    - flag: BlackjackBeat
       Operation: 2
       value: 0
       a: 0
@@ -145,6 +155,11 @@ MonoBehaviour:
       value: 0
       a: 0
       b: 0
+    - flag: CatBeat
+      Operation: 3
+      value: 0
+      a: 0
+      b: 0
   - description: Cat Wizard
     independentRNG: 0
     effects:
@@ -166,7 +181,7 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
     conditions:
-    - flag: CatPre
+    - flag: CatBeat
       Operation: 2
       value: 0
       a: 0
