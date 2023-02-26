@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 11f8fd2ce7d8ef04ea895fcd7fd93e1c, type: 3}
-  m_Name: StunPlayer
+  m_Name: ConfusePlayer 1
   m_EditorClassIdentifier: 
   duration: 1
   effect:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000}
-        m_TargetAssemblyTypeName: StatusEffect, Assembly-CSharp
-        m_MethodName: StunPlayer
+      - m_Target: {fileID: 11400000, guid: c81921c882ed024dc916f3231a67cb26, type: 2}
+        m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
+        m_MethodName: ConfusePlayer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -28,6 +28,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  icon: {fileID: 21300000, guid: 789f90a3845961a4f841794bd977d3c1, type: 3}
-  desc: Stun player
+  icon: {fileID: 21300000, guid: 28663e770a1067247b786562f98eb0f9, type: 3}
+  desc: Confuse player
   targetsEnemy: 0
