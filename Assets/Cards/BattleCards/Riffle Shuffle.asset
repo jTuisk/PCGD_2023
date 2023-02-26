@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa545c54708ee043afb4ae81f7da020, type: 3}
   m_Name: Riffle Shuffle
   m_EditorClassIdentifier: 
+  IsEnemySpecialCard: 0
   effectDescriptor: Shuffles the enemy deck
   cardName: Riffle Shuffle
   Damage: 0
   block: 0
   magic: 0
   money: 0
-  actionCost: 2
+  actionCost: 0
   effect:
     m_PersistentCalls:
       m_Calls:
@@ -34,3 +35,5 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  conditionalEffects: []
+  exaust: 0

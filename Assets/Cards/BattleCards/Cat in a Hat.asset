@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa545c54708ee043afb4ae81f7da020, type: 3}
   m_Name: Cat in a Hat
   m_EditorClassIdentifier: 
-  effectDescriptor: Cat scratches makes enemy take 1 dmg for 3 turns
+  IsEnemySpecialCard: 0
+  effectDescriptor: Cat scratches makes enemy take 2 dmg for 3 turns
   cardName: Cat in a Hat
   Damage: 0
   block: 0
@@ -34,3 +35,5 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  conditionalEffects: []
+  exaust: 0

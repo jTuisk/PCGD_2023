@@ -20,6 +20,7 @@ MonoBehaviour:
     Get ready!'
   options:
   - description: What, will he throw those things on me?!
+    independentRNG: 1
     effects:
     - name: trigger battle
       possibility: 1
@@ -66,4 +67,4 @@ MonoBehaviour:
   ReplaceFrom: {fileID: 0}
   ReplaceTo: {fileID: 0}
   replaceEvent: {fileID: 0}
-  addedTag: Coin Trick Wizard Battle
+  addedTag: CoinPre

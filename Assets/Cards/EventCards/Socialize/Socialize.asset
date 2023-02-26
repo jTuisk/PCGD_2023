@@ -10,72 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 800a222eec0efaf4682b867dcf1b7e2e, type: 3}
-  m_Name: Math Pre
+  m_Name: Socialize
   m_EditorClassIdentifier: 
   eName: 
-  eventText: 'Phah! Your card magic is inferior to my powers of math!
-
-    I challenge
-    you to a battle of maths! Winner gets a reward of course...'
+  eventText: Who do you want to go out with? (WIP)
   options:
-  - description: I accept your challenge! (Use a calculator)
-    independentRNG: 0
-    effects:
-    - name: Gain 2 mana
-      possibility: 1
-      targetEvent:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 11400000}
-            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
-            m_MethodName: addMana
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-          - m_Target: {fileID: 11400000}
-            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
-            m_MethodName: addMana
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-          - m_Target: {fileID: 11400000, guid: 944ac3b082967054b836715ab6c3debf, type: 2}
-            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
-            m_MethodName: Trigger
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-          - m_Target: {fileID: 11400000}
-            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
-            m_MethodName: addTag
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-    conditions: []
-  - description: I accept your challenge! (Don't cheat)
+  - description: Amateur Wizard
     independentRNG: 0
     effects:
     - name: 
@@ -83,9 +23,9 @@ MonoBehaviour:
       targetEvent:
         m_PersistentCalls:
           m_Calls:
-          - m_Target: {fileID: 11400000}
+          - m_Target: {fileID: 11400000, guid: 951b8ef883c323147bcf2247735fadfa, type: 2}
             m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
-            m_MethodName: takeDamage
+            m_MethodName: Trigger
             m_Mode: 1
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
@@ -95,9 +35,23 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
-          - m_Target: {fileID: 11400000}
+    conditions:
+    - flag: AmateurPre
+      Operation: 3
+      value: 0
+      a: 0
+      b: 0
+  - description: Amateur Wizard
+    independentRNG: 0
+    effects:
+    - name: 
+      possibility: 1
+      targetEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: a03e42e9bc32f504cb3af4892292fb4f, type: 2}
             m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
-            m_MethodName: takeDamage
+            m_MethodName: Trigger
             m_Mode: 1
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
@@ -107,7 +61,125 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
-          - m_Target: {fileID: 11400000, guid: 71e2758caa874dd44af235460d73470d, type: 2}
+    conditions:
+    - flag: AmateurPre
+      Operation: 2
+      value: 0
+      a: 0
+      b: 0
+  - description: Blackjack Wizard
+    independentRNG: 0
+    effects:
+    - name: 
+      possibility: 1
+      targetEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: f2be4826f3929464abb67d3880395990, type: 2}
+            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+            m_MethodName: Trigger
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    conditions:
+    - flag: BlackjackPre
+      Operation: 3
+      value: 0
+      a: 0
+      b: 0
+  - description: Blackjack Wizard
+    independentRNG: 0
+    effects:
+    - name: 
+      possibility: 1
+      targetEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: 5caa91bbc3333b043b6a0fd21efb0d04, type: 2}
+            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+            m_MethodName: Trigger
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    conditions:
+    - flag: BlackjackPre
+      Operation: 2
+      value: 0
+      a: 0
+      b: 0
+  - description: Cat Wizard
+    independentRNG: 0
+    effects:
+    - name: 
+      possibility: 1
+      targetEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: 4a1ee8ed7912f464c8a905205f6aa9be, type: 2}
+            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+            m_MethodName: Trigger
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    conditions:
+    - flag: CatPre
+      Operation: 3
+      value: 0
+      a: 0
+      b: 0
+  - description: Cat Wizard
+    independentRNG: 0
+    effects:
+    - name: 
+      possibility: 1
+      targetEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: b018f025cb50b2342a969d810227c257, type: 2}
+            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+            m_MethodName: Trigger
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    conditions:
+    - flag: CatPre
+      Operation: 2
+      value: 0
+      a: 0
+      b: 0
+  - description: More options
+    independentRNG: 0
+    effects:
+    - name: 
+      possibility: 1
+      targetEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: d038b69d875cbf94aa8e53c1df9231ee, type: 2}
             m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
             m_MethodName: Trigger
             m_Mode: 1
@@ -120,11 +192,7 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
     conditions: []
-  - description: I decline.
-    independentRNG: 0
-    effects: []
-    conditions: []
   ReplaceFrom: {fileID: 0}
   ReplaceTo: {fileID: 0}
   replaceEvent: {fileID: 0}
-  addedTag: MathPre
+  addedTag: 

@@ -10,72 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 800a222eec0efaf4682b867dcf1b7e2e, type: 3}
-  m_Name: Math Pre
+  m_Name: MoreSocial2
   m_EditorClassIdentifier: 
-  eName: 
-  eventText: 'Phah! Your card magic is inferior to my powers of math!
-
-    I challenge
-    you to a battle of maths! Winner gets a reward of course...'
+  eName: Socialize
+  eventText: Who do you want to go out with?
   options:
-  - description: I accept your challenge! (Use a calculator)
-    independentRNG: 0
-    effects:
-    - name: Gain 2 mana
-      possibility: 1
-      targetEvent:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 11400000}
-            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
-            m_MethodName: addMana
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-          - m_Target: {fileID: 11400000}
-            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
-            m_MethodName: addMana
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-          - m_Target: {fileID: 11400000, guid: 944ac3b082967054b836715ab6c3debf, type: 2}
-            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
-            m_MethodName: Trigger
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-          - m_Target: {fileID: 11400000}
-            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
-            m_MethodName: addTag
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-    conditions: []
-  - description: I accept your challenge! (Don't cheat)
+  - description: Straight Jacket Wizard
     independentRNG: 0
     effects:
     - name: 
@@ -83,9 +23,9 @@ MonoBehaviour:
       targetEvent:
         m_PersistentCalls:
           m_Calls:
-          - m_Target: {fileID: 11400000}
+          - m_Target: {fileID: 11400000, guid: f74cd0c8eebdd4c469d43d5af9fc109a, type: 2}
             m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
-            m_MethodName: takeDamage
+            m_MethodName: Trigger
             m_Mode: 1
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
@@ -95,9 +35,23 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
-          - m_Target: {fileID: 11400000}
+    conditions:
+    - flag: StraightPre
+      Operation: 3
+      value: 0
+      a: 0
+      b: 0
+  - description: Straight Jacket Wizard
+    independentRNG: 0
+    effects:
+    - name: 
+      possibility: 1
+      targetEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: 73f73ba7f2316894797cdcaf141f304a, type: 2}
             m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
-            m_MethodName: takeDamage
+            m_MethodName: Trigger
             m_Mode: 1
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
@@ -107,7 +61,125 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
-          - m_Target: {fileID: 11400000, guid: 71e2758caa874dd44af235460d73470d, type: 2}
+    conditions:
+    - flag: StraightPre
+      Operation: 2
+      value: 0
+      a: 0
+      b: 0
+  - description: Three Card Monte Wizard
+    independentRNG: 0
+    effects:
+    - name: 
+      possibility: 1
+      targetEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: aaa4a240cf90f4740bd464338ff387db, type: 2}
+            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+            m_MethodName: Trigger
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    conditions:
+    - flag: ThreePre
+      Operation: 3
+      value: 0
+      a: 0
+      b: 0
+  - description: Three Card Monte Wizard
+    independentRNG: 0
+    effects:
+    - name: 
+      possibility: 1
+      targetEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: 565abb94f85325a4cb43701590c43a7f, type: 2}
+            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+            m_MethodName: Trigger
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    conditions:
+    - flag: ThreePre
+      Operation: 2
+      value: 0
+      a: 0
+      b: 0
+  - description: Watertank Escapist Wizard
+    independentRNG: 0
+    effects:
+    - name: 
+      possibility: 1
+      targetEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: 15d0ce0abca46dc42be40f45f3254376, type: 2}
+            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+            m_MethodName: Trigger
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    conditions:
+    - flag: WaterPre
+      Operation: 3
+      value: 0
+      a: 0
+      b: 0
+  - description: Watertank Escapist Wizard
+    independentRNG: 0
+    effects:
+    - name: 
+      possibility: 1
+      targetEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: 4ee527cfdaac4864ea1be9af48898479, type: 2}
+            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+            m_MethodName: Trigger
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    conditions:
+    - flag: WaterPre
+      Operation: 2
+      value: 0
+      a: 0
+      b: 0
+  - description: Back to Breaktime
+    independentRNG: 0
+    effects:
+    - name: 
+      possibility: 1
+      targetEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: 8765e028c6ad3e241aa0c63e748b3083, type: 2}
             m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
             m_MethodName: Trigger
             m_Mode: 1
@@ -120,11 +192,7 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
     conditions: []
-  - description: I decline.
-    independentRNG: 0
-    effects: []
-    conditions: []
   ReplaceFrom: {fileID: 0}
   ReplaceTo: {fileID: 0}
   replaceEvent: {fileID: 0}
-  addedTag: MathPre
+  addedTag: 
