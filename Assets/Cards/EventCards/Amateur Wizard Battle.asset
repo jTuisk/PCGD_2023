@@ -19,7 +19,7 @@ MonoBehaviour:
     independentRNG: 1
     effects:
     - name: trigger a battle
-      possibility: 0.5
+      possibility: 1
       targetEvent:
         m_PersistentCalls:
           m_Calls:

@@ -73,7 +73,7 @@ MonoBehaviour:
     independentRNG: 1
     effects:
     - name: Remove
-      possibility: 0
+      possibility: 1
       targetEvent:
         m_PersistentCalls:
           m_Calls:
@@ -94,7 +94,7 @@ MonoBehaviour:
     independentRNG: 1
     effects:
     - name: break
-      possibility: 0
+      possibility: 1
       targetEvent:
         m_PersistentCalls:
           m_Calls:

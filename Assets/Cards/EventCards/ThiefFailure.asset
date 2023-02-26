@@ -20,7 +20,7 @@ MonoBehaviour:
     independentRNG: 0
     effects:
     - name: lose3cards
-      possibility: 0
+      possibility: 1
       targetEvent:
         m_PersistentCalls:
           m_Calls:
