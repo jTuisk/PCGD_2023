@@ -200,157 +200,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 115949907}
   m_CullTransparentMesh: 1
---- !u!1 &152355092
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 152355095}
-  - component: {fileID: 152355094}
-  - component: {fileID: 152355093}
-  m_Layer: 0
-  m_Name: Audio Source
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &152355093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 152355092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eaafb4735c61ade45b690c714ba937a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioSource: {fileID: 152355094}
-  exploreCardAudioEffect: {fileID: 8300000, guid: 6e198615198637c4499d7137df2c77a1, type: 3}
-  flipCardAudioEffect: {fileID: 8300000, guid: 9cd76216d04cbac4d8c17a78eee82fe4, type: 3}
-  playCardAudioEffect: {fileID: 8300000, guid: 54614f55684bdc086bc7b7c5c6f6832e, type: 3}
-  dealDamageAudioEffect: {fileID: 8300000, guid: 9e24a48415c560e42a8611ae018fc812, type: 3}
-  healSelfAudioEffect: {fileID: 0}
-  getManaAudioEffect: {fileID: 8300000, guid: 2061c5d9d4748ea459f6e3b0392f0e0c, type: 3}
-  loseManaAudioEffect: {fileID: 8300000, guid: 4c996ae232a07734db5f161d78a6faa2, type: 3}
-  shuffleDeckAudioEffect: {fileID: 8300000, guid: 1753f1837cf3bbe04999c5373d28639e, type: 3}
-  battleBGM: {fileID: 8300000, guid: dcbf88d3ed3e547689fe6f2c17e29b32, type: 3}
---- !u!82 &152355094
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 152355092}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!4 &152355095
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 152355092}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &190292425
 GameObject:
   m_ObjectHideFlags: 0
@@ -1073,51 +922,49 @@ MonoBehaviour:
   EventDeck:
   - {fileID: 11400000, guid: 8765e028c6ad3e241aa0c63e748b3083, type: 2}
   - {fileID: 11400000, guid: 8765e028c6ad3e241aa0c63e748b3083, type: 2}
-  - {fileID: 11400000, guid: 8765e028c6ad3e241aa0c63e748b3083, type: 2}
-  - {fileID: 11400000, guid: 8765e028c6ad3e241aa0c63e748b3083, type: 2}
-  - {fileID: 11400000, guid: 8765e028c6ad3e241aa0c63e748b3083, type: 2}
   - {fileID: 11400000, guid: d2887f0411ed3934493cc0604b57ab5b, type: 2}
   - {fileID: 11400000, guid: 5081a1af7a82caa46a584936d345bb1b, type: 2}
   - {fileID: 11400000, guid: 431356d10f2052a468d0a8be4ebae47d, type: 2}
   - {fileID: 11400000, guid: 87f554d2485626a448e4874cfc22dbf7, type: 2}
   - {fileID: 11400000, guid: c2423b30731ff534aba30cd3efcae11f, type: 2}
-  - {fileID: 11400000, guid: dff0bd6b755a2104b95bf3d52a217263, type: 2}
   - {fileID: 11400000, guid: 510d8eaf6dacae643813a9d2785b093d, type: 2}
+  - {fileID: 11400000, guid: 6fdea7bcc1b280043b7b8c803989e001, type: 2}
   - {fileID: 11400000, guid: 339a938a496a52e4cb40933cee03b9b9, type: 2}
+  - {fileID: 11400000, guid: c70f723c069c371409e984a11ffcafab, type: 2}
+  - {fileID: 11400000, guid: ac5b9f1e48f455c48822f98235b1cdaf, type: 2}
   CardBasePrefab: {fileID: 1923058948709319707, guid: a820adf569575a349be76d6d8ef88eec, type: 3}
   cardPrefabs:
   - {fileID: 11400000, guid: 255d6e21614b8054c9f3ebdd592a1509, type: 2}
   - {fileID: 11400000, guid: f0b911516c35b604b834ba74a5845232, type: 2}
   - {fileID: 11400000, guid: 1fd6e5cc5a4715b4b9d2b6a4028275df, type: 2}
   - {fileID: 11400000, guid: 951f2832060ceca44a6c096861f9975c, type: 2}
+  - {fileID: 11400000, guid: b19d1393a1522074d9e80a8cdf0fad97, type: 2}
+  - {fileID: 11400000, guid: 0a9dee4528339e04fa746753ce2b98d9, type: 2}
   - {fileID: 11400000, guid: 0ae55edee3bceb34296fdc7578a6b158, type: 2}
+  - {fileID: 11400000, guid: 790c7afe06d54214187cc1fa6a94db18, type: 2}
+  - {fileID: 11400000, guid: 5b1410001ec70344a9b65608de28d807, type: 2}
+  - {fileID: 11400000, guid: 1c02f5d4d03ccfd488341fd4de89dfa5, type: 2}
+  - {fileID: 11400000, guid: 3349b2175928433429671804da709992, type: 2}
   - {fileID: 11400000, guid: 6468a9ffd9380034e9176554e83e4a6f, type: 2}
-  - {fileID: 11400000, guid: ea509f455b0bdf545a37829044f87def, type: 2}
   - {fileID: 11400000, guid: 45a05ed125b87b3409b995e45ba0646c, type: 2}
   - {fileID: 11400000, guid: 0edd1fa40c2754746820f830b6c438e9, type: 2}
   - {fileID: 11400000, guid: 71891e03d1791d7c48e3a9bc7404fdf7, type: 2}
+  - {fileID: 11400000, guid: b21dd676c4b5e534aa40eabc701fff2a, type: 2}
   - {fileID: 11400000, guid: 241339d333618824e8027f985b3367ac, type: 2}
   - {fileID: 11400000, guid: 7e6c096aa97df134dae19f1bb49807c0, type: 2}
-  - {fileID: 11400000, guid: 3349b2175928433429671804da709992, type: 2}
+  - {fileID: 11400000, guid: 29fce653c8934e647bc03b62761ba52e, type: 2}
+  - {fileID: 11400000, guid: b94e53e664c49b34ab479e668a24153f, type: 2}
   - {fileID: 11400000, guid: 5f8b440f40dc98d44ba024462f5e0c84, type: 2}
   - {fileID: 11400000, guid: 4b2426d35a8b432429f415be82a855b5, type: 2}
   - {fileID: 11400000, guid: 577c5869c00354b409c1f1fb43fd1278, type: 2}
   - {fileID: 11400000, guid: 8cd4e3037a874494fa7caa6ff78e8c18, type: 2}
   - {fileID: 11400000, guid: 14d1719f1803034419ecdd91d3ae128a, type: 2}
+  - {fileID: 11400000, guid: cccddf60a89dd6d4ca60377bd23e3fd8, type: 2}
+  - {fileID: 11400000, guid: 166921eadf698694683dee1e7f52a789, type: 2}
   - {fileID: 11400000, guid: 78b6b850ddd591741a83284e521536dd, type: 2}
   - {fileID: 11400000, guid: 84d75064006b7904f8a40b06574423d5, type: 2}
   - {fileID: 11400000, guid: a5fa48b538b10c24680672aa6c3b23b3, type: 2}
-  - {fileID: 11400000, guid: 5b1410001ec70344a9b65608de28d807, type: 2}
-  - {fileID: 11400000, guid: 790c7afe06d54214187cc1fa6a94db18, type: 2}
-  - {fileID: 11400000, guid: 1c02f5d4d03ccfd488341fd4de89dfa5, type: 2}
-  - {fileID: 11400000, guid: 0a9dee4528339e04fa746753ce2b98d9, type: 2}
-  - {fileID: 11400000, guid: b19d1393a1522074d9e80a8cdf0fad97, type: 2}
-  - {fileID: 11400000, guid: b21dd676c4b5e534aa40eabc701fff2a, type: 2}
-  - {fileID: 11400000, guid: 29fce653c8934e647bc03b62761ba52e, type: 2}
-  - {fileID: 11400000, guid: cccddf60a89dd6d4ca60377bd23e3fd8, type: 2}
-  - {fileID: 11400000, guid: 166921eadf698694683dee1e7f52a789, type: 2}
-  - {fileID: 11400000, guid: b94e53e664c49b34ab479e668a24153f, type: 2}
-  deckList: 09000000090000000f0000000f0000000f0000000f0000000d00000012000000120000000e0000000800000008000000030000000300000002000000020000000200000002000000
+  deckList: 0300000001000000020000000d0000000d0000000e0000000e0000001400000014000000150000001500000016000000160000001600000016000000190000001b0000001b0000001b0000000500000005000000
   flags: []
   money: 0
   mana: 0
@@ -1129,6 +976,8 @@ MonoBehaviour:
   inBattle: 0
   inReward: 0
   eventVisible: 0
+  finalbossPool:
+  - {fileID: 11400000, guid: 856adb58d203670c3ac6cbb4342d076b, type: 2}
   enemy: {fileID: 0}
   Hand: {fileID: 1491589463}
   eventBase: {fileID: 1199459019132528113, guid: 50630785987eb424c83000cc971ff6fa, type: 3}
@@ -1148,6 +997,7 @@ MonoBehaviour:
   PlayerDamageModifier: 1
   reversed: 0
   cardsToRemoveFromEnemies: []
+  day: {fileID: 1429135958}
   allEnemies: []
   PlayerConfused: 0
 --- !u!4 &417463227
@@ -1351,7 +1201,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Script: {fileID: 11500000, guid: 3239ecd4631b498a0972a3bac23f9c93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!20 &519420031
@@ -1428,7 +1278,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &569819659
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2325,6 +2175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statusImages: []
   StatusObjectPrefab: {fileID: 551292779428628739, guid: 961d620d8ea78d1c099b6988851e146f, type: 3}
+  enemyStatusPanel: {fileID: 1902629919}
 --- !u!4 &1224439785
 Transform:
   m_ObjectHideFlags: 0
@@ -2338,7 +2189,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1230003143
 GameObject:
@@ -3079,6 +2930,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 9b4a9a6fa307426499a65f14360838d8, type: 2}
     - {fileID: 11400000, guid: 8c52a8f269f060343830b18dcee6b182, type: 2}
     - {fileID: 11400000, guid: 65816d853d763fa4eba25ba35da00666, type: 2}
+    BossPool: []
+    FinalBossPool: []
 --- !u!4 &1429135959
 Transform:
   m_ObjectHideFlags: 0
@@ -3965,6 +3818,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BGEvent: {fileID: 21300000, guid: 0300adce45023b0c08c279c052ad4b78, type: 3}
   BGBattle: {fileID: 21300000, guid: 361935bbdd7bbb2e6a47df75e09e9b67, type: 3}
+--- !u!1 &1902629918
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1902629919}
+  m_Layer: 0
+  m_Name: EnemyStatusContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1902629919
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902629918}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.5, y: 6.7, z: -0.52932984}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1903212947
 GameObject:
   m_ObjectHideFlags: 0
@@ -4013,7 +3897,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1912762316
 GameObject:

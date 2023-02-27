@@ -13,7 +13,7 @@ public class StatusEffect:ScriptableObject
     public List<UnityEvent> effect = new List<UnityEvent>();
     public Sprite icon;
     public string desc;
-
+    public bool targetsEnemy = false;
     public void add()
     {
         var stat = new StatusEffectInstance();

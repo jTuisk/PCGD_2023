@@ -194,7 +194,7 @@ MonoBehaviour:
   enemyDeck: {fileID: 4246534986805932599}
   sprite: {fileID: 9064899577724588009}
   postBattleEvent: {fileID: 0}
-  combatReward: {fileID: 2060550538426315981, guid: 192a23044992cc045b6fa95d24a38a5c, type: 3}
+  combatReward: {fileID: 0}
   creatureDataContainer: {fileID: 0}
   confused: 0
   stunned: 0

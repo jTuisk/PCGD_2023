@@ -17,6 +17,17 @@ public class AudioManager : MonoBehaviour
 
     public AudioClip battleBGM; 
 
+    public AudioClip eventCardDraw;
+    public AudioClip eventCardSlide;
+    public AudioClip eventCardFlip;
+    public AudioClip eventCardBGM;
+
+    public AudioClip mainMenuBGM;
+    public AudioClip GameOverAudioClip;
+    public AudioClip winGameAudioClip;
+
+    public AudioClip bossLaughter;
+
     [HideInInspector]
     public enum AudioEffects {exploreCard, flipCard, playCard, 
         healSelf, getMana, loseMana, dealDamage, 
@@ -86,6 +97,48 @@ public class AudioManager : MonoBehaviour
         }
         // TODO heal
     }
+
+    public void PlayEventCardDrawSound()
+    {
+        audioSource.PlayOneShot(eventCardDraw);
+    }
+
+    public void PlayEventCardSlideSound()
+    {
+        audioSource.PlayOneShot(eventCardSlide);
+    }
+
+    public void PlayEventCardFlipSound()
+    {
+        audioSource.PlayOneShot(eventCardFlip);
+    }
+
+    public void PlayDrawEventCardBGM()
+    {
+        audioSource.clip = eventCardBGM;
+        audioSource.Play();
+    }
+
+    public void PlayWinGameBGM()
+    {
+        audioSource.Stop();
+        audioSource.PlayOneShot(winGameAudioClip);
+    }
+
+    public void PlayMainMenuBGM()
+    {
+        audioSource.clip = mainMenuBGM;
+        audioSource.Play();
+    }
+
+    public void PlayGameOverBGM()
+    {
+        audioSource.Stop();
+        audioSource.PlayOneShot(GameOverAudioClip);
+        audioSource.PlayOneShot(bossLaughter);
+    }
+
+
     public void playBattleBGM(){
         audioSource.clip=battleBGM;
         audioSource.Play();
@@ -94,14 +147,25 @@ public class AudioManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
+        
+        //check if there are more than one audioManager in the scene
+        var audioManagerObjs = GameObject.FindObjectsOfType<AudioManager>();
+        if(audioManagerObjs.Length > 1)
+        {
+            Destroy(this);
+            Destroy(gameObject);
+        }
 
         // check audio source is available
-
+        DontDestroyOnLoad(this.gameObject);
     }
     void Update(){
-        if(Deck.Instance.enemy==null && audioSource.clip==battleBGM){
-            audioSource.Stop();
-            audioSource.clip=null;
+        if(Deck.Instance != null)
+        {
+            if(Deck.Instance.enemy==null && audioSource.clip==battleBGM){
+                audioSource.Stop();
+                audioSource.clip=null;
+            }
         }
     }
 

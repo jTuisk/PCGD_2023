@@ -34,6 +34,10 @@ public class EventCardData : ScriptableObject
         Deck.Instance.MaxHp+=1;
 
     }
+    public void cliffside()
+    {
+        Deck.Instance.Hp = 1;
+    }
     public void HealToFull(){
         Deck.Instance.Hp += 1000000;
         Deck.Instance.takeDamage(0);
@@ -63,12 +67,19 @@ public class EventCardData : ScriptableObject
         Deck.Instance.flags.Add(addedTag);
 
     }
+    public void WaterEncounter(){
+            Deck.Instance.mana = 0;
+    }
     public void StartSelectDeck(int n){
         ContentsOfDeck.Instance.DisplayCards(ContentsOfDeck.DeckTask.selectStartDeck, (uint) n);
     }
 
     public void RemoveCard(int n){
         ContentsOfDeck.Instance.DisplayCards(ContentsOfDeck.DeckTask.removeCardFromDeck, (uint) n);
+    }
+
+    public void AmateurEncounter(){
+        Deck.Instance.Hp = 10;
     }
     public void replaceWithThis(){
         

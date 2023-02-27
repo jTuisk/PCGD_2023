@@ -1,0 +1,213 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 800a222eec0efaf4682b867dcf1b7e2e, type: 3}
+  m_Name: MoreSocial1
+  m_EditorClassIdentifier: 
+  eName: Socialize
+  eventText: Who do you want to go out with?
+  options:
+  - description: Chair Wizard
+    independentRNG: 0
+    effects:
+    - name: 
+      possibility: 1
+      targetEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: d4e2b10db22e82c4b9c874002fef05c0, type: 2}
+            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+            m_MethodName: Trigger
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    conditions:
+    - flag: ChairPre
+      Operation: 3
+      value: 0
+      a: 0
+      b: 0
+    - flag: ChairBeat
+      Operation: 3
+      value: 0
+      a: 0
+      b: 0
+  - description: Chair Wizard
+    independentRNG: 0
+    effects:
+    - name: 
+      possibility: 1
+      targetEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: c9027c0acfdd9994aa6cca9b6310753f, type: 2}
+            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+            m_MethodName: Trigger
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    conditions:
+    - flag: ChairBeat
+      Operation: 2
+      value: 0
+      a: 0
+      b: 0
+  - description: Coin Wizard
+    independentRNG: 0
+    effects:
+    - name: 
+      possibility: 1
+      targetEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: e22f92e40ffb7b94f96c1ee01e17901d, type: 2}
+            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+            m_MethodName: Trigger
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    conditions:
+    - flag: CoinPre
+      Operation: 3
+      value: 0
+      a: 0
+      b: 0
+    - flag: CoinBeat
+      Operation: 3
+      value: 0
+      a: 0
+      b: 0
+  - description: Coin Wizard
+    independentRNG: 0
+    effects:
+    - name: 
+      possibility: 1
+      targetEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: 02b4a8f1e0312f04eb4c168877bca784, type: 2}
+            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+            m_MethodName: Trigger
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    conditions:
+    - flag: CoinBeat
+      Operation: 2
+      value: 0
+      a: 0
+      b: 0
+  - description: Math Wizard
+    independentRNG: 0
+    effects:
+    - name: 
+      possibility: 1
+      targetEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: 71e2758caa874dd44af235460d73470d, type: 2}
+            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+            m_MethodName: Trigger
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    conditions:
+    - flag: MathPre
+      Operation: 3
+      value: 0
+      a: 0
+      b: 0
+    - flag: MathBeat
+      Operation: 3
+      value: 0
+      a: 0
+      b: 0
+  - description: Math Wizard
+    independentRNG: 0
+    effects:
+    - name: 
+      possibility: 1
+      targetEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: 4cd3ea85b6de5c641ad0c128bb5910b3, type: 2}
+            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+            m_MethodName: Trigger
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    conditions:
+    - flag: MathBeat
+      Operation: 2
+      value: 0
+      a: 0
+      b: 0
+  - description: More options
+    independentRNG: 0
+    effects:
+    - name: 
+      possibility: 1
+      targetEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: ca1c0a5bf1d1a934b86155315b2cf55e, type: 2}
+            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+            m_MethodName: Trigger
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    conditions: []
+  ReplaceFrom: {fileID: 0}
+  ReplaceTo: {fileID: 0}
+  replaceEvent: {fileID: 0}
+  addedTag: 

@@ -26,6 +26,7 @@ public class Deck : MonoBehaviour
     public bool inBattle=false;
     public bool inReward = false;
     public bool eventVisible = false;
+    public List<EventCardData> finalbossPool;
     public EnemyCard enemy;
     public GameObject Hand;
     public GameObject eventBase;
@@ -37,7 +38,7 @@ public class Deck : MonoBehaviour
     public float PlayerDamageModifier = 1;
     public bool reversed=false;
     public List<BattleCardDataContainer> cardsToRemoveFromEnemies=new List<BattleCardDataContainer>();
-
+    public DayManager day;
     [HideInInspector]
     public List<CreatureDataContainer> allEnemies;
     public Dictionary<CreatureDataContainer, int> enemyAffectedByCombatRewards;
@@ -110,8 +111,19 @@ public class Deck : MonoBehaviour
         }
 
         FindAllCreatureContainers();
+        AudioManager.Instance.PlayDrawEventCardBGM();
     }
-public void exaustCard(int CardIndex){
+    private void ResetBosses()
+    {
+        BossBattles = new List<EventCardData>();
+        for (int i = 0; i < 5; i++)
+        {
+            var temp = BossBattlePool[Random.Range(0, BossBattlePool.Count - 1)];
+            BossBattles.Add(temp);
+            BossBattlePool.Remove(temp);
+        }
+    }
+    public void exaustCard(int CardIndex){
         if(Hand.transform.childCount>0){
             ExaustPile.Add(Hand.transform.GetChild(CardIndex).GetComponent<Card>());
             Hand.transform.GetChild(CardIndex).position=new Vector2(10000000,100000000);
@@ -124,8 +136,11 @@ public void exaustCard(int CardIndex){
         exaustCard(Random.Range(0,Hand.transform.childCount));
     }
     int bosses=0;
+    int dayindex = 0;
+    bool finalBattle = false;
     public void DrawEventCard()
     {
+        Debug.Log(15+">="+(bossCounter + bosses));
         if(bossCounter+bosses<=15){
             if(bossCounter<=10 &&(bosses>=5|Random.value<0.50)){
                 Instantiate(eventBase).GetComponent<EventCard>().CreateEventCard(EventDeck[Random.Range(0, EventDeck.Count - 1)]);
@@ -138,8 +153,23 @@ public void exaustCard(int CardIndex){
             //Instantiate(eventBase).GetComponent<EventCard>().CreateEventCard(EventDeck[19]); 
 
         }else{
-            Instantiate(eventBase).GetComponent<EventCard>().CreateEventCard(BossBattles[Random.Range(0, BossBattles.Count)]);
-            bossCounter=0;
+
+            if (!finalBattle)
+            {
+                Instantiate(eventBase).GetComponent<EventCard>().CreateEventCard(finalbossPool[Random.Range(0, finalbossPool.Count)]);
+                finalBattle = true;
+            }
+            else
+            {
+                if( !day.SwitchDay(dayindex))
+                {
+                    return;
+                }
+                bosses = 0;
+                dayindex++;
+                bossCounter = 0;
+                ResetBosses();
+            }
         }
         
         eventVisible = true;
@@ -423,7 +453,9 @@ internal bool enemyTurn=true;
 
     public void ResetDeck()
     {
+        removeAllStatuses();
         putExaustPileBackInDeck();
+        Debug.Log("Reset Deck");
         //moves all cards back to deck 
         shuffleDiscardPileBackInDeck();
         while (Hand.transform.childCount > 0)
@@ -438,7 +470,13 @@ internal bool enemyTurn=true;
         }
         actionPoints = MaxactionPoints;
     }
-
+    public void removeAllStatuses()
+    {
+        while (statuses.Count > 0)
+        {
+            statuses.RemoveAt(0);
+        }
+    }
 
     public void UpdateEveryCardDescription()
     {

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e49b428c96ccf764f904a73dac0e4738, type: 3}
+  m_Name: Blackjack Wizard
+  m_EditorClassIdentifier: 
+  HP: 16
+  MaxDamageRange: 5
+  MinDamageRange: 1
+  deck:
+  - {fileID: 11400000, guid: fc4274cdf0be13c4d93a2922b2d55388, type: 2}
+  - {fileID: 11400000, guid: 6e22346bd8c91054a846dad7627ae4e2, type: 2}
+  - {fileID: 11400000, guid: fc4274cdf0be13c4d93a2922b2d55388, type: 2}
+  - {fileID: 11400000, guid: 7b5bd8d2b7715a24b86098ae2ee050f8, type: 2}
+  - {fileID: 11400000, guid: 2fc8a35b133382545b015367c91cc625, type: 2}
+  - {fileID: 11400000, guid: fc4274cdf0be13c4d93a2922b2d55388, type: 2}
+  - {fileID: 11400000, guid: 6f56ef93e442a994b985a8721e3368be, type: 2}
+  CreatureBase: {fileID: 1923058948709319707, guid: 6671e36d1d116eb44b87cd53f63a7813, type: 3}
+  postBattleEvent: {fileID: 11400000, guid: 75053c7c12a86f34ca9c7bf469359e52, type: 2}
+  Picture: {fileID: 0}
