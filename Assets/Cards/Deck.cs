@@ -48,13 +48,17 @@ public class Deck : MonoBehaviour
         allEnemies = new List<CreatureDataContainer>();
         enemyAffectedByCombatRewards = new Dictionary<CreatureDataContainer, int>();
 
-        string path = "Assets/Cards/Enemies";
-        string[] files = System.IO.Directory.GetFiles(path, "*.asset", System.IO.SearchOption.TopDirectoryOnly);
-        foreach (var file in files)
-        {
-            var creature = (CreatureDataContainer)UnityEditor.AssetDatabase.LoadAssetAtPath(file, typeof(CreatureDataContainer));
-            allEnemies.Add(creature);
-        }
+        #if UNITY_EDITOR
+            string path = "Assets/Cards/Enemies";
+            string[] files = System.IO.Directory.GetFiles(path, "*.asset", System.IO.SearchOption.TopDirectoryOnly);
+            foreach (var file in files)
+            {
+                var creature = (CreatureDataContainer)UnityEditor.AssetDatabase.LoadAssetAtPath(file, typeof(CreatureDataContainer));
+                allEnemies.Add(creature);
+            }
+        # else
+            // TODO load enemies (only when old combat reward system needed)
+        #endif
     }
 
 
