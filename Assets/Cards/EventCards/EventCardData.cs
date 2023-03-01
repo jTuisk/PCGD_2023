@@ -22,6 +22,9 @@ public class EventCardData : ScriptableObject
     public void takeDamage(){
         Deck.Instance.takeDamage(1);
     }
+        public void takeDamage(int amount){
+        Deck.Instance.takeDamage(amount);
+    }
     public void addHealth()
     {
         Deck.Instance.Hp += 1;
@@ -29,9 +32,21 @@ public class EventCardData : ScriptableObject
 
 
     }
+        public void addHealth(int amount)
+    {
+        Deck.Instance.Hp += amount;
+        Deck.Instance.takeDamage(0);
+
+
+    }
         public void addMaxHealth()
     {
         Deck.Instance.MaxHp+=1;
+
+    }
+    public void addMaxHealth(int amount)
+    {
+        Deck.Instance.MaxHp+=amount;
 
     }
     public void cliffside()
@@ -49,6 +64,10 @@ public class EventCardData : ScriptableObject
 
     }
     public void addMana()
+    {
+        Deck.Instance.mana += 1;
+    }
+        public void addMana(int amount)
     {
         Deck.Instance.mana += 1;
     }

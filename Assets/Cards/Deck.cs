@@ -17,6 +17,7 @@ public class Deck : MonoBehaviour
     public List<string> flags;
     public int money = 0;
     public int mana = 0;
+    public float dotDamageMultiplier=1;
     private int bossCounter=0;
     public int MaxHp = 20;
     public int Hp = 0;
@@ -61,7 +62,11 @@ public class Deck : MonoBehaviour
         #endif
     }
 
-
+    public void multiplyStatusLength(float amount){
+        foreach(var status in statuses){
+            status.multiplyStatusLength(amount);
+        }
+    }
     // wrap list<Card>.Add() function
     public void BattleDeckAdd(Card card)
     {
@@ -426,6 +431,7 @@ internal bool enemyTurn=true;
     {
         enemyTurn=true;
         reversed=false;
+        dotDamageMultiplier=1;
         if (enemy != null)
         {
             enemy.EnemyDamageModifier = 1;

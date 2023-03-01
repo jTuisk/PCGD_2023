@@ -21,7 +21,6 @@ public class StatusEffect:ScriptableObject
         stat.effect = this.effect;
         stat.id=this.name;
         stat.icon=this.icon;
-        
         Deck.Instance.statuses.Add(stat);
         stat.desc=this.desc;
     }
@@ -49,11 +48,25 @@ public class StatusEffect:ScriptableObject
         Deck.Instance.PlayerDamageModifier *= 2;
         Deck.Instance.UpdateEveryCardDescription();
     }
-    public void DamageEnemy(){
-        Deck.Instance.enemy.takeDamage(1);
-    }
-    public void DamagePlayer()
+
+        public void MultiplyEnemyDamageModifier(float amount)
     {
-        Deck.Instance.takeDamage(1);
+        Deck.Instance.enemy.EnemyDamageModifier *= amount;
+    }
+    public void MultiplyPlayerDamageModifier(float amount)
+    {
+        Deck.Instance.PlayerDamageModifier *= amount;
+        Deck.Instance.UpdateEveryCardDescription();
+    }
+    public void DamageEnemy(int amount){
+        Deck.Instance.enemy.takeDamage((int)(1*Deck.Instance.dotDamageMultiplier));
+    }
+
+    public void DamagePlayer(int amount)
+    {
+        Deck.Instance.takeDamage((int)(1*Deck.Instance.dotDamageMultiplier));
+    }
+    public void MultiplydotDamageMultiplier(float amount){
+        Deck.Instance.dotDamageMultiplier*=amount;
     }
 }

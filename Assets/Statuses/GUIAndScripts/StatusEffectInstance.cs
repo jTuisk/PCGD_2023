@@ -25,5 +25,12 @@ public class StatusEffectInstance
         }
         duration -= 1;
 
+
+    }
+    public void multiplyStatusLength(float amount){
+        duration=(int)(amount*duration);    
+    }
+    public string getID(){
+        return id;
     }
 }

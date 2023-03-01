@@ -41,6 +41,10 @@ public class BattleCardDataContainer : ScriptableObject
         Deck.Instance.discardRandom();
 
     }
+    public void multiplyStatusLength(float amount){
+        Deck.Instance.multiplyStatusLength( amount);
+    }
+    
     public void reverse(){
         Deck.Instance.reversed=true;
     }
@@ -54,8 +58,18 @@ public class BattleCardDataContainer : ScriptableObject
             Deck.Instance.enemy.takeDamage(-1);
         }
     }
+    public void enemyTakeDamage(int amount){
+        if(!Deck.Instance.reversed){
+            Deck.Instance.enemy.takeDamage(amount);
+        }else{
+            Deck.Instance.enemy.takeDamage(-amount);
+        }
+    }
     public void playerTakeDamage(){
         Deck.Instance.takeDamage(1);
+    }
+    public void playerTakeDamage(int amount){
+        Deck.Instance.takeDamage(amount);
     }
     public void removeRandomCardFromDeck()
     {
@@ -89,11 +103,29 @@ public class BattleCardDataContainer : ScriptableObject
             }
         }
     }
+    public void AddAP(int amount){
+        if(!Deck.Instance.reversed){        
+            Deck.Instance.actionPoints+=amount;
+        }else{
+            if(Deck.Instance.actionPoints-amount>0){
+                Deck.Instance.actionPoints-=amount;
+            }else{
+                Deck.Instance.actionPoints=0;
+            }
+        }
+    }
     public void enemyHeal(){
         if(!Deck.Instance.reversed){
             Deck.Instance.enemy.HP +=1;
         }else{
             Deck.Instance.enemy.HP -=1;
+        }
+    }
+        public void enemyHeal(int amount){
+        if(!Deck.Instance.reversed){
+            Deck.Instance.enemy.HP +=amount;
+        }else{
+            Deck.Instance.enemy.HP -=amount;
         }
     }
     public void shuffleEnemyDeck()

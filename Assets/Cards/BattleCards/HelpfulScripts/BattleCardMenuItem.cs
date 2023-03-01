@@ -72,7 +72,13 @@ public class BattleCondition
 
     
     }
-    public enum type {LESS,EQUALS,FLAG,NOFLAG };
+    public bool IsStunned(){
+        foreach(var status in Deck.Instance.statuses){
+            if(status.getID().Contains("Stun")){return true;}
+        }
+        return false;
+    }
+    public enum type {LESS,EQUALS,FLAG,NOFLAG,ISSTUNNED };
     public enum target { HEALTH, MANA, FLOAT };
     public string flag;
     public type Operation;
@@ -84,6 +90,8 @@ public class BattleCondition
 
         switch (Operation)
         {
+            case type.ISSTUNNED:
+                return IsStunned();
             case type.NOFLAG:
                 return !Deck.Instance.flags.Contains(flag);
             case type.FLAG:
