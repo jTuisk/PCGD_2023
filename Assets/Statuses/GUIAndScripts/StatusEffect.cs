@@ -40,6 +40,7 @@ public class StatusEffect:ScriptableObject
                 Deck.Instance.enemy.confused=false;
             }
     }
+
     private void ConfusePlayer(){
         if(!Deck.Instance.reversed){
             Deck.Instance.PlayerConfused=true;

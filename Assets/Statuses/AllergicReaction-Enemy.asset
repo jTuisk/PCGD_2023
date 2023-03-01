@@ -30,4 +30,4 @@ MonoBehaviour:
         m_CallState: 2
   icon: {fileID: 21300000, guid: 0900aac99b7e50646a90cd1aaeededa4, type: 3}
   desc: Player takes 1 damage
-  targetsEnemy: 1
+  targetsEnemy: 0

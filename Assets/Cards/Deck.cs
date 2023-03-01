@@ -244,6 +244,7 @@ public class Deck : MonoBehaviour
     public void inBattleEndTurn()
     {
         enemy.block=0;
+        ApplyStatusEffects(StatusActivation.ENEMYTURNSTART);
         PutHandInDiscardPile();
         //run at the end of the turn
         if (enemy != null)
@@ -467,6 +468,27 @@ public class Deck : MonoBehaviour
         }
     }
 internal bool enemyTurn=true;
+
+public enum StatusActivation{PLAYERTURNSTART,ENEMYTURNSTART}
+public void ApplyStatusEffects(StatusActivation StA){
+            for( int i=0; i<statuses.Count; i++){
+            var status = statuses[i];
+            if(StA==StatusActivation.ENEMYTURNSTART&&status.targetsEnemy){
+                status.trigger();
+            }
+            if(StA==StatusActivation.PLAYERTURNSTART){
+            if (!status.targetsEnemy)
+            {
+                status.trigger();
+            }
+
+            if(!(status.duration > 0))
+            {
+                statuses.Remove(status);
+                i--;
+            }
+        }}
+}
     public void inBattleStartTurn()
     {
         enemyTurn=true;
@@ -481,18 +503,7 @@ internal bool enemyTurn=true;
         //run at the start of the turn
         DrawCardInHand(CardsDrawnAtStartOfTurn);
         actionPoints = MaxactionPoints;
-        for( int i=0; i<statuses.Count; i++){
-            var status = statuses[i];
-            if (status.duration > 0)
-            {
-                status.trigger();
-            }
-            else
-            {
-                statuses.Remove(status);
-                i--;
-            }
-        }
+        ApplyStatusEffects(StatusActivation.PLAYERTURNSTART);
         if (stunned)
         {
             stunned = false;
