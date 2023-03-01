@@ -50,6 +50,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae0d1e63201a7b39fa4b7c8a23e5d544, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stat:
+    duration: 1
+    effect: []
+    icon: {fileID: 0}
+    desc: 
+    targetsEnemy: 0
   statImage: {fileID: 6520936527358747908}
   text: {fileID: 6966352922139373890}
   defaultSprite: {fileID: 21300000, guid: 61ac40b257b3a994f841856ad38b2b6b, type: 3}
@@ -307,8 +313,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4293918718
+  m_fontColor: {r: 0.99607843, g: 1, b: 0.9372549, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

@@ -7,13 +7,14 @@ public class EnemyBlockUpdater : MonoBehaviour
     // Start is called before the first frame update
     public TMPro.TextMeshProUGUI text;
 
+    [SerializeField] GameObject BlockGameObject;
 
     // Update is called once per frame
     void Update()
     {
-        if(Deck.Instance.enemy!=null){
+        if(Deck.Instance.enemy!=null && BlockGameObject != null){
             int block = Deck.Instance.enemy.block;
-            gameObject.SetActive(block != 0);
+            BlockGameObject.SetActive(block != 0);
 
             if(block != 0)
             {

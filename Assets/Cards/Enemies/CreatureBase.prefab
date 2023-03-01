@@ -459,6 +459,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2786494953855687327}
   - component: {fileID: 6800869919338920927}
+  - component: {fileID: 619731333286080710}
   m_Layer: 0
   m_Name: CreatureBase
   m_TagString: Untagged
@@ -515,6 +516,20 @@ MonoBehaviour:
   stunned: 0
   EnemyDamageModifier: 1
   img: {fileID: 6637709017078948978}
+--- !u!114 &619731333286080710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923058948709319707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7e6c3d949b1a9fbc8cee9138b38a839, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 3244476380315824150}
+  BlockGameObject: {fileID: 8837377599424649987}
 --- !u!1 &3109548377820510189
 GameObject:
   m_ObjectHideFlags: 0
@@ -1218,7 +1233,6 @@ GameObject:
   - component: {fileID: 8573281824865589649}
   - component: {fileID: 6734765706948678228}
   - component: {fileID: 5558695890898607570}
-  - component: {fileID: 5887454282327839760}
   m_Layer: 5
   m_Name: Block
   m_TagString: Untagged
@@ -1285,19 +1299,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5887454282327839760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8837377599424649987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7e6c3d949b1a9fbc8cee9138b38a839, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 3244476380315824150}
 --- !u!1 &8969451621508258034
 GameObject:
   m_ObjectHideFlags: 0
