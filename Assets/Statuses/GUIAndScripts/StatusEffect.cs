@@ -21,6 +21,7 @@ public class StatusEffect:ScriptableObject
         stat.effect = this.effect;
         stat.id=this.name;
         stat.icon=this.icon;
+        stat.targetsEnemy=targetsEnemy;
         Deck.Instance.statuses.Add(stat);
         stat.desc=this.desc;
     }
@@ -32,9 +33,33 @@ public class StatusEffect:ScriptableObject
         }
         }
     }
-
-    public void StunEnemy() {
-        Deck.Instance.enemy.stunned = true;
+        private void ConfuseEnemy(){
+            if(!Deck.Instance.reversed){
+                Deck.Instance.enemy.confused=true;
+            }else{
+                Deck.Instance.enemy.confused=false;
+            }
+    }
+    private void ConfusePlayer(){
+        if(!Deck.Instance.reversed){
+            Deck.Instance.PlayerConfused=true;
+        }else{
+            Deck.Instance.PlayerConfused=false;
+        }
+    }
+    public void Confuse(){
+        if(targetsEnemy){
+            ConfuseEnemy();
+        }else{
+            ConfusePlayer();
+        }
+    }
+    public void Stun() {
+        if(targetsEnemy){
+            Deck.Instance.enemy.stunned = true;
+    }else{
+        Deck.Instance.stunned=true;
+    }
     }
     public void StunPlayer() {
         Deck.Instance.stunned = true;
@@ -42,10 +67,20 @@ public class StatusEffect:ScriptableObject
     public void gainAPOnExhaust(int amount){
         Deck.Instance.gainAPOnExhaust+=amount;
     }
+        public void DoubleDamageModifier()
+    {
+        if(targetsEnemy){
+        Deck.Instance.enemy.EnemyDamageModifier *= 2;
+    }else{
+        Deck.Instance.PlayerDamageModifier *= 2;
+        Deck.Instance.UpdateEveryCardDescription();        
+    }
+    }
     public void DoubleEnemyDamageModifier()
     {
         Deck.Instance.enemy.EnemyDamageModifier *= 2;
     }
+
     public void DoublePlayerDamageModifier()
     {
         Deck.Instance.PlayerDamageModifier *= 2;
@@ -56,6 +91,17 @@ public class StatusEffect:ScriptableObject
     {
         Deck.Instance.enemy.EnemyDamageModifier *= amount;
     }
+            public void MultiplyDamageModifier(float amount)
+    {
+        if(targetsEnemy){
+        Deck.Instance.enemy.EnemyDamageModifier *= amount;
+        
+    }else{
+        Deck.Instance.PlayerDamageModifier *= amount;
+        Deck.Instance.UpdateEveryCardDescription();        
+    }
+    
+    }
     public void MultiplyPlayerDamageModifier(float amount)
     {
         Deck.Instance.PlayerDamageModifier *= amount;
@@ -64,7 +110,15 @@ public class StatusEffect:ScriptableObject
     public void DamageEnemy(int amount){
         Deck.Instance.enemy.takeDamage((int)(1*Deck.Instance.dotDamageMultiplier));
     }
+    public void Damage(int amount){
+        if(targetsEnemy){
+            Deck.Instance.enemy.takeDamage((int)(1*Deck.Instance.dotDamageMultiplier));
 
+        }else{
+
+            Deck.Instance.takeDamage((int)(1*Deck.Instance.dotDamageMultiplier));            
+        }
+    }
     public void DamagePlayer(int amount)
     {
         Deck.Instance.takeDamage((int)(1*Deck.Instance.dotDamageMultiplier));

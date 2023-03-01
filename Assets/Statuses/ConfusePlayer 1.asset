@@ -16,9 +16,9 @@ MonoBehaviour:
   effect:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: c81921c882ed024dc916f3231a67cb26, type: 2}
-        m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
-        m_MethodName: ConfusePlayer
+      - m_Target: {fileID: 11400000}
+        m_TargetAssemblyTypeName: StatusEffect, Assembly-CSharp
+        m_MethodName: Confuse
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
