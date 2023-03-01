@@ -1511,7 +1511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c8d1e18205147b439ab8a34b5116b49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hideAtStart: 1
+  hideAtStart: 0
   _currentTask: 0
   _maximumNumberOfSelectedCards: 2
   _playerHand: {fileID: 1491589463}

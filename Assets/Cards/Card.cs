@@ -26,6 +26,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public Image APImage;
     public Image ManaImage;
     public BattleCardDataContainer BattleCardData { get; protected set; }
+    BattleCardDataContainer currentBattleCardData;
     protected List<BattleCardMenuItem> conditionalEffects;
 
     public GameObject CardHighlightLine;
@@ -95,9 +96,12 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         effect.Invoke();
 
     }
-    public virtual void createCard(BattleCardDataContainer data) {
+    public virtual void createCard(BattleCardDataContainer data, bool saveContainerData = true) {
 
-        BattleCardData = data;
+        currentBattleCardData = data;
+
+        if (saveContainerData)
+            BattleCardData = data;
 
         Damage = data.Damage;
         block = data.block;
@@ -195,6 +199,54 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             resetScale();
             }
         }
+
+        CheckForSpecialEffect();
+    }
+
+    private void CheckForSpecialEffect()
+    {
+        if (BattleCardData.hasSpecialEffect)
+        {
+            BattleCardDataContainer specialEffectDataContainer = BattleCardData.specialEffectEvent;
+
+            if (BattleCardData.cardsMustBeInHand)
+            {
+                if (Deck.Instance.HasCardsInHand(BattleCardData.requiredCards))
+                {
+
+                    Debug.Log($"1- {BattleCardData.cardName} have special effect! cardsMustBeInHand: {BattleCardData.cardsMustBeInHand}.");
+                    if(specialEffectDataContainer != null && currentBattleCardData != specialEffectDataContainer)
+                    {
+                        createCard(BattleCardData.specialEffectEvent, false);
+                    }
+                }
+                else
+                {
+                    if(currentBattleCardData != BattleCardData)
+                    {
+                        createCard(BattleCardData, false);
+                    }
+                }
+            }
+            else
+            {
+                if (Deck.Instance.HasCardsInDeck(BattleCardData.requiredCards))
+                {
+                    Debug.Log($"2- {BattleCardData.cardName} have special effect! cardsMustBeInHand: {BattleCardData.cardsMustBeInHand}");
+                    if (specialEffectDataContainer != null && currentBattleCardData != specialEffectDataContainer)
+                    {
+                        createCard(BattleCardData.specialEffectEvent, false);
+                    }
+                }
+                else
+                {
+                    if (currentBattleCardData != BattleCardData)
+                    {
+                        createCard(BattleCardData, false);
+                    }
+                }
+            }
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -281,11 +333,11 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void UpdateDescriptionText(float damageModifier = 1f, float blockModifier = 1f, float magicModifier = 1f, float costModifier = 1f)
     {
-        Debug.Log($"{Damage*damageModifier}");
-        description.text = (Damage > 0 ? "Deal " + Damage*damageModifier + " Damage" : "")
-                            + (block > 0 ? " Block " + block * blockModifier + " Damage" : "")
-                            + (magic > 0 ? " gain " + magic * magicModifier + " mana" : "")
-                            + (magic < 0 ? " Costs " + (-magic * costModifier) + " mana" : "")
-                            +BattleCardData.effectDescriptor;
+        description.text = (Damage > 0 ? "Deal " + Damage * damageModifier + " Damage" : "")
+                                + (block > 0 ? " Block " + block * blockModifier + " Damage" : "")
+                                + (magic > 0 ? " gain " + magic * magicModifier + " mana" : "")
+                                + (magic < 0 ? " Costs " + (-magic * costModifier) + " mana" : "")
+                                + BattleCardData.effectDescriptor;
+        
     }
 }

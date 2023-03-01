@@ -25,3 +25,7 @@ MonoBehaviour:
       m_Calls: []
   conditionalEffects: []
   exaust: 1
+  hasSpecialEffect: 0
+  cardsMustBeInHand: 0
+  requiredCards: []
+  specialEffectEvent: {fileID: 0}
