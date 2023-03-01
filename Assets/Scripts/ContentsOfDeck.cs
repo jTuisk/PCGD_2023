@@ -68,12 +68,15 @@ public class ContentsOfDeck : MonoBehaviour
             return;
         }
         Instance = this;
-        gameObject.SetActive(!hideAtStart);
     }
 
     private void Start()
     {
-        DisplayCards(DeckTask.selectStartDeck,7);
+        gameObject.SetActive(!hideAtStart);
+        if (!hideAtStart)
+        {
+            DisplayCards(DeckTask.selectStartDeck, 7);
+        }
     }
 
     private void Update()
@@ -101,7 +104,7 @@ public class ContentsOfDeck : MonoBehaviour
         Debug.Log($"discard deck pile count: {_playerDeck.BattleDiscardPile.Count} -> {_discardPile.Count}"); //Used this to make sure everything is correct.
         if (_discardPile.Count > 0)
         {
-            DisplayCards(_discardPile);
+            DisplayCards(_discardPile, DeckTask.view);
             _playerHand.SetActive(false);
         }
     }
@@ -112,7 +115,7 @@ public class ContentsOfDeck : MonoBehaviour
         Debug.Log($"discard deck pile count: {_playerDeck.BattleDeck.Count} -> {_battleDeck.Count}"); //Used this to make sure everything is correct.
         if (_battleDeck.Count > 0)
         {
-            DisplayCards(_battleDeck);
+            DisplayCards(_battleDeck, DeckTask.view);
             _playerHand.SetActive(false);
         }
         /*List<GameObject> finalDeck = new List<GameObject>();
@@ -181,6 +184,7 @@ public class ContentsOfDeck : MonoBehaviour
 
     private List<GameObject> GetListOfCards(List<Card> compareToList)
     {
+        _cardsInGame = new List<GameObject>(GameObject.FindGameObjectsWithTag("Card"));
         List<GameObject> finalList = new List<GameObject>();
 
         /**
@@ -272,11 +276,6 @@ public class ContentsOfDeck : MonoBehaviour
                 {
                     foreach (Card card in _selectedCards)
                     {
-                        //_cardsInGame.Remove(cardGO); 
-                        //_discardPile.Remove(cardGO);
-                        //_battleDeck.Remove(cardGO);
-                        //_handCards.Remove(cardGO);
-
                         _playerDeck.RemoveAndDestroyCard(card);
                     }
                     ChangeCurrentTask(_currentTask, _maximumNumberOfSelectedCards);
