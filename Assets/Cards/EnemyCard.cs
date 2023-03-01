@@ -183,7 +183,8 @@ IEnumerator shake(){
 
 
         //Cange gamestate back to drawing event cards if player wins battle
-        text.text = damage + "\n" + HP;
+        //REMOVE
+        //text.text = damage + "\n" + HP;
         if (HP <= 0)
         {
             Deck.Instance.enemy = null;

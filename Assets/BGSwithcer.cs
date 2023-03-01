@@ -7,7 +7,9 @@ public class BGSwithcer : MonoBehaviour
 {
     // Start is called before the first frame update
     public Sprite BGEvent;
-     public Sprite BGBattle;
+    public Sprite BGBattle;
+
+    public GameObject BG_Frame;
      Image sr;
     void Start()
     {
@@ -18,7 +20,9 @@ public class BGSwithcer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(bg.EVENT!=state&&Deck.Instance.inBattle!=true){
+        BG_Frame.SetActive(!Deck.Instance.inBattle);
+
+        if (bg.EVENT!=state&&Deck.Instance.inBattle!=true){
             state=bg.EVENT;
             this.transform.GetChild(0).gameObject.SetActive(false);
             //sr.sprite=BGEvent;

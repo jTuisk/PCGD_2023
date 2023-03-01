@@ -7,6 +7,8 @@ using TMPro;
 
 public class ContentsOfDeck : MonoBehaviour
 {
+
+    [SerializeField] bool hideAtStart = true;
     public static ContentsOfDeck Instance { get; private set; }
 
     /*
@@ -66,7 +68,7 @@ public class ContentsOfDeck : MonoBehaviour
             return;
         }
         Instance = this;
-        //gameObject.SetActive(false);
+        gameObject.SetActive(!hideAtStart);
     }
 
     private void Start()
@@ -76,7 +78,7 @@ public class ContentsOfDeck : MonoBehaviour
 
     private void Update()
     {
-        //DisplayCards(); //Remove this line after testing
+        DisplayCards(); //Remove this line after testing
 
         HandlePlayerInput();
         UpdateUIText();
@@ -95,43 +97,34 @@ public class ContentsOfDeck : MonoBehaviour
         _handCards = GetHandCards();
     }
 
-    private void DisplayDiscardedDeck()
+    public void DisplayDiscardedDeck()
     {
-        if (!_showDiscardPile)
-            return;
-
+        _discardPile = GetListOfCards(_playerDeck.BattleDiscardPile);
         Debug.Log($"discard deck pile count: {_playerDeck.BattleDiscardPile.Count} -> {_discardPile.Count}"); //Used this to make sure everything is correct.
-
-        if(_discardPile.Count > 0)
+        if (_discardPile.Count > 0)
         {
-            DisplayListOfCards(_discardPile);
+            DisplayCards(_discardPile);
+            _playerHand.SetActive(false);
         }
     }
 
-    private void DisplayBattleDeck()
+    public void DisplayBattleDeck()
     {
-        if (!_showBattleDeck)
-            return;
-
-        Debug.Log($"battle deck pile count: {_playerDeck.BattleDeck.Count} -> {_battleDeck.Count}"); //Used this to make sure everything is correct.
-
-        if(_battleDeck.Count > 0)
+        _battleDeck = GetListOfCards(_playerDeck.BattleDeck);
+        Debug.Log($"discard deck pile count: {_playerDeck.BattleDeck.Count} -> {_battleDeck.Count}"); //Used this to make sure everything is correct.
+        if (_battleDeck.Count > 0)
         {
-            DisplayListOfCards(_battleDeck);
+            DisplayCards(_battleDeck);
+            _playerHand.SetActive(false);
         }
-    }
-    
-    private void DisplayHandCards()
-    {
-        if (!_showHandCards)
-            return;
+        /*List<GameObject> finalDeck = new List<GameObject>();
+        finalDeck.AddRange(GetListOfCards(_playerDeck.BattleDeck));
+        finalDeck.AddRange(GetHandCards());
 
-        Debug.Log($"hand cards count: {_playerHand.transform.childCount} -> {_handCards.Count}"); //Used this to make sure everything is correct.
-
-        if (_handCards.Count > 0)
+        if(finalDeck.Count > 0)
         {
-            DisplayListOfCards(_handCards);
-        }
+            DisplayCards(finalDeck);
+        }*/
     }
 
     private void DisplayListOfCards(List<GameObject> listOfCards)
@@ -171,6 +164,9 @@ public class ContentsOfDeck : MonoBehaviour
          */
         foreach (GameObject cardGO in _cardsInGame)
         {
+            if (cardGO == null)
+                continue;
+
             Card card;
 
             if (cardGO.TryGetComponent<Card>(out card))
@@ -194,6 +190,9 @@ public class ContentsOfDeck : MonoBehaviour
          */
         foreach (GameObject cardGO in _cardsInGame)
         {
+            if (cardGO == null)
+                continue;
+
             Card card;
             if (cardGO.TryGetComponent<Card>(out card))
             {
@@ -422,12 +421,16 @@ public class ContentsOfDeck : MonoBehaviour
 
     private void OnEnable()
     {
+        GetCardsInGame();
         _playerHand.GetComponent<HandOrganizer>().enabled = false;
         DisplayEnemyGO(false);
     }
 
     private void OnDisable()
     {
+        if (!_playerHand.activeSelf)
+            _playerHand.SetActive(true);
+
         RemoveSelectedCardsHighlight();
         foreach (GameObject cardGO in _discardPile)
         {

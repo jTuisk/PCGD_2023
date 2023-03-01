@@ -26,3 +26,5 @@ MonoBehaviour:
   CreatureBase: {fileID: 1923058948709319707, guid: 6671e36d1d116eb44b87cd53f63a7813, type: 3}
   postBattleEvent: {fileID: 11400000, guid: 36db18383554b6140822acbb2a7d3943, type: 2}
   Picture: {fileID: 21300000, guid: 64b8a13844b3d2a4ca9a916047d39b71, type: 3}
+  pictureDefaultPosition: {x: -5, y: 0, z: 2}
+  pictureScale: {x: 1.5, y: 1.5, z: 1}
