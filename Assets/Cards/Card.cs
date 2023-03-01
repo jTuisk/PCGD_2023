@@ -13,6 +13,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public int magic = 0;
     public int money = 0;
     public int actionCost = 0;
+    private float actionCostMultiplier=1;
     public bool exaust=false;
     public TMPro.TextMeshProUGUI description;
     public TMPro.TextMeshProUGUI apCost;
@@ -32,6 +33,9 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void Playcard()
     {
+        if(exaust){
+            Deck.Instance.actionPoints+=Deck.Instance.gainAPOnExhaust;
+        }
         if (Deck.Instance.enemy != null)
         {
             Deck.Instance.enemy.takeDamage( Damage);
@@ -56,6 +60,14 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         }
         ExplosionManager.Instance.playCard(this);
         AudioManager.Instance.PlayCardEffectsWhenCardPlayed(this);
+    }
+    public void multiplyHandCardCost(float amount){
+        actionCostMultiplier*=amount;
+        apCost.text=actionCost+"";
+    }
+    public void setCardCostmulti(float amount){
+        actionCostMultiplier=amount;
+        apCost.text=actionCost+"";
     }
     public void EnemyPlayCard(EnemyCard e){
         e.block+=block;

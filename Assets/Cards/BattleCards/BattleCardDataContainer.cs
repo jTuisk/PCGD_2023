@@ -30,11 +30,24 @@ public class BattleCardDataContainer : ScriptableObject
         Deck.Instance.removeAllStatuses();
 
     }
+    public void multiplyHandCardCost(float amount){
+        Deck.Instance.multiplyHandCardCost(amount);
+    }
+    public void multiplyAllCardCost(float amount){
+        Deck.Instance.multiplyCardCost(amount);
+    }
+
     public void EnemyDrawCard(){
         Deck.Instance.enemy.Playcard();
     }
+    public void putExaustPileBackInDeck(){
+        Deck.Instance.putExaustPileBackInDeck();
+    }
     public void drawCard(){
         Deck.Instance.DrawCardInHand(1);
+    }
+    public void drawCard(int amount){
+        Deck.Instance.DrawCardInHand(amount);
     }
     public void discardRandom()
     {

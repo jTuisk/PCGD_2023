@@ -39,6 +39,9 @@ public class StatusEffect:ScriptableObject
     public void StunPlayer() {
         Deck.Instance.stunned = true;
     }
+    public void gainAPOnExhaust(int amount){
+        Deck.Instance.gainAPOnExhaust+=amount;
+    }
     public void DoubleEnemyDamageModifier()
     {
         Deck.Instance.enemy.EnemyDamageModifier *= 2;

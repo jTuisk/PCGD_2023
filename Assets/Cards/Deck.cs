@@ -26,6 +26,7 @@ public class Deck : MonoBehaviour
     public int actionPoints = 3;
     public bool inBattle=false;
     public bool inReward = false;
+    public int gainAPOnExhaust=0;
     public bool eventVisible = false;
     public List<EventCardData> finalbossPool;
     public EnemyCard enemy;
@@ -90,7 +91,46 @@ public class Deck : MonoBehaviour
 
         Destroy(card.gameObject);
     }
+    public void multiplyHandCardCost(float amount)
+    {
+        foreach (GameObject card in Hand.transform)
+        {
+            var cardComponent=card.GetComponent<Card>();
+            cardComponent.multiplyHandCardCost(amount);
+        }
 
+    }
+        public void multiplyCardCost(float amount)
+    {
+        foreach (GameObject card in Hand.transform)
+        {
+            var cardComponent=card.GetComponent<Card>();
+            cardComponent.multiplyHandCardCost(amount);
+        }
+        foreach (Card card in BattleDeck)
+        {
+           
+            card.multiplyHandCardCost(amount);
+        }
+        foreach (Card card in BattleDiscardPile)
+        {
+           
+            card.multiplyHandCardCost(amount);
+        }
+
+    }
+    public void resetCardCost(){
+        foreach(Card i in BattleDeck){
+            i.setCardCostmulti(1);
+        }
+        foreach(Card i in ExaustPile){
+            i.setCardCostmulti(1);
+        }
+        foreach(Card i in BattleDiscardPile){
+            i.setCardCostmulti(1);
+        }
+
+    }
     private void Awake()
     {
         //singleton setup
@@ -431,6 +471,7 @@ internal bool enemyTurn=true;
     {
         enemyTurn=true;
         reversed=false;
+        gainAPOnExhaust=0;
         dotDamageMultiplier=1;
         if (enemy != null)
         {
@@ -463,6 +504,7 @@ internal bool enemyTurn=true;
 
     public void ResetDeck()
     {
+        resetCardCost();
         removeAllStatuses();
         putExaustPileBackInDeck();
         Debug.Log("Reset Deck");
