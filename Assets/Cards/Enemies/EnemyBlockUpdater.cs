@@ -12,7 +12,13 @@ public class EnemyBlockUpdater : MonoBehaviour
     void Update()
     {
         if(Deck.Instance.enemy!=null){
-        text.text=Deck.Instance.enemy.block+"";
+            int block = Deck.Instance.enemy.block;
+            gameObject.SetActive(block != 0);
+
+            if(block != 0)
+            {
+                text.text = $"{block}";
+            }
         }
     }
 }

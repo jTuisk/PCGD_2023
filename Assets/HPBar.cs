@@ -5,20 +5,46 @@ using UnityEngine.UI;
 
 public class HPBar : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public bool autoUpdate = true;
+
     public Slider slider;
+    [Range(0.0f, 1f)]
+    public float customSliderValue = 1f;
+
     public EnemyCard card;
-    public float sliderValue = 1;
-    float max;
+
+
+    [SerializeField] bool showHealthText = true;
+    [SerializeField] TMPro.TextMeshProUGUI healthText;
+
+
+    float maxHp = 100f;
+
     void Start()
     {
-        max=card.HP;
-        sliderValue = 1;
+        if (card != null)
+        {
+            maxHp = card.HP;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (card == null)
+            return;
+
+        float currentHp = card.HP;
+
+        slider.value = autoUpdate ? currentHp/maxHp : customSliderValue;
+
+        healthText.gameObject.SetActive(showHealthText);
+        if (showHealthText)
+        {
+            healthText.text = $"{currentHp} / {maxHp}";
+        }
+
+        /*
         if((sliderValue-(float)card.HP / max)  < 0.001)
         {
             sliderValue = (float)card.HP / max;
@@ -33,6 +59,6 @@ public class HPBar : MonoBehaviour
             sliderValue -=   Time.deltaTime;
             slider.value = Mathf.Lerp( 0, 1, sliderValue);
         }
-        else { slider.value = sliderValue; }
+        else { slider.value = sliderValue; }*/
     }
 }
