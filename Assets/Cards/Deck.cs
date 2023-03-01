@@ -243,8 +243,10 @@ public class Deck : MonoBehaviour
 
     public void inBattleEndTurn()
     {
+
         enemy.block=0;
         ApplyStatusEffects(StatusActivation.ENEMYTURNSTART);
+        statusCleanup();
         PutHandInDiscardPile();
         //run at the end of the turn
         if (enemy != null)
@@ -492,8 +494,14 @@ public enum StatusActivation{PLAYERTURNSTART,ENEMYTURNSTART}
 public void ApplyStatusEffects(StatusActivation StA){
             for( int i=0; i<statuses.Count; i++){
             var status = statuses[i];
-            if(StA==StatusActivation.ENEMYTURNSTART&&status.targetsEnemy){
+            if(StA==StatusActivation.ENEMYTURNSTART){
+            
+            if(status.targetsEnemy){
                 status.trigger();
+            
+            }
+
+
             }
             if(StA==StatusActivation.PLAYERTURNSTART){
             if (!status.targetsEnemy)
@@ -501,13 +509,19 @@ public void ApplyStatusEffects(StatusActivation StA){
                 status.trigger();
             }
 
+
+        }}
+}
+public void statusCleanup(){
+            for( int i=0; i<statuses.Count; i++){
+            var status = statuses[i];
             if(!(status.duration > 0))
             {
                 statuses.Remove(status);
                 i--;
-            }
-        }}
+            }}
 }
+
     public void inBattleStartTurn()
     {
         enemyTurn=true;

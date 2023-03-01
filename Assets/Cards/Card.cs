@@ -39,7 +39,11 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         }
         if (Deck.Instance.enemy != null)
         {
-            Deck.Instance.enemy.takeDamage( Damage);
+            if(!Deck.Instance.PlayerConfused){
+                Deck.Instance.enemy.takeDamage( Damage);
+            }else{
+                Deck.Instance.takeDamage(Damage);
+            }
         }
         Deck.Instance.block += block;
         Deck.Instance.mana += magic;

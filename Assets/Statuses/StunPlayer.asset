@@ -28,6 +28,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  icon: {fileID: 21300000, guid: 789f90a3845961a4f841794bd977d3c1, type: 3}
+  icon: {fileID: 21300000, guid: 772d5a15194f2c3b688c3d190c090d15, type: 3}
   desc: Stun player
   targetsEnemy: 0

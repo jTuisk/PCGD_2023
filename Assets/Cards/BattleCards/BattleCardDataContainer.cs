@@ -71,24 +71,52 @@ public class BattleCardDataContainer : ScriptableObject
         Deck.Instance.cardsToRemoveFromEnemies.Add(this);
     }
     public void enemyTakeDamage(){
-        if(!Deck.Instance.reversed){
-            Deck.Instance.enemy.takeDamage(1);
-        }else{
-            Deck.Instance.enemy.takeDamage(-1);
-        }
-    }
-    public void enemyTakeDamage(int amount){
+        int amount=1;
+       if(!Deck.Instance.PlayerConfused){
         if(!Deck.Instance.reversed){
             Deck.Instance.enemy.takeDamage(amount);
         }else{
             Deck.Instance.enemy.takeDamage(-amount);
         }
+        }else{
+            if(Deck.Instance.enemy!=null){
+                Deck.Instance.takeDamage(amount);
+            }
+        }
+    }
+    public void enemyTakeDamage(int amount){
+        if(!Deck.Instance.PlayerConfused){
+        if(!Deck.Instance.reversed){
+            Deck.Instance.enemy.takeDamage(amount);
+        }else{
+            Deck.Instance.enemy.takeDamage(-amount);
+        }
+        }else{
+            if(Deck.Instance.enemy!=null){
+                Deck.Instance.takeDamage(amount);
+            }
+        }
     }
     public void playerTakeDamage(){
-        Deck.Instance.takeDamage(1);
+        int amount=1;        
+        if(Deck.Instance.enemy!=null){
+        if(!Deck.Instance.enemy.confused){
+            
+           Deck.Instance.takeDamage(amount);
+        }else{
+            enemyTakeDamage(amount);
+        }
+        }
     }
     public void playerTakeDamage(int amount){
-        Deck.Instance.takeDamage(amount);
+        if(Deck.Instance.enemy!=null){
+        if(!Deck.Instance.enemy.confused){
+            
+           Deck.Instance.takeDamage(amount);
+        }else{
+            enemyTakeDamage(amount);
+        }
+        }
     }
     public void removeRandomCardFromDeck()
     {
