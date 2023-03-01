@@ -69,7 +69,7 @@ public class StatusEffect:ScriptableObject
     }
         public void DoubleDamageModifier()
     {
-        if(targetsEnemy){
+        if(!targetsEnemy){
         Deck.Instance.enemy.EnemyDamageModifier *= 2;
     }else{
         Deck.Instance.PlayerDamageModifier *= 2;
