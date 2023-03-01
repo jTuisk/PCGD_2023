@@ -32,6 +32,12 @@ public class EnemyCard : MonoBehaviour
     public Image img;
     int decks;
 
+    [Header("Card UI")]
+    [SerializeField] float firstCardScale = 0.4f;
+    [SerializeField] float otherCardScale = 0.30f; // 0.25
+    [SerializeField] float cardsYoffSet = 0.5f; //-2.25
+
+    [Header("Others")]
     [SerializeField] bool autoUpdate = false;
     void Start()
     {
@@ -53,14 +59,15 @@ public class EnemyCard : MonoBehaviour
 
 public void reorganize(){
     for(int j=0; j<enemyDeck.transform.childCount; j++){
-    enemyDeck.transform.GetChild(j).GetComponent<Card>().status=Card.BelongTo.Enermy;
-    if(j==0){
-        enemyDeck.transform.GetChild(j).transform.position=new Vector2(enemyDeck.transform.position.x  + (j-1) * 5,enemyDeck.transform.position.y);
-        enemyDeck.transform.GetChild(j).transform.localScale=new Vector3(0.6f,0.6f,0.52f);
-    }else{
-    enemyDeck.transform.GetChild(j).transform.localScale=new Vector3(0.5f,0.5f,0.5f);
-    enemyDeck.transform.GetChild(j).transform.position=new Vector2(enemyDeck.transform.position.x  + j * 5,enemyDeck.transform.position.y);
-    }}
+        enemyDeck.transform.GetChild(j).GetComponent<Card>().status=Card.BelongTo.Enermy;
+        if(j==0){
+            enemyDeck.transform.GetChild(j).transform.position = new Vector3(enemyDeck.transform.position.x + cardsYoffSet, enemyDeck.transform.position.y);
+            enemyDeck.transform.GetChild(j).transform.localScale = new Vector3(firstCardScale, firstCardScale, 1f);
+        } else {
+            enemyDeck.transform.GetChild(j).transform.position = new Vector3(enemyDeck.transform.position.x + j * 5 + cardsYoffSet*j, enemyDeck.transform.position.y);
+            enemyDeck.transform.GetChild(j).transform.localScale = new Vector3(otherCardScale, otherCardScale, 1f);
+            }
+    }
     DeckSize.text=""+(decks-enemyDeck.transform.childCount);
 }
 
@@ -179,8 +186,9 @@ IEnumerator shake(){
     }
     void Update()
     {
-        idleAnim();
+        reorganize();  //Remove after testing;
 
+        idleAnim();
 
         //Cange gamestate back to drawing event cards if player wins battle
         //REMOVE

@@ -78,8 +78,6 @@ public class ContentsOfDeck : MonoBehaviour
 
     private void Update()
     {
-        DisplayCards(); //Remove this line after testing
-
         HandlePlayerInput();
         UpdateUIText();
         HandleActionButton();
