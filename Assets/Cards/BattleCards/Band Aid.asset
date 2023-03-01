@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Band Aid
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: Remove status effects-One use per combat
+  effectDescriptor: Remove status effects *Exhaust
   cardName: Band-Aid
   Damage: 0
   block: 0

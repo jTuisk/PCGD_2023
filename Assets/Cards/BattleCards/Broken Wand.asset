@@ -15,9 +15,9 @@ MonoBehaviour:
   IsEnemySpecialCard: 0
   effectDescriptor: ' and take one damage.'
   cardName: Broken wand
-  Damage: 1
+  Damage: 2
   block: 0
-  magic: -1
+  magic: 0
   money: 0
   actionCost: 0
   effect:
