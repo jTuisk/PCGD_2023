@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Ace of Diamonds
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: -One use per combat
+  effectDescriptor: '*Exhaust'
   cardName: Ace of Diamonds
   Damage: 0
   block: 4

@@ -15,9 +15,9 @@ MonoBehaviour:
   IsEnemySpecialCard: 0
   effectDescriptor: ' you start bleeding for three turns'
   cardName: Broken Chair Throw
-  Damage: 2
+  Damage: 3
   block: 0
-  magic: 0
+  magic: -1
   money: 0
   actionCost: 0
   effect:

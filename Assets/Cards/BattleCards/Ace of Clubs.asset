@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Ace of Clubs
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: -One use per combat
+  effectDescriptor: '*Exhaust'
   cardName: Ace of Clubs
   Damage: 4
   block: 0

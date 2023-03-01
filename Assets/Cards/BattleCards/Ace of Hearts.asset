@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Ace of Hearts
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: Heal 2-One use per combat
+  effectDescriptor: Heal 2 *Exhaust
   cardName: Ace of Hearts
   Damage: 0
   block: 0

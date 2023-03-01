@@ -13,16 +13,64 @@ MonoBehaviour:
   m_Name: Ace of Spades
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: Gain 2 mana -One use per combat
+  effectDescriptor: ' and gain 6 mana *Exhaust'
   cardName: Ace of Spades
-  Damage: 0
+  Damage: 2
   block: 0
-  magic: 2
+  magic: 0
   money: 0
-  actionCost: 0
+  actionCost: 1
   effect:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 11400000, guid: 8765e028c6ad3e241aa0c63e748b3083, type: 2}
+        m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+        m_MethodName: addMana
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 8765e028c6ad3e241aa0c63e748b3083, type: 2}
+        m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+        m_MethodName: addMana
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 8765e028c6ad3e241aa0c63e748b3083, type: 2}
+        m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+        m_MethodName: addMana
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 8765e028c6ad3e241aa0c63e748b3083, type: 2}
+        m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+        m_MethodName: addMana
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 11400000, guid: 8765e028c6ad3e241aa0c63e748b3083, type: 2}
         m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
         m_MethodName: addMana
