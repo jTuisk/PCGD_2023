@@ -18,7 +18,7 @@ public class ContentsOfDeck : MonoBehaviour
      *  DisplayCards(List<GameObject> cards, DeckTask deckTask = DeckTask.view, uint maxSelected = 0) // Displays every card that is in card list.
      */
 
-    public enum DeckTask { view, selectStartDeck, removeCardFromDeck }
+    public enum DeckTask { view, selectStartDeck, removeCardFromDeck, discardPileToHand}
 
     [SerializeField] DeckTask _currentTask = DeckTask.view;
     [SerializeField] uint _maximumNumberOfSelectedCards = 2;
@@ -283,6 +283,19 @@ public class ContentsOfDeck : MonoBehaviour
                 }
                 break;
 
+            case DeckTask.discardPileToHand:
+                if (_selectedCards.Count == _maximumNumberOfSelectedCards)
+                {
+                    foreach (Card card in _selectedCards)
+                    {
+                        //Move cards to hand.
+                    }
+                    ChangeCurrentTask(_currentTask, _maximumNumberOfSelectedCards);
+                    gameObject.SetActive(false);
+                }
+
+                break;
+
             default:
                 ChangeCurrentTask();
                 gameObject.SetActive(false);
@@ -354,6 +367,7 @@ public class ContentsOfDeck : MonoBehaviour
         {
             case DeckTask.selectStartDeck:
             case DeckTask.removeCardFromDeck:
+            case DeckTask.discardPileToHand:
                 _closeButton.SetActive(false);
                 _actionButton.SetActive(true);
                 break;
@@ -395,6 +409,12 @@ public class ContentsOfDeck : MonoBehaviour
             case DeckTask.removeCardFromDeck:
                 SetTitleText("Remove cards");
                 buttonText = _selectedCards.Count != _maximumNumberOfSelectedCards ? $"{_selectedCards.Count} / {_maximumNumberOfSelectedCards}" : "Remove cards";
+                SetActionButtonText(buttonText);
+                break;
+
+            case DeckTask.discardPileToHand:
+                SetTitleText("Select cards");
+                buttonText = _selectedCards.Count != _maximumNumberOfSelectedCards ? $"{_selectedCards.Count} / {_maximumNumberOfSelectedCards}" : "Select cards";
                 SetActionButtonText(buttonText);
                 break;
 

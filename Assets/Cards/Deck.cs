@@ -455,7 +455,6 @@ public class Deck : MonoBehaviour
             {
                 var card = DrawCard();
                 card.status = Card.BelongTo.PlayerHand;
-
                 var deckPos = Deck.Instance.getPosition();
                 card.transform.position = deckPos;
                 card.gameObject.transform.parent = Hand.transform;
@@ -464,9 +463,29 @@ public class Deck : MonoBehaviour
                 var endPos = Hand.GetComponent<HandOrganizer>().CalculateCardPos(leftoverCardCount+amount, leftoverCardCount + i, card.transform.localScale.x);
                 card.triggerMove(startPos, endPos); 
             }
-
         }
     }
+
+    public void MoveCardToHand(GameObject cardGO)
+    {
+        /*var cardDistanceScalar = Hand.GetComponent<HandOrganizer>().cardDistanceScalar;
+        var leftoverCardCount = Hand.transform.childCount;
+
+        if (BattleDeck.Count > 0 || BattleDiscardPile.Count > 0)
+        {
+            var card = DrawCard();
+            card.status = Card.BelongTo.PlayerHand;
+
+            var deckPos = Deck.Instance.getPosition();
+            card.transform.position = deckPos;
+            card.gameObject.transform.parent = Hand.transform;
+
+            var startPos = new Vector3(deckPos.x, deckPos.y, transform.position.z);
+            var endPos = Hand.GetComponent<HandOrganizer>().CalculateCardPos(leftoverCardCount + amount, leftoverCardCount + i, card.transform.localScale.x);
+            card.triggerMove(startPos, endPos);
+        }*/
+    }
+
 internal bool enemyTurn=true;
 
 public enum StatusActivation{PLAYERTURNSTART,ENEMYTURNSTART}
