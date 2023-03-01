@@ -15,6 +15,8 @@ public class CreatureDataContainer : ScriptableObject
     public GameObject CreatureBase;
     public EventCardData postBattleEvent;
     public Sprite Picture;
+    public Vector3 pictureDefaultPosition = Vector3.zero;
+    public Vector3 pictureScale = Vector3.one;
     public void Spawn()
     {
         Deck.Instance.enemy = Instantiate(CreatureBase).GetComponent<EnemyCard>();

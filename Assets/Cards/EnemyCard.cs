@@ -31,6 +31,8 @@ public class EnemyCard : MonoBehaviour
     public float EnemyDamageModifier = 1;
     public Image img;
     int decks;
+
+    [SerializeField] bool autoUpdate = false;
     void Start()
     {
 
@@ -38,6 +40,17 @@ public class EnemyCard : MonoBehaviour
         Debug.Log(img);
         Deck.Instance.battleStart();
     }
+
+    private void RepositionSprite()
+    {
+        sprite.transform.position = creatureDataContainer.pictureDefaultPosition;
+    }
+
+    private void RescaleSprite()
+    {
+        sprite.transform.localScale = creatureDataContainer.pictureScale;
+    }
+
 public void reorganize(){
     for(int j=0; j<enemyDeck.transform.childCount; j++){
     enemyDeck.transform.GetChild(j).GetComponent<Card>().status=Card.BelongTo.Enermy;
@@ -193,7 +206,12 @@ IEnumerator shake(){
             Destroy(gameObject);
             AudioManager.Instance.PlayDrawEventCardBGM();
         }
-        
+
+        if (autoUpdate)
+        {
+            RepositionSprite();
+            RescaleSprite();
+        }
     }
     float attackAnimationDuration=1;
     public void moveToPos(Vector3 startpos,Vector3 targetPos,float time,float duration){
