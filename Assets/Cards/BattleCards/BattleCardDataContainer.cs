@@ -21,6 +21,12 @@ public class BattleCardDataContainer : ScriptableObject
     public List<BattleCardMenuItem> conditionalEffects;    
     public bool exaust=false;
 
+    [Header("Special effect")]
+    public bool hasSpecialEffect = false;
+    public bool cardsMustBeInHand = false;
+    public List<BattleCardDataContainer> requiredCards;
+    public BattleCardDataContainer specialEffectEvent;
+
     public void addCard()
     {
         Deck.Instance.BattleDeckAddCardFromCardData(this);
@@ -161,7 +167,6 @@ public class BattleCardDataContainer : ScriptableObject
             }
             Deck.Instance.enemy.reorganize();
         }
-        
     }
 
 }

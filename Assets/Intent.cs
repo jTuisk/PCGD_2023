@@ -20,8 +20,11 @@ public class Intent : Card
     public Image iSpecial;
         public TMPro.TextMeshProUGUI Btext; 
     override
-    public void createCard(BattleCardDataContainer data){
-        BattleCardData = data;
+    public void createCard(BattleCardDataContainer data, bool saveContainerData = true)
+    {
+
+        if (saveContainerData)
+            BattleCardData = data;
 
         Damage = data.Damage;
         block = data.block;

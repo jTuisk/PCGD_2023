@@ -584,4 +584,54 @@ internal bool enemyTurn=true;
         Hp = MaxHp;
         mana = 0;
     }
+
+    public bool HasCardInHand(BattleCardDataContainer battleCardDataContainer)
+    {
+        Card[] cardsInHand = Hand.GetComponentsInChildren<Card>();
+
+        foreach(Card card in cardsInHand)
+        {
+            if (card.BattleCardData == battleCardDataContainer)
+                return true;
+        }
+        return false;
+    }
+
+    public bool HasCardsInHand(List<BattleCardDataContainer> list)
+    {
+        foreach (BattleCardDataContainer b in list)
+        {
+            if (!HasCardInHand(b))
+                return false;
+        }
+        return true;
+    }
+
+    public bool HasCardInDeck(BattleCardDataContainer battleCardDataContainer)
+    {
+        GameObject[] cardsGO = GameObject.FindGameObjectsWithTag("Card");
+        
+        foreach(GameObject go in cardsGO)
+        {
+            Card card;
+
+            if(go.TryGetComponent<Card>(out card))
+            {
+                if (card.BattleCardData == battleCardDataContainer)
+                    return true;
+            }
+        }
+        return false;
+    }
+
+
+    public bool HasCardsInDeck(List<BattleCardDataContainer> list)
+    {
+        foreach (BattleCardDataContainer b in list)
+        {
+            if (!HasCardInDeck(b))
+                return false;
+        }
+        return true;
+    }
 }
