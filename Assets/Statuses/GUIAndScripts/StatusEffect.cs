@@ -109,20 +109,20 @@ public class StatusEffect:ScriptableObject
         Deck.Instance.UpdateEveryCardDescription();
     }
     public void DamageEnemy(int amount){
-        Deck.Instance.enemy.takeDamage((int)(1*Deck.Instance.dotDamageMultiplier));
+        Deck.Instance.enemy.takeDamage((int)(amount*Deck.Instance.dotDamageMultiplier));
     }
     public void Damage(int amount){
         if(targetsEnemy){
-            Deck.Instance.enemy.takeDamage((int)(1*Deck.Instance.dotDamageMultiplier));
+            Deck.Instance.enemy.takeDamage((int)(amount*Deck.Instance.dotDamageMultiplier));
 
         }else{
 
-            Deck.Instance.takeDamage((int)(1*Deck.Instance.dotDamageMultiplier));            
+            Deck.Instance.takeDamage((int)(amount*Deck.Instance.dotDamageMultiplier));            
         }
     }
     public void DamagePlayer(int amount)
     {
-        Deck.Instance.takeDamage((int)(1*Deck.Instance.dotDamageMultiplier));
+        Deck.Instance.takeDamage((int)(amount*Deck.Instance.dotDamageMultiplier));
     }
     public void MultiplydotDamageMultiplier(float amount){
         Deck.Instance.dotDamageMultiplier*=amount;
