@@ -98,6 +98,8 @@ IEnumerator shake(){
         }
         if(!Deck.Instance.reversed){
         HP = Mathf.Min((int) (HP +block- amount * EnemyDamageModifier),amount>0?HP:HP-amount);
+            ExplosionManager.Instance.PlayArmorAnimation(-(amount-(amount-block)),new Vector3(0,0,0));
+            block=Mathf.Max(0,block-amount);
         }else{
             HP = (int) (HP + amount * EnemyDamageModifier);
         }

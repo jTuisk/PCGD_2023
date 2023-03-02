@@ -83,6 +83,7 @@ public class BattleCardDataContainer : ScriptableObject
                 Deck.Instance.takeDamage(amount);
             }
         }
+
     }
     public void enemyTakeDamage(int amount){
         if(!Deck.Instance.PlayerConfused){
@@ -94,6 +95,7 @@ public class BattleCardDataContainer : ScriptableObject
         }else{
             if(Deck.Instance.enemy!=null){
                 Deck.Instance.takeDamage(amount);
+
             }
         }
     }
