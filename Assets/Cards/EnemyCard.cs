@@ -90,7 +90,7 @@ IEnumerator shake(){
     public void takeDamage(int amount) {
         if(amount>0){
             StartCoroutine("shake");
-            Instantiate(DamageText).GetComponent<DamageText>().changeTextString(""+(amount*EnemyDamageModifier-block));
+            //Instantiate(DamageText).GetComponent<DamageText>().changeTextString(""+(amount*EnemyDamageModifier-block));
             ExplosionManager.Instance.PlayHealthAnimation((int)(amount*EnemyDamageModifier-block),new Vector3(0,0,0));
         }
         if(!Deck.Instance.reversed){
