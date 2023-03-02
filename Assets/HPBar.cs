@@ -5,20 +5,16 @@ using UnityEngine.UI;
 
 public class HPBar : MonoBehaviour
 {
-    public bool autoUpdate = true;
-
     public Slider slider;
-    [Range(0.0f, 1f)]
-    public float customSliderValue = 1f;
+    public float sliderValue = 1f;
 
     public EnemyCard card;
 
-
     [SerializeField] bool showHealthText = true;
     [SerializeField] TMPro.TextMeshProUGUI healthText;
-
-
     float maxHp = 100f;
+
+
 
     void Start()
     {
@@ -36,29 +32,30 @@ public class HPBar : MonoBehaviour
 
         float currentHp = card.HP;
 
-        slider.value = autoUpdate ? currentHp/maxHp : customSliderValue;
-
         healthText.gameObject.SetActive(showHealthText);
         if (showHealthText)
         {
             healthText.text = $"{currentHp} / {maxHp}";
         }
-
-        /*
-        if((sliderValue-(float)card.HP / max)  < 0.001)
+        
+        if((sliderValue - currentHp / maxHp)  < 0.01f)
         {
-            sliderValue = (float)card.HP / max;
+            sliderValue = currentHp / maxHp;
         }
-        if ((float)card.HP / max > sliderValue)
+
+        if (currentHp / maxHp > sliderValue)
         {
             sliderValue += Time.deltaTime;
-            slider.value = Mathf.Lerp( 0, 1, sliderValue);
+            slider.value = Mathf.Lerp(0, 1, sliderValue);
         }
-        else if ((float)card.HP / max < sliderValue)
+        else if (currentHp / maxHp < sliderValue)
         {
-            sliderValue -=   Time.deltaTime;
-            slider.value = Mathf.Lerp( 0, 1, sliderValue);
+            sliderValue -= Time.deltaTime;
+            slider.value = Mathf.Lerp(0, 1, sliderValue);
         }
-        else { slider.value = sliderValue; }*/
+        else
+        {
+            slider.value = sliderValue;
+        }
     }
 }

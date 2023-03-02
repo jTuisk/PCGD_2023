@@ -42,8 +42,9 @@ public class EnemyCard : MonoBehaviour
     [SerializeField] bool autoUpdate = false;
     void Start()
     {
-
-        img=sprite.GetComponent<Image>();
+        RepositionSprite();
+        RescaleSprite();
+        img =sprite.GetComponent<Image>();
         Debug.Log(img);
         Deck.Instance.battleStart();
     }
