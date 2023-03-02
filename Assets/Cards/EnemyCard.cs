@@ -9,6 +9,7 @@ public class EnemyCard : MonoBehaviour
     public int MaxDamageRange = 6;
     public int block=0;
     public int MinDamageRange = 1;
+    public bool Lucky=false;
     public int damage = 0;
     public GameObject DamageText;
     public List<Card> cards;

@@ -9,7 +9,21 @@ public class BattleCardMenuItem
     public static void Activate(List<Effect> effects,bool Independent)
     {
         var sumOfprob=0.0f;
-        var v = UnityEngine.Random.value;
+        float v=0;
+        if(Deck.Instance.enemyTurn){
+        if(!Deck.Instance.Lucky){
+            v = UnityEngine.Random.value;
+        }else{
+            v =0.99999999999f;
+        }
+        }else{
+            if(Deck.Instance.enemy!=null){
+            if(!Deck.Instance.enemy.Lucky){
+                v = UnityEngine.Random.value;
+            }else{
+                v =0.99999999999f;
+            }} 
+        }
         Deck.Instance.eventVisible = false;
         foreach(var effect in effects)
         {

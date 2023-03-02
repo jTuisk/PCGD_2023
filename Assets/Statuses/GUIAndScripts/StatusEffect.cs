@@ -103,6 +103,13 @@ public class StatusEffect:ScriptableObject
     }
     
     }
+    public void lucky(){
+        if(targetsEnemy){
+            Deck.Instance.enemy.Lucky=true;
+        }else{
+            Deck.Instance.Lucky=true;
+        }
+    } 
     public void MultiplyPlayerDamageModifier(float amount)
     {
         Deck.Instance.PlayerDamageModifier *= amount;

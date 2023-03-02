@@ -21,6 +21,7 @@ public class Deck : MonoBehaviour
     private int bossCounter=0;
     public int MaxHp = 20;
     public int Hp = 0;
+    public bool Lucky=false;
     public int block = 0;
     public int MaxactionPoints = 3;
     public int actionPoints = 3;
@@ -254,8 +255,10 @@ public class Deck : MonoBehaviour
     
     public void inBattleEndTurn()
     {
+        enemyTurn=false;
         enemy.block=0;
         PlayerDamageModifier = 1;
+        enemy.Lucky=false;
         ApplyStatusEffects(StatusActivation.ENEMYTURNSTART);
         statusCleanup();
         PutHandInDiscardPile();
@@ -276,7 +279,7 @@ public class Deck : MonoBehaviour
             enemy.damage = Random.Range(enemy.MinDamageRange, enemy.MaxDamageRange);
             
             }
-            enemyTurn=false;
+
             Invoke("inBattleStartTurn",1.5f);
             //inBattleStartTurn();
             Debug.Log("HP: " + Hp);
@@ -537,6 +540,7 @@ public void statusCleanup(){
     {
 
         enemyTurn=true;
+
         reversed=false;
         gainAPOnExhaust=0;
         dotDamageMultiplier=1;
@@ -546,7 +550,7 @@ public void statusCleanup(){
             enemy.EnemyDamageModifier = 1;
         }else{return;}
         if(Deck.Instance.enemy.HP<=0){return;}
-        
+        Lucky=false;        
         //run at the start of the turn
         DrawCardInHand(CardsDrawnAtStartOfTurn);
         actionPoints = MaxactionPoints;
