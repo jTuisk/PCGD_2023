@@ -24,7 +24,7 @@ public void init(StatusEffectInstance status,StatusAnimator animator){
     // Update is called once per frame
     void Update()
     {
-        text.text=""+stat.duration;
+        text.text=""+(stat.duration>0?stat.duration:1);
         if(!( Deck.Instance.statuses.Contains(stat))){
             animator.statusImages.Remove(this);
             Destroy(this.gameObject);

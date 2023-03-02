@@ -17,7 +17,8 @@ public class StatusEffectInstance
     public bool targetsEnemy;
     public void trigger()
     {
-
+        if(id.Equals("StunEnemy")&&Deck.Instance.enemy.stunned){return;}
+        if(id.Equals("StunPlayer")&&Deck.Instance.stunned){return;}
         foreach (var i in effect)
         {
             i.Invoke();

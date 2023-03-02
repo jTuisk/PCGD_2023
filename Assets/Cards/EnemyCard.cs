@@ -100,7 +100,11 @@ IEnumerator shake(){
         }else{
             HP = (int) (HP + amount * EnemyDamageModifier);
         }
+        if(HP>maxHP){
+            HP=maxHP;
+        }
     }
+    int maxHP;
     public void Create(CreatureDataContainer data)
     {
         creatureDataContainer = data;
@@ -109,6 +113,7 @@ IEnumerator shake(){
             Deck.Instance.enemyAffectedByCombatRewards[data] : -1;
 
         HP = data.HP;
+        maxHP = data.HP;
         MaxDamageRange = data.MaxDamageRange;
         MinDamageRange = data.MinDamageRange;
         postBattleEvent = data.postBattleEvent;
