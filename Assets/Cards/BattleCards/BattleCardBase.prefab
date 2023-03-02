@@ -69,7 +69,7 @@ MonoBehaviour:
   m_text: New Text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6b1d6ed8593264e6d834ebd95d17b606, type: 2}
-  m_sharedMaterial: {fileID: 5744539995873593001, guid: 6b1d6ed8593264e6d834ebd95d17b606, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 0d5901eb0ff267549b26cca2a71b3edd, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.025558472, y: 0, z: 0.010336399, w: 0.060317993}
+  m_margin: {x: -0.71861744, y: 0.1558246, z: -0.7951112, w: -0.2742345}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -186,6 +186,7 @@ MonoBehaviour:
   magic: 0
   money: 0
   actionCost: 1
+  actionCostMultiplier: 1
   exaust: 0
   description: {fileID: 2461034819953710743}
   apCost: {fileID: 19013997281242592}
@@ -199,7 +200,7 @@ MonoBehaviour:
   APImage: {fileID: 6967270870355774452}
   ManaImage: {fileID: 3776955659698842536}
   CardHighlightLine: {fileID: 9101367839708890936}
-  CardHighlightColor: {r: 1, g: 1, b: 1, a: 1}
+  DefaultHighlightLineColor: {r: 0, g: 0, b: 0, a: 0}
   inHand: 0
   status: 0
 --- !u!222 &4455591315308548998
@@ -567,14 +568,14 @@ MonoBehaviour:
   m_text: New Text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6b1d6ed8593264e6d834ebd95d17b606, type: 2}
-  m_sharedMaterial: {fileID: 5744539995873593001, guid: 6b1d6ed8593264e6d834ebd95d17b606, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 1346df39643c09a47918208fd813b100, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278393111
-  m_fontColor: {r: 0.09019608, g: 0.09803922, b: 0.011764706, a: 1}
+    rgba: 4293918718
+  m_fontColor: {r: 0.99607843, g: 1, b: 0.9372549, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -704,7 +705,7 @@ MonoBehaviour:
     2 Block'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6b1d6ed8593264e6d834ebd95d17b606, type: 2}
-  m_sharedMaterial: {fileID: 5744539995873593001, guid: 6b1d6ed8593264e6d834ebd95d17b606, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 0d5901eb0ff267549b26cca2a71b3edd, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
