@@ -42,17 +42,19 @@ public class ExplosionManager : MonoBehaviour
     }
 
     public void PlaySwordAnimation(int damage){
+        if(Mathf.Abs(damage)>0){
         var i=Instantiate(SwordExplosion);
         var t=i.GetComponentInChildren<TMPro.TextMeshProUGUI>();
         t.text=("-") +Mathf.Abs(damage);
         i.transform.position=heartExplosionTarget.position;
-    }
+    }}
     public void PlaySwordAnimation(int damage,Vector3 pos){
+        if(Mathf.Abs(damage)>0){
         var i=Instantiate(SwordExplosion);
         var t=i.GetComponentInChildren<TMPro.TextMeshProUGUI>();
         t.text=("-") +Mathf.Abs(damage);
         i.transform.position=pos;
-    }
+    }}
         public void PlayHealthAnimation(int damage,Vector3 pos){
         if(Mathf.Abs(damage)>0){
         var i=Instantiate(heartExplosion);
@@ -61,24 +63,27 @@ public class ExplosionManager : MonoBehaviour
         i.transform.position=pos;
     }}
         public void PlayArmorAnimation(int block){
+        if(Mathf.Abs(block)>0){
         var i=Instantiate(armorExplosion);
         i.transform.position=armorExplosionTarget.position;
         var t=i.GetComponentInChildren<TMPro.TextMeshProUGUI>();
-        t.text=(block>0?"-":"+") +Mathf.Abs(block);
+        t.text=(block>0?"+":"-") +Mathf.Abs(block);
         i.transform.position=armorExplosionTarget.position;
-    }
+    }}
     public void PlayArmorAnimation(int block,Vector3 pos){
+        if(Mathf.Abs(block)>0){
         var i=Instantiate(armorExplosion);
         var t=i.GetComponentInChildren<TMPro.TextMeshProUGUI>();
-        t.text=(block>0?"-":"+") +Mathf.Abs(block);
+        t.text=(block>0?"+":"-") +Mathf.Abs(block);
         i.transform.position=pos;
-    }
+    }}
         public void PlayManaAnimation(int mana){
+        if(Mathf.Abs(mana)>0){
         var i=Instantiate(manaExplosion);
         i.transform.position=manaExplosionTarget.position;
         var t=i.GetComponentInChildren<TMPro.TextMeshProUGUI>();
         t.text=(mana>0?"+":"-") +Mathf.Abs(mana);
         i.transform.position=manaExplosionTarget.position;
-    }
+    }}
 
 }

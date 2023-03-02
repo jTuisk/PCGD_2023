@@ -251,11 +251,11 @@ public class Deck : MonoBehaviour
             Hp = MaxHp;
         }
     }
-
+    
     public void inBattleEndTurn()
     {
-
         enemy.block=0;
+        PlayerDamageModifier = 1;
         ApplyStatusEffects(StatusActivation.ENEMYTURNSTART);
         statusCleanup();
         PutHandInDiscardPile();
@@ -546,7 +546,7 @@ public void statusCleanup(){
             enemy.EnemyDamageModifier = 1;
         }else{return;}
         if(Deck.Instance.enemy.HP<=0){return;}
-        PlayerDamageModifier = 1;
+        
         //run at the start of the turn
         DrawCardInHand(CardsDrawnAtStartOfTurn);
         actionPoints = MaxactionPoints;
@@ -599,8 +599,9 @@ public void statusCleanup(){
             //Checks if game object has a component called Card and if so, sets card value to it and returns true
             if(cardGO.TryGetComponent<Card>(out card))
             {
-                card.UpdateDescriptionText(PlayerDamageModifier);
-            }
+                if(enemy!=null){
+                    card.UpdateDescriptionText(enemy.EnemyDamageModifier);
+                }            }
         }
     }
 

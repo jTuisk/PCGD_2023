@@ -9,6 +9,9 @@ public class IntentLarge : MonoBehaviour
     // Start is called before the first frame update
     public void createCard(BattleCardDataContainer data){
         _name.text=data.cardName;
-        _description.text =(data.Damage>0? "Deal " +data.Damage+" Damage":"")+(data.block>0? " Block "+data.block+" Damage":"")+(data.magic>0? " gain "+data.magic+" mana":"")+(data.magic<0? " Costs "+(-data.magic)+" mana":"")+data.effectDescriptor;
+        _description.text =(data.Damage==0?"":data.Damage>0? "Deal " +data.Damage*Deck.Instance.PlayerDamageModifier+" Damage":"heal " +data.Damage*Deck.Instance.PlayerDamageModifier+" Damage")+(data.block>0? " Block "+data.block+" Damage":"")+(data.magic>0? " gain "+data.magic+" mana":"")+(data.magic<0? " Costs "+(-data.magic)+" mana":"")+data.effectDescriptor;
+    }
+    public void Update(){
+        
     }
 }

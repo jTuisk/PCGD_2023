@@ -162,17 +162,18 @@ public class BattleCardDataContainer : ScriptableObject
         }
     }
     public void enemyHeal(){
+        int amount=1;
         if(!Deck.Instance.reversed){
-            Deck.Instance.enemy.HP +=1;
+            Deck.Instance.enemy.takeDamage(-amount);
         }else{
-            Deck.Instance.enemy.HP -=1;
+            Deck.Instance.enemy.takeDamage(amount);
         }
     }
         public void enemyHeal(int amount){
         if(!Deck.Instance.reversed){
-            Deck.Instance.enemy.HP +=amount;
+            Deck.Instance.enemy.takeDamage(-amount);
         }else{
-            Deck.Instance.enemy.HP -=amount;
+            Deck.Instance.enemy.takeDamage(amount);
         }
     }
     public void shuffleEnemyDeck()

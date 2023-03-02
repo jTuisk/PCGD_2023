@@ -45,11 +45,11 @@ public class Intent : Card
 
         if(data.Damage>0){
             idamage.gameObject.SetActive(true);
-            dText.text=""+data.Damage;
+            dText.text=""+data.Damage*Deck.Instance.PlayerDamageModifier;
         }
         if(data.Damage<0){
             iHeal.gameObject.SetActive(true);
-            hText.text=""+-data.Damage;
+            hText.text=""+-data.Damage*Deck.Instance.PlayerDamageModifier;
         }
         if(data.magic>0){
             iMana.gameObject.SetActive(true);
@@ -65,9 +65,18 @@ public class Intent : Card
             iSpecial.gameObject.SetActive(true);
         }
     }
+    public void UpdateDamageText(){
+        if(Damage>0){
+            dText.text=""+Damage*Deck.Instance.PlayerDamageModifier;
+        }
+        if(Damage<0){
+            hText.text=""+-Damage*Deck.Instance.PlayerDamageModifier;
+        }
+
+    }
     // Update is called once per frame
     void Update()
-    {
-        
+    {       
+        UpdateDamageText();
     }
 }

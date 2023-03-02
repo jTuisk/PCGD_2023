@@ -149,6 +149,7 @@ public class AudioManager : MonoBehaviour
 
 
     public void playBattleBGM(){
+        musicAudioSource.loop=true;
         musicAudioSource.clip=battleBGM;
         musicAudioSource.Play();
     }
