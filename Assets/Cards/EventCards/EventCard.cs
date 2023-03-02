@@ -146,7 +146,7 @@ public class EventCard : MonoBehaviour
         // Calculate the deck_image's local position under cardBack's parent
         // First, get deck_image localPosition under its parent Canvas
         Vector2 deckImageLocalPos;
-        var eventDeckImage = GameObject.Find("Canvas/EventDeck Image");
+        var eventDeckImage = GameObject.Find("Canvas/EventDeck/EventDeck Image");
         if(eventDeckImage != null)
         {
             deckImageLocalPos = eventDeckImage.transform.localPosition;
