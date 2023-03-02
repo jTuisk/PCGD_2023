@@ -227,10 +227,21 @@ public class Deck : MonoBehaviour
     public void takeDamage(int amount)
     {
         if(!reversed){
-            Hp -= Mathf.Max(0,(int)(PlayerDamageModifier*amount)-block);
-            ExplosionManager.Instance.PlayHealthAnimation(Mathf.Max(0,(int)(PlayerDamageModifier*amount)-block));
+            if(PlayerDamageModifier*amount>=0){
+                Hp -= Mathf.Max(0,(int)(PlayerDamageModifier*amount)-block);
+                ExplosionManager.Instance.PlaySwordAnimation(Mathf.Max(0,(int)(PlayerDamageModifier*amount)-block));
+            }else{
+                Hp-=(int)(PlayerDamageModifier*amount);
+                ExplosionManager.Instance.PlayHealthAnimation((int)(PlayerDamageModifier*amount));
+            }
         }else{
-            Hp += Mathf.Max(0,(int)(PlayerDamageModifier*amount)-block);
+            if(PlayerDamageModifier*amount>=0){
+                Hp += Mathf.Max(0,(int)(PlayerDamageModifier*amount));
+                ExplosionManager.Instance.PlayHealthAnimation((int)(PlayerDamageModifier*amount));
+            }else{
+                Hp+=(int)(PlayerDamageModifier*amount);
+                ExplosionManager.Instance.PlaySwordAnimation(Mathf.Max(0,(int)(PlayerDamageModifier*amount)-block));
+            }
         }
         if(Hp<=0){
             SceneLoader.LoadGameOver();
@@ -524,14 +535,17 @@ public void statusCleanup(){
 
     public void inBattleStartTurn()
     {
+
         enemyTurn=true;
         reversed=false;
         gainAPOnExhaust=0;
         dotDamageMultiplier=1;
         if (enemy != null)
         {
+
             enemy.EnemyDamageModifier = 1;
-        }
+        }else{return;}
+        if(Deck.Instance.enemy.HP<=0){return;}
         PlayerDamageModifier = 1;
         //run at the start of the turn
         DrawCardInHand(CardsDrawnAtStartOfTurn);

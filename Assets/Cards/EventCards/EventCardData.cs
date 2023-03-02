@@ -27,15 +27,13 @@ public class EventCardData : ScriptableObject
     }
     public void addHealth()
     {
-        Deck.Instance.Hp += 1;
-        Deck.Instance.takeDamage(0);
+        Deck.Instance.takeDamage(-1);
 
 
     }
         public void addHealth(int amount)
     {
-        Deck.Instance.Hp += amount;
-        Deck.Instance.takeDamage(0);
+        Deck.Instance.takeDamage(-amount);
 
 
     }

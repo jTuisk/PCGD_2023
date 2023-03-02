@@ -4527,7 +4527,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 733f0c86ae313b892b0d514a958eb7cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heartExplosion: {fileID: 7065928661677174765, guid: 04c3966d407addc098585e23f256a0cb, type: 3}
+  heartExplosion: {fileID: 7065928661677174765, guid: 89d82fafc221a43b19e5fccf40cd2bc4, type: 3}
+  SwordExplosion: {fileID: 7065928661677174765, guid: 04c3966d407addc098585e23f256a0cb, type: 3}
   heartExplosionTarget: {fileID: 1321829567}
   armorExplosion: {fileID: 7065928661677174765, guid: 555c59ed2f1ef80adbeaf4a4f491bedb, type: 3}
   armorExplosionTarget: {fileID: 838721074}

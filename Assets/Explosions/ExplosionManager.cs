@@ -18,6 +18,7 @@ public class ExplosionManager : MonoBehaviour
     }
 
     public GameObject heartExplosion;
+    public GameObject SwordExplosion;
     public Transform heartExplosionTarget; 
     public GameObject armorExplosion;
     public Transform armorExplosionTarget;
@@ -32,17 +33,33 @@ public class ExplosionManager : MonoBehaviour
         }
     }
     public void PlayHealthAnimation(int damage){
+        if(Mathf.Abs(damage)>0){
         var i=Instantiate(heartExplosion);
         var t=i.GetComponentInChildren<TMPro.TextMeshProUGUI>();
-        t.text=(damage>0?"-":"+") +Mathf.Abs(damage);
+        t.text=("+") +Mathf.Abs(damage);
         i.transform.position=heartExplosionTarget.position;
     }
-        public void PlayHealthAnimation(int damage,Vector3 pos){
-        var i=Instantiate(heartExplosion);
+    }
+
+    public void PlaySwordAnimation(int damage){
+        var i=Instantiate(SwordExplosion);
         var t=i.GetComponentInChildren<TMPro.TextMeshProUGUI>();
-        t.text=(damage>0?"-":"+") +Mathf.Abs(damage);
+        t.text=("-") +Mathf.Abs(damage);
+        i.transform.position=heartExplosionTarget.position;
+    }
+    public void PlaySwordAnimation(int damage,Vector3 pos){
+        var i=Instantiate(SwordExplosion);
+        var t=i.GetComponentInChildren<TMPro.TextMeshProUGUI>();
+        t.text=("-") +Mathf.Abs(damage);
         i.transform.position=pos;
     }
+        public void PlayHealthAnimation(int damage,Vector3 pos){
+        if(Mathf.Abs(damage)>0){
+        var i=Instantiate(heartExplosion);
+        var t=i.GetComponentInChildren<TMPro.TextMeshProUGUI>();
+        t.text=("+") +Mathf.Abs(damage);
+        i.transform.position=pos;
+    }}
         public void PlayArmorAnimation(int block){
         var i=Instantiate(armorExplosion);
         i.transform.position=armorExplosionTarget.position;
@@ -60,7 +77,7 @@ public class ExplosionManager : MonoBehaviour
         var i=Instantiate(manaExplosion);
         i.transform.position=manaExplosionTarget.position;
         var t=i.GetComponentInChildren<TMPro.TextMeshProUGUI>();
-        t.text=(mana>0?"-":"+") +Mathf.Abs(mana);
+        t.text=(mana>0?"+":"-") +Mathf.Abs(mana);
         i.transform.position=manaExplosionTarget.position;
     }
 

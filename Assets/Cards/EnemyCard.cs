@@ -91,7 +91,9 @@ IEnumerator shake(){
         if(amount>0){
             StartCoroutine("shake");
             //Instantiate(DamageText).GetComponent<DamageText>().changeTextString(""+(amount*EnemyDamageModifier-block));
-            ExplosionManager.Instance.PlayHealthAnimation((int)(amount*EnemyDamageModifier-block),new Vector3(0,0,0));
+            ExplosionManager.Instance.PlaySwordAnimation((int)(amount*EnemyDamageModifier-block),new Vector3(0,0,0));
+        }else{
+            ExplosionManager.Instance.PlayHealthAnimation((int)(-amount*EnemyDamageModifier),new Vector3(0,0,0));
         }
         if(!Deck.Instance.reversed){
         HP = Mathf.Min((int) (HP +block- amount * EnemyDamageModifier),amount>0?HP:HP-amount);
