@@ -22,7 +22,7 @@ public class OptionsPanel : MonoBehaviour
 
     void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
+        // DontDestroyOnLoad(this.gameObject);
     }
 
     void Start()
@@ -61,7 +61,6 @@ public class OptionsPanel : MonoBehaviour
 
     private void SetDefaultVolumeValue()
     {
-        Debug.Log("kaile");
         if(PlayerPrefs.HasKey("MasterVol"))
         {
             masterSlider.value = PlayerPrefs.GetFloat("MasterVol") + 80;

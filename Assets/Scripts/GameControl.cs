@@ -5,11 +5,15 @@ using UnityEngine;
 public class GameControl : MonoBehaviour
 {
     public GameObject optionsPanelPrefab;
-    private GameObject optionsPanel;
+    private GameObject optionsPanelObj;
 
     void Awake()
     {
-        optionsPanel = Instantiate(optionsPanelPrefab);
+        var optionPanel = Object.FindObjectOfType<OptionsPanel>();
+        if(optionPanel == null)
+        {
+            optionsPanelObj = Instantiate(optionsPanelPrefab);
+        }
         HideOptionsPanel();
     }
 
@@ -24,12 +28,12 @@ public class GameControl : MonoBehaviour
 
     public void ShowOptionsPanel()
     {
-        optionsPanel.SetActive(true);
+        optionsPanelObj.SetActive(true);
     }
 
     public void HideOptionsPanel()
     {
-        optionsPanel.SetActive(false);
+        optionsPanelObj.SetActive(false);
     }
 
 
