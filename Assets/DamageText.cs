@@ -24,7 +24,7 @@ public class DamageText : MonoBehaviour
     void Update()
     {
         text.alpha=Mathf.Lerp(1,0,time/3);
-        text.transform.position+=Vector3.up*speed;
+        text.transform.position+=Vector3.up*speed*Time.deltaTime;
         time+=Time.deltaTime;
     }
 }
