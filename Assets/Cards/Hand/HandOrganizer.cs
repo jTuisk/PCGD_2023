@@ -88,9 +88,9 @@ public class HandOrganizer : MonoBehaviour
                     if (Deck.Instance.mana + card.magic >= 0)
                     {
                         
-                        if (Deck.Instance.actionPoints >= card.actionCost)
+                        if (Deck.Instance.actionPoints >= card.actionCost*card.actionCostMultiplier)
                         {
-                            Deck.Instance.actionPoints -= card.actionCost;
+                            Deck.Instance.actionPoints -= (int)(card.actionCost*card.actionCostMultiplier);
                             card.Playcard();
                             if(!card.exaust){
                                 Deck.Instance.BattleDiscardPile.Add(card);

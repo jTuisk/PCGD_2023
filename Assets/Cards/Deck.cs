@@ -94,18 +94,18 @@ public class Deck : MonoBehaviour
     }
     public void multiplyHandCardCost(float amount)
     {
-        foreach (GameObject card in Hand.transform)
+        foreach (Transform card in Hand.transform)
         {
-            var cardComponent=card.GetComponent<Card>();
+            Card cardComponent=card.gameObject.GetComponent<Card>();
             cardComponent.multiplyHandCardCost(amount);
         }
 
     }
         public void multiplyCardCost(float amount)
     {
-        foreach (GameObject card in Hand.transform)
+        foreach (Transform card in Hand.transform)
         {
-            var cardComponent=card.GetComponent<Card>();
+            var cardComponent=card.gameObject.GetComponent<Card>();
             cardComponent.multiplyHandCardCost(amount);
         }
         foreach (Card card in BattleDeck)
@@ -504,20 +504,27 @@ public class Deck : MonoBehaviour
 
 internal bool enemyTurn=true;
 
-public enum StatusActivation{PLAYERTURNSTART,ENEMYTURNSTART}
+public enum StatusActivation{PLAYERTURNSTART,ENEMYTURNSTART,DOTMOD}
 public void ApplyStatusEffects(StatusActivation StA){
+            
             for( int i=0; i<statuses.Count; i++){
             var status = statuses[i];
+            if(StA==StatusActivation.DOTMOD){
+            
+            if(status.ISDOTMOD){
+                status.trigger();
+            
+            }}
             if(StA==StatusActivation.ENEMYTURNSTART){
             
-            if(status.targetsEnemy){
+            if(status.targetsEnemy&&!status.ISDOTMOD){
                 status.trigger();
             
             }
 
 
             }
-            if(StA==StatusActivation.PLAYERTURNSTART){
+            if(StA==StatusActivation.PLAYERTURNSTART&&!status.ISDOTMOD){
             if (!status.targetsEnemy)
             {
                 status.trigger();
@@ -544,6 +551,7 @@ public void statusCleanup(){
         reversed=false;
         gainAPOnExhaust=0;
         dotDamageMultiplier=1;
+        ApplyStatusEffects(StatusActivation.DOTMOD);
         if (enemy != null)
         {
 

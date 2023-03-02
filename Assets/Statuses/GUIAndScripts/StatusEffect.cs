@@ -12,6 +12,7 @@ public class StatusEffect:ScriptableObject
     public int duration = 1;
     public List<UnityEvent> effect = new List<UnityEvent>();
     public Sprite icon;
+    public bool ISDOTMOD=false;
     public string desc;
     public bool targetsEnemy = false;
     public void add()
@@ -21,6 +22,7 @@ public class StatusEffect:ScriptableObject
         stat.effect = this.effect;
         stat.id=this.name;
         stat.icon=this.icon;
+        stat.ISDOTMOD=this.ISDOTMOD;
         stat.targetsEnemy=targetsEnemy;
         Deck.Instance.statuses.Add(stat);
         stat.desc=this.desc;

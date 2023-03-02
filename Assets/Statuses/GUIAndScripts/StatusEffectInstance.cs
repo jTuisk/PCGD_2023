@@ -13,6 +13,7 @@ public class StatusEffectInstance
     public List<UnityEvent> effect = new List<UnityEvent>();
     internal string id;
     public Sprite icon;
+    public bool ISDOTMOD;
     public string desc;
     public bool targetsEnemy;
     public void trigger()

@@ -14,14 +14,14 @@ public class BattleCardMenuItem
         if(!Deck.Instance.Lucky){
             v = UnityEngine.Random.value;
         }else{
-            v =0.99999999999f;
+            v =0.95f;
         }
         }else{
             if(Deck.Instance.enemy!=null){
             if(!Deck.Instance.enemy.Lucky){
                 v = UnityEngine.Random.value;
             }else{
-                v =0.99999999999f;
+                v =0.95f;
             }} 
         }
         Deck.Instance.eventVisible = false;
