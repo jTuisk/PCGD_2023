@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9aa545c54708ee043afb4ae81f7da020, type: 3}
-  m_Name: The Four Aces
+  m_Name: Broken Heart (special effect)
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: 4Aces=Do all, otherwise deal 2dmg+confuse (1x/Combat)
-  cardName: The Four Aces (WIP)
-  Damage: 2
+  effectDescriptor: Heals opponent 2HP and generates 1AP
+  cardName: Broken Heart
+  Damage: 0
   block: 0
   magic: 0
   money: 0
-  actionCost: 2
+  actionCost: 0
   effect:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000}
         m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
-        m_MethodName: ConfuseEnemy
+        m_MethodName: AddAP
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -35,13 +35,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 8765e028c6ad3e241aa0c63e748b3083, type: 2}
+        m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+        m_MethodName: addHealth
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   conditionalEffects: []
-  exaust: 1
-  hasSpecialEffect: 1
+  exaust: 0
+  hasSpecialEffect: 0
   cardsMustBeInHand: 0
-  requiredCards:
-  - {fileID: 11400000, guid: f0b911516c35b604b834ba74a5845232, type: 2}
-  - {fileID: 11400000, guid: 1fd6e5cc5a4715b4b9d2b6a4028275df, type: 2}
-  - {fileID: 11400000, guid: 951f2832060ceca44a6c096861f9975c, type: 2}
-  - {fileID: 11400000, guid: b19d1393a1522074d9e80a8cdf0fad97, type: 2}
-  specialEffectEvent: {fileID: 11400000, guid: a478911b68cd99c489a0c93596a773fc, type: 2}
+  requiredCards: []
+  specialEffectEvent: {fileID: 0}

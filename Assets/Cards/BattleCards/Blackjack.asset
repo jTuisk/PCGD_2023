@@ -231,3 +231,7 @@ MonoBehaviour:
             m_CallState: 2
     conditions: []
   exaust: 0
+  hasSpecialEffect: 0
+  cardsMustBeInHand: 0
+  requiredCards: []
+  specialEffectEvent: {fileID: 0}

@@ -65,9 +65,9 @@ public class EventCardData : ScriptableObject
     {
         Deck.Instance.mana += 1;
     }
-        public void addMana(int amount)
+    public void addMana(int amount)
     {
-        Deck.Instance.mana += 1;
+        Deck.Instance.mana += amount;
     }
 
     public void replaceCardWrapper(){

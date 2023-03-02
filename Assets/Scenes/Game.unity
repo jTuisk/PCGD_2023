@@ -2102,7 +2102,7 @@ MonoBehaviour:
   m_text: Draw Event
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6b1d6ed8593264e6d834ebd95d17b606, type: 2}
-  m_sharedMaterial: {fileID: 5744539995873593001, guid: 6b1d6ed8593264e6d834ebd95d17b606, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 1346df39643c09a47918208fd813b100, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

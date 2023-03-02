@@ -49,3 +49,8 @@ MonoBehaviour:
         m_CallState: 2
   conditionalEffects: []
   exaust: 0
+  hasSpecialEffect: 1
+  cardsMustBeInHand: 1
+  requiredCards:
+  - {fileID: 11400000, guid: b21dd676c4b5e534aa40eabc701fff2a, type: 2}
+  specialEffectEvent: {fileID: 11400000, guid: ae56f444db7695648ad2ab29a43b4fac, type: 2}
