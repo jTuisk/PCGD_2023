@@ -14,7 +14,7 @@ public class DamageText : MonoBehaviour
     void Start()
     {
         Invoke("die",3);
-        text.transform.position+=new Vector3(Random.Range(-10,10),0,0);
+        //text.transform.position+=new Vector3(Random.Range(-10,10),0,0);
     }
     public void changeTextString(string tex){
         text.text=tex;
