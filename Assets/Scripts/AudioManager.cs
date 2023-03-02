@@ -1,11 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance {get; private set;}
-    public AudioSource audioSource;
+
+    [SerializeField] private AudioMixer mainMixer;
+    [SerializeField] private AudioSource musicAudioSource; 
+    [SerializeField] private AudioSource sfxAudioSource; //sound effects
+
+    [SerializeField] private AudioMixerGroup musicAudioMixer;
+    [SerializeField] private AudioMixerGroup sfxAudioMixer;
+ 
+
     public AudioClip exploreCardAudioEffect;
     public AudioClip flipCardAudioEffect;
     public AudioClip playCardAudioEffect;
@@ -39,42 +48,42 @@ public class AudioManager : MonoBehaviour
         {
             case(AudioEffects.exploreCard):
             {
-                audioSource.PlayOneShot(exploreCardAudioEffect);
+                sfxAudioSource.PlayOneShot(exploreCardAudioEffect);
                 break;
             }
             case(AudioEffects.flipCard):
             {
-                audioSource.PlayOneShot(flipCardAudioEffect);
+                sfxAudioSource.PlayOneShot(flipCardAudioEffect);
                 break;
             }
             case(AudioEffects.playCard):
             {
-                audioSource.PlayOneShot(playCardAudioEffect);
+                sfxAudioSource.PlayOneShot(playCardAudioEffect);
                 break;
             }
             case(AudioEffects.dealDamage):
             {
-                audioSource.PlayOneShot(dealDamageAudioEffect);
+                sfxAudioSource.PlayOneShot(dealDamageAudioEffect);
                 break;
             }      
             case(AudioEffects.healSelf):
             {
-                audioSource.PlayOneShot(healSelfAudioEffect);
+                sfxAudioSource.PlayOneShot(healSelfAudioEffect);
                 break;
             }            
             case(AudioEffects.getMana):
             {
-                audioSource.PlayOneShot(getManaAudioEffect);
+                sfxAudioSource.PlayOneShot(getManaAudioEffect);
                 break;
             }
             case(AudioEffects.loseMana):
             {
-                audioSource.PlayOneShot(loseManaAudioEffect);
+                sfxAudioSource.PlayOneShot(loseManaAudioEffect);
                 break;
             }
             case(AudioEffects.shuffleDeck):
             {
-                audioSource.PlayOneShot(shuffleDeckAudioEffect);
+                sfxAudioSource.PlayOneShot(shuffleDeckAudioEffect);
                 break;
             }
             default: break;
@@ -100,48 +109,48 @@ public class AudioManager : MonoBehaviour
 
     public void PlayEventCardDrawSound()
     {
-        audioSource.PlayOneShot(eventCardDraw);
+        sfxAudioSource.PlayOneShot(eventCardDraw);
     }
 
     public void PlayEventCardSlideSound()
     {
-        audioSource.PlayOneShot(eventCardSlide);
+        sfxAudioSource.PlayOneShot(eventCardSlide);
     }
 
     public void PlayEventCardFlipSound()
     {
-        audioSource.PlayOneShot(eventCardFlip);
+        sfxAudioSource.PlayOneShot(eventCardFlip);
     }
 
     public void PlayDrawEventCardBGM()
     {
-        audioSource.clip = eventCardBGM;
-        audioSource.Play();
+        musicAudioSource.clip = eventCardBGM;
+        musicAudioSource.Play();
     }
 
     public void PlayWinGameBGM()
     {
-        audioSource.Stop();
-        audioSource.PlayOneShot(winGameAudioClip);
+        musicAudioSource.Stop();
+        musicAudioSource.PlayOneShot(winGameAudioClip);
     }
 
     public void PlayMainMenuBGM()
     {
-        audioSource.clip = mainMenuBGM;
-        audioSource.Play();
+        musicAudioSource.clip = mainMenuBGM;
+        musicAudioSource.Play();
     }
 
     public void PlayGameOverBGM()
     {
-        audioSource.Stop();
-        audioSource.PlayOneShot(GameOverAudioClip);
-        audioSource.PlayOneShot(bossLaughter);
+        musicAudioSource.Stop();
+        musicAudioSource.PlayOneShot(GameOverAudioClip);
+        musicAudioSource.PlayOneShot(bossLaughter);
     }
 
 
     public void playBattleBGM(){
-        audioSource.clip=battleBGM;
-        audioSource.Play();
+        musicAudioSource.clip=battleBGM;
+        musicAudioSource.Play();
     }
 
     void Awake()
@@ -159,12 +168,43 @@ public class AudioManager : MonoBehaviour
         // check audio source is available
         DontDestroyOnLoad(this.gameObject);
     }
+
+    void Start()
+    {
+        musicAudioSource.outputAudioMixerGroup = musicAudioMixer;
+        sfxAudioSource.outputAudioMixerGroup = sfxAudioMixer;
+
+        SetDefaultVolumeValue();
+    }
+
+    private void SetDefaultVolumeValue()
+    {
+        SetDefaultVolumeValue("MasterVol");
+        SetDefaultVolumeValue("MusicVol");
+        SetDefaultVolumeValue("SFXVol");
+    }
+
+    private void SetDefaultVolumeValue(string name)
+    {
+        if(PlayerPrefs.HasKey(name))
+        {
+            mainMixer.SetFloat(name, PlayerPrefs.GetFloat(name));
+        }
+        else
+        {
+            var mixerVolValue = -10f;
+            mainMixer.SetFloat(name, mixerVolValue);
+            PlayerPrefs.SetFloat(name, mixerVolValue);
+        }
+    }
+
+
     void Update(){
         if(Deck.Instance != null)
         {
-            if(Deck.Instance.enemy==null && audioSource.clip==battleBGM){
-                audioSource.Stop();
-                audioSource.clip=null;
+            if(Deck.Instance.enemy==null && musicAudioSource.clip==battleBGM){
+                musicAudioSource.Stop();
+                musicAudioSource.clip=null;
             }
         }
     }
