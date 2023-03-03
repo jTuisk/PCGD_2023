@@ -29,5 +29,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   icon: {fileID: 21300000, guid: 772d5a15194f2c3b688c3d190c090d15, type: 3}
+  name: Stun
+  ISDOTMOD: 0
   desc: Stun enemy
   targetsEnemy: 1

@@ -29,5 +29,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   icon: {fileID: 21300000, guid: 28663e770a1067247b786562f98eb0f9, type: 3}
+  name: Confusion
+  ISDOTMOD: 0
   desc: Confuse player
   targetsEnemy: 1

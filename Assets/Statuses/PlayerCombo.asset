@@ -29,5 +29,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   icon: {fileID: 21300000, guid: c71379c297a134f64b967f78e076a31a, type: 3}
+  name: Combo
+  ISDOTMOD: 0
   desc: Enemy does double damage
   targetsEnemy: 1

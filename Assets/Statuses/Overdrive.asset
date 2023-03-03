@@ -29,5 +29,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   icon: {fileID: 0}
+  name: Overdrive
+  ISDOTMOD: 0
   desc: Each time you play an exhaust card gain 1 toolpoint
   targetsEnemy: 0
