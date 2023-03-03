@@ -24,6 +24,20 @@ public class BattleCardDataContainer : ScriptableObject
     [Header("Special effect")]
     public bool hasSpecialEffect = false;
     public bool cardsMustBeInHand = false;
+    [Serializable]
+    public class EnemyCardData{
+        public int stun;
+        public int Dot;
+        public int Confusion;
+        public int Reverse;
+        public int Vulnerable;
+        public int Other;
+        public bool DamageOverride=false;
+        public string DamageOverrideString;
+
+    }
+
+    public EnemyCardData enemyCardData;
     public List<BattleCardDataContainer> requiredCards;
     public BattleCardDataContainer specialEffectEvent;
 

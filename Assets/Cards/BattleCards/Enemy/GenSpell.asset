@@ -115,5 +115,14 @@ MonoBehaviour:
   exaust: 0
   hasSpecialEffect: 0
   cardsMustBeInHand: 0
+  enemyCardData:
+    stun: 0
+    Dot: 0
+    Confusion: 0
+    Reverse: 0
+    Vulnerable: 0
+    Other: 0
+    DamageOverride: 1
+    DamageOverrideString: 1-5
   requiredCards: []
   specialEffectEvent: {fileID: 0}
