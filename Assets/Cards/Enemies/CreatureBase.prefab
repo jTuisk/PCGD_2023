@@ -521,6 +521,7 @@ MonoBehaviour:
   otherCardScale: 0.25
   cardsYoffSet: -2.25
   autoUpdate: 0
+  hpBar: {fileID: 8226187567183888101}
 --- !u!114 &619731333286080710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1007,7 +1008,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 7608442295293367171}
-  sliderValue: 1
+  sliderValue: 4.8
   card: {fileID: 6800869919338920927}
   showHealthText: 1
   healthText: {fileID: 3248610098157465151}

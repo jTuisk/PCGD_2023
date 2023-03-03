@@ -6,21 +6,23 @@ using UnityEngine.UI;
 public class HPBar : MonoBehaviour
 {
     public Slider slider;
-    public float sliderValue = 1f;
 
     public EnemyCard card;
 
     [SerializeField] bool showHealthText = true;
     [SerializeField] TMPro.TextMeshProUGUI healthText;
     float maxHp = 100f;
+    float currentHp = 100f;
 
-
+    [SerializeField] float difference = 0.05f;
 
     void Start()
     {
         if (card != null)
         {
             maxHp = card.HP;
+            currentHp = maxHp;
+            slider.value = 1f;
         }
     }
 
@@ -30,32 +32,28 @@ public class HPBar : MonoBehaviour
         if (card == null)
             return;
 
-        float currentHp = card.HP;
+        currentHp = card.HP;
 
         healthText.gameObject.SetActive(showHealthText);
         if (showHealthText)
         {
             healthText.text = $"{currentHp} / {maxHp}";
         }
-        
-        if((sliderValue - currentHp / maxHp)  < 0.01f)
-        {
-            sliderValue = currentHp / maxHp;
-        }
 
-        if (currentHp / maxHp > sliderValue)
-        {
-            sliderValue += Time.deltaTime;
-            slider.value = Mathf.Lerp(0, 1, sliderValue);
-        }
-        else if (currentHp / maxHp < sliderValue)
-        {
-            sliderValue -= Time.deltaTime;
-            slider.value = Mathf.Lerp(0, 1, sliderValue);
-        }
-        else
-        {
-            slider.value = sliderValue;
-        }
+        slider.value = GetNewSliderValue();
+    }
+
+    private float GetNewSliderValue()
+    {
+        float currentSliderValue = slider.value;
+        float finalSliderValue = currentHp / maxHp;
+
+        if (currentSliderValue > finalSliderValue + difference * Time.deltaTime)
+            return currentSliderValue - difference * Time.deltaTime;
+
+        if (currentSliderValue < finalSliderValue - difference * Time.deltaTime)
+            return currentSliderValue + difference * Time.deltaTime;
+
+        return finalSliderValue;
     }
 }
