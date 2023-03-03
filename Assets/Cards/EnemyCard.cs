@@ -193,7 +193,7 @@ IEnumerator shake(){
     public void idleAnim(){
         idletime+=Time.deltaTime;
         float anim=NonLinInterpolationUtil.QuadraticBounce(ref idletime,idleMaxtime,ref idleDir);
-        sprite.transform.localScale= new Vector3(sprite.transform.localScale.x,1-anim*0.05f,transform.localScale.z);
+        sprite.transform.localScale= new Vector3(creatureDataContainer.pictureScale.x, creatureDataContainer.pictureScale.y - anim*0.05f,creatureDataContainer.pictureScale.z); //creatureDataContainer.pictureScale.y
     }
     void Update()
     {
