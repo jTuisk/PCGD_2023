@@ -265,8 +265,9 @@ public class Deck : MonoBehaviour
             if(enemy.cards.Count!=0){
                 
                     enemy.Playcard();
-                    enemy.StartCoroutine("attackAnimation");
-                
+                    if(!enemy.stunned){
+                        enemy.StartCoroutine("attackAnimation");
+                    }
             }else{
                 if(!enemy.confused){
                     takeDamage(enemy.damage);

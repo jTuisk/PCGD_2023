@@ -12,6 +12,7 @@ public class StatusEffectInstance
     public int duration = 1;
     public List<UnityEvent> effect = new List<UnityEvent>();
     internal string id;
+       internal string name;
     public Sprite icon;
     public bool ISDOTMOD;
     public string desc;

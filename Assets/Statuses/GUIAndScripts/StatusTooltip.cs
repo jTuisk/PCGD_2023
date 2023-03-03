@@ -9,7 +9,7 @@ public class StatusTooltip : MonoBehaviour
     public TMPro.TextMeshProUGUI _description;
     // Start is called before the first frame update
     public void createCard(StatusEffectInstance data){
-        _name.text=data.id;
+        _name.text=data.name;
         _description.text =data.desc;
     }
 
