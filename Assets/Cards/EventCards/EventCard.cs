@@ -42,9 +42,11 @@ public class EventCard : MonoBehaviour
         //buttonText.text = data.eventButtonText;
         options = data.options;
         title.text=eName;
-        foreach (EventCardMenuItem option in options) {
+        foreach (EventCardMenuItem option in options) 
+        {
             bool visible = true;
-            foreach (Condition con in option.conditions) {
+            foreach (Condition con in option.conditions) 
+            {
                 if (!con.Evaluate()) {
                     visible = false;
                 }
@@ -58,12 +60,50 @@ public class EventCard : MonoBehaviour
 
                 button.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = option.description;
                 button.transform.parent = Menu.transform;
+
+                CreateCardTipTools(option, button);
             }
         }
         if (Menu.transform.childCount == 0) {
             var button = Instantiate(ButtonPrefab);
             button.GetComponent<Button>().onClick.AddListener(delegate { Activate(); });
             button.transform.parent = Menu.transform;
+        }
+    }
+
+    private void CreateCardTipTools(EventCardMenuItem option, GameObject button)
+    {
+        foreach(var effect in option.effects)
+        {
+            // Check if registered event contains AddBattleCard function
+            var eventCount = effect.targetEvent.GetPersistentEventCount();
+            for(int i = 0; i < eventCount; i++)
+            {
+                var funcName = effect.targetEvent.GetPersistentMethodName(i);
+                var tarObj = effect.targetEvent.GetPersistentTarget(i);
+
+                string addBattleCardClassName = "BattleCardDataContainer";
+                string addBattleCardFuncName = "addCard";
+                if(tarObj.ToString().Contains(addBattleCardClassName) && funcName == addBattleCardFuncName)
+                {
+                    BattleCardDataContainer battleCardDataContainer = null;
+
+                    // Get corresponding ScriptableObject
+                    foreach(var battleCard in Deck.Instance.cardPrefabs)
+                    {
+                        if(tarObj.ToString().Contains(battleCard.name))
+                        {
+                            battleCardDataContainer = battleCard;
+                            break;
+                        }
+                    }
+                    if(battleCardDataContainer != null)
+                    {
+                        var cardTipTool = button.AddComponent<BattleCardTipTool>();
+                        cardTipTool.battleCardData = battleCardDataContainer;
+                    }
+                }
+            }
         }
     }
     
@@ -134,6 +174,13 @@ public class EventCard : MonoBehaviour
     void Start()
     {
         CardBornFromDeck();
+
+        // Set correct Camera so that it won't cover other components
+        var canvas = this.GetComponentInChildren<Canvas>();
+        canvas.worldCamera = Camera.main;
+
+        var canvasScaler = canvas.gameObject.GetComponent<CanvasScaler>();
+        canvasScaler.scaleFactor = 2.0f;
     }
 
 

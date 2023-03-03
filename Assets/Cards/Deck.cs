@@ -199,9 +199,6 @@ public class Deck : MonoBehaviour
                 Instantiate(eventBase).GetComponent<EventCard>().CreateEventCard(BossBattles[bosses]);
                 bosses+=1;
             }
-            //the below line is only for testing hovering tip-panel
-            //Instantiate(eventBase).GetComponent<EventCard>().CreateEventCard(EventDeck[19]); 
-
         }else{
 
             if (!finalBattle)
