@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 800a222eec0efaf4682b867dcf1b7e2e, type: 3}
   m_Name: Cat Pre
   m_EditorClassIdentifier: 
-  eName: 
+  eName: Cat Wizard Encounter
   eventText: Hmm... What if I stole their cat for myself..?
   options:
   - description: Get the magicians cat! (Enemy loses the cat card and acquires a

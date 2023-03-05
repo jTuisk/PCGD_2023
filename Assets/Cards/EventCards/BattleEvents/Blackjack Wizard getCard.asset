@@ -10,27 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 800a222eec0efaf4682b867dcf1b7e2e, type: 3}
-  m_Name: Straight Jacket Wizard Battle
+  m_Name: Blackjack Wizard getCard
   m_EditorClassIdentifier: 
-  eName: 
-  eventText: 'Your next opponent is...
+  eName: You won the fight!
+  eventText: 'Ugh.. How has someone like YOU defeated me...
 
-    The Straight Jacket Wizard!
-
-    Get
-    ready!'
+    Just take my magic
+    and let me mourn in peace.'
   options:
-  - description: Is he nuts or something?
+  - description: Obtain the Blackjack card.
     independentRNG: 1
     effects:
-    - name: Trigger battle
+    - name: Get card blackjack
       possibility: 1
       targetEvent:
         m_PersistentCalls:
           m_Calls:
-          - m_Target: {fileID: 11400000, guid: c61f8dd8cd46da747abb536fd47b22db, type: 2}
-            m_TargetAssemblyTypeName: CreatureDataContainer, Assembly-CSharp
-            m_MethodName: Spawn
+          - m_Target: {fileID: 11400000, guid: 0ae55edee3bceb34296fdc7578a6b158, type: 2}
+            m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
+            m_MethodName: addCard
             m_Mode: 1
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
@@ -52,35 +50,18 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
-          - m_Target: {fileID: 11400000}
-            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
-            m_MethodName: remove
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-    conditions:
-    - flag: Jacket
-      Operation: 3
-      value: 0
-      a: 0
-      b: 0
-  - description: It's a win by forfeit!
+    conditions: []
+  - description: Grow your MaxHP by 2
     independentRNG: 1
     effects:
-    - name: Trigger battle
+    - name: Grow hp
       possibility: 1
       targetEvent:
         m_PersistentCalls:
           m_Calls:
           - m_Target: {fileID: 11400000}
             m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
-            m_MethodName: addTag
+            m_MethodName: addMaxHealth
             m_Mode: 1
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
@@ -90,25 +71,62 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
-          - m_Target: {fileID: 11400000, guid: 3a4d50df7b1a9eb439d270f3104996c3, type: 2}
+          - m_Target: {fileID: 11400000}
+            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+            m_MethodName: addMaxHealth
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    conditions: []
+  - description: Remove a card from your deck.
+    independentRNG: 1
+    effects:
+    - name: Remove
+      possibility: 1
+      targetEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000}
+            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+            m_MethodName: RemoveCard
+            m_Mode: 3
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 1
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    conditions: []
+  - description: Take a break instead
+    independentRNG: 1
+    effects:
+    - name: break
+      possibility: 1
+      targetEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: 8765e028c6ad3e241aa0c63e748b3083, type: 2}
             m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
             m_MethodName: Trigger
             m_Mode: 1
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
               m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
+              m_IntArgument: 2
               m_FloatArgument: 0
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
-    conditions:
-    - flag: Jacket
-      Operation: 2
-      value: 0
-      a: 0
-      b: 0
+    conditions: []
   ReplaceFrom: {fileID: 0}
   ReplaceTo: {fileID: 0}
   replaceEvent: {fileID: 0}
-  addedTag: StraightBeat
+  addedTag: BlackjackCard

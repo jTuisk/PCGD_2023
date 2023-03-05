@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: Chair Post
   m_EditorClassIdentifier: 
   eName: 
-  eventText: 
-  options: []
+  eventText: Coming soon!
+  options:
+  - description: WIP
+    independentRNG: 0
+    effects: []
+    conditions: []
   ReplaceFrom: {fileID: 0}
   ReplaceTo: {fileID: 0}
   replaceEvent: {fileID: 0}

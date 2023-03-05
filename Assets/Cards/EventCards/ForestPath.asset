@@ -10,23 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 800a222eec0efaf4682b867dcf1b7e2e, type: 3}
-  m_Name: Three Card Monte Wizard getCard
+  m_Name: ForestPath
   m_EditorClassIdentifier: 
   eName: 
-  eventText: 'Wow, you read my tricks like an open book.
+  eventText: 'You walk along the path to the arena, when suddenly you hear a loud
+    crack and everything fades to black...
 
-    You probably don''t
-    need this, but here''s the tutorial...'
+    When you finally wake up in pain,
+    you see a club lying on the ground.'
   options:
-  - description: Learn Three Card Monte
-    independentRNG: 1
+  - description: Gain Ace of Clubs card and pick up your cards! (Lose 2 HP)
+    independentRNG: 0
     effects:
-    - name: Learn Three Card Monte
+    - name: 
       possibility: 1
       targetEvent:
         m_PersistentCalls:
           m_Calls:
-          - m_Target: {fileID: 11400000, guid: 84d75064006b7904f8a40b06574423d5, type: 2}
+          - m_Target: {fileID: 11400000, guid: f0b911516c35b604b834ba74a5845232, type: 2}
             m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
             m_MethodName: addCard
             m_Mode: 1
@@ -40,83 +41,8 @@ MonoBehaviour:
             m_CallState: 2
           - m_Target: {fileID: 11400000}
             m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
-            m_MethodName: addTag
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-    conditions: []
-  - description: Grow your MaxHP by 2 instead.
-    independentRNG: 1
-    effects:
-    - name: MaxHP
-      possibility: 1
-      targetEvent:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 11400000}
-            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
-            m_MethodName: addMaxHealth
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-          - m_Target: {fileID: 11400000}
-            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
-            m_MethodName: addMaxHealth
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-    conditions: []
-  - description: I want to remove a card from my deck instead.
-    independentRNG: 1
-    effects:
-    - name: Remove
-      possibility: 1
-      targetEvent:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 11400000}
-            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
-            m_MethodName: RemoveCard
+            m_MethodName: takeDamage
             m_Mode: 3
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 1
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-    conditions: []
-  - description: Take a break instead
-    independentRNG: 1
-    effects:
-    - name: break
-      possibility: 1
-      targetEvent:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 11400000, guid: 8765e028c6ad3e241aa0c63e748b3083, type: 2}
-            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
-            m_MethodName: Trigger
-            m_Mode: 1
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
               m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -125,8 +51,77 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
+          - m_Target: {fileID: 11400000}
+            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+            m_MethodName: remove
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+          - m_Target: {fileID: 11400000, guid: 255d6e21614b8054c9f3ebdd592a1509, type: 2}
+            m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
+            m_MethodName: addCard
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    conditions: []
+  - description: Just pick up your cards. (Lose 2 HP)
+    independentRNG: 0
+    effects:
+    - name: 
+      possibility: 1
+      targetEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000}
+            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+            m_MethodName: takeDamage
+            m_Mode: 3
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 2
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+          - m_Target: {fileID: 11400000}
+            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+            m_MethodName: remove
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+          - m_Target: {fileID: 11400000, guid: 255d6e21614b8054c9f3ebdd592a1509, type: 2}
+            m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
+            m_MethodName: addCard
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
     conditions: []
   ReplaceFrom: {fileID: 0}
   ReplaceTo: {fileID: 0}
   replaceEvent: {fileID: 0}
-  addedTag: ThreeCard
+  addedTag: 

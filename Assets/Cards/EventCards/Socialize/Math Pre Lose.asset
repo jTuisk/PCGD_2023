@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 800a222eec0efaf4682b867dcf1b7e2e, type: 3}
   m_Name: Math Pre Lose
   m_EditorClassIdentifier: 
-  eName: 
+  eName: Math Wizard Encounter
   eventText: Hah, you were no match to me! Take that, loser!
   options:
   - description: Ouch!

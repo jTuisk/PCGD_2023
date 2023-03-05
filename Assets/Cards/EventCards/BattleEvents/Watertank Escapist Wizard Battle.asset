@@ -9,30 +9,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9aa545c54708ee043afb4ae81f7da020, type: 3}
-  m_Name: TestCard
+  m_Script: {fileID: 11500000, guid: 800a222eec0efaf4682b867dcf1b7e2e, type: 3}
+  m_Name: Watertank Escapist Wizard Battle
   m_EditorClassIdentifier: 
-  effectDescriptor: 
-  cardName: 
-  Damage: 0
-  block: 0
-  magic: 0
-  money: 0
-  actionCost: 0
-  effect:
-    m_PersistentCalls:
-      m_Calls: []
-  conditionalEffects:
-  - independentRNG: 0
-    ConditionalEffects:
-    - name: 
-      possibility: 0.504
+  eName: 
+  eventText: 'Your next opponent is...
+
+    The Watertank Escapist Wizard!
+
+    Get
+    ready!'
+  options:
+  - description: Start the battle
+    independentRNG: 1
+    effects:
+    - name: Trigger battle
+      possibility: 1
       targetEvent:
         m_PersistentCalls:
           m_Calls:
-          - m_Target: {fileID: 11400000}
-            m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
-            m_MethodName: AddAP
+          - m_Target: {fileID: 11400000, guid: 1835d74441c925e4bba78aafa748be56, type: 2}
+            m_TargetAssemblyTypeName: CreatureDataContainer, Assembly-CSharp
+            m_MethodName: Spawn
             m_Mode: 1
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
@@ -43,25 +41,8 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
           - m_Target: {fileID: 11400000}
-            m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
-            m_MethodName: AddAP
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-    - name: 
-      possibility: 0.504
-      targetEvent:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 11400000, guid: 87f554d2485626a448e4874cfc22dbf7, type: 2}
             m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
-            m_MethodName: addHealth
+            m_MethodName: addTag
             m_Mode: 1
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
@@ -71,9 +52,9 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
-          - m_Target: {fileID: 11400000, guid: 87f554d2485626a448e4874cfc22dbf7, type: 2}
+          - m_Target: {fileID: 11400000}
             m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
-            m_MethodName: addHealth
+            m_MethodName: remove
             m_Mode: 1
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
@@ -83,10 +64,8 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
-    conditions:
-    - flag: 
-      Operation: 0
-      value: 19
-      a: 2
-      b: 0
-  exaust: 0
+    conditions: []
+  ReplaceFrom: {fileID: 0}
+  ReplaceTo: {fileID: 0}
+  replaceEvent: {fileID: 0}
+  addedTag: WaterBeat

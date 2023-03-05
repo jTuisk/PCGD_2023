@@ -15,7 +15,7 @@ MonoBehaviour:
   eName: 
   eventText: "Your next opponent is...\nAmateur Wizard! \nGet ready!"
   options:
-  - description: An amateur wizard..??
+  - description: Start the battle
     independentRNG: 1
     effects:
     - name: trigger a battle

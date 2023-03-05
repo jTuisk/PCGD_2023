@@ -10,58 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 800a222eec0efaf4682b867dcf1b7e2e, type: 3}
-  m_Name: Chair Pre
+  m_Name: Straight Jacket Wizard Battle
   m_EditorClassIdentifier: 
-  eName: Chair Wizard Encounter
-  eventText: Wait a moment... This guy isn't a wizard at all!
+  eName: 
+  eventText: 'Your next opponent is...
+
+    The Straight Jacket Wizard!
+
+    Get
+    ready!'
   options:
-  - description: Confront them about being phony WIP
-    independentRNG: 0
+  - description: Start the battle
+    independentRNG: 1
     effects:
-    - name: Gain Mana and enemy raged WIP
+    - name: Trigger battle
       possibility: 1
       targetEvent:
         m_PersistentCalls:
           m_Calls:
-          - m_Target: {fileID: 11400000}
-            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
-            m_MethodName: addMana
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-          - m_Target: {fileID: 11400000}
-            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
-            m_MethodName: addMana
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-          - m_Target: {fileID: 11400000}
-            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
-            m_MethodName: addMana
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-          - m_Target: {fileID: 11400000}
-            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
-            m_MethodName: addMana
+          - m_Target: {fileID: 11400000, guid: c61f8dd8cd46da747abb536fd47b22db, type: 2}
+            m_TargetAssemblyTypeName: CreatureDataContainer, Assembly-CSharp
+            m_MethodName: Spawn
             m_Mode: 1
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
@@ -83,12 +52,63 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
-    conditions: []
-  - description: Keep the knowledge to yourself
-    independentRNG: 0
-    effects: []
-    conditions: []
+          - m_Target: {fileID: 11400000}
+            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+            m_MethodName: remove
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    conditions:
+    - flag: Jacket
+      Operation: 3
+      value: 0
+      a: 0
+      b: 0
+  - description: It's a win by forfeit!
+    independentRNG: 1
+    effects:
+    - name: Trigger battle
+      possibility: 1
+      targetEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000}
+            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+            m_MethodName: addTag
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+          - m_Target: {fileID: 11400000, guid: 3a4d50df7b1a9eb439d270f3104996c3, type: 2}
+            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+            m_MethodName: Trigger
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    conditions:
+    - flag: Jacket
+      Operation: 2
+      value: 0
+      a: 0
+      b: 0
   ReplaceFrom: {fileID: 0}
   ReplaceTo: {fileID: 0}
   replaceEvent: {fileID: 0}
-  addedTag: ChairPre
+  addedTag: StraightBeat

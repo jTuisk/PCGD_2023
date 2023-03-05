@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 800a222eec0efaf4682b867dcf1b7e2e, type: 3}
   m_Name: ComboMagicianBattle
   m_EditorClassIdentifier: 
-  eName: Combo Magician
+  eName: Combo Cup Wizard
   eventText: 'A man approaches you holding a pair of plastic cups and a small red
     ball.
 
-    G''day sir fancy a little magic battle. Look carefully at this ball
-    now, at this cup, now back at this ball where did it go I wander?'
+    G''day sir fancy a little magic battle? Look carefully at this ball,
+    now at this cup, now back at this ball, where did it go, I wonder?'
   options:
   - description: 'Cups? If I wanted to watch people embarass themselves failing simple
       parlor tricks I''d go to a college frat party. '

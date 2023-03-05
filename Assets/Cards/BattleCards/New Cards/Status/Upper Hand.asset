@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9aa545c54708ee043afb4ae81f7da020, type: 3}
-  m_Name: Deception
+  m_Name: Upper Hand
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: 
-  cardName: Deception
+  effectDescriptor: Deal 6 damage to enemy if they are stunned
+  cardName: Upper Hand
   Damage: 0
   block: 0
-  magic: 0
+  magic: -3
   money: 0
   actionCost: 0
   effect:
@@ -52,5 +52,14 @@ MonoBehaviour:
   exaust: 0
   hasSpecialEffect: 0
   cardsMustBeInHand: 0
+  enemyCardData:
+    stun: 0
+    Dot: 0
+    Confusion: 0
+    Reverse: 0
+    Vulnerable: 0
+    Other: 0
+    DamageOverride: 0
+    DamageOverrideString: 
   requiredCards: []
   specialEffectEvent: {fileID: 0}

@@ -10,37 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 800a222eec0efaf4682b867dcf1b7e2e, type: 3}
-  m_Name: Traveling Merchant 2
+  m_Name: Chair Wizard getCard
   m_EditorClassIdentifier: 
-  eName: Travelling Merchant
-  eventText: 'A fine choice my friend!
-
-    Which one would it be?
-
-    I''d like
-    to pick something in return, of course...'
+  eName: You won the fight!
+  eventText: The Chair Wizard runs away hurriedly after the match
   options:
-  - description: Upper Hand
+  - description: Pick up a broken leg of a chair.
     independentRNG: 1
     effects:
-    - name: Add card & lose a random card
+    - name: Add a card
       possibility: 1
       targetEvent:
         m_PersistentCalls:
           m_Calls:
-          - m_Target: {fileID: 11400000, guid: 8765e028c6ad3e241aa0c63e748b3083, type: 2}
-            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
-            m_MethodName: RemoveCard
-            m_Mode: 3
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 1
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-          - m_Target: {fileID: 11400000, guid: cad76bca058b2c14d9df6b580148b000, type: 2}
+          - m_Target: {fileID: 11400000, guid: 790c7afe06d54214187cc1fa6a94db18, type: 2}
             m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
             m_MethodName: addCard
             m_Mode: 1
@@ -52,30 +35,9 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
-    conditions: []
-  - description: Gag Bubblegum
-    independentRNG: 1
-    effects:
-    - name: Add card & lose a random card
-      possibility: 1
-      targetEvent:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 11400000, guid: 8765e028c6ad3e241aa0c63e748b3083, type: 2}
+          - m_Target: {fileID: 11400000}
             m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
-            m_MethodName: RemoveCard
-            m_Mode: 3
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 1
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-          - m_Target: {fileID: 11400000, guid: 241339d333618824e8027f985b3367ac, type: 2}
-            m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
-            m_MethodName: addCard
+            m_MethodName: addTag
             m_Mode: 1
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
@@ -86,29 +48,29 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
     conditions: []
-  - description: Ace of Spades
+  - description: Grow your MaxHP by 2
     independentRNG: 1
     effects:
-    - name: Add card
+    - name: Grow HP
       possibility: 1
       targetEvent:
         m_PersistentCalls:
           m_Calls:
-          - m_Target: {fileID: 11400000, guid: 8765e028c6ad3e241aa0c63e748b3083, type: 2}
+          - m_Target: {fileID: 11400000}
             m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
-            m_MethodName: RemoveCard
-            m_Mode: 3
+            m_MethodName: addMaxHealth
+            m_Mode: 1
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
               m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 1
+              m_IntArgument: 0
               m_FloatArgument: 0
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
-          - m_Target: {fileID: 11400000, guid: b19d1393a1522074d9e80a8cdf0fad97, type: 2}
-            m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
-            m_MethodName: addCard
+          - m_Target: {fileID: 11400000}
+            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+            m_MethodName: addMaxHealth
             m_Mode: 1
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
@@ -119,10 +81,10 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
     conditions: []
-  - description: Heart of the Cards
+  - description: Remove a card from your deck.
     independentRNG: 1
     effects:
-    - name: 
+    - name: Remove
       possibility: 1
       targetEvent:
         m_PersistentCalls:
@@ -139,14 +101,23 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
-          - m_Target: {fileID: 11400000, guid: 29fce653c8934e647bc03b62761ba52e, type: 2}
-            m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
-            m_MethodName: addCard
+    conditions: []
+  - description: Take a break instead
+    independentRNG: 1
+    effects:
+    - name: Remove
+      possibility: 1
+      targetEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: 8765e028c6ad3e241aa0c63e748b3083, type: 2}
+            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+            m_MethodName: Trigger
             m_Mode: 1
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
               m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
+              m_IntArgument: 2
               m_FloatArgument: 0
               m_StringArgument: 
               m_BoolArgument: 0
@@ -155,4 +126,4 @@ MonoBehaviour:
   ReplaceFrom: {fileID: 0}
   ReplaceTo: {fileID: 0}
   replaceEvent: {fileID: 0}
-  addedTag: 
+  addedTag: ChairCard

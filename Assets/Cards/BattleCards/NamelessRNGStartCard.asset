@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: NamelessRNGStartCard
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: RNG 1-4 dmg. 10% change of -1HP
-  cardName: RNG-basecard
+  effectDescriptor: Deals 1-4 damage
+  cardName: VariableParable
   Damage: 0
   block: 0
   magic: 0
@@ -26,8 +26,25 @@ MonoBehaviour:
   conditionalEffects:
   - independentRNG: 0
     ConditionalEffects:
+    - name: 1dmg
+      possibility: 0.25
+      targetEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000}
+            m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
+            m_MethodName: enemyTakeDamage
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
     - name: 2dmg
-      possibility: 0.225
+      possibility: 0.25
       targetEvent:
         m_PersistentCalls:
           m_Calls:
@@ -56,7 +73,7 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
     - name: 3dmg
-      possibility: 0.225
+      possibility: 0.25
       targetEvent:
         m_PersistentCalls:
           m_Calls:
@@ -97,7 +114,7 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
     - name: 4dmg
-      possibility: 0.225
+      possibility: 0.25
       targetEvent:
         m_PersistentCalls:
           m_Calls:
@@ -137,40 +154,6 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
-          - m_Target: {fileID: 11400000}
-            m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
-            m_MethodName: enemyTakeDamage
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-    - name: Backfire
-      possibility: 0.1
-      targetEvent:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 11400000}
-            m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
-            m_MethodName: playerTakeDamage
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-    - name: 1dmg
-      possibility: 0.225
-      targetEvent:
-        m_PersistentCalls:
-          m_Calls:
           - m_Target: {fileID: 11400000}
             m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
             m_MethodName: enemyTakeDamage
@@ -185,3 +168,16 @@ MonoBehaviour:
             m_CallState: 2
     conditions: []
   exaust: 0
+  hasSpecialEffect: 0
+  cardsMustBeInHand: 0
+  enemyCardData:
+    stun: 0
+    Dot: 0
+    Confusion: 0
+    Reverse: 0
+    Vulnerable: 0
+    Other: 0
+    DamageOverride: 0
+    DamageOverrideString: 
+  requiredCards: []
+  specialEffectEvent: {fileID: 0}

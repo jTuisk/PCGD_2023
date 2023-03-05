@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 800a222eec0efaf4682b867dcf1b7e2e, type: 3}
   m_Name: Straight Pre
   m_EditorClassIdentifier: 
-  eName: 
+  eName: Straight Jacket Wizard Encounter
   eventText: Hey this guy seems to be mentally ill.. What if I give him this pill
     I got in my pockets?
   options:

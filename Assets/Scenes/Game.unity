@@ -931,6 +931,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 339a938a496a52e4cb40933cee03b9b9, type: 2}
   - {fileID: 11400000, guid: c70f723c069c371409e984a11ffcafab, type: 2}
   - {fileID: 11400000, guid: ac5b9f1e48f455c48822f98235b1cdaf, type: 2}
+  - {fileID: 11400000, guid: 090a51be7ac155f49965489f56820bba, type: 2}
+  - {fileID: 11400000, guid: 090a51be7ac155f49965489f56820bba, type: 2}
+  - {fileID: 11400000, guid: 868b69929a9fff24b83654c090f55d49, type: 2}
+  - {fileID: 11400000, guid: d2887f0411ed3934493cc0604b57ab5b, type: 2}
+  - {fileID: 11400000, guid: 090a51be7ac155f49965489f56820bba, type: 2}
+  - {fileID: 11400000, guid: 8765e028c6ad3e241aa0c63e748b3083, type: 2}
+  - {fileID: 11400000, guid: f399c254f46e40640a58ccc5dd791519, type: 2}
   CardBasePrefab: {fileID: 1923058948709319707, guid: a820adf569575a349be76d6d8ef88eec, type: 3}
   cardPrefabs:
   - {fileID: 11400000, guid: 255d6e21614b8054c9f3ebdd592a1509, type: 2}
@@ -964,7 +971,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 84d75064006b7904f8a40b06574423d5, type: 2}
   - {fileID: 11400000, guid: a5fa48b538b10c24680672aa6c3b23b3, type: 2}
   - {fileID: 11400000, guid: 3e36c0db260aea64d9c782c4e22852e7, type: 2}
-  deckList: 02000000030000001b0000000e000000160000001600000016000000140000001e0000000d000000190000000a000000
+  - {fileID: 11400000, guid: 5ce8440a6ea922895b80afc91aedfd16, type: 2}
+  - {fileID: 11400000, guid: a41d09c3dac6a6f208883eda9df74852, type: 2}
+  - {fileID: 11400000, guid: 1ba0584b040f42963883181e0bec23bf, type: 2}
+  - {fileID: 11400000, guid: dec51be1e91c8f43895ed64e8bc3271a, type: 2}
+  - {fileID: 11400000, guid: cad76bca058b2c14d9df6b580148b000, type: 2}
+  - {fileID: 11400000, guid: 0f161ae1971d8876ebc40816c750f7a6, type: 2}
+  deckList: 02000000030000000e000000160000001600000016000000140000001e0000000d000000190000000a00000015000000
   flags: []
   money: 0
   mana: 0

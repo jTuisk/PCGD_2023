@@ -10,23 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 800a222eec0efaf4682b867dcf1b7e2e, type: 3}
-  m_Name: Blackjack Wizard getCard
+  m_Name: Amateur Wizard GetCard
   m_EditorClassIdentifier: 
-  eName: 
-  eventText: 'Ugh.. How has someone like YOU defeated me...
+  eName: You won the fight!
+  eventText: 'Congratulations, you beat me.
 
-    Just take this token
-    and let me mourn in peace.'
+    Here, use this magic with caution,
+    if you dare...'
   options:
-  - description: Obtain the Blackjack card.
+  - description: Obtain Gun Magic!
     independentRNG: 1
     effects:
-    - name: Get card blackjack
+    - name: Get card
       possibility: 1
       targetEvent:
         m_PersistentCalls:
           m_Calls:
-          - m_Target: {fileID: 11400000, guid: 0ae55edee3bceb34296fdc7578a6b158, type: 2}
+          - m_Target: {fileID: 11400000, guid: 7e6c096aa97df134dae19f1bb49807c0, type: 2}
             m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
             m_MethodName: addCard
             m_Mode: 1
@@ -51,10 +51,10 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
     conditions: []
-  - description: Grow your MaxHP by 2
+  - description: Grow your Max HP by 2
     independentRNG: 1
     effects:
-    - name: Grow hp
+    - name: Add HP
       possibility: 1
       targetEvent:
         m_PersistentCalls:
@@ -129,4 +129,4 @@ MonoBehaviour:
   ReplaceFrom: {fileID: 0}
   ReplaceTo: {fileID: 0}
   replaceEvent: {fileID: 0}
-  addedTag: BlackjackCard
+  addedTag: AmateurCard

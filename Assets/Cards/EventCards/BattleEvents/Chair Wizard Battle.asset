@@ -10,24 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 800a222eec0efaf4682b867dcf1b7e2e, type: 3}
-  m_Name: Coin Trick Wizard Battle
+  m_Name: Chair Wizard Battle
   m_EditorClassIdentifier: 
   eName: 
   eventText: 'Your next opponent is...
 
-    The Coin Trick Wizard!
+    The Chair Wizard!
 
     Get ready!'
   options:
-  - description: What, will he throw those things on me?!
+  - description: Start the battle
     independentRNG: 1
     effects:
-    - name: trigger battle
+    - name: trigger a battle
       possibility: 1
       targetEvent:
         m_PersistentCalls:
           m_Calls:
-          - m_Target: {fileID: 11400000, guid: 18f65a0144be08d44bc97801c399eaf0, type: 2}
+          - m_Target: {fileID: 11400000, guid: bc649d75d274b9b4b8bded9816bc9584, type: 2}
             m_TargetAssemblyTypeName: CreatureDataContainer, Assembly-CSharp
             m_MethodName: Spawn
             m_Mode: 1
@@ -67,4 +67,4 @@ MonoBehaviour:
   ReplaceFrom: {fileID: 0}
   ReplaceTo: {fileID: 0}
   replaceEvent: {fileID: 0}
-  addedTag: CoinBeat
+  addedTag: ChairBeat

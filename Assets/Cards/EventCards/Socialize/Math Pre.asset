@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 800a222eec0efaf4682b867dcf1b7e2e, type: 3}
   m_Name: Math Pre
   m_EditorClassIdentifier: 
-  eName: 
+  eName: Math Wizard Encounter
   eventText: 'Phah! Your card magic is inferior to my powers of math!
 
     I challenge

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 800a222eec0efaf4682b867dcf1b7e2e, type: 3}
   m_Name: Three Card Pre
   m_EditorClassIdentifier: 
-  eName: 
+  eName: Three Card Monte Wizard Encounter
   eventText: 'You go out for pints with the wizard, and they get absolutely plastered
     after you make them down shots.
 

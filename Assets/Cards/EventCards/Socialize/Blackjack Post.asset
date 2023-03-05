@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Blackjack Post
   m_EditorClassIdentifier: 
   eName: 
-  eventText: 
+  eventText: Coming Soon!
   options:
-  - description: 
+  - description: WIP
     independentRNG: 0
     effects: []
     conditions: []

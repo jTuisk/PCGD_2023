@@ -10,14 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 800a222eec0efaf4682b867dcf1b7e2e, type: 3}
-  m_Name: Amateur Wizard GetCard
+  m_Name: Watertank getCard
   m_EditorClassIdentifier: 
-  eName: 
-  eventText: 'Congratulations, you beat me.
-
-    Here, use this magic with caution...'
+  eName: You won the fight!
+  eventText: Wow *gasp* you beat me *cough*...
   options:
-  - description: Disarm the magician and acquire his magic handgun.
+  - description: Learn Watertank Escapist trick!
     independentRNG: 1
     effects:
     - name: Get card
@@ -25,7 +23,7 @@ MonoBehaviour:
       targetEvent:
         m_PersistentCalls:
           m_Calls:
-          - m_Target: {fileID: 11400000, guid: 7e6c096aa97df134dae19f1bb49807c0, type: 2}
+          - m_Target: {fileID: 11400000, guid: a5fa48b538b10c24680672aa6c3b23b3, type: 2}
             m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
             m_MethodName: addCard
             m_Mode: 1
@@ -50,7 +48,7 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
     conditions: []
-  - description: Grow your Max HP by 2
+  - description: Grow your max HP by 2
     independentRNG: 1
     effects:
     - name: Add HP
@@ -83,7 +81,7 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
     conditions: []
-  - description: Remove a card from your deck.
+  - description: Remove a card of your choice.
     independentRNG: 1
     effects:
     - name: Remove
@@ -128,4 +126,4 @@ MonoBehaviour:
   ReplaceFrom: {fileID: 0}
   ReplaceTo: {fileID: 0}
   replaceEvent: {fileID: 0}
-  addedTag: AmateurCard
+  addedTag: WaterCard

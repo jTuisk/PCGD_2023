@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 800a222eec0efaf4682b867dcf1b7e2e, type: 3}
   m_Name: ThiefSuccess
   m_EditorClassIdentifier: 
-  eName: 
+  eName: Thief
   eventText: 'Your punch landed and the thief is knocked out cold.
 
     Nothing was
     stolen from you. Will you steal something from them?'
   options:
-  - description: Yeah, the rat deserves it! (Grab The Four Thieves card from him)
+  - description: The rat deserves it! (Grab The Four Thieves card from him)
     independentRNG: 0
     effects:
     - name: Add Card
@@ -39,7 +39,7 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
     conditions: []
-  - description: Yeah, I'll steal his wallet! (Gain 4 mana)
+  - description: Yeah, I'll steal his wallet! (Gain 10 mana)
     independentRNG: 0
     effects:
     - name: Gain mana
@@ -50,47 +50,11 @@ MonoBehaviour:
           - m_Target: {fileID: 11400000}
             m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
             m_MethodName: addMana
-            m_Mode: 1
+            m_Mode: 3
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
               m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-          - m_Target: {fileID: 11400000}
-            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
-            m_MethodName: addMana
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-          - m_Target: {fileID: 11400000}
-            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
-            m_MethodName: addMana
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-          - m_Target: {fileID: 11400000}
-            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
-            m_MethodName: addMana
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
+              m_IntArgument: 10
               m_FloatArgument: 0
               m_StringArgument: 
               m_BoolArgument: 0

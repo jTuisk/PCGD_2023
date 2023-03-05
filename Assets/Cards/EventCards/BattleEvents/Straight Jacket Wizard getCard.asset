@@ -10,20 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 800a222eec0efaf4682b867dcf1b7e2e, type: 3}
-  m_Name: Coin Trick Wizard get Card
+  m_Name: Straight Jacket Wizard getCard
   m_EditorClassIdentifier: 
-  eName: 
-  eventText: Hey no fair, I thought that money is the answer to everything..
+  eName: You won the fight!
+  eventText: 'Your magic was tight!
+
+    Not tighter than my jacket though.. Take
+    it off me, please!'
   options:
-  - description: Grab some change.
+  - description: Obtain their Straight Jacket.
     independentRNG: 1
     effects:
-    - name: Add cards
+    - name: Add a card
       possibility: 1
       targetEvent:
         m_PersistentCalls:
           m_Calls:
-          - m_Target: {fileID: 11400000, guid: 45a05ed125b87b3409b995e45ba0646c, type: 2}
+          - m_Target: {fileID: 11400000, guid: 8cd4e3037a874494fa7caa6ff78e8c18, type: 2}
             m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
             m_MethodName: addCard
             m_Mode: 1
@@ -47,11 +50,16 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
-    conditions: []
-  - description: Grow your MaxHP by 2
+    conditions:
+    - flag: Jacket
+      Operation: 3
+      value: 0
+      a: 0
+      b: 0
+  - description: Grow your MaxHP by 2 instead.
     independentRNG: 1
     effects:
-    - name: Add cards
+    - name: Add Max
       possibility: 1
       targetEvent:
         m_PersistentCalls:
@@ -81,7 +89,7 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
     conditions: []
-  - description: Remove a card from your deck.
+  - description: I want to remove a card from my deck.
     independentRNG: 1
     effects:
     - name: Remove
@@ -102,7 +110,7 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
     conditions: []
-  - description: Take a break instead.
+  - description: Take a break instead
     independentRNG: 1
     effects:
     - name: break
@@ -126,4 +134,4 @@ MonoBehaviour:
   ReplaceFrom: {fileID: 0}
   ReplaceTo: {fileID: 0}
   replaceEvent: {fileID: 0}
-  addedTag: CoinCard
+  addedTag: Jacket

@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9aa545c54708ee043afb4ae81f7da020, type: 3}
-  m_Name: Recovery
+  m_Name: Four Leaf Clover
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: 
-  cardName: 
+  effectDescriptor: You become lucky for three turns
+  cardName: Four Leaf Clover
   Damage: 0
   block: 0
-  magic: 0
+  magic: -3
   money: 0
-  actionCost: 0
+  actionCost: 2
   effect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000}
-        m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
-        m_MethodName: putExaustPileBackInDeck
+      - m_Target: {fileID: 11400000, guid: 224960ab741a44213b12b0bd0a784bbb, type: 2}
+        m_TargetAssemblyTypeName: StatusEffect, Assembly-CSharp
+        m_MethodName: add
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -35,21 +35,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400000}
-        m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
-        m_MethodName: multiplyHandCardCost
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 2
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   conditionalEffects: []
-  exaust: 0
+  exaust: 1
   hasSpecialEffect: 0
   cardsMustBeInHand: 0
+  enemyCardData:
+    stun: 0
+    Dot: 0
+    Confusion: 0
+    Reverse: 0
+    Vulnerable: 0
+    Other: 0
+    DamageOverride: 0
+    DamageOverrideString: 
   requiredCards: []
   specialEffectEvent: {fileID: 0}

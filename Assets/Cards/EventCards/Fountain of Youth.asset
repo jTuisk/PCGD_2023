@@ -15,7 +15,7 @@ MonoBehaviour:
   eName: 
   eventText: You stumble upon a magical fountain. You take a sip.
   options:
-  - description: I feel more powerful!
+  - description: Gain 5 MaxHP and heal to full
     independentRNG: 1
     effects:
     - name: Max health & heal to full

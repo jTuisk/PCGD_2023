@@ -16,7 +16,7 @@ MonoBehaviour:
   eventText: You hear muffled screaming from a nearby alley. You decide to take a
     peek, and someone comes charging at you! What do you do?
   options:
-  - description: Throw the straight jacket at him! (Lose Straight Jacket Card) WIP
+  - description: Throw the straight jacket at him! (Lose Straight Jacket Card)
     independentRNG: 1
     effects:
     - name: Remove

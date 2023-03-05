@@ -10,20 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 800a222eec0efaf4682b867dcf1b7e2e, type: 3}
-  m_Name: Chair Wizard getCard
+  m_Name: Three Card Monte Wizard getCard
   m_EditorClassIdentifier: 
-  eName: 
-  eventText: '*Runs away*'
+  eName: You won the fight!
+  eventText: 'Wow, you read my tricks like an open book.
+
+    You probably don''t
+    need this, but here''s the tutorial...'
   options:
-  - description: Pick up a broken leg of a chair.
+  - description: Learn Three Card Monte
     independentRNG: 1
     effects:
-    - name: Add a card
+    - name: Learn Three Card Monte
       possibility: 1
       targetEvent:
         m_PersistentCalls:
           m_Calls:
-          - m_Target: {fileID: 11400000, guid: 790c7afe06d54214187cc1fa6a94db18, type: 2}
+          - m_Target: {fileID: 11400000, guid: 84d75064006b7904f8a40b06574423d5, type: 2}
             m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
             m_MethodName: addCard
             m_Mode: 1
@@ -48,10 +51,10 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
     conditions: []
-  - description: Grow your MaxHP by 2
+  - description: Grow your MaxHP by 2 instead.
     independentRNG: 1
     effects:
-    - name: Grow HP
+    - name: MaxHP
       possibility: 1
       targetEvent:
         m_PersistentCalls:
@@ -81,7 +84,7 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
     conditions: []
-  - description: Remove a card from your deck.
+  - description: I want to remove a card from my deck instead.
     independentRNG: 1
     effects:
     - name: Remove
@@ -105,7 +108,7 @@ MonoBehaviour:
   - description: Take a break instead
     independentRNG: 1
     effects:
-    - name: Remove
+    - name: break
       possibility: 1
       targetEvent:
         m_PersistentCalls:
@@ -126,4 +129,4 @@ MonoBehaviour:
   ReplaceFrom: {fileID: 0}
   ReplaceTo: {fileID: 0}
   replaceEvent: {fileID: 0}
-  addedTag: ChairCard
+  addedTag: ThreeCard
