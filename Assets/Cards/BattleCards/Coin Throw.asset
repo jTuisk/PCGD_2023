@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa545c54708ee043afb4ae81f7da020, type: 3}
   m_Name: Coin Throw
   m_EditorClassIdentifier: 
-  effectDescriptor: Stun enemy for 1 turn
+  IsEnemySpecialCard: 0
+  effectDescriptor: Stun enemy for 1 turn *Exhaust
   cardName: Coin Throw
   Damage: 0
   block: 0
@@ -34,3 +35,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  conditionalEffects: []
+  exaust: 1
+  hasSpecialEffect: 0
+  cardsMustBeInHand: 0
+  enemyCardData:
+    stun: 0
+    Dot: 0
+    Confusion: 0
+    Reverse: 0
+    Vulnerable: 0
+    Other: 0
+    DamageOverride: 0
+    DamageOverrideString: 
+  requiredCards: []
+  specialEffectEvent: {fileID: 0}

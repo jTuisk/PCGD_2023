@@ -16,7 +16,9 @@ MonoBehaviour:
   eventText: "You heard there is a card store at the arena. \nYou decide to take
     a look."
   options:
-  - description: Get Four Aces Card
+  - description: 'Get Amateur Wizard''s Gun Magic card?
+
+      Cost: 5 Mana'
     independentRNG: 1
     effects:
     - name: Pick card A
@@ -24,7 +26,7 @@ MonoBehaviour:
       targetEvent:
         m_PersistentCalls:
           m_Calls:
-          - m_Target: {fileID: 11400000, guid: 166921eadf698694683dee1e7f52a789, type: 2}
+          - m_Target: {fileID: 11400000, guid: 7e6c096aa97df134dae19f1bb49807c0, type: 2}
             m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
             m_MethodName: addCard
             m_Mode: 1
@@ -36,20 +38,20 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
-          - m_Target: {fileID: 11400000}
-            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
-            m_MethodName: remove
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-    conditions: []
-  - description: I fancy Heart of the Cards!
+    conditions:
+    - flag: AmateurCard
+      Operation: 3
+      value: 0
+      a: 0
+      b: 0
+    - flag: 
+      Operation: 0
+      value: 5
+      a: 2
+      b: 1
+  - description: 'Get Blackjack Wizard''s Blackjack card?
+
+      Cost: 3 Mana'
     independentRNG: 1
     effects:
     - name: Pick card B
@@ -57,7 +59,7 @@ MonoBehaviour:
       targetEvent:
         m_PersistentCalls:
           m_Calls:
-          - m_Target: {fileID: 11400000, guid: 29fce653c8934e647bc03b62761ba52e, type: 2}
+          - m_Target: {fileID: 11400000, guid: 0ae55edee3bceb34296fdc7578a6b158, type: 2}
             m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
             m_MethodName: addCard
             m_Mode: 1
@@ -69,9 +71,35 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
-          - m_Target: {fileID: 11400000}
-            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
-            m_MethodName: remove
+    conditions:
+    - flag: BlackjackCard
+      Operation: 3
+      value: 0
+      a: 0
+      b: 0
+    - flag: 
+      Operation: 0
+      value: 3
+      a: 2
+      b: 1
+    - flag: BlackjackPre
+      Operation: 3
+      value: 0
+      a: 2
+      b: 0
+  - description: 'Get Cat Wizard''s Cat in a Hat card?
+
+      Cost: 3 Mana'
+    independentRNG: 1
+    effects:
+    - name: Pick card C
+      possibility: 1
+      targetEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: 6468a9ffd9380034e9176554e83e4a6f, type: 2}
+            m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
+            m_MethodName: addCard
             m_Mode: 1
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
@@ -81,7 +109,229 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
-    conditions: []
+    conditions:
+    - flag: CatCard
+      Operation: 3
+      value: 0
+      a: 0
+      b: 0
+    - flag: CatPre
+      Operation: 3
+      value: 0
+      a: 0
+      b: 0
+    - flag: 
+      Operation: 0
+      value: 3
+      a: 2
+      b: 1
+  - description: 'Get Chair Throw Wizard''s Broken Chair Throw card?
+
+      Cost:
+      2 Mana'
+    independentRNG: 1
+    effects:
+    - name: Pick card D
+      possibility: 1
+      targetEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: 790c7afe06d54214187cc1fa6a94db18, type: 2}
+            m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
+            m_MethodName: addCard
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    conditions:
+    - flag: ChairCard
+      Operation: 3
+      value: 0
+      a: 0
+      b: 0
+    - flag: 
+      Operation: 0
+      value: 2
+      a: 2
+      b: 1
+  - description: 'Get Coin Throw Wizard''s Coin Throw card?
+
+      Cost: 3 Mana'
+    independentRNG: 1
+    effects:
+    - name: Pick card E
+      possibility: 1
+      targetEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: 45a05ed125b87b3409b995e45ba0646c, type: 2}
+            m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
+            m_MethodName: addCard
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    conditions:
+    - flag: CoinCard
+      Operation: 3
+      value: 0
+      a: 0
+      b: 0
+    - flag: 
+      Operation: 0
+      value: 3
+      a: 2
+      b: 1
+  - description: 'Get Math Wizard''s Substraction card?
+
+      Cost: 4 Mana'
+    independentRNG: 1
+    effects:
+    - name: Pick card F
+      possibility: 1
+      targetEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: 14d1719f1803034419ecdd91d3ae128a, type: 2}
+            m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
+            m_MethodName: addCard
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    conditions:
+    - flag: MathCard
+      Operation: 3
+      value: 0
+      a: 0
+      b: 0
+    - flag: 
+      Operation: 0
+      value: 4
+      a: 2
+      b: 1
+  - description: 'Get Straight Jacket Wizard''s Straight Jacket card?
+
+      Cost:
+      2 Mana'
+    independentRNG: 1
+    effects:
+    - name: Pick card G
+      possibility: 1
+      targetEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: 8cd4e3037a874494fa7caa6ff78e8c18, type: 2}
+            m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
+            m_MethodName: addCard
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    conditions:
+    - flag: Jacket
+      Operation: 3
+      value: 0
+      a: 0
+      b: 0
+    - flag: 
+      Operation: 0
+      value: 2
+      a: 2
+      b: 1
+    - flag: StraightPre
+      Operation: 3
+      value: 0
+      a: 0
+      b: 0
+  - description: 'Get Three Card Monte Wizard''s Three Card Monte card?
+
+      Cost:
+      3 Mana'
+    independentRNG: 1
+    effects:
+    - name: Pick card H
+      possibility: 1
+      targetEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: 84d75064006b7904f8a40b06574423d5, type: 2}
+            m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
+            m_MethodName: addCard
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    conditions:
+    - flag: ThreeCard
+      Operation: 3
+      value: 0
+      a: 0
+      b: 0
+    - flag: 
+      Operation: 0
+      value: 3
+      a: 2
+      b: 1
+  - description: 'Get Watertank Escapist Wizard''s Water Escapist card?
+
+      Cost:
+      2 Mana'
+    independentRNG: 1
+    effects:
+    - name: Pick card I
+      possibility: 1
+      targetEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: a5fa48b538b10c24680672aa6c3b23b3, type: 2}
+            m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
+            m_MethodName: addCard
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    conditions:
+    - flag: WaterCard
+      Operation: 3
+      value: 0
+      a: 0
+      b: 0
+    - flag: 
+      Operation: 0
+      value: 2
+      a: 2
+      b: 1
   ReplaceFrom: {fileID: 0}
   ReplaceTo: {fileID: 0}
   replaceEvent: {fileID: 0}

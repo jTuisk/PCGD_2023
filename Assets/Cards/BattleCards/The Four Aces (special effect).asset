@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: The Four Aces (special effect)
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: 4Aces=Do all, otherwise deal 2dmg+confuse (1x/Combat)
-  cardName: The Four Aces (WIP)
+  effectDescriptor: Do all Ace card effects
+  cardName: The Four Aces
   Damage: 6
   block: 4
   magic: 0
@@ -51,5 +51,14 @@ MonoBehaviour:
   exaust: 1
   hasSpecialEffect: 0
   cardsMustBeInHand: 0
+  enemyCardData:
+    stun: 0
+    Dot: 0
+    Confusion: 0
+    Reverse: 0
+    Vulnerable: 0
+    Other: 0
+    DamageOverride: 0
+    DamageOverrideString: 
   requiredCards: []
   specialEffectEvent: {fileID: 0}

@@ -28,21 +28,21 @@ MonoBehaviour:
       targetEvent:
         m_PersistentCalls:
           m_Calls:
-          - m_Target: {fileID: 11400000, guid: 255d6e21614b8054c9f3ebdd592a1509, type: 2}
-            m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
-            m_MethodName: addCard
-            m_Mode: 1
+          - m_Target: {fileID: 11400000, guid: 8765e028c6ad3e241aa0c63e748b3083, type: 2}
+            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+            m_MethodName: RemoveCard
+            m_Mode: 3
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
               m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
+              m_IntArgument: 1
               m_FloatArgument: 0
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
           - m_Target: {fileID: 11400000, guid: 255d6e21614b8054c9f3ebdd592a1509, type: 2}
             m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
-            m_MethodName: removeRandomCardFromDeck
+            m_MethodName: addCard
             m_Mode: 1
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
@@ -61,21 +61,21 @@ MonoBehaviour:
       targetEvent:
         m_PersistentCalls:
           m_Calls:
-          - m_Target: {fileID: 11400000, guid: 241339d333618824e8027f985b3367ac, type: 2}
-            m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
-            m_MethodName: addCard
-            m_Mode: 1
+          - m_Target: {fileID: 11400000, guid: 8765e028c6ad3e241aa0c63e748b3083, type: 2}
+            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+            m_MethodName: RemoveCard
+            m_Mode: 3
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
               m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
+              m_IntArgument: 1
               m_FloatArgument: 0
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
           - m_Target: {fileID: 11400000, guid: 241339d333618824e8027f985b3367ac, type: 2}
             m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
-            m_MethodName: removeRandomCardFromDeck
+            m_MethodName: addCard
             m_Mode: 1
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
@@ -94,21 +94,21 @@ MonoBehaviour:
       targetEvent:
         m_PersistentCalls:
           m_Calls:
-          - m_Target: {fileID: 11400000, guid: b19d1393a1522074d9e80a8cdf0fad97, type: 2}
-            m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
-            m_MethodName: addCard
-            m_Mode: 1
+          - m_Target: {fileID: 11400000, guid: 8765e028c6ad3e241aa0c63e748b3083, type: 2}
+            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+            m_MethodName: RemoveCard
+            m_Mode: 3
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
               m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
+              m_IntArgument: 1
               m_FloatArgument: 0
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
           - m_Target: {fileID: 11400000, guid: b19d1393a1522074d9e80a8cdf0fad97, type: 2}
             m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
-            m_MethodName: removeRandomCardFromDeck
+            m_MethodName: addCard
             m_Mode: 1
             m_Arguments:
               m_ObjectArgument: {fileID: 0}

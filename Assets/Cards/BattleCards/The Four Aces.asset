@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: The Four Aces
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: 4Aces=Do all, otherwise deal 2dmg+confuse (1x/Combat)
-  cardName: The Four Aces (WIP)
+  effectDescriptor: ' and confuse. Alterior effect when all 4 Aces owned *Exhaust'
+  cardName: The Four Aces
   Damage: 2
   block: 0
   magic: 0
@@ -39,6 +39,15 @@ MonoBehaviour:
   exaust: 1
   hasSpecialEffect: 1
   cardsMustBeInHand: 0
+  enemyCardData:
+    stun: 0
+    Dot: 0
+    Confusion: 0
+    Reverse: 0
+    Vulnerable: 0
+    Other: 0
+    DamageOverride: 0
+    DamageOverrideString: 
   requiredCards:
   - {fileID: 11400000, guid: f0b911516c35b604b834ba74a5845232, type: 2}
   - {fileID: 11400000, guid: 1fd6e5cc5a4715b4b9d2b6a4028275df, type: 2}

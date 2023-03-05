@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Duct Tape
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: 'If all 4 broken owned: remove bad effects, If not: stun enemy'
-  cardName: Duct Tape (WIP)
+  effectDescriptor: Repairs broken cards currently in hand
+  cardName: Duct Tape
   Damage: 0
   block: 0
   magic: 0
@@ -22,18 +22,19 @@ MonoBehaviour:
   actionCost: 0
   effect:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: 41cae49597e4ce94c96252a9674dd332, type: 2}
-        m_TargetAssemblyTypeName: StatusEffect, Assembly-CSharp
-        m_MethodName: add
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   conditionalEffects: []
   exaust: 0
+  hasSpecialEffect: 0
+  cardsMustBeInHand: 0
+  enemyCardData:
+    stun: 0
+    Dot: 0
+    Confusion: 0
+    Reverse: 0
+    Vulnerable: 0
+    Other: 0
+    DamageOverride: 0
+    DamageOverrideString: 
+  requiredCards: []
+  specialEffectEvent: {fileID: 0}

@@ -36,7 +36,7 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
     conditions:
-    - flag: StraightPre
+    - flag: Jacket
       Operation: 3
       value: 0
       a: 0

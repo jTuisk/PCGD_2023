@@ -17,7 +17,7 @@ MonoBehaviour:
   cardName: Broken Chair Throw
   Damage: 3
   block: 0
-  magic: -1
+  magic: 0
   money: 0
   actionCost: 0
   effect:
@@ -39,6 +39,15 @@ MonoBehaviour:
   exaust: 0
   hasSpecialEffect: 1
   cardsMustBeInHand: 1
+  enemyCardData:
+    stun: 0
+    Dot: 0
+    Confusion: 0
+    Reverse: 0
+    Vulnerable: 0
+    Other: 0
+    DamageOverride: 0
+    DamageOverrideString: 
   requiredCards:
   - {fileID: 11400000, guid: b21dd676c4b5e534aa40eabc701fff2a, type: 2}
   specialEffectEvent: {fileID: 11400000, guid: c27c68b62c0f16d429903486754e7e17, type: 2}
