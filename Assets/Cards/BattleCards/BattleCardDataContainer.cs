@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
+using UnityEngine.UI;
 
 [CreateAssetMenu (fileName ="New BattleCard", menuName ="Cards/Battle")]
 public class BattleCardDataContainer : ScriptableObject
@@ -40,6 +40,7 @@ public class BattleCardDataContainer : ScriptableObject
     public EnemyCardData enemyCardData;
     public List<BattleCardDataContainer> requiredCards;
     public BattleCardDataContainer specialEffectEvent;
+    public Sprite CardImage;
 
     public void addCard()
     {
