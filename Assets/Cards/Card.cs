@@ -20,7 +20,8 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public TMPro.TextMeshProUGUI ManaCost;
     public TMPro.TextMeshProUGUI CardName;
     public UnityEvent effect;
-
+    public Sprite CardSprite;
+    public Image CardImage;
     public Sprite APSprite;
     public Sprite ManaSprite;
     public Image APImage;
@@ -106,7 +107,8 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
         if (saveContainerData)
             BattleCardData = data;
-
+        CardSprite = data.CardImage;
+        CardImage.sprite = CardSprite;
         Damage = data.Damage;
         block = data.block;
         magic = data.magic;
