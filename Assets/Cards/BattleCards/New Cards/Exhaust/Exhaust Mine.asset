@@ -19,7 +19,7 @@ MonoBehaviour:
   block: 0
   magic: 0
   money: 0
-  actionCost: 1
+  actionCost: 2
   effect:
     m_PersistentCalls:
       m_Calls:
@@ -50,3 +50,4 @@ MonoBehaviour:
     DamageOverrideString: 
   requiredCards: []
   specialEffectEvent: {fileID: 0}
+  CardImage: {fileID: 0}

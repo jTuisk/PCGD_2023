@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Straight Jacket
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: After this turn you do double damage for 1 turn
+  effectDescriptor: After this turn you do double damage for 1 turn *Exhaust
   cardName: Straight Jacket
   Damage: 0
   block: 0
   magic: -3
   money: 0
-  actionCost: 1
+  actionCost: 0
   effect:
     m_PersistentCalls:
       m_Calls:
@@ -37,3 +37,17 @@ MonoBehaviour:
         m_CallState: 2
   conditionalEffects: []
   exaust: 1
+  hasSpecialEffect: 0
+  cardsMustBeInHand: 0
+  enemyCardData:
+    stun: 0
+    Dot: 0
+    Confusion: 0
+    Reverse: 0
+    Vulnerable: 0
+    Other: 0
+    DamageOverride: 0
+    DamageOverrideString: 
+  requiredCards: []
+  specialEffectEvent: {fileID: 0}
+  CardImage: {fileID: 0}

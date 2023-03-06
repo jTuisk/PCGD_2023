@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Ace of Clubs
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: '*Exhaust'
+  effectDescriptor: ' *Exhaust'
   cardName: Ace of Clubs
   Damage: 4
   block: 0
@@ -27,5 +27,15 @@ MonoBehaviour:
   exaust: 1
   hasSpecialEffect: 0
   cardsMustBeInHand: 0
+  enemyCardData:
+    stun: 0
+    Dot: 0
+    Confusion: 0
+    Reverse: 0
+    Vulnerable: 0
+    Other: 0
+    DamageOverride: 0
+    DamageOverrideString: 
   requiredCards: []
   specialEffectEvent: {fileID: 0}
+  CardImage: {fileID: 0}

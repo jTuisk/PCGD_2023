@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e49b428c96ccf764f904a73dac0e4738, type: 3}
   m_Name: Straight Jacket Wizard
   m_EditorClassIdentifier: 
-  HP: 19
+  HP: 22
   MaxDamageRange: 10
   MinDamageRange: 1
   deck:

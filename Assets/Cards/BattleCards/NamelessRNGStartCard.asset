@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
   effectDescriptor: Deals 1-4 damage
-  cardName: VariableParable
+  cardName: Variable Parable
   Damage: 0
   block: 0
   magic: 0
@@ -181,3 +181,4 @@ MonoBehaviour:
     DamageOverrideString: 
   requiredCards: []
   specialEffectEvent: {fileID: 0}
+  CardImage: {fileID: 0}

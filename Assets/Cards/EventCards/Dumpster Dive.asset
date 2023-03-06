@@ -24,7 +24,7 @@ MonoBehaviour:
       targetEvent:
         m_PersistentCalls:
           m_Calls:
-          - m_Target: {fileID: 11400000, guid: 5b1410001ec70344a9b65608de28d807, type: 2}
+          - m_Target: {fileID: 11400000, guid: 3349b2175928433429671804da709992, type: 2}
             m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
             m_MethodName: addCard
             m_Mode: 1

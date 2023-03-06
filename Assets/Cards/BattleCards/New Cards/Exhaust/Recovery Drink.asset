@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Recovery Drink
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: Discarded exhaust cards back to deck. Doubles card costs.
+  effectDescriptor: Discarded exhaust cards return to deck. Doubles normal card costs.
+    *Exhaust
   cardName: Recovery Drink
   Damage: 0
   block: 0
@@ -62,3 +63,4 @@ MonoBehaviour:
     DamageOverrideString: 
   requiredCards: []
   specialEffectEvent: {fileID: 0}
+  CardImage: {fileID: 0}

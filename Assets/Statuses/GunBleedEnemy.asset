@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 11f8fd2ce7d8ef04ea895fcd7fd93e1c, type: 3}
-  m_Name: CrowdAmbush
+  m_Name: GunBleedEnemy
   m_EditorClassIdentifier: 
   duration: 2
   effect:
@@ -18,18 +18,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 11400000}
         m_TargetAssemblyTypeName: StatusEffect, Assembly-CSharp
-        m_MethodName: DamagePlayer
+        m_MethodName: DamageEnemy
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  icon: {fileID: 21300000, guid: 0900aac99b7e50646a90cd1aaeededa4, type: 3}
-  name: Crowd Ambush
+  icon: {fileID: 0}
+  name: Gun Wound
   ISDOTMOD: 0
-  desc: A crowdmember sides with the enemy dealing 3 damage over 3 turns
-  targetsEnemy: 0
+  desc: Deals 2 damage for 2 turns
+  targetsEnemy: 1

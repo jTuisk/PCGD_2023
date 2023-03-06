@@ -24,7 +24,7 @@ MonoBehaviour:
   effect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: c10e1898f995b77508058cc266b2d4b6, type: 2}
+      - m_Target: {fileID: 11400000, guid: 15aa3985899987b4585b07cc67146778, type: 2}
         m_TargetAssemblyTypeName: StatusEffect, Assembly-CSharp
         m_MethodName: add
         m_Mode: 1

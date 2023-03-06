@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: The Four Aces (special effect)
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: Do all Ace card effects
+  effectDescriptor: Do all Ace card effects *Exhaust
   cardName: The Four Aces
   Damage: 6
   block: 4
@@ -62,3 +62,4 @@ MonoBehaviour:
     DamageOverrideString: 
   requiredCards: []
   specialEffectEvent: {fileID: 0}
+  CardImage: {fileID: 0}

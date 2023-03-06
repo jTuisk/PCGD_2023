@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Substraction
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: Take away one enemy card
+  effectDescriptor: Discard one enemy card
   cardName: Substraction (WIP)
   Damage: 0
   block: 0
@@ -38,3 +38,4 @@ MonoBehaviour:
     DamageOverrideString: 
   requiredCards: []
   specialEffectEvent: {fileID: 0}
+  CardImage: {fileID: 0}

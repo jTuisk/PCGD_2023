@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: SuckerPunch
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: and stun the enemy for 1 turn.
+  effectDescriptor: ' and stun the enemy for 1 turn.'
   cardName: Sucker Punch
   Damage: 4
   block: 0
-  magic: -3
+  magic: -4
   money: 0
   actionCost: 0
   effect:
@@ -37,3 +37,17 @@ MonoBehaviour:
         m_CallState: 2
   conditionalEffects: []
   exaust: 0
+  hasSpecialEffect: 0
+  cardsMustBeInHand: 0
+  enemyCardData:
+    stun: 0
+    Dot: 0
+    Confusion: 0
+    Reverse: 0
+    Vulnerable: 0
+    Other: 0
+    DamageOverride: 0
+    DamageOverrideString: 
+  requiredCards: []
+  specialEffectEvent: {fileID: 0}
+  CardImage: {fileID: 0}

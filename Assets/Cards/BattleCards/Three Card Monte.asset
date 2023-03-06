@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa545c54708ee043afb4ae81f7da020, type: 3}
   m_Name: Three Card Monte
   m_EditorClassIdentifier: 
-  effectDescriptor: Confuse the enemy
+  IsEnemySpecialCard: 0
+  effectDescriptor: Confuse the enemy *Exhaust
   cardName: Three Card Monte
   Damage: 0
   block: 0
   magic: 0
   money: 0
-  actionCost: 2
+  actionCost: 3
   effect:
     m_PersistentCalls:
       m_Calls:
@@ -34,3 +35,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  conditionalEffects: []
+  exaust: 1
+  hasSpecialEffect: 0
+  cardsMustBeInHand: 0
+  enemyCardData:
+    stun: 0
+    Dot: 0
+    Confusion: 0
+    Reverse: 0
+    Vulnerable: 0
+    Other: 0
+    DamageOverride: 0
+    DamageOverrideString: 
+  requiredCards: []
+  specialEffectEvent: {fileID: 0}
+  CardImage: {fileID: 0}

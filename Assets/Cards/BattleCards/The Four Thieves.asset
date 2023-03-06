@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: The Four Thieves
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: -One use per combat
+  effectDescriptor: ' *Exhaust'
   cardName: The Four Thieves
   Damage: 2
   block: 2
