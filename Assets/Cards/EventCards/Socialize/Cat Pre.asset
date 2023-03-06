@@ -13,10 +13,15 @@ MonoBehaviour:
   m_Name: Cat Pre
   m_EditorClassIdentifier: 
   eName: Cat Wizard Encounter
-  eventText: Hmm... What if I stole their cat for myself..?
+  eventText: 'You see a feral looking black cat trotting along the path to the arena,
+
+    followed
+    by a manic voice screaming after it.
+
+    It gives you an idea...'
   options:
-  - description: Get the magicians cat! (Enemy loses the cat card and acquires a
-      CAT card.) WIP
+  - description: Get the magicians cat! (Cat Wizard loses the cat attack and acquires
+      a CAT attack.) WIP
     independentRNG: 0
     effects:
     - name: Get card
@@ -60,6 +65,15 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
+    conditions: []
+  - description: Walk past the feline instead
+    independentRNG: 0
+    effects:
+    - name: Get card
+      possibility: 1
+      targetEvent:
+        m_PersistentCalls:
+          m_Calls: []
     conditions: []
   ReplaceFrom: {fileID: 0}
   ReplaceTo: {fileID: 0}

@@ -46,7 +46,7 @@ MonoBehaviour:
       value: 0
       a: 0
       b: 0
-  - description: Chair Wizard
+  - description: Chair Wizard (WIP)
     independentRNG: 0
     effects:
     - name: 
@@ -72,7 +72,7 @@ MonoBehaviour:
       value: 0
       a: 0
       b: 0
-  - description: Coin Wizard
+  - description: Coin Trick Wizard
     independentRNG: 0
     effects:
     - name: 
@@ -103,7 +103,7 @@ MonoBehaviour:
       value: 0
       a: 0
       b: 0
-  - description: Coin Wizard
+  - description: Coin Trick Wizard (WIP)
     independentRNG: 0
     effects:
     - name: 
@@ -160,7 +160,7 @@ MonoBehaviour:
       value: 0
       a: 0
       b: 0
-  - description: Math Wizard
+  - description: Math Wizard (WIP)
     independentRNG: 0
     effects:
     - name: 

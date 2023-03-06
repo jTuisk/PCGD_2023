@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Chair Wizard getCard
   m_EditorClassIdentifier: 
   eName: You won the fight!
-  eventText: The Chair Wizard runs away hurriedly after the match
+  eventText: The Chair Wizard scurries far away after the match
   options:
   - description: Pick up a broken leg of a chair.
     independentRNG: 1

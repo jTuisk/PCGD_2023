@@ -18,8 +18,8 @@ MonoBehaviour:
     ... Is that a calculator?!
     How DARE you... Ugh, I should''ve specified...'
   options:
-  - description: Har-har! In your face, loser! (Math Wizard becomes stunned in the
-      first turn) WIP
+  - description: Raspberry at them (Math Wizard becomes stunned in the first turn)
+      WIP
     independentRNG: 0
     effects: []
     conditions: []

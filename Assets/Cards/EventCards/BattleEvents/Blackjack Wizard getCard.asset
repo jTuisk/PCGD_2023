@@ -15,10 +15,10 @@ MonoBehaviour:
   eName: You won the fight!
   eventText: 'Ugh.. How has someone like YOU defeated me...
 
-    Just take my magic
-    and let me mourn in peace.'
+    Guess there''s more
+    to cards than blackjack'
   options:
-  - description: Obtain the Blackjack card.
+  - description: Obtain the Blackjack trick.
     independentRNG: 1
     effects:
     - name: Get card blackjack
@@ -50,7 +50,12 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
-    conditions: []
+    conditions:
+    - flag: BlackjackPre
+      Operation: 3
+      value: 0
+      a: 0
+      b: 0
   - description: Grow your MaxHP by 2
     independentRNG: 1
     effects:

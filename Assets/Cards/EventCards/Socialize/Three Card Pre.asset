@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eName: Three Card Monte Wizard Encounter
   eventText: 'You go out for pints with the wizard, and they get absolutely plastered
-    after you make them down shots.
+    after you force them to down shots.
 
     When they leave, you see them drop half
     their belongings to the streets, along with one of their cards.'
   options:
   - description: 'Hopefully this will help with the battle... WIP
 
-      (Enemy becomes
-      stunned when playing three card monte)'
+      (Enemy gets
+      another card)'
     independentRNG: 0
     effects:
     - name: Stun

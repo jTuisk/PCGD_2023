@@ -46,7 +46,7 @@ MonoBehaviour:
       value: 0
       a: 0
       b: 0
-  - description: Straight Jacket Wizard
+  - description: Straight Jacket Wizard (WIP)
     independentRNG: 0
     effects:
     - name: 
@@ -103,7 +103,7 @@ MonoBehaviour:
       value: 0
       a: 0
       b: 0
-  - description: Three Card Monte Wizard
+  - description: Three Card Monte Wizard (WIP)
     independentRNG: 0
     effects:
     - name: 
@@ -160,7 +160,7 @@ MonoBehaviour:
       value: 0
       a: 0
       b: 0
-  - description: Watertank Escapist Wizard
+  - description: Watertank Escapist Wizard (WIP)
     independentRNG: 0
     effects:
     - name: 

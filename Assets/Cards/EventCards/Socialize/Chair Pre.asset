@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Chair Pre
   m_EditorClassIdentifier: 
   eName: Chair Wizard Encounter
-  eventText: Wait a moment... This guy isn't a wizard at all!
+  eventText: "Wait a moment... \nThis guy isn't an actual wizard at all!"
   options:
   - description: Confront them about being phony WIP
     independentRNG: 0

@@ -13,10 +13,13 @@ MonoBehaviour:
   m_Name: Math Wizard getCard
   m_EditorClassIdentifier: 
   eName: You won the fight!
-  eventText: 'You have multiplied me with zero..
+  eventText: 'Wow man, you have multiplied me with zero..
 
-    Here, take this odd thing,
-    then I''ll consider us even.'
+    Here, you can take
+    this odd thing, then I''ll consider us even.
+
+    It makes me somehow negative
+    anyways...'
   options:
   - description: Obtain substraction magic!
     independentRNG: 1

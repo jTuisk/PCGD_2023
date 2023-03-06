@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Straight Pre
   m_EditorClassIdentifier: 
   eName: Straight Jacket Wizard Encounter
-  eventText: Hey this guy seems to be mentally ill.. What if I give him this pill
-    I got in my pockets?
+  eventText: "This guy seems to seriously be mentally ill.. \nShould you conjure
+    a mental healt pill in hopes that they forefeit their battles?"
   options:
-  - description: Give them the pill WIP (Remove straight jacket wizard from the pool)
+  - description: Give them a pill
     independentRNG: 0
     effects:
     - name: Remove card
@@ -48,6 +48,10 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
+    conditions: []
+  - description: Don't bother with it
+    independentRNG: 0
+    effects: []
     conditions: []
   ReplaceFrom: {fileID: 0}
   ReplaceTo: {fileID: 0}

@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Coin Trick Wizard get Card
   m_EditorClassIdentifier: 
   eName: You won the fight!
-  eventText: 'Hey no fair, I thought that money is the answer to everything..
+  eventText: 'And I thought that money makes the world go round...
 
-    Here,
-    have a tip for this epic fight anyways.'
+    Keep one
+    of my coins as a tip, you dress like you need it anyway'
   options:
   - description: Obtain a coin from them
     independentRNG: 1
@@ -50,7 +50,12 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
-    conditions: []
+    conditions:
+    - flag: CoinPre
+      Operation: 3
+      value: 0
+      a: 0
+      b: 0
   - description: Grow your MaxHP by 2
     independentRNG: 1
     effects:

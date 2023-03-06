@@ -18,10 +18,10 @@ MonoBehaviour:
     I challenge
     you to a battle of maths! Winner gets a reward of course...'
   options:
-  - description: I accept your challenge! (Use a calculator)
+  - description: Accept the challenge! (Use a calculator)
     independentRNG: 0
     effects:
-    - name: Gain 2 mana
+    - name: Gain 4 mana
       possibility: 1
       targetEvent:
         m_PersistentCalls:
@@ -41,11 +41,11 @@ MonoBehaviour:
           - m_Target: {fileID: 11400000}
             m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
             m_MethodName: addMana
-            m_Mode: 1
+            m_Mode: 3
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
               m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
+              m_IntArgument: 3
               m_FloatArgument: 0
               m_StringArgument: 
               m_BoolArgument: 0
@@ -75,7 +75,7 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
     conditions: []
-  - description: I accept your challenge! (Don't cheat)
+  - description: Accept the challenge! (Don't cheat)
     independentRNG: 0
     effects:
     - name: 
@@ -120,7 +120,7 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
     conditions: []
-  - description: I decline.
+  - description: Decline.
     independentRNG: 0
     effects: []
     conditions: []

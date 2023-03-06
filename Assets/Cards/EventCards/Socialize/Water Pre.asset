@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 800a222eec0efaf4682b867dcf1b7e2e, type: 3}
   m_Name: Water Pre
   m_EditorClassIdentifier: 
-  eName: Watertank Escapist Encounter
-  eventText: 'You decide to hang out at the diner and you see an opportunity arise..
+  eName: Watertank Escapist Wizard Encounter
+  eventText: 'You decide to hang out at the diner with Watertank Escapist Wizard
+    and you see they seem to love eating..
 
-    You''ll
-    pay for everything the wizard can eat, and they overindulge themselves with the
-    abundance of food available'
+    You can pay for everything the wizard
+    can eat, and they will then overindulge themselves with the abundance of food
+    available becoming stunned when they have a battle.'
   options:
-  - description: I'll pay for everything you can eat!
+  - description: Pay for everything they can eat! (Lose all mana) WIP
     independentRNG: 0
     effects:
     - name: Enemy becomes stunned for three turns WIP
@@ -51,6 +52,10 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
+    conditions: []
+  - description: Don't exploit their love for food
+    independentRNG: 0
+    effects: []
     conditions: []
   ReplaceFrom: {fileID: 0}
   ReplaceTo: {fileID: 0}

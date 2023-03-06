@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Blackjack Pre
   m_EditorClassIdentifier: 
   eName: Blackjack Wizard Encounter
-  eventText: Hey you seem a cool guy! Want to learn how to play blackjack?
+  eventText: Hey you seem a cool guy! Want to play blackjack with me?
   options:
-  - description: Get Blackjack trick!
+  - description: Learn the Blackjack trick!
     independentRNG: 0
     effects:
     - name: Get Card

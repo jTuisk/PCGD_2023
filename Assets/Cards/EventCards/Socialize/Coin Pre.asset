@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 800a222eec0efaf4682b867dcf1b7e2e, type: 3}
   m_Name: Coin Pre
   m_EditorClassIdentifier: 
-  eName: Coin Wizard Encounter
-  eventText: Hmm.. Their purse is just lying there. Should I steal some of their
-    coins?
+  eName: Coin Trick Wizard Encounter
+  eventText: 'You see the Coin Trick Wizard''s purse unguarded on the stands,
+
+    as
+    they are flexing about their wealth to another wizard...'
   options:
-  - description: Steal coins
+  - description: Steal one of their coins
     independentRNG: 0
     effects:
     - name: Get card
@@ -49,7 +51,7 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
     conditions: []
-  - description: Stealing is wrong!
+  - description: Don't even give it a thought
     independentRNG: 0
     effects: []
     conditions: []

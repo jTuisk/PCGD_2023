@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: Straight Jacket Wizard getCard
   m_EditorClassIdentifier: 
   eName: You won the fight!
-  eventText: 'Your magic was tight!
+  eventText: 'At the arena you find a note:
 
-    Not tighter than my jacket though.. Take
-    it off me, please!'
+    "Your talent was almost as tight
+    as my straight jacket!
+
+    You have earned it!"'
   options:
   - description: Obtain their Straight Jacket.
     independentRNG: 1

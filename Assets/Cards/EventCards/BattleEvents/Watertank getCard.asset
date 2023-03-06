@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Watertank getCard
   m_EditorClassIdentifier: 
   eName: You won the fight!
-  eventText: Wow *gasp* you beat me *cough*...
+  eventText: Wow *pant* you beat me *wheeze*...
   options:
   - description: Learn Watertank Escapist trick!
     independentRNG: 1

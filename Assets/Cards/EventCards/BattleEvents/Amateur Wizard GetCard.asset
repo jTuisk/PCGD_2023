@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Amateur Wizard GetCard
   m_EditorClassIdentifier: 
   eName: You won the fight!
-  eventText: 'Congratulations, you beat me.
+  eventText: 'Yo man, dat was INSANE...
 
-    Here, use this magic with caution,
-    if you dare...'
+    Take my gun man, yo ass could win da
+    whole ting!'
   options:
   - description: Obtain Gun Magic!
     independentRNG: 1

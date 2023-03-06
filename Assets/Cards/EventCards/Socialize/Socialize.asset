@@ -46,7 +46,7 @@ MonoBehaviour:
       value: 0
       a: 0
       b: 0
-  - description: Amateur Wizard
+  - description: Amateur Wizard (WIP)
     independentRNG: 0
     effects:
     - name: 
@@ -103,7 +103,7 @@ MonoBehaviour:
       value: 0
       a: 0
       b: 0
-  - description: Blackjack Wizard
+  - description: Blackjack Wizard (WIP)
     independentRNG: 0
     effects:
     - name: 
@@ -160,7 +160,7 @@ MonoBehaviour:
       value: 0
       a: 0
       b: 0
-  - description: Cat Wizard
+  - description: Cat Wizard (WIP)
     independentRNG: 0
     effects:
     - name: 

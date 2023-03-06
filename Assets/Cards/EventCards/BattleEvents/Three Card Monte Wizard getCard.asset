@@ -15,8 +15,8 @@ MonoBehaviour:
   eName: You won the fight!
   eventText: 'Wow, you read my tricks like an open book.
 
-    You probably don''t
-    need this, but here''s the tutorial...'
+    Let me teach you the
+    trick, you can even use three of your cards for it!'
   options:
   - description: Learn Three Card Monte
     independentRNG: 1

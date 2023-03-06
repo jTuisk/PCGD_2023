@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 800a222eec0efaf4682b867dcf1b7e2e, type: 3}
   m_Name: Cat Post
   m_EditorClassIdentifier: 
-  eName: 
+  eName: Cat Wizard Post-battle (WIP)
   eventText: Coming soon!
   options:
-  - description: WIP
+  - description: OK
     independentRNG: 0
     effects: []
     conditions: []
