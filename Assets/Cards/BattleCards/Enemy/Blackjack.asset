@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Blackjack
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 1
-  effectDescriptor: 2-10=1dmg, 11-20=3dmg, 21=8dmg
+  effectDescriptor: Deal 1, 3, or 8 damage
   cardName: Blackjack
   Damage: 0
   block: 0
@@ -200,3 +200,4 @@ MonoBehaviour:
     DamageOverrideString: 1-8
   requiredCards: []
   specialEffectEvent: {fileID: 0}
+  CardImage: {fileID: 0}

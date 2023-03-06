@@ -17,14 +17,14 @@ MonoBehaviour:
   MinDamageRange: 1
   deck:
   - {fileID: 11400000, guid: fc4274cdf0be13c4d93a2922b2d55388, type: 2}
-  - {fileID: 11400000, guid: 6e22346bd8c91054a846dad7627ae4e2, type: 2}
+  - {fileID: 11400000, guid: 2fc8a35b133382545b015367c91cc625, type: 2}
   - {fileID: 11400000, guid: fc4274cdf0be13c4d93a2922b2d55388, type: 2}
   - {fileID: 11400000, guid: 7b5bd8d2b7715a24b86098ae2ee050f8, type: 2}
-  - {fileID: 11400000, guid: 2fc8a35b133382545b015367c91cc625, type: 2}
+  - {fileID: 11400000, guid: 6e22346bd8c91054a846dad7627ae4e2, type: 2}
   - {fileID: 11400000, guid: fc4274cdf0be13c4d93a2922b2d55388, type: 2}
   - {fileID: 11400000, guid: 6f56ef93e442a994b985a8721e3368be, type: 2}
   CreatureBase: {fileID: 1923058948709319707, guid: 6671e36d1d116eb44b87cd53f63a7813, type: 3}
   postBattleEvent: {fileID: 11400000, guid: 75053c7c12a86f34ca9c7bf469359e52, type: 2}
-  Picture: {fileID: 0}
+  Picture: {fileID: 21300000, guid: a0170dc6d9a4ec44094f3d65145848c0, type: 3}
   pictureDefaultPosition: {x: -6.9, y: 0, z: 2}
   pictureScale: {x: 1.5, y: 1.5, z: 1}

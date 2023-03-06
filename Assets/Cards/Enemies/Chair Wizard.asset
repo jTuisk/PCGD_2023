@@ -20,7 +20,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e43fea5f3925db3499f3d6963770a0cb, type: 2}
   - {fileID: 11400000, guid: d101106bd11b0f748b1c3d5c94a11218, type: 2}
   - {fileID: 11400000, guid: 5ce7179bafd719d4dab1c488ba8b03ec, type: 2}
-  - {fileID: 11400000, guid: 7b5bd8d2b7715a24b86098ae2ee050f8, type: 2}
+  - {fileID: 11400000, guid: e31490448fe6ee040a6b388ff5598764, type: 2}
   - {fileID: 11400000, guid: e43fea5f3925db3499f3d6963770a0cb, type: 2}
   - {fileID: 11400000, guid: 6f56ef93e442a994b985a8721e3368be, type: 2}
   CreatureBase: {fileID: 1923058948709319707, guid: 6671e36d1d116eb44b87cd53f63a7813, type: 3}

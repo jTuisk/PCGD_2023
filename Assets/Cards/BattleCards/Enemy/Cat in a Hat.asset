@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cat in a Hat
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 1
-  effectDescriptor: Cat scratches deal 2 dmg for 3 turns
+  effectDescriptor: Cat scratches deal 2 damage for 3 turns
   cardName: Cat in a Hat
   Damage: 0
   block: 0
@@ -50,3 +50,4 @@ MonoBehaviour:
     DamageOverrideString: 
   requiredCards: []
   specialEffectEvent: {fileID: 0}
+  CardImage: {fileID: 0}

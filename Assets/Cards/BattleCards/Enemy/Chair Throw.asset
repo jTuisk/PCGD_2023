@@ -15,7 +15,7 @@ MonoBehaviour:
   IsEnemySpecialCard: 1
   effectDescriptor: 
   cardName: Chair Throw
-  Damage: 1
+  Damage: 2
   block: 0
   magic: 0
   money: 0
@@ -25,3 +25,17 @@ MonoBehaviour:
       m_Calls: []
   conditionalEffects: []
   exaust: 0
+  hasSpecialEffect: 0
+  cardsMustBeInHand: 0
+  enemyCardData:
+    stun: 0
+    Dot: 0
+    Confusion: 0
+    Reverse: 0
+    Vulnerable: 0
+    Other: 0
+    DamageOverride: 0
+    DamageOverrideString: 
+  requiredCards: []
+  specialEffectEvent: {fileID: 0}
+  CardImage: {fileID: 0}

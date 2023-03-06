@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Coin Throw
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 1
-  effectDescriptor: Blinds opponent for 1 turn
+  effectDescriptor: Stun player for 1 turn
   cardName: Coin Throw
   Damage: 0
   block: 0
@@ -50,3 +50,4 @@ MonoBehaviour:
     DamageOverrideString: 
   requiredCards: []
   specialEffectEvent: {fileID: 0}
+  CardImage: {fileID: 0}
