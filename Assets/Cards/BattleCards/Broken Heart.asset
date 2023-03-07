@@ -50,7 +50,7 @@ MonoBehaviour:
   conditionalEffects: []
   exaust: 0
   hasSpecialEffect: 1
-  cardsMustBeInHand: 1
+  cardsMustBeInHand: 0
   enemyCardData:
     stun: 0
     Dot: 0
