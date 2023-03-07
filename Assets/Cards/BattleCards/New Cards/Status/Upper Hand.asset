@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Upper Hand
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: Deal 6 damage to enemy if they are stunned
+  effectDescriptor: ' and extra 4 damage to enemy if they are stunned'
   cardName: Upper Hand
-  Damage: 0
+  Damage: 2
   block: 0
-  magic: -3
+  magic: -2
   money: 0
   actionCost: 0
   effect:
@@ -38,7 +38,7 @@ MonoBehaviour:
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
               m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 6
+              m_IntArgument: 4
               m_FloatArgument: 0
               m_StringArgument: 
               m_BoolArgument: 0

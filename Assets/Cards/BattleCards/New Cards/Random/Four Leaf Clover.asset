@@ -17,7 +17,7 @@ MonoBehaviour:
   cardName: Four Leaf Clover
   Damage: 0
   block: 0
-  magic: -3
+  magic: -2
   money: 0
   actionCost: 0
   effect:

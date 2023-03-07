@@ -17,7 +17,7 @@ MonoBehaviour:
   cardName: Frail Bones
   Damage: 0
   block: 0
-  magic: -2
+  magic: -1
   money: 0
   actionCost: 0
   effect:
