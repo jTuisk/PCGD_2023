@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa545c54708ee043afb4ae81f7da020, type: 3}
   m_Name: 52 Card Pickup
   m_EditorClassIdentifier: 
+  IsEnemySpecialCard: 0
   effectDescriptor: 
   cardName: 52 Card Pickup
   Damage: 1
@@ -24,3 +25,17 @@ MonoBehaviour:
       m_Calls: []
   conditionalEffects: []
   exaust: 0
+  hasSpecialEffect: 0
+  cardsMustBeInHand: 0
+  enemyCardData:
+    stun: 0
+    Dot: 0
+    Confusion: 0
+    Reverse: 0
+    Vulnerable: 0
+    Other: 0
+    DamageOverride: 0
+    DamageOverrideString: 
+  requiredCards: []
+  specialEffectEvent: {fileID: 0}
+  CardImage: {fileID: 21300000, guid: 07ae83e98e982de4ab224fa09d6a65db, type: 3}

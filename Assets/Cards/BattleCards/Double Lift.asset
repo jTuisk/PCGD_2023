@@ -62,4 +62,4 @@ MonoBehaviour:
     DamageOverrideString: 
   requiredCards: []
   specialEffectEvent: {fileID: 0}
-  CardImage: {fileID: 0}
+  CardImage: {fileID: 21300000, guid: a700c321da2ae5346966bcc830286c84, type: 3}
