@@ -51,3 +51,4 @@ MonoBehaviour:
   requiredCards:
   - {fileID: 11400000, guid: b21dd676c4b5e534aa40eabc701fff2a, type: 2}
   specialEffectEvent: {fileID: 11400000, guid: c27c68b62c0f16d429903486754e7e17, type: 2}
+  CardImage: {fileID: 21300000, guid: 54098b2366242d14094088a311164d2d, type: 3}

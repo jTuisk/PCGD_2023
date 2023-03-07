@@ -39,6 +39,16 @@ MonoBehaviour:
   exaust: 0
   hasSpecialEffect: 1
   cardsMustBeInHand: 1
+  enemyCardData:
+    stun: 0
+    Dot: 0
+    Confusion: 0
+    Reverse: 0
+    Vulnerable: 0
+    Other: 0
+    DamageOverride: 0
+    DamageOverrideString: 
   requiredCards:
   - {fileID: 11400000, guid: b21dd676c4b5e534aa40eabc701fff2a, type: 2}
   specialEffectEvent: {fileID: 11400000, guid: 41a84eb826d10f8479f72e3177b9e407, type: 2}
+  CardImage: {fileID: 21300000, guid: 36ea885caa9202742bc1a6ae9164d697, type: 3}
