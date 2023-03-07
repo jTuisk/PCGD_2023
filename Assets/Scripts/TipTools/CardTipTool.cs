@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class BattleCardTipTool : TipTool
 {
     public BattleCardDataContainer battleCardData;
-    private Camera topCamera;
 
     private Vector2 leftBottomAnchor;
     private Vector2 rightTopAnchor;
@@ -40,13 +39,7 @@ public class BattleCardTipTool : TipTool
         var battleCardCanvas = tipToolObj.GetComponentInChildren<Canvas>();
         battleCardCanvas.sortingOrder=4000;
         
-        foreach(var camera in Camera.allCameras)
-        {
-            if(camera.name == "TopCamera")
-            {
-                topCamera = camera;
-            }
-        }
+        FindRenderingCamera();
         #endregion
 
         // Set Inactive
@@ -75,9 +68,60 @@ public class BattleCardTipTool : TipTool
         if(tipToolObj.activeInHierarchy == true)
         {
             var campos = topCamera.ScreenToWorldPoint(Input.mousePosition);
-            var mousepos = new Vector3(campos.x + 1.5f, campos.y - 1.5f, 0f);
-            tipToolObj.transform.position = mousepos;                    
+
+            var mousepos = new Vector3(campos.x , campos.y , 0f);
+            tipToolObj.transform.position = mousepos;
+
+            CalibratePositionUnderWorldPoint(topCamera, tipToolObj);
         }
+    }
+
+    protected override Vector2 GetClibrationOffset(Vector2 toolSize)
+    {
+        return new Vector2(toolSize.x / 2 + 0.1f, toolSize.x / 2 + 0.1f);
+    }
+
+    // Calibrate the position of a gameObject so that with current size,
+    // The camera can still display the entire gameObject
+    protected override void CalibratePositionUnderWorldPoint(Camera cam, GameObject gameObject)
+    {
+        var topRightCornor = cam.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0f));
+        var bottomRightCornor = cam.ScreenToWorldPoint(new Vector3(Screen.width, 0f, 0f));
+        var topLeftCornor = cam.ScreenToWorldPoint(new Vector3(0f, Screen.height, 0f));
+        var bottomLeftCornor = cam.ScreenToWorldPoint(Vector3.zero);
+        
+        var tipToolRect = GetMaxRectTransform(gameObject);
+        Vector3[] objectCorners = new Vector3[4];
+        tipToolRect.GetWorldCorners(objectCorners);
+
+        Vector2 tipToolSizeToWorldPoint = new Vector2(
+            objectCorners[2].x - objectCorners[0].x,
+            objectCorners[2].y - objectCorners[0].y);
+
+        // add offset
+        var offset = GetClibrationOffset(tipToolSizeToWorldPoint);
+
+        var currentPos = gameObject.transform.position;
+        var calibratedPos = new Vector2(currentPos.x + offset.x, currentPos.y - offset.y);
+        
+        // If both side exceed the border, align the bottom-right corner of tiptool with mousePosition
+        if((currentPos.x + tipToolSizeToWorldPoint.x)> topRightCornor.x &&
+        (currentPos.y - tipToolSizeToWorldPoint.y)< bottomRightCornor.y)
+        {
+            calibratedPos = new Vector2(
+                calibratedPos.x - tipToolSizeToWorldPoint.x/2 - offset.x,
+                calibratedPos.y + tipToolSizeToWorldPoint.y/2 + offset.y);
+        }
+        else
+        {
+            calibratedPos = new Vector2(
+                ((currentPos.x + tipToolSizeToWorldPoint.x)> topRightCornor.x)?
+                (topRightCornor.x - tipToolSizeToWorldPoint.x + offset.x):calibratedPos.x,
+                ((currentPos.y - tipToolSizeToWorldPoint.y)< bottomRightCornor.y)?
+                (bottomRightCornor.y + tipToolSizeToWorldPoint.y - offset.y):calibratedPos.y);
+        }
+        
+        gameObject.transform.position = new Vector3(calibratedPos.x, calibratedPos.y, gameObject.transform.position.z);
     }
 
     // Somehow, these functions have display error.
