@@ -11,6 +11,7 @@ public class OptionsPanel : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI musicSliderText;
     [SerializeField] private TMPro.TextMeshProUGUI sfxSliderText;
     [SerializeField] private AudioMixer mainMixer;
+    [SerializeField] private Toggle fullScreenToggle;
 
     void Update()
     {
@@ -23,11 +24,12 @@ public class OptionsPanel : MonoBehaviour
     void Awake()
     {
         // DontDestroyOnLoad(this.gameObject);
+        SetDefaultFullScreenOption();    
+        SetDefaultVolumeValue();
     }
 
     void Start()
     {
-        SetDefaultVolumeValue();
     }
 
     public void HideOptionsPanel()
@@ -59,6 +61,25 @@ public class OptionsPanel : MonoBehaviour
         PlayerPrefs.SetFloat("SFXVol", mixerVolValue);
     }
 
+    public void OnFullScreenToggleValueChange()
+    {
+        # if UNITY_EDITOR
+            var windows = (UnityEditor.EditorWindow[])Resources.FindObjectsOfTypeAll(typeof(UnityEditor.EditorWindow));
+            foreach(var window in windows)
+            {
+                if(window != null && window.GetType().FullName == "UnityEditor.GameView")
+                {
+                    window.maximized = fullScreenToggle.isOn;
+                    break;
+                }
+            }
+            UnityEditorInternal.InternalEditorUtility.RepaintAllViews();
+        #else
+            Screen.fullScreen = fullScreenToggle.isOn;
+        # endif
+        PlayerPrefs.SetInt("FullScreen", (fullScreenToggle.isOn)? 1: 0);
+    }
+
     private void SetDefaultVolumeValue()
     {
         if(PlayerPrefs.HasKey("MasterVol"))
@@ -75,4 +96,13 @@ public class OptionsPanel : MonoBehaviour
         }
     }
 
+    public void SetDefaultFullScreenOption()
+    {
+        if(PlayerPrefs.HasKey("FullScreen"))
+        {
+            bool isOn = (PlayerPrefs.GetInt("FullScreen") == 1)? true: false;
+            fullScreenToggle.isOn = isOn;
+        }
+        OnFullScreenToggleValueChange();       
+    }
 }

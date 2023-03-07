@@ -1206,6 +1206,7 @@ MonoBehaviour:
   musicSliderText: {fileID: 1141570343401914987}
   sfxSliderText: {fileID: 1693115885274749275}
   mainMixer: {fileID: 24100000, guid: 6a64da4e277f643409a91e123fb3b819, type: 2}
+  fullScreenToggle: {fileID: 1024992048245399889}
 --- !u!1 &3333888905762240134
 GameObject:
   m_ObjectHideFlags: 0
@@ -1291,7 +1292,19 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4558401452286469784}
+        m_TargetAssemblyTypeName: OptionsPanel, Assembly-CSharp
+        m_MethodName: OnFullScreenToggleValueChange
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 1
 --- !u!1 &3336547156765350478
 GameObject:
