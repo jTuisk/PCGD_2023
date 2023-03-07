@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Duct Tape
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: Repairs broken cards currently in hand
+  effectDescriptor: Repairs broken cards currently in deck
   cardName: Duct Tape
   Damage: 0
   block: 0
