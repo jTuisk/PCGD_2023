@@ -17,9 +17,9 @@ MonoBehaviour:
   cardName: Three Card Monte
   Damage: 0
   block: 0
-  magic: 0
+  magic: -3
   money: 0
-  actionCost: 3
+  actionCost: 0
   effect:
     m_PersistentCalls:
       m_Calls:

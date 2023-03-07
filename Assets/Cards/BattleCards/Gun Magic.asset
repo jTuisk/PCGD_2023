@@ -17,7 +17,7 @@ MonoBehaviour:
   cardName: Handgun Magic
   Damage: 9
   block: 0
-  magic: -5
+  magic: -6
   money: 0
   actionCost: 3
   effect:

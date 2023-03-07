@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Rage potion
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: Deal double damage to the enemy for 1 turn
+  effectDescriptor: Deal double damage to the enemy for 1 turn *Exhaust
   cardName: Rage Potion
   Damage: 0
   block: 0
-  magic: 3
+  magic: -3
   money: 0
   actionCost: 0
   effect:
@@ -36,4 +36,18 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   conditionalEffects: []
-  exaust: 0
+  exaust: 1
+  hasSpecialEffect: 0
+  cardsMustBeInHand: 0
+  enemyCardData:
+    stun: 0
+    Dot: 0
+    Confusion: 0
+    Reverse: 0
+    Vulnerable: 0
+    Other: 0
+    DamageOverride: 0
+    DamageOverrideString: 
+  requiredCards: []
+  specialEffectEvent: {fileID: 0}
+  CardImage: {fileID: 0}

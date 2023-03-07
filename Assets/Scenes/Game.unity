@@ -938,6 +938,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 090a51be7ac155f49965489f56820bba, type: 2}
   - {fileID: 11400000, guid: 8765e028c6ad3e241aa0c63e748b3083, type: 2}
   - {fileID: 11400000, guid: f399c254f46e40640a58ccc5dd791519, type: 2}
+  - {fileID: 11400000, guid: 339a938a496a52e4cb40933cee03b9b9, type: 2}
   CardBasePrefab: {fileID: 1923058948709319707, guid: a820adf569575a349be76d6d8ef88eec, type: 3}
   cardPrefabs:
   - {fileID: 11400000, guid: 255d6e21614b8054c9f3ebdd592a1509, type: 2}

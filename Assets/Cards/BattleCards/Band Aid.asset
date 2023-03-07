@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Band Aid
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: Remove status effects *Exhaust
+  effectDescriptor: Remove status effects
   cardName: Band-Aid
   Damage: 0
   block: 0
@@ -36,4 +36,18 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   conditionalEffects: []
-  exaust: 1
+  exaust: 0
+  hasSpecialEffect: 0
+  cardsMustBeInHand: 0
+  enemyCardData:
+    stun: 0
+    Dot: 0
+    Confusion: 0
+    Reverse: 0
+    Vulnerable: 0
+    Other: 0
+    DamageOverride: 0
+    DamageOverrideString: 
+  requiredCards: []
+  specialEffectEvent: {fileID: 0}
+  CardImage: {fileID: 0}

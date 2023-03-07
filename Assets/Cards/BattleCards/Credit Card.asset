@@ -19,7 +19,7 @@ MonoBehaviour:
   block: 0
   magic: 5
   money: 0
-  actionCost: 1
+  actionCost: 2
   effect:
     m_PersistentCalls:
       m_Calls: []
