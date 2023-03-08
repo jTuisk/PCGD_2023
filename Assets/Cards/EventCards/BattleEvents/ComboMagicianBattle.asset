@@ -13,15 +13,12 @@ MonoBehaviour:
   m_Name: ComboMagicianBattle
   m_EditorClassIdentifier: 
   BossImage: {fileID: 21300000, guid: 6bea6a0ebadd0104b8f2b7edc08a4314, type: 3}
-  eName: Combo Cup Wizard
-  eventText: 'A man approaches you holding a pair of plastic cups and a small red
-    ball.
-
-    G''day sir fancy a little magic battle? Look carefully at this ball,
-    now at this cup, now back at this ball, where did it go, I wonder?'
+  eName: Quateer Finals
+  eventText: '"You''ve done well the get this far with your parlor tricks. But alas
+    now a great boulder stands in your way. That boulder is me. Now let me show you
+    some real magic"'
   options:
-  - description: 'Cups? If I wanted to watch people embarass themselves failing simple
-      parlor tricks I''d go to a college frat party. '
+  - description: Battle
     independentRNG: 1
     effects:
     - name: 

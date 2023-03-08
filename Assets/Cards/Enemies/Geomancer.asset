@@ -18,7 +18,7 @@ MonoBehaviour:
   deck:
   - {fileID: 11400000, guid: 94e83185e9681d757968c3f0652f1d93, type: 2}
   - {fileID: 11400000, guid: 94e83185e9681d757968c3f0652f1d93, type: 2}
-  - {fileID: 11400000, guid: 1ad1f977dfdcb0ce8b4b140cc862c04f, type: 2}
+  - {fileID: 11400000, guid: 5f667fbf366b8015ab91280db324c0eb, type: 2}
   - {fileID: 11400000, guid: b2193e28692db3359ba75958b6f81c3a, type: 2}
   - {fileID: 11400000, guid: 89aae69174c5d0b879937f013527c961, type: 2}
   CreatureBase: {fileID: 1923058948709319707, guid: 6671e36d1d116eb44b87cd53f63a7813, type: 3}

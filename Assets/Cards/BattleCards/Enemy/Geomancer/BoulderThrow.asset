@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: BoulderThrow
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: 
-  cardName: 
+  effectDescriptor: Makes both you and the enemy vulnerable
+  cardName: Boulder Throw
   Damage: 0
   block: 0
   magic: 0
@@ -68,10 +68,13 @@ MonoBehaviour:
     Dot: 0
     Confusion: 0
     Reverse: 0
-    Vulnerable: 0
+    Vulnerable: 3
     Other: 0
+    combo: 3
     DamageOverride: 0
+    HealOverride: 0
     DamageOverrideString: 
+    HealOverrideString: 
   requiredCards: []
   specialEffectEvent: {fileID: 0}
   CardImage: {fileID: 0}

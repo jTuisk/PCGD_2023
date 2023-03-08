@@ -15,7 +15,7 @@ MonoBehaviour:
   IsEnemySpecialCard: 0
   effectDescriptor: 
   cardName: 
-  Damage: 0
+  Damage: 1
   block: 5
   magic: 0
   money: 0
@@ -34,8 +34,11 @@ MonoBehaviour:
     Reverse: 0
     Vulnerable: 0
     Other: 0
+    combo: 0
     DamageOverride: 0
+    HealOverride: 0
     DamageOverrideString: 
+    HealOverrideString: 
   requiredCards: []
   specialEffectEvent: {fileID: 0}
   CardImage: {fileID: 0}

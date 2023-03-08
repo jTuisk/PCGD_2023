@@ -20,7 +20,7 @@ public class Deck : MonoBehaviour
     public int mana = 0;
     public float dotDamageMultiplier=1;
     public float playerDotDamageMultiplier=1;
-    private int bossCounter=0;
+    internal int bossCounter=0;
     public int MaxHp = 20;
     public int Hp = 0;
     public bool Lucky=false;
@@ -197,7 +197,7 @@ public class Deck : MonoBehaviour
         
         exaustCard(Random.Range(0,Hand.transform.childCount));
     }
-    int bosses=0;
+    internal int bosses=0;
     int dayindex = 0;
     bool finalBattle = false;
     public void DrawEventCard()
