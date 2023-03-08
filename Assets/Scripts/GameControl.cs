@@ -67,5 +67,9 @@ public class GameControl : MonoBehaviour
         }
     }
 
+    public bool IsOptionPanelActive()
+    {
+        return optionsPanelObj.activeInHierarchy;
+    }
 
 }
