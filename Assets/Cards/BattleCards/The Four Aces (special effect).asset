@@ -16,7 +16,7 @@ MonoBehaviour:
   effectDescriptor: Do all Ace card effects, Exhaust
   cardName: The Four Aces
   Damage: 6
-  block: 6
+  block: 4
   magic: 0
   money: 0
   actionCost: 2
@@ -42,7 +42,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 6
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
