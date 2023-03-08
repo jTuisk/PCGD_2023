@@ -25,7 +25,18 @@ public class StatusEffect:ScriptableObject
         stat.name=this.nameText;
         stat.icon=this.icon;
         stat.ISDOTMOD=this.ISDOTMOD;
-        stat.targetsEnemy=targetsEnemy;
+        if(targetsEnemy){
+        if(Deck.Instance.PlayerConfused){
+            stat.targetsEnemy=!targetsEnemy;
+        }else{
+            stat.targetsEnemy=targetsEnemy;
+        }}
+        if(!targetsEnemy){
+        if(Deck.Instance.enemy.confused){
+            stat.targetsEnemy=!targetsEnemy;
+        }else{
+            stat.targetsEnemy=targetsEnemy;
+        }}
         Deck.Instance.statuses.Add(stat);
         stat.desc=this.desc;
     }
