@@ -8,6 +8,7 @@ public class EnemyCard : MonoBehaviour
     public int HP = 10;
     public int MaxDamageRange = 6;
     public int block=0;
+    public string id="";
     public int MinDamageRange = 1;
     public bool Lucky=false;
     public int damage = 0;
@@ -115,7 +116,7 @@ IEnumerator shake(){
         // check if the battle card is banned by a previous battle reward
         int affectedBattleCardIndex = (Deck.Instance.enemyAffectedByCombatRewards.ContainsKey(data))?
             Deck.Instance.enemyAffectedByCombatRewards[data] : -1;
-
+        name=data.name;
         HP = data.HP;
         maxHP = data.HP;
         MaxDamageRange = data.MaxDamageRange;
@@ -125,6 +126,25 @@ IEnumerator shake(){
         if(data.Picture!=null){
             img.sprite=data.Picture;
         }
+        List<BattleCardDataContainer>  CardsToadd;
+        Debug.Log("getting value from key :"+this.name);
+       if(!Deck.Instance.CardsToAdd.TryGetValue(this.name,out CardsToadd)){
+            CardsToadd=new List<BattleCardDataContainer>(); 
+       }
+        
+        
+           foreach(var additioncard in CardsToadd){
+                Debug.Log(CardsToadd);
+                      
+            var card=Instantiate(cardPrefab).GetComponent<Intent>();
+            card.createCard(additioncard);
+            var scale = CardHandler.Instance.cardScaleInEnermyDeck;
+            card.transform.localScale=new Vector3(scale, scale, scale);
+            cards.Add(card);
+            //card.transform.position=new Vector2(enemyDeck.transform.position.x-transform.childCount * 10/2  + j * 10,enemyDeck.transform.position.y);
+            card.transform.parent=enemyDeck.transform;
+            card.status = Card.BelongTo.Enermy;
+            }
         foreach(BattleCardDataContainer i in data.deck){
             if(!( Deck.Instance.cardsToRemoveFromEnemies.Contains(i)) ){
             

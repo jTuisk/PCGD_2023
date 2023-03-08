@@ -47,6 +47,16 @@ public class BattleCardDataContainer : ScriptableObject
         Deck.Instance.BattleDeckAddCardFromCardData(this);
 
     }
+    public void addForEnemy(string enemy){
+        List<BattleCardDataContainer> output;
+        Debug.Log("Adding card :"+this.cardName+" to "+enemy);
+        if(!Deck.Instance.CardsToAdd.TryGetValue(enemy,out output)){
+            Deck.Instance.CardsToAdd.TryAdd(enemy,new List<BattleCardDataContainer>());
+            Deck.Instance.CardsToAdd[enemy].Add(this);
+        }else{
+            Deck.Instance.CardsToAdd[enemy].Add(this);
+        }
+    }
     public void removeStatusEffects(){
         Deck.Instance.removeAllStatuses();
 

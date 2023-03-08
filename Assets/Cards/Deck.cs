@@ -45,6 +45,8 @@ public class Deck : MonoBehaviour
     [HideInInspector]
     public List<CreatureDataContainer> allEnemies;
     public Dictionary<CreatureDataContainer, int> enemyAffectedByCombatRewards;
+   
+    public Dictionary<string,List<BattleCardDataContainer>> CardsToAdd=new Dictionary<string,List<BattleCardDataContainer>>();
     
     private void FindAllCreatureContainers()
     {
