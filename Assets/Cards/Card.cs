@@ -46,9 +46,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 Deck.Instance.takeDamage(Damage);
             }
         }
-        Deck.Instance.block += block;
-        Deck.Instance.mana += magic;
-        Deck.Instance.money -= money;
+
         effect.Invoke();
 
         foreach(BattleCardMenuItem i in conditionalEffects){
@@ -64,6 +62,9 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             }
             
         }
+        Deck.Instance.block += block;
+        Deck.Instance.mana += magic;
+        Deck.Instance.money -= money;
         ExplosionManager.Instance.playCard(this);
         AudioManager.Instance.PlayCardEffectsWhenCardPlayed(this);
     }
