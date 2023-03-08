@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Three Card Monte
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: Confuse the enemy *Exhaust
+  effectDescriptor: Confuse the enemy
   cardName: Three Card Monte
   Damage: 0
   block: 0
@@ -36,7 +36,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   conditionalEffects: []
-  exaust: 1
+  exaust: 0
   hasSpecialEffect: 0
   cardsMustBeInHand: 0
   enemyCardData:

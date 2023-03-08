@@ -19,9 +19,25 @@ MonoBehaviour:
     How DARE you... Ugh, I should''ve specified...'
   options:
   - description: Raspberry at them (Math Wizard becomes stunned in the first turn)
-      WIP
     independentRNG: 0
-    effects: []
+    effects:
+    - name: 
+      possibility: 1
+      targetEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: 41cae49597e4ce94c96252a9674dd332, type: 2}
+            m_TargetAssemblyTypeName: StatusEffect, Assembly-CSharp
+            m_MethodName: AddTobattleStart
+            m_Mode: 5
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: Math Wizard
+              m_BoolArgument: 0
+            m_CallState: 2
     conditions: []
   ReplaceFrom: {fileID: 0}
   ReplaceTo: {fileID: 0}

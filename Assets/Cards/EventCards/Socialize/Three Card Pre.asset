@@ -19,10 +19,8 @@ MonoBehaviour:
     When they leave, you see them drop half
     their belongings to the streets, along with one of their cards.'
   options:
-  - description: 'Hopefully this will help with the battle... WIP
-
-      (Enemy gets
-      another card)'
+  - description: Hide the card! (Performing two Card Monte confuses the TCM Wizard
+      himself)
     independentRNG: 0
     effects:
     - name: Stun
@@ -52,6 +50,18 @@ MonoBehaviour:
               m_IntArgument: 0
               m_FloatArgument: 0
               m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+          - m_Target: {fileID: 11400000, guid: af09f81318f7add48ad89f9558922c84, type: 2}
+            m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
+            m_MethodName: addForEnemy
+            m_Mode: 5
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: Three Card Monte Wizard
               m_BoolArgument: 0
             m_CallState: 2
     conditions: []

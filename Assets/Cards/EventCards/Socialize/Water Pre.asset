@@ -20,7 +20,8 @@ MonoBehaviour:
     can eat, and they will then overindulge themselves with the abundance of food
     available becoming stunned when they have a battle.'
   options:
-  - description: Pay for everything they can eat! (Lose all mana) WIP
+  - description: Pay for everything they can eat! (Lose all mana, enemy stunned for
+      3 turns)
     independentRNG: 0
     effects:
     - name: Enemy becomes stunned for three turns WIP
@@ -50,6 +51,18 @@ MonoBehaviour:
               m_IntArgument: 0
               m_FloatArgument: 0
               m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+          - m_Target: {fileID: 11400000, guid: 9978edb052ffc684b94133d6a9133599, type: 2}
+            m_TargetAssemblyTypeName: StatusEffect, Assembly-CSharp
+            m_MethodName: AddTobattleStart
+            m_Mode: 5
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: Watertank Wizard
               m_BoolArgument: 0
             m_CallState: 2
     conditions: []

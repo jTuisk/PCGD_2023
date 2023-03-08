@@ -20,8 +20,8 @@ MonoBehaviour:
 
     It gives you an idea...'
   options:
-  - description: Get the magicians cat! (Cat Wizard loses the cat attack and acquires
-      a CAT attack.) WIP
+  - description: Steal the magicians cat! (Cat Wizard loses the cat attack and acquires
+      a CAT attack.)
     independentRNG: 0
     effects:
     - name: Get card
@@ -63,6 +63,18 @@ MonoBehaviour:
               m_IntArgument: 0
               m_FloatArgument: 0
               m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+          - m_Target: {fileID: 11400000, guid: 671d255ec5f6db6498a6c676aa7a829f, type: 2}
+            m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
+            m_MethodName: addForEnemy
+            m_Mode: 5
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: Cat Wizard
               m_BoolArgument: 0
             m_CallState: 2
     conditions: []

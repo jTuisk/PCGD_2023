@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 11f8fd2ce7d8ef04ea895fcd7fd93e1c, type: 3}
-  m_Name: vulnerableEnemy
+  m_Name: WaterStunned
   m_EditorClassIdentifier: 
   duration: 3
   effect:
@@ -18,18 +18,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 11400000}
         m_TargetAssemblyTypeName: StatusEffect, Assembly-CSharp
-        m_MethodName: MultiplydotDamageMultiplier
-        m_Mode: 4
+        m_MethodName: Stun
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 2
+          m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  icon: {fileID: 21300000, guid: 51b2e00bcd9bfc4eeae9bac7ea8003f2, type: 3}
-  nameText: Vulnerable
-  ISDOTMOD: 1
-  desc: You take more DoT damage
-  targetsEnemy: 0
+  icon: {fileID: 21300000, guid: 772d5a15194f2c3b688c3d190c090d15, type: 3}
+  nameText: Stunned
+  ISDOTMOD: 0
+  desc: Enemy is stunned
+  targetsEnemy: 1
