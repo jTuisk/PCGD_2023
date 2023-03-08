@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 800a222eec0efaf4682b867dcf1b7e2e, type: 3}
   m_Name: Coin Pre
   m_EditorClassIdentifier: 
+  BossImage: {fileID: 0}
   eName: Coin Trick Wizard Encounter
   eventText: 'You see the Coin Trick Wizard''s purse unguarded on the stands,
 
@@ -58,4 +59,4 @@ MonoBehaviour:
   ReplaceFrom: {fileID: 0}
   ReplaceTo: {fileID: 0}
   replaceEvent: {fileID: 0}
-  addedTag: CoinPre
+  addedTag: CoinCard

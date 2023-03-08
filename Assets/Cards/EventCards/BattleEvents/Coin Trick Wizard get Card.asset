@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 800a222eec0efaf4682b867dcf1b7e2e, type: 3}
   m_Name: Coin Trick Wizard get Card
   m_EditorClassIdentifier: 
+  BossImage: {fileID: 0}
   eName: You won the fight!
   eventText: 'And I thought that money makes the world go round...
 
@@ -51,7 +52,7 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
     conditions:
-    - flag: CoinPre
+    - flag: CoinCard
       Operation: 3
       value: 0
       a: 0
