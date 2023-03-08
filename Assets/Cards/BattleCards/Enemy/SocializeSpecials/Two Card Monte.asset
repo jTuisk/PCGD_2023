@@ -23,9 +23,9 @@ MonoBehaviour:
   effect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000}
-        m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
-        m_MethodName: ConfuseEnemy
+      - m_Target: {fileID: 11400000, guid: 52f3c30de85e8a54f9ec3c77e1038729, type: 2}
+        m_TargetAssemblyTypeName: StatusEffect, Assembly-CSharp
+        m_MethodName: add
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -37,3 +37,20 @@ MonoBehaviour:
         m_CallState: 2
   conditionalEffects: []
   exaust: 0
+  hasSpecialEffect: 0
+  cardsMustBeInHand: 0
+  enemyCardData:
+    stun: 0
+    Dot: 0
+    Confusion: 0
+    Reverse: 0
+    Vulnerable: 0
+    Other: 0
+    combo: 0
+    DamageOverride: 0
+    HealOverride: 0
+    DamageOverrideString: 
+    HealOverrideString: 
+  requiredCards: []
+  specialEffectEvent: {fileID: 0}
+  CardImage: {fileID: 0}
