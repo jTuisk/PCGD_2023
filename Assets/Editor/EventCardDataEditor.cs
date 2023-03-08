@@ -7,7 +7,7 @@ using UnityEngine;
 [CustomEditor(typeof(EventCardData))]
 public class EventCardDataEditor : Editor
 {
-
+    SerializedProperty BossImage;
     SerializedProperty eName;
     SerializedProperty eventText;
 
@@ -30,6 +30,7 @@ public class EventCardDataEditor : Editor
 
     private void OnEnable()
     {
+        BossImage = serializedObject.FindProperty("BossImage");
         eName = serializedObject.FindProperty("eName");
         eventText = serializedObject.FindProperty("eventText");
 
@@ -52,7 +53,7 @@ public class EventCardDataEditor : Editor
         List<EventCardMenuItem> _items = _eventCardData.options;
 
         serializedObject.Update();
-
+        EditorGUILayout.PropertyField(BossImage);
         EditorGUILayout.PropertyField(eName);
         EditorGUILayout.PropertyField(eventText);
         EditorGUILayout.PropertyField(options);

@@ -6,6 +6,7 @@ using UnityEngine.Events;
 [CreateAssetMenu(fileName = "New EventCard", menuName = "Cards/Event/Normal")]
 public class EventCardData : ScriptableObject
 {
+    public Sprite BossImage;
     public string eName;
     //public UnityEvent e;
     [TextArea(3,10)]

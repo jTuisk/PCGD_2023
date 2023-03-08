@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Deck : MonoBehaviour
 {
@@ -145,6 +146,8 @@ public class Deck : MonoBehaviour
         }
         Instance = this;
     }
+    public GameObject ShowbossList;
+    public GameObject bossImage;
     void Start()
     {
         int index = 0;
@@ -162,6 +165,11 @@ public class Deck : MonoBehaviour
             var temp=BossBattlePool[Random.Range(0, BossBattlePool.Count - 1)];
             BossBattles.Add(temp);
             BossBattlePool.Remove(temp);
+            var imagetemp = Instantiate(bossImage);
+            Vector3 s=imagetemp.transform.localScale;
+            imagetemp.GetComponent<Image>().sprite=temp.BossImage;
+            imagetemp.transform.parent=ShowbossList.transform;
+            imagetemp.transform.localScale=s;
         }
 
         FindAllCreatureContainers();
@@ -201,6 +209,7 @@ public class Deck : MonoBehaviour
                 bossCounter+=1;
             }else{
                 Instantiate(eventBase).GetComponent<EventCard>().CreateEventCard(BossBattles[bosses]);
+                Destroy(ShowbossList.transform.GetChild(0).gameObject);
                 bosses+=1;
             }
         }else{
