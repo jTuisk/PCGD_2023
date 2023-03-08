@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Rage potion
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: Deal double damage to the enemy for 1 turn *Exhaust
+  effectDescriptor: Deal double damage for 1 turn, Exhaust
   cardName: Rage Potion
   Damage: 0
   block: 0

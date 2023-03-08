@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Ace of Spades
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: Gain 6 mana *Exhaust
+  effectDescriptor: Gain 6 Mana, Exhaust
   cardName: Ace of Spades
   Damage: 0
   block: 0
@@ -46,8 +46,11 @@ MonoBehaviour:
     Reverse: 0
     Vulnerable: 0
     Other: 0
+    combo: 0
     DamageOverride: 0
+    HealOverride: 0
     DamageOverrideString: 
+    HealOverrideString: 
   requiredCards: []
   specialEffectEvent: {fileID: 0}
   CardImage: {fileID: 21300000, guid: bb7564aa3e446fa448b3410de14f817b, type: 3}

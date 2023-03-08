@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: NamelessRNGStartCard
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: Deals 1-4 damage
+  effectDescriptor: Deal 1-4 Damage
   cardName: Variable Parable
   Damage: 0
   block: 0
@@ -105,8 +105,11 @@ MonoBehaviour:
     Reverse: 0
     Vulnerable: 0
     Other: 0
+    combo: 0
     DamageOverride: 0
+    HealOverride: 0
     DamageOverrideString: 
+    HealOverrideString: 
   requiredCards: []
   specialEffectEvent: {fileID: 0}
   CardImage: {fileID: 21300000, guid: 4496f1d4976ee6b42bd54ac5a4d4a833, type: 3}

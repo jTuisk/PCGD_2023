@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 800a222eec0efaf4682b867dcf1b7e2e, type: 3}
   m_Name: Traveling Merchant
   m_EditorClassIdentifier: 
+  BossImage: {fileID: 0}
   eName: Travelling Merchant
   eventText: A travelling merchant, who is a fellow card magician, wants to trade
     cards with you.
   options:
-  - description: Accept the trade.
+  - description: Accept the trade, gaining a card and losing another
     independentRNG: 1
     effects:
     - name: Trade
@@ -49,7 +50,7 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
     conditions: []
-  - description: Deny the offer.
+  - description: Decline the offer
     independentRNG: 1
     effects: []
     conditions: []

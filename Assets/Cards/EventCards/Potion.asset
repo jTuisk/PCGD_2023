@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 800a222eec0efaf4682b867dcf1b7e2e, type: 3}
   m_Name: Potion
   m_EditorClassIdentifier: 
+  BossImage: {fileID: 0}
   eName: 
   eventText: While at the local watering hole, you are offered a choice of suspicious
     looking potions. Fancy your changes?
@@ -49,7 +50,7 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
     conditions: []
-  - description: The blue one looks good! (Add 8 Mana)
+  - description: The blue one looks good! (Gain 8 Mana)
     independentRNG: 1
     effects:
     - name: Add 5 mana

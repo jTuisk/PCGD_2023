@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Ace of Hearts
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: Heal 2 *Exhaust
+  effectDescriptor: Heal 2, Exhaust
   cardName: Ace of Hearts
   Damage: 0
   block: 0
@@ -46,8 +46,11 @@ MonoBehaviour:
     Reverse: 0
     Vulnerable: 0
     Other: 0
+    combo: 0
     DamageOverride: 0
+    HealOverride: 0
     DamageOverrideString: 
+    HealOverrideString: 
   requiredCards: []
   specialEffectEvent: {fileID: 0}
   CardImage: {fileID: 21300000, guid: dcf9e0ad3b782984893fbcb4bdb9e347, type: 3}

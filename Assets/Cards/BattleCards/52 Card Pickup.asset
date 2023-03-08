@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 52 Card Pickup
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: 
+  effectDescriptor: ', this isn''t how you card battle...'
   cardName: 52 Card Pickup
   Damage: 1
   block: 0
@@ -34,8 +34,11 @@ MonoBehaviour:
     Reverse: 0
     Vulnerable: 0
     Other: 0
+    combo: 0
     DamageOverride: 0
+    HealOverride: 0
     DamageOverrideString: 
+    HealOverrideString: 
   requiredCards: []
   specialEffectEvent: {fileID: 0}
   CardImage: {fileID: 21300000, guid: 07ae83e98e982de4ab224fa09d6a65db, type: 3}

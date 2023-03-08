@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Duct Tape
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: Repairs broken cards currently in deck
+  effectDescriptor: Repairs broken cards currently in your deck
   cardName: Duct Tape
   Damage: 0
   block: 0
@@ -34,8 +34,11 @@ MonoBehaviour:
     Reverse: 0
     Vulnerable: 0
     Other: 0
+    combo: 0
     DamageOverride: 0
+    HealOverride: 0
     DamageOverrideString: 
+    HealOverrideString: 
   requiredCards: []
   specialEffectEvent: {fileID: 0}
   CardImage: {fileID: 21300000, guid: a2e4f675892870e43a97a37d8139bf2c, type: 3}
