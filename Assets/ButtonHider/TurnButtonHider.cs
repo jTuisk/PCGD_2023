@@ -74,14 +74,18 @@ public class TurnButtonHider : MonoBehaviour
         {
             DrawEventCard.SetActive(false);
         }
+        if(ContentsOfDeck.Instance.gameObject.activeInHierarchy){
+            deckImage.SetActive(false);}else{
+            deckImage.SetActive(true);
+        }
     }
 
     private void HideEverything()
     {
         EventdeckImage.gameObject.SetActive(false);
-        //deckImage.SetActive(false);
         discardPileImage.SetActive(false);
         endTurnButton.SetActive(false);
         deckText.text = "";
     }
+
 }
