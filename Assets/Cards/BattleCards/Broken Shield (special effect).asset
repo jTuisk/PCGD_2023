@@ -16,7 +16,7 @@ MonoBehaviour:
   effectDescriptor: 
   cardName: Broken shield
   Damage: 0
-  block: 7
+  block: 4
   magic: 0
   money: 0
   actionCost: 0
