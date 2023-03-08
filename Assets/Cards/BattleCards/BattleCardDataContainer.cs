@@ -72,13 +72,11 @@ public class BattleCardDataContainer : ScriptableObject
     }
     public void enemyDiscardRandom(){
         if(Deck.Instance.enemy.enemyDeck.transform.childCount>0){
-        Destroy(Deck.Instance.enemy.enemyDeck.transform.GetChild(UnityEngine.Random.Range(0,Deck.Instance.enemy.enemyDeck.transform.childCount)).gameObject);
+       var card=Deck.Instance.enemy.enemyDeck.transform.GetChild(UnityEngine.Random.Range(0,Deck.Instance.enemy.enemyDeck.transform.childCount));
+        card.transform.position=new Vector2(10000,100000);
+        card.transform.parent=Deck.Instance.enemy.transform;
     }else{
-        if(Deck.Instance.enemy.cards.Count>0){
-            var x=Deck.Instance.enemy.cards[UnityEngine.Random.Range(0,Deck.Instance.enemy.enemyDeck.transform.childCount)];
-            Deck.Instance.enemy.cards.Remove(x);
-            Destroy(x.gameObject);
-        }
+
     }
     }
     public void EnemyDrawCard(){
