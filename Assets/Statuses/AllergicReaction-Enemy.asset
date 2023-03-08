@@ -31,5 +31,5 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 0900aac99b7e50646a90cd1aaeededa4, type: 3}
   nameText: Allergic Reaction
   ISDOTMOD: 0
-  desc: Player takes 2 damage
+  desc: Takes 2 Damage at the end of your turn
   targetsEnemy: 0
