@@ -1238,8 +1238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipToolPrefab: {fileID: 4248273751574209381, guid: a60aa9c1682c9a2439566d5f18be59f4, type: 3}
-  displayText: Discard Pile - When your draw pile is empty and you try to draw a
-    card, your discard pile gets shuffled into it
+  displayText: Discard Pile
   canShow: 0
 --- !u!1 &503451490
 GameObject:
@@ -1293,7 +1292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipToolPrefab: {fileID: 4248273751574209381, guid: a60aa9c1682c9a2439566d5f18be59f4, type: 3}
-  displayText: Draw Pile - Click to see its contents
+  displayText: Draw Pile
   canShow: 0
 --- !u!1 &508293230
 GameObject:
@@ -2123,7 +2122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipToolPrefab: {fileID: 4248273751574209381, guid: a60aa9c1682c9a2439566d5f18be59f4, type: 3}
-  displayText: Block - Damage is taken from your block before your HP
+  displayText: Block
   canShow: 0
 --- !u!1 &879904356
 GameObject:
@@ -3413,7 +3412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipToolPrefab: {fileID: 4248273751574209381, guid: a60aa9c1682c9a2439566d5f18be59f4, type: 3}
-  displayText: Mana - Your Mana never resets
+  displayText: Mana
   canShow: 0
 --- !u!1 &1299657977
 GameObject:
@@ -3508,7 +3507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipToolPrefab: {fileID: 4248273751574209381, guid: a60aa9c1682c9a2439566d5f18be59f4, type: 3}
-  displayText: AP - You gain 3 Action Points at the start of each round
+  displayText: Action Points
   canShow: 0
 --- !u!1 &1321829566
 GameObject:
@@ -3602,7 +3601,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipToolPrefab: {fileID: 4248273751574209381, guid: a60aa9c1682c9a2439566d5f18be59f4, type: 3}
-  displayText: HP - Your Health Points
+  displayText: Health Points
   canShow: 0
 --- !u!1 &1373997083
 GameObject:
