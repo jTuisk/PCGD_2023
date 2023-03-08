@@ -16,7 +16,7 @@ MonoBehaviour:
   effectDescriptor: Do all Ace card effects, Exhaust
   cardName: The Four Aces
   Damage: 6
-  block: 4
+  block: 6
   magic: 0
   money: 0
   actionCost: 2

@@ -16,7 +16,7 @@ MonoBehaviour:
   effectDescriptor: ', Exhaust'
   cardName: Ace of Diamonds
   Damage: 0
-  block: 4
+  block: 6
   magic: 0
   money: 0
   actionCost: 1
