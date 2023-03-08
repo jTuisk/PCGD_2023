@@ -125,6 +125,7 @@ public class AudioManager : MonoBehaviour
     public void PlayDrawEventCardBGM()
     {
         musicAudioSource.clip = eventCardBGM;
+        musicAudioSource.loop = true;
         musicAudioSource.Play();
     }
 
@@ -137,6 +138,7 @@ public class AudioManager : MonoBehaviour
     public void PlayMainMenuBGM()
     {
         musicAudioSource.clip = mainMenuBGM;
+        musicAudioSource.loop = true;
         musicAudioSource.Play();
     }
 
@@ -151,6 +153,7 @@ public class AudioManager : MonoBehaviour
     public void playBattleBGM(){
         musicAudioSource.loop=true;
         musicAudioSource.clip=battleBGM;
+        musicAudioSource.loop = true;
         musicAudioSource.Play();
     }
 

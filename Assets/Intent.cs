@@ -52,11 +52,11 @@ public class Intent : Card
         ManaCost.text="";
         CardName.text=data.cardName;
         conditionalEffects=data.conditionalEffects;
-        var temp=APImage.color;
+        //var temp=APImage.color;
         
-        temp.a=1f;
-        APImage.color=temp;
-        APImage.sprite=APSprite;
+        //temp.a=1f;
+        //APImage.color=temp;
+        //APImage.sprite=APSprite;
         int effectCount=0;
         if(data.enemyCardData.Dot>0){
             DotImage.gameObject.SetActive(true);

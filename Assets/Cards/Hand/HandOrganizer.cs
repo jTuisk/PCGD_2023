@@ -11,6 +11,7 @@ public class HandOrganizer : MonoBehaviour
      *      -> //when player releases card and its y position is above 700 and the player can afford it play the card
      */
     private float timer = 0f; 
+    private GameControl gameControl;
 
     // Called when the player draw a card from the deck, the card will then move from deck to hand
     public GameObject tpMessage;
@@ -34,6 +35,7 @@ public class HandOrganizer : MonoBehaviour
     public float cardDistanceScalar=0.5f;
     void Start()
     {
+        gameControl = Object.FindObjectOfType<GameControl>();
     }
 
     // Update is called once per frame
@@ -51,6 +53,9 @@ public class HandOrganizer : MonoBehaviour
             timer -= Time.deltaTime;
 
         
+        // Card is not movable when option panel is on
+        bool canGrabCard = !(gameControl != null && gameControl.IsOptionPanelActive());
+
         int i = 0;
         foreach(Transform child in transform)
         {
@@ -63,6 +68,9 @@ public class HandOrganizer : MonoBehaviour
             var mousepos = new Vector3(campos.x, campos.y, 0);
             if ((mousepos - child.position).magnitude < HitboxSize&& Input.GetMouseButton(0)||Input.GetMouseButton(0)&&heldCard==i)
             {
+                if(!canGrabCard)
+                    break;
+
                 card.terminateMove(); // when the card is grabbed, card moving animation should be turn off
 
                 if(heldCard == -1) // haven't held a card

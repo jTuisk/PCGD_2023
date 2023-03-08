@@ -99,7 +99,11 @@ IEnumerator shake(){
             ExplosionManager.Instance.PlayHealthAnimation((int)(-amount*EnemyDamageModifier),new Vector3(0,0,0));
         }
         if(!Deck.Instance.reversed){
+        if(!(confused&&!Deck.Instance.enemyTurn)){
         HP = Mathf.Min((int) (HP +block- amount * EnemyDamageModifier),amount>0?HP:HP-amount);
+        }else{
+            HP = Mathf.Min((int) (HP +block- amount * Deck.Instance.PlayerDamageModifier),amount>0?HP:HP-amount);
+        }
             ExplosionManager.Instance.PlayArmorAnimation(-(amount-(amount-block)),new Vector3(0,0,0));
             if(amount>0){
             block=Mathf.Max(0,block-amount);}

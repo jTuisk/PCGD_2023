@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Deck : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class Deck : MonoBehaviour
     public int mana = 0;
     public float dotDamageMultiplier=1;
     public float playerDotDamageMultiplier=1;
-    private int bossCounter=0;
+    internal int bossCounter=0;
     public int MaxHp = 20;
     public int Hp = 0;
     public bool Lucky=false;
@@ -145,6 +146,8 @@ public class Deck : MonoBehaviour
         }
         Instance = this;
     }
+    public GameObject ShowbossList;
+    public GameObject bossImage;
     void Start()
     {
         int index = 0;
@@ -162,6 +165,11 @@ public class Deck : MonoBehaviour
             var temp=BossBattlePool[Random.Range(0, BossBattlePool.Count - 1)];
             BossBattles.Add(temp);
             BossBattlePool.Remove(temp);
+            var imagetemp = Instantiate(bossImage);
+            Vector3 s=imagetemp.transform.localScale;
+            imagetemp.GetComponent<Image>().sprite=temp.BossImage;
+            imagetemp.transform.parent=ShowbossList.transform;
+            imagetemp.transform.localScale=s;
         }
 
         FindAllCreatureContainers();
@@ -189,7 +197,7 @@ public class Deck : MonoBehaviour
         
         exaustCard(Random.Range(0,Hand.transform.childCount));
     }
-    int bosses=0;
+    internal int bosses=0;
     int dayindex = 0;
     bool finalBattle = false;
     public void DrawEventCard()
@@ -201,6 +209,7 @@ public class Deck : MonoBehaviour
                 bossCounter+=1;
             }else{
                 Instantiate(eventBase).GetComponent<EventCard>().CreateEventCard(BossBattles[bosses]);
+                Destroy(ShowbossList.transform.GetChild(0).gameObject);
                 bosses+=1;
             }
         }else{

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: RockThrow
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: 
-  cardName: 
-  Damage: 0
+  effectDescriptor: stun
+  cardName: Rock throw
+  Damage: 2
   block: 0
   magic: 0
   money: 0
@@ -40,14 +40,17 @@ MonoBehaviour:
   hasSpecialEffect: 0
   cardsMustBeInHand: 0
   enemyCardData:
-    stun: 0
+    stun: 1
     Dot: 0
     Confusion: 0
     Reverse: 0
     Vulnerable: 0
     Other: 0
+    combo: 0
     DamageOverride: 0
+    HealOverride: 0
     DamageOverrideString: 
+    HealOverrideString: 
   requiredCards: []
   specialEffectEvent: {fileID: 0}
   CardImage: {fileID: 0}
