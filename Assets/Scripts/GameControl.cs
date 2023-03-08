@@ -17,6 +17,24 @@ public class GameControl : MonoBehaviour
         HideOptionsPanel();
     }
 
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(SceneLoader.IsGameSceneActive())
+            {
+                if(!optionsPanelObj.activeInHierarchy)
+                {
+                    ShowOptionsPanel();
+                }
+                else
+                {
+                    HideOptionsPanel();
+                }
+            }
+        }
+    }
+
     public void QuitGame()
     {
         # if UNITY_EDITOR
@@ -29,11 +47,24 @@ public class GameControl : MonoBehaviour
     public void ShowOptionsPanel()
     {
         optionsPanelObj.SetActive(true);
+
+        // disable all tip tools
+        TipTool[] tiptools = Object.FindObjectsOfType<TipTool>();
+        for(int i = 0; i< tiptools.Length; i++)
+        {
+            tiptools[i].canShow = false;
+        }
     }
 
     public void HideOptionsPanel()
     {
         optionsPanelObj.SetActive(false);
+        
+        TipTool[] tiptools = Object.FindObjectsOfType<TipTool>();
+        for(int i = 0; i< tiptools.Length; i++)
+        {
+            tiptools[i].canShow = true;
+        }
     }
 
 

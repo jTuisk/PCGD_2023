@@ -48,6 +48,12 @@ public class OptionsPanel : MonoBehaviour
     public void HideOptionsPanel()
     {
         this.gameObject.SetActive(false);
+        
+        TipTool[] tiptools = Object.FindObjectsOfType<TipTool>();
+        for(int i = 0; i< tiptools.Length; i++)
+        {
+            tiptools[i].canShow = true;
+        }
     }
 
     # region Audio
