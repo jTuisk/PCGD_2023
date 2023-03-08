@@ -50,7 +50,7 @@ public class EventCardData : ScriptableObject
     }
     public void cliffside()
     {
-        Deck.Instance.Hp = 1;
+        Deck.Instance.Hp = 5;
     }
     public void HealToFull(){
         Deck.Instance.Hp += 1000000;
