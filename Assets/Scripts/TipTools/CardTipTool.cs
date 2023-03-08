@@ -48,6 +48,7 @@ public class BattleCardTipTool : TipTool
     
     void Update()
     {
+        // Debug.Log(canShow);
         CalculateBorder();
         if(CanShow())
         {
@@ -138,6 +139,9 @@ public class BattleCardTipTool : TipTool
 
     private bool CanShow()
     {
+        if(!canShow)
+            return false;
+
         return (
             Input.mousePosition.x > leftBottomAnchor.x && 
             Input.mousePosition.x < rightTopAnchor.x &&

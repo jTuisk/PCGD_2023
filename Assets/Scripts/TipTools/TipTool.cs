@@ -15,6 +15,8 @@ public class TipTool : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     protected Vector2 toolMaxSize;
     protected RectTransform toolMaxRect;
 
+    [HideInInspector] public bool canShow;
+
     protected void FindRenderingCamera()
     {
         foreach(var camera in Camera.allCameras)

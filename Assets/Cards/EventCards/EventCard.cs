@@ -31,6 +31,8 @@ public class EventCard : MonoBehaviour
     private float flipAnimDuration = 0.5f;
     #endregion
 
+    private List<BattleCardTipTool> cardTipTools = new List<BattleCardTipTool>();
+
 
     public void CreateEventCard(EventCardData data) {
         eName=data.eName;
@@ -101,6 +103,8 @@ public class EventCard : MonoBehaviour
                     {
                         var cardTipTool = button.AddComponent<BattleCardTipTool>();
                         cardTipTool.battleCardData = battleCardDataContainer;
+                        cardTipTool.canShow = false;
+                        cardTipTools.Add(cardTipTool);
                     }
                 }
             }
@@ -289,13 +293,21 @@ public class EventCard : MonoBehaviour
                     flipUpAngle, flipFlatAngle,
                     (Time.time - flipStartTime - flipAnimDuration * 0.5f)/(flipAnimDuration * 0.5f));
             }
-
             yield return null;
+
+            if((Time.time - flipStartTime) >= flipAnimDuration)
+            {
+                // Make sure interpolation outcome
+                eventCardFront.transform.localScale = endScale;
+                eventCardFront.transform.eulerAngles = flipFlatAngle;
+                foreach(var cardTipTool in cardTipTools)
+                {
+                    cardTipTool.canShow = true;
+                }
+            }
         } while ((Time.time - flipStartTime) <= flipAnimDuration);
 
-        // Make sure interpolation outcome
-        eventCardFront.transform.localScale = endScale;
-        eventCardFront.transform.eulerAngles = flipFlatAngle;
+
     }
 
     #endregion
