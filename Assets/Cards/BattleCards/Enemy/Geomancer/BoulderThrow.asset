@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BoulderThrow
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: Makes both you and the enemy vulnerable
+  effectDescriptor: Add vulnerable and stun to self. Add combo to opponent
   cardName: Boulder Throw
   Damage: 0
   block: 0
