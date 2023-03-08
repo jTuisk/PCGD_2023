@@ -17,7 +17,7 @@ MonoBehaviour:
   eventText: You decide to rummage a nearby trash can on the hopes that you find
     something of value.
   options:
-  - description: Pick up a Broken Shield card
+  - description: Pick up a Broken Heart card
     independentRNG: 1
     effects:
     - name: Add cards
@@ -25,7 +25,7 @@ MonoBehaviour:
       targetEvent:
         m_PersistentCalls:
           m_Calls:
-          - m_Target: {fileID: 11400000, guid: 1c02f5d4d03ccfd488341fd4de89dfa5, type: 2}
+          - m_Target: {fileID: 11400000, guid: 5b1410001ec70344a9b65608de28d807, type: 2}
             m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
             m_MethodName: addCard
             m_Mode: 1
