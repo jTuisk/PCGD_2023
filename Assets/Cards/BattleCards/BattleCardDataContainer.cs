@@ -67,7 +67,17 @@ public class BattleCardDataContainer : ScriptableObject
     public void multiplyAllCardCost(float amount){
         Deck.Instance.multiplyCardCost(amount);
     }
-
+    public void enemyDiscardRandom(){
+        if(Deck.Instance.enemy.enemyDeck.transform.childCount>0){
+        Destroy(Deck.Instance.enemy.enemyDeck.transform.GetChild(UnityEngine.Random.Range(0,Deck.Instance.enemy.enemyDeck.transform.childCount)));
+    }else{
+        if(Deck.Instance.enemy.cards.Count>0){
+            var x=Deck.Instance.enemy.cards[UnityEngine.Random.Range(0,Deck.Instance.enemy.enemyDeck.transform.childCount)];
+            Deck.Instance.enemy.cards.Remove(x);
+            Destroy(x.gameObject);
+        }
+    }
+    }
     public void EnemyDrawCard(){
         Deck.Instance.enemy.Playcard();
     }
