@@ -149,7 +149,8 @@ public class TipTool : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        DisplayOnPinterEnter(eventData);
+        if(canShow)
+            DisplayOnPinterEnter(eventData);
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -159,12 +160,27 @@ public class TipTool : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     protected virtual void DisplayOnPinterEnter(PointerEventData eventData)
     {
-        tipToolObj.SetActive(true);
+        if(tipToolObj != null)
+            tipToolObj.SetActive(true);
     }
 
     protected virtual void DisplayOnPinterExit(PointerEventData eventData)
     {
-        tipToolObj.SetActive(false);
-        tipToolObj.transform.position = new Vector3(2000, 2000, 0);
+        if(tipToolObj != null)
+        {
+            tipToolObj.SetActive(false);
+            tipToolObj.transform.position = new Vector3(2000, 2000, 0);
+        }
+    }
+
+    void OnEnable()
+    {
+        canShow = true;
+    }
+
+    void OnDisable()
+    {
+        canShow = false;
+        DisplayOnPinterExit(null);
     }
 }
