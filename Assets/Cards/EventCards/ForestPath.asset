@@ -17,7 +17,8 @@ MonoBehaviour:
     crack and everything fades to black...
 
     When you finally wake up in pain,
-    you see a club lying on the ground.'
+    you see a club lying on the ground. You need to pick up your cards. (Get 52 Card
+    Pickup)'
   options:
   - description: Gain Ace of Clubs card and pick up your cards! (Lose 2 HP)
     independentRNG: 0
@@ -27,7 +28,7 @@ MonoBehaviour:
       targetEvent:
         m_PersistentCalls:
           m_Calls:
-          - m_Target: {fileID: 11400000, guid: f0b911516c35b604b834ba74a5845232, type: 2}
+          - m_Target: {fileID: 11400000, guid: 255d6e21614b8054c9f3ebdd592a1509, type: 2}
             m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
             m_MethodName: addCard
             m_Mode: 1
@@ -63,7 +64,7 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
-          - m_Target: {fileID: 11400000, guid: 255d6e21614b8054c9f3ebdd592a1509, type: 2}
+          - m_Target: {fileID: 11400000, guid: f0b911516c35b604b834ba74a5845232, type: 2}
             m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
             m_MethodName: addCard
             m_Mode: 1

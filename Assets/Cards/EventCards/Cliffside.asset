@@ -51,7 +51,7 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
     conditions: []
-  - description: Refuse to comply
+  - description: Refuse to comply (Your HP drops to 1)
     independentRNG: 0
     effects:
     - name: 

@@ -13,13 +13,9 @@ MonoBehaviour:
   m_Name: Nap
   m_EditorClassIdentifier: 
   eName: 
-  eventText: 'Exhausted, you decide to head for the hotel to take a nap.
-
-    You
-    have a vivid dream about working at a mine deep under the hotel...
-
-    When
-    you come to, you seem to have gained a new power!'
+  eventText: Exhausted, you decide to head for the hotel to take a nap. You have
+    a vivid dream about working at a mine deep under the hotel... When you come to,
+    you seem to have a recollection of a new power!
   options:
   - description: Heal by 4 HP and obtain Exhaust Mine card!
     independentRNG: 0
@@ -49,6 +45,51 @@ MonoBehaviour:
               m_ObjectArgument: {fileID: 0}
               m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
               m_IntArgument: 4
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+          - m_Target: {fileID: 11400000}
+            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+            m_MethodName: remove
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    conditions: []
+  - description: Just heal by 8 HP!
+    independentRNG: 0
+    effects:
+    - name: 
+      possibility: 1
+      targetEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: 1ba0584b040f42963883181e0bec23bf, type: 2}
+            m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
+            m_MethodName: addCard
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+          - m_Target: {fileID: 11400000}
+            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+            m_MethodName: addHealth
+            m_Mode: 3
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 8
               m_FloatArgument: 0
               m_StringArgument: 
               m_BoolArgument: 0

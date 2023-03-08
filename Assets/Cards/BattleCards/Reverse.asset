@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Reverse
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: Enemy does it's intended damage to itself *Exhaust
+  effectDescriptor: Confuse the enemy *Exhaust
   cardName: Reverse
   Damage: 0
   block: 0

@@ -18,7 +18,7 @@ MonoBehaviour:
 
     What will you do to pass the time?'
   options:
-  - description: Burn two cards for four mana points
+  - description: Burn a card for four mana points
     independentRNG: 0
     effects:
     - name: 
@@ -33,7 +33,7 @@ MonoBehaviour:
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
               m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 2
+              m_IntArgument: 1
               m_FloatArgument: 0
               m_StringArgument: 
               m_BoolArgument: 0

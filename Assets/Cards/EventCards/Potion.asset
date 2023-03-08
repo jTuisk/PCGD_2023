@@ -16,7 +16,7 @@ MonoBehaviour:
   eventText: While at the local watering hole, you are offered a choice of suspicious
     looking potions. Fancy your changes?
   options:
-  - description: Yes, I'll take the red one!
+  - description: Yes, I'll take the red one! (Gain 6 HP)
     independentRNG: 1
     effects:
     - name: Take 8 damage
@@ -26,7 +26,40 @@ MonoBehaviour:
           m_Calls:
           - m_Target: {fileID: 11400000}
             m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
-            m_MethodName: takeDamage
+            m_MethodName: addHealth
+            m_Mode: 3
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 6
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+          - m_Target: {fileID: 11400000}
+            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+            m_MethodName: remove
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+    conditions: []
+  - description: The blue one looks good! (Add 8 Mana)
+    independentRNG: 1
+    effects:
+    - name: Add 5 mana
+      possibility: 1
+      targetEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000}
+            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+            m_MethodName: addMana
             m_Mode: 3
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
@@ -49,40 +82,7 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
     conditions: []
-  - description: The blue one looks good!
-    independentRNG: 1
-    effects:
-    - name: Add 5 mana
-      possibility: 1
-      targetEvent:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 11400000}
-            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
-            m_MethodName: addMana
-            m_Mode: 3
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 5
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-          - m_Target: {fileID: 11400000}
-            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
-            m_MethodName: remove
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-    conditions: []
-  - description: The purple one looks intriguing!
+  - description: The purple one looks intriguing! (Gain Rage Potion card)
     independentRNG: 1
     effects:
     - name: 
