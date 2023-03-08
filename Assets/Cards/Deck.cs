@@ -18,6 +18,7 @@ public class Deck : MonoBehaviour
     public int money = 0;
     public int mana = 0;
     public float dotDamageMultiplier=1;
+    public float playerDotDamageMultiplier=1;
     private int bossCounter=0;
     public int MaxHp = 20;
     public int Hp = 0;
@@ -552,6 +553,7 @@ public void statusCleanup(){
         reversed=false;
         gainAPOnExhaust=0;
         dotDamageMultiplier=1;
+        playerDotDamageMultiplier=1;
         ApplyStatusEffects(StatusActivation.DOTMOD);
         if (enemy != null)
         {

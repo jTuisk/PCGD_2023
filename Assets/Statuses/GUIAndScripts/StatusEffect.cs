@@ -152,14 +152,18 @@ public class StatusEffect:ScriptableObject
 
         }else{
 
-            Deck.Instance.takeDamage((int)(amount*Deck.Instance.dotDamageMultiplier));            
+            Deck.Instance.takeDamage((int)(amount*Deck.Instance.playerDotDamageMultiplier));            
         }
     }
     public void DamagePlayer(int amount)
     {
-        Deck.Instance.takeDamage((int)(amount*Deck.Instance.dotDamageMultiplier));
+        Deck.Instance.takeDamage((int)(amount*Deck.Instance.playerDotDamageMultiplier));
     }
     public void MultiplydotDamageMultiplier(float amount){
+        if(targetsEnemy){
         Deck.Instance.dotDamageMultiplier*=amount;
+    }else{
+        Deck.Instance.playerDotDamageMultiplier*=amount;
+    }
     }
 }

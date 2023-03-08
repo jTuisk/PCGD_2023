@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 11f8fd2ce7d8ef04ea895fcd7fd93e1c, type: 3}
-  m_Name: vulnerable
+  m_Name: vulnerablePlayer
   m_EditorClassIdentifier: 
   duration: 3
   effect:
@@ -30,6 +30,6 @@ MonoBehaviour:
         m_CallState: 2
   icon: {fileID: 21300000, guid: 51b2e00bcd9bfc4eeae9bac7ea8003f2, type: 3}
   nameText: Vulnerable
-  ISDOTMOD: 0
+  ISDOTMOD: 1
   desc: Both you and the enemy take more DOT damage
   targetsEnemy: 1
