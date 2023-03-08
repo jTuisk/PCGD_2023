@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Double Trouble
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: Doubles the length of all status effects *Exhaust
+  effectDescriptor: Doubles the length of all status effects, Exhaust
   cardName: Double Trouble
   Damage: 0
   block: 0
@@ -46,8 +46,11 @@ MonoBehaviour:
     Reverse: 0
     Vulnerable: 0
     Other: 0
+    combo: 0
     DamageOverride: 0
+    HealOverride: 0
     DamageOverrideString: 
+    HealOverrideString: 
   requiredCards: []
   specialEffectEvent: {fileID: 0}
   CardImage: {fileID: 21300000, guid: fca0ba091ce1c3a4997f216a2deb2fbd, type: 3}

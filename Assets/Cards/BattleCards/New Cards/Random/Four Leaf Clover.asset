@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Four Leaf Clover
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: You become lucky for three turns
+  effectDescriptor: You become lucky for three turns, Exhaust
   cardName: Four Leaf Clover
   Damage: 0
   block: 0
@@ -46,8 +46,11 @@ MonoBehaviour:
     Reverse: 0
     Vulnerable: 0
     Other: 0
+    combo: 0
     DamageOverride: 0
+    HealOverride: 0
     DamageOverrideString: 
+    HealOverrideString: 
   requiredCards: []
   specialEffectEvent: {fileID: 0}
   CardImage: {fileID: 21300000, guid: ca5d2e71119872b408a5e6bd0211cf5d, type: 3}

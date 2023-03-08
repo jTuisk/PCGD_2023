@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Exhaust Mine
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: When an exhaust card is played, generate 1 AP *Exhaust
+  effectDescriptor: When an exhaust card is played, generate 1 AP, Exhaust
   cardName: Exhaust Mine
   Damage: 0
   block: 0
@@ -46,8 +46,11 @@ MonoBehaviour:
     Reverse: 0
     Vulnerable: 0
     Other: 0
+    combo: 0
     DamageOverride: 0
+    HealOverride: 0
     DamageOverrideString: 
+    HealOverrideString: 
   requiredCards: []
   specialEffectEvent: {fileID: 0}
   CardImage: {fileID: 21300000, guid: 93f4426c14ccefa47a42871b9f7f3fe9, type: 3}
