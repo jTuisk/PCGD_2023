@@ -36,7 +36,7 @@ public class TurnButtonHider : MonoBehaviour
                 }
                 deckImage.SetActive(true);
                 discardPileImage.SetActive(true);
-                EventdeckImage.gameObject.SetActive(false);
+                //EventdeckImage.gameObject.SetActive(false);
                 deckText.text = "";
             }
             else
@@ -49,7 +49,7 @@ public class TurnButtonHider : MonoBehaviour
             if (!ContentsOfDeck.Instance.gameObject.activeSelf)
             {
                 EventdeckImage.gameObject.SetActive(true);
-                deckImage.SetActive(false);
+                //deckImage.SetActive(false);
                 discardPileImage.SetActive(false);
                 endTurnButton.SetActive(false);
                 deckText.text = "Cards left in event deck: " + (16-Deck.Instance.bossCounter-Deck.Instance.bosses);
@@ -74,14 +74,18 @@ public class TurnButtonHider : MonoBehaviour
         {
             DrawEventCard.SetActive(false);
         }
+        if(ContentsOfDeck.Instance.gameObject.activeInHierarchy){
+            deckImage.SetActive(false);}else{
+            deckImage.SetActive(true);
+        }
     }
 
     private void HideEverything()
     {
         EventdeckImage.gameObject.SetActive(false);
-        deckImage.SetActive(false);
         discardPileImage.SetActive(false);
         endTurnButton.SetActive(false);
         deckText.text = "";
     }
+
 }

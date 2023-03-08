@@ -1238,7 +1238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipToolPrefab: {fileID: 4248273751574209381, guid: a60aa9c1682c9a2439566d5f18be59f4, type: 3}
-  displayText: Discard pile
+  displayText: Discard Pile
   canShow: 0
 --- !u!1 &503451490
 GameObject:
@@ -1292,7 +1292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipToolPrefab: {fileID: 4248273751574209381, guid: a60aa9c1682c9a2439566d5f18be59f4, type: 3}
-  displayText: Player deck
+  displayText: Draw Pile
   canShow: 0
 --- !u!1 &508293230
 GameObject:
@@ -2084,7 +2084,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.99607843, g: 1, b: 0.9372549, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3374,7 +3374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.99607843, g: 1, b: 0.9372549, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3507,7 +3507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipToolPrefab: {fileID: 4248273751574209381, guid: a60aa9c1682c9a2439566d5f18be59f4, type: 3}
-  displayText: Tool points
+  displayText: Action Points
   canShow: 0
 --- !u!1 &1321829566
 GameObject:
@@ -3563,7 +3563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.99607843, g: 1, b: 0.9372549, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3601,7 +3601,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipToolPrefab: {fileID: 4248273751574209381, guid: a60aa9c1682c9a2439566d5f18be59f4, type: 3}
-  displayText: Health
+  displayText: Health Points
   canShow: 0
 --- !u!1 &1373997083
 GameObject:

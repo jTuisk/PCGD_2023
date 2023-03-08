@@ -86,8 +86,9 @@ public class TipTool : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     // Only Calibrate the panel's position under its parent Canvas
     protected virtual void CalibratePositionUnderWorldPoint(Camera cam, GameObject gameObject)
     {
-        var topRightCornor = new Vector2(Screen.width, Screen.height);
-        var bottomRightCornor = new Vector2(Screen.width, 0f);
+        float margin = 23f;
+        var topRightCornor = new Vector2(Screen.width - margin, Screen.height - margin);
+        var bottomRightCornor = new Vector2(Screen.width - margin, 0f);
 
         var rectTransform = gameObject.GetComponent<RectTransform>();
         var offset = GetClibrationOffset(rectTransform.sizeDelta);
