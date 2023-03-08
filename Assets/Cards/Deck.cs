@@ -580,6 +580,15 @@ public void statusCleanup(){
         resetCardCost();
         removeAllStatuses();
         putExaustPileBackInDeck();
+        Lucky=false;
+        dotDamageMultiplier=1;
+        playerDotDamageMultiplier=1;
+        PlayerDamageModifier=1;
+        PlayerConfused=false;
+        reversed=false;
+        stunned=false;
+        gainAPOnExhaust=0;
+
         Debug.Log("Reset Deck");
         //moves all cards back to deck 
         shuffleDiscardPileBackInDeck();
