@@ -51,4 +51,13 @@ public class SceneLoader : MonoBehaviour
 
     }
 
+
+    public static bool IsGameSceneActive()
+    {
+        var currentScene = SceneManager.GetActiveScene();
+        var sceneName = currentScene.name;
+ 
+        return (sceneName == "Game");
+    }
+
 }

@@ -12,6 +12,7 @@ public class OptionsPanel : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI sfxSliderText;
     [SerializeField] private AudioMixer mainMixer;
     [SerializeField] private Toggle fullScreenToggle;
+    [SerializeField] private Button mainMenuButton; 
 
     void Update()
     {
@@ -32,11 +33,24 @@ public class OptionsPanel : MonoBehaviour
     {
     }
 
+    void OnEnable()
+    {
+        if(SceneLoader.IsGameSceneActive())
+        {
+            mainMenuButton.gameObject.SetActive(true);
+        }
+        else
+        {
+            mainMenuButton.gameObject.SetActive(false);
+        }
+    }
+
     public void HideOptionsPanel()
     {
         this.gameObject.SetActive(false);
     }
 
+    # region Audio
     public void OnMasterSliderValueChange()
     {
         masterSliderText.text = Mathf.RoundToInt(masterSlider.value).ToString();
@@ -61,6 +75,25 @@ public class OptionsPanel : MonoBehaviour
         PlayerPrefs.SetFloat("SFXVol", mixerVolValue);
     }
 
+    private void SetDefaultVolumeValue()
+    {
+        if(PlayerPrefs.HasKey("MasterVol"))
+        {
+            masterSlider.value = PlayerPrefs.GetFloat("MasterVol") + 80;
+        }
+        if(PlayerPrefs.HasKey("MusicVol"))
+        {
+            musicSlider.value = PlayerPrefs.GetFloat("MusicVol") + 80;
+        }
+        if(PlayerPrefs.HasKey("SFXVol"))
+        {
+            sfxSlider.value = PlayerPrefs.GetFloat("SFXVol") + 80;
+        }
+    }
+
+    #endregion
+
+    # region FullScreen
     public void OnFullScreenToggleValueChange()
     {
         # if UNITY_EDITOR
@@ -80,22 +113,6 @@ public class OptionsPanel : MonoBehaviour
         PlayerPrefs.SetInt("FullScreen", (fullScreenToggle.isOn)? 1: 0);
     }
 
-    private void SetDefaultVolumeValue()
-    {
-        if(PlayerPrefs.HasKey("MasterVol"))
-        {
-            masterSlider.value = PlayerPrefs.GetFloat("MasterVol") + 80;
-        }
-        if(PlayerPrefs.HasKey("MusicVol"))
-        {
-            musicSlider.value = PlayerPrefs.GetFloat("MusicVol") + 80;
-        }
-        if(PlayerPrefs.HasKey("SFXVol"))
-        {
-            sfxSlider.value = PlayerPrefs.GetFloat("SFXVol") + 80;
-        }
-    }
-
     public void SetDefaultFullScreenOption()
     {
         if(PlayerPrefs.HasKey("FullScreen"))
@@ -104,5 +121,13 @@ public class OptionsPanel : MonoBehaviour
             fullScreenToggle.isOn = isOn;
         }
         OnFullScreenToggleValueChange();       
+    }
+
+    #endregion
+
+
+    public void BackToMainMenu()
+    {
+        SceneLoader.LoadMainMenu();
     }
 }

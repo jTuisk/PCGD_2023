@@ -999,6 +999,7 @@ MonoBehaviour:
   money: 0
   mana: 0
   dotDamageMultiplier: 1
+  playerDotDamageMultiplier: 1
   MaxHp: 20
   Hp: 20
   Lucky: 0
