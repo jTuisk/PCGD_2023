@@ -110,7 +110,7 @@ public class HandOrganizer : MonoBehaviour
                             child.position = new Vector2(10000, 100000);
                             break;
                         }else{
-                            Instantiate(tpMessage).GetComponent<FailText>().changeTextString("Not enough toolpoints");
+                            Instantiate(tpMessage).GetComponent<FailText>().changeTextString("Not enough AP");
                         }
                     }else{
                         Instantiate(tpMessage).GetComponent<FailText>().changeTextString("Not enough mana");

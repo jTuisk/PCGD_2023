@@ -215,8 +215,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Not enough tool Points
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 54227ca046d71a1dfb9412c934c0f79d, type: 2}
+  m_sharedMaterial: {fileID: -3925011785069110187, guid: 54227ca046d71a1dfb9412c934c0f79d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
