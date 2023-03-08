@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: RockThrow
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: stun
-  cardName: Rock throw
+  effectDescriptor: ', Stun the player for 1 turn'
+  cardName: Rock Throw
   Damage: 2
   block: 0
   magic: 0
