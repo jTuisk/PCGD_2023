@@ -16,7 +16,7 @@ MonoBehaviour:
   effectDescriptor: 
   cardName: Broken shield
   Damage: 0
-  block: 4
+  block: 7
   magic: 0
   money: 0
   actionCost: 0
@@ -34,8 +34,11 @@ MonoBehaviour:
     Reverse: 0
     Vulnerable: 0
     Other: 0
+    combo: 0
     DamageOverride: 0
+    HealOverride: 0
     DamageOverrideString: 
+    HealOverrideString: 
   requiredCards: []
   specialEffectEvent: {fileID: 0}
   CardImage: {fileID: 21300000, guid: d31c6f53167a27d40a46b94ae0a6bd24, type: 3}
