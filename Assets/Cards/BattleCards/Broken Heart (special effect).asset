@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Broken Heart (special effect)
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: Heal 2 HP and generate 1 AP
+  effectDescriptor: Heal 2 HP, generate 1 AP
   cardName: Broken Heart
   Damage: 0
   block: 0
@@ -58,8 +58,11 @@ MonoBehaviour:
     Reverse: 0
     Vulnerable: 0
     Other: 0
+    combo: 0
     DamageOverride: 0
+    HealOverride: 0
     DamageOverrideString: 
+    HealOverrideString: 
   requiredCards: []
   specialEffectEvent: {fileID: 0}
   CardImage: {fileID: 21300000, guid: b6261dfbf7558154abf3a61f0a7a8315, type: 3}

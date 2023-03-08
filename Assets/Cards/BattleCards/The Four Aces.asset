@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: The Four Aces
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: ' and confuse enemy. Alterior effect when all 4 Aces owned *Exhaust'
+  effectDescriptor: ', confuse enemy. This card transforms if you own all the Aces,
+    Exhaust'
   cardName: The Four Aces
   Damage: 2
   block: 0
@@ -46,8 +47,11 @@ MonoBehaviour:
     Reverse: 0
     Vulnerable: 0
     Other: 0
+    combo: 0
     DamageOverride: 0
+    HealOverride: 0
     DamageOverrideString: 
+    HealOverrideString: 
   requiredCards:
   - {fileID: 11400000, guid: f0b911516c35b604b834ba74a5845232, type: 2}
   - {fileID: 11400000, guid: 1fd6e5cc5a4715b4b9d2b6a4028275df, type: 2}

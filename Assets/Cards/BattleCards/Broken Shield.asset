@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Broken Shield
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: ' and take 2 damage'
+  effectDescriptor: ', take 2 damage'
   cardName: Broken shield
   Damage: 0
   block: 4
@@ -46,8 +46,11 @@ MonoBehaviour:
     Reverse: 0
     Vulnerable: 0
     Other: 0
+    combo: 0
     DamageOverride: 0
+    HealOverride: 0
     DamageOverrideString: 
+    HealOverrideString: 
   requiredCards:
   - {fileID: 11400000, guid: b21dd676c4b5e534aa40eabc701fff2a, type: 2}
   specialEffectEvent: {fileID: 11400000, guid: ae56f444db7695648ad2ab29a43b4fac, type: 2}

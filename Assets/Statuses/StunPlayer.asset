@@ -31,5 +31,6 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 772d5a15194f2c3b688c3d190c090d15, type: 3}
   nameText: Stun
   ISDOTMOD: 0
-  desc: Stun player
+  desc: Bet you don't have time to read this description. Thanks for playing our
+    game!
   targetsEnemy: 0

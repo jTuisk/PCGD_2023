@@ -31,5 +31,5 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 28663e770a1067247b786562f98eb0f9, type: 3}
   nameText: Confusion
   ISDOTMOD: 0
-  desc: Confuse player
+  desc: Will hit itself with all its attacks
   targetsEnemy: 0

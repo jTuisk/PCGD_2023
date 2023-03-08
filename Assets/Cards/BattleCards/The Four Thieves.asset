@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: The Four Thieves
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: ' *Exhaust'
+  effectDescriptor: ', Exhaust'
   cardName: The Four Thieves
   Damage: 2
   block: 2
@@ -34,8 +34,11 @@ MonoBehaviour:
     Reverse: 0
     Vulnerable: 0
     Other: 0
+    combo: 0
     DamageOverride: 0
+    HealOverride: 0
     DamageOverrideString: 
+    HealOverrideString: 
   requiredCards: []
   specialEffectEvent: {fileID: 0}
   CardImage: {fileID: 21300000, guid: 3fde969c7f49cc5469160d93ce84b9d6, type: 3}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Broken Chair
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: ' you start bleeding for three turns'
+  effectDescriptor: ', you start bleeding for three turns'
   cardName: Broken Chair Throw
   Damage: 3
   block: 0
@@ -46,8 +46,11 @@ MonoBehaviour:
     Reverse: 0
     Vulnerable: 0
     Other: 0
+    combo: 0
     DamageOverride: 0
+    HealOverride: 0
     DamageOverrideString: 
+    HealOverrideString: 
   requiredCards:
   - {fileID: 11400000, guid: b21dd676c4b5e534aa40eabc701fff2a, type: 2}
   specialEffectEvent: {fileID: 11400000, guid: c27c68b62c0f16d429903486754e7e17, type: 2}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Broken Wand
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: ' and take one damage.'
+  effectDescriptor: ', take 1 Damage'
   cardName: Broken wand
   Damage: 2
   block: 0
@@ -46,8 +46,11 @@ MonoBehaviour:
     Reverse: 0
     Vulnerable: 0
     Other: 0
+    combo: 0
     DamageOverride: 0
+    HealOverride: 0
     DamageOverrideString: 
+    HealOverrideString: 
   requiredCards:
   - {fileID: 11400000, guid: b21dd676c4b5e534aa40eabc701fff2a, type: 2}
   specialEffectEvent: {fileID: 11400000, guid: 41a84eb826d10f8479f72e3177b9e407, type: 2}

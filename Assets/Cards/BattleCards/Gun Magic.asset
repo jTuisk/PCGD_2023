@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Gun Magic
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: ' and make the enemy bleed for two turns'
+  effectDescriptor: ',  make the enemy bleed for two turns'
   cardName: Handgun Magic
   Damage: 9
   block: 0
@@ -46,8 +46,11 @@ MonoBehaviour:
     Reverse: 0
     Vulnerable: 0
     Other: 0
+    combo: 0
     DamageOverride: 0
+    HealOverride: 0
     DamageOverrideString: 
+    HealOverrideString: 
   requiredCards: []
   specialEffectEvent: {fileID: 0}
   CardImage: {fileID: 21300000, guid: e5108aa13a7a4454bb18fb7fa2908b73, type: 3}

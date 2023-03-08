@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 800a222eec0efaf4682b867dcf1b7e2e, type: 3}
   m_Name: Firepit
   m_EditorClassIdentifier: 
+  BossImage: {fileID: 0}
   eName: 
   eventText: 'You stumble upon an open magical firepit and decide to chill out for
     a bit.
 
     What will you do to pass the time?'
   options:
-  - description: Burn a card for four mana points
+  - description: Burn a card (Gain 4 Mana)
     independentRNG: 0
     effects:
     - name: 
@@ -63,7 +64,7 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
     conditions: []
-  - description: Heat up a can of beans for two HP
+  - description: Heat up a can of beans (Gain 2 HP)
     independentRNG: 0
     effects:
     - name: 

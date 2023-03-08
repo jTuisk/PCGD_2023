@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 800a222eec0efaf4682b867dcf1b7e2e, type: 3}
   m_Name: ThiefSuccess
   m_EditorClassIdentifier: 
+  BossImage: {fileID: 0}
   eName: Thief
   eventText: 'Your punch landed and the thief is knocked out cold.
 
@@ -39,7 +40,7 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
     conditions: []
-  - description: Yeah, I'll steal his wallet! (Gain 5 mana)
+  - description: Yeah, I'll steal his wallet! (Gain 5 Mana)
     independentRNG: 0
     effects:
     - name: Gain mana

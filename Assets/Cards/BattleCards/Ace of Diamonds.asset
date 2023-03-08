@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Ace of Diamonds
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: ' *Exhaust'
+  effectDescriptor: ', Exhaust'
   cardName: Ace of Diamonds
   Damage: 0
   block: 4
@@ -34,8 +34,11 @@ MonoBehaviour:
     Reverse: 0
     Vulnerable: 0
     Other: 0
+    combo: 0
     DamageOverride: 0
+    HealOverride: 0
     DamageOverrideString: 
+    HealOverrideString: 
   requiredCards: []
   specialEffectEvent: {fileID: 0}
   CardImage: {fileID: 21300000, guid: 6be35363fccd1c44cb3a3414bb87176d, type: 3}
