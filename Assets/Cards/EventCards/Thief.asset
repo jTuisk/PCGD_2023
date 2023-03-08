@@ -12,15 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 800a222eec0efaf4682b867dcf1b7e2e, type: 3}
   m_Name: Thief
   m_EditorClassIdentifier: 
+  BossImage: {fileID: 0}
   eName: 
   eventText: 'You feel something in your pocket... it''s a hand!
 
     Someone is
     trying to steal your cards!'
   options:
-  - description: 'Knock him out
-
-      (60% chance of success)'
+  - description: Knock him out (60% chance of success)
     independentRNG: 0
     effects:
     - name: Success

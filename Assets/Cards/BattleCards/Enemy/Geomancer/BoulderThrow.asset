@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BoulderThrow
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: Add vulnerable and stun to self. Apply Combo to player
+  effectDescriptor: Apply Vulnerable and Stun to self. Apply Combo to the player
   cardName: Rock to the Noggin
   Damage: 0
   block: 0
