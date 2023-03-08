@@ -13,20 +13,20 @@ MonoBehaviour:
   m_Name: Broken Shield
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: ', take 2 damage'
+  effectDescriptor: ', enemy deals double damage for 1 turn'
   cardName: Broken shield
   Damage: 0
-  block: 4
+  block: 7
   magic: 0
   money: 0
   actionCost: 0
   effect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 8765e028c6ad3e241aa0c63e748b3083, type: 2}
-        m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
-        m_MethodName: takeDamage
-        m_Mode: 3
+      - m_Target: {fileID: 11400000, guid: ed7d6f35a2abd9546b1071d63a2af4ae, type: 2}
+        m_TargetAssemblyTypeName: StatusEffect, Assembly-CSharp
+        m_MethodName: add
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
