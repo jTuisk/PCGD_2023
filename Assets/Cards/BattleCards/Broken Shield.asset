@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Broken Shield
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: ', take 2 damage'
+  effectDescriptor: ', take 2 Damage'
   cardName: Broken shield
   Damage: 0
   block: 4
