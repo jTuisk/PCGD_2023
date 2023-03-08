@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 800a222eec0efaf4682b867dcf1b7e2e, type: 3}
   m_Name: Blackjack Pre
   m_EditorClassIdentifier: 
+  BossImage: {fileID: 0}
   eName: Blackjack Wizard Encounter
   eventText: Hey you seem a cool guy! Want to play blackjack with me?
   options:
@@ -48,7 +49,11 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
     conditions: []
+  - description: No thanks
+    independentRNG: 0
+    effects: []
+    conditions: []
   ReplaceFrom: {fileID: 0}
   ReplaceTo: {fileID: 0}
   replaceEvent: {fileID: 0}
-  addedTag: BlackjackPre
+  addedTag: BlackjackCard
