@@ -133,7 +133,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         ManaImage.sprite=ManaSprite;
         ManaCost.text+=-magic;
         }
-        description.text =(data.Damage>0? "Deal " +data.Damage+" Damage":"")+(data.block>0? " Block "+data.block+" Damage":"")+(data.magic>0? " gain "+data.magic+" mana":"")+(data.magic<0? " Costs "+(-data.magic)+" mana":"")+data.effectDescriptor;
+        description.text =(data.Damage>0? "Deal " +data.Damage+" Damage":"")+(data.block>0? " Block "+data.block+" Damage":"")+(data.magic>0? " Gain "+data.magic+" Mana":"")+data.effectDescriptor;
     }
 
     private bool movable = false;
