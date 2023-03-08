@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Gun Magic
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 1
-  effectDescriptor: ' and player starts bleeding'
+  effectDescriptor: ',  player starts bleeding'
   cardName: Gun Magic
   Damage: 9
   block: 0
@@ -46,8 +46,11 @@ MonoBehaviour:
     Reverse: 0
     Vulnerable: 0
     Other: 0
+    combo: 0
     DamageOverride: 0
+    HealOverride: 0
     DamageOverrideString: 
+    HealOverrideString: 
   requiredCards: []
   specialEffectEvent: {fileID: 0}
   CardImage: {fileID: 0}

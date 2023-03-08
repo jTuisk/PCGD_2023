@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Water Escapist
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 1
-  effectDescriptor: Player has an allergic reaction for 3 turns, dealing 1 dmg each
-    turn
+  effectDescriptor: Player has an allergic reaction for 3 turns, dealing 1 Damage
+    each turn
   cardName: Watertank Escape
   Damage: 0
   block: 0
@@ -47,8 +47,11 @@ MonoBehaviour:
     Reverse: 0
     Vulnerable: 0
     Other: 0
+    combo: 0
     DamageOverride: 0
+    HealOverride: 0
     DamageOverrideString: 
+    HealOverrideString: 
   requiredCards: []
   specialEffectEvent: {fileID: 0}
   CardImage: {fileID: 0}

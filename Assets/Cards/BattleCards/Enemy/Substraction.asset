@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Substraction
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 1
-  effectDescriptor: Delete one player card
+  effectDescriptor: PERMANENTLY DELETE a random card from the player
   cardName: Substraction
   Damage: 0
   block: 0
@@ -46,8 +46,11 @@ MonoBehaviour:
     Reverse: 0
     Vulnerable: 0
     Other: 0
+    combo: 0
     DamageOverride: 0
+    HealOverride: 0
     DamageOverrideString: 
+    HealOverrideString: 
   requiredCards: []
   specialEffectEvent: {fileID: 0}
   CardImage: {fileID: 0}

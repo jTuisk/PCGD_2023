@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GenBackfire
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: Heal player by 2 and self harm 1. Enemy becomes lucky
+  effectDescriptor: Heal player by 2, take 1 Damage. Enemy becomes Lucky
   cardName: Failed spellcast
   Damage: 0
   block: 0
@@ -78,8 +78,11 @@ MonoBehaviour:
     Reverse: 0
     Vulnerable: 0
     Other: 0
+    combo: 0
     DamageOverride: 0
+    HealOverride: 0
     DamageOverrideString: 
+    HealOverrideString: 
   requiredCards: []
   specialEffectEvent: {fileID: 0}
   CardImage: {fileID: 0}
