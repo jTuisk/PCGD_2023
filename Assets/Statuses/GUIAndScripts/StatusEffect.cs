@@ -38,7 +38,7 @@ public class StatusEffect:ScriptableObject
         }
     }
         private void ConfuseEnemy(){
-            if(!Deck.Instance.reversed){
+            if(!Deck.Instance.PlayerConfused){
                 Deck.Instance.enemy.confused=true;
             }else{
                 Deck.Instance.enemy.confused=false;
@@ -46,7 +46,7 @@ public class StatusEffect:ScriptableObject
     }
 
     private void ConfusePlayer(){
-        if(!Deck.Instance.reversed){
+        if(!Deck.Instance.enemy.confused){
             Deck.Instance.PlayerConfused=true;
         }else{
             Deck.Instance.PlayerConfused=false;
@@ -67,6 +67,9 @@ public class StatusEffect:ScriptableObject
     }
     }
     public void StunPlayer() {
+        Deck.Instance.stunned = true;
+    }
+    public void StunEnemy() {
         Deck.Instance.stunned = true;
     }
     public void gainAPOnExhaust(int amount){

@@ -92,7 +92,9 @@ public class BattleCondition
         }
         return false;
     }
-    public enum type {LESS,EQUALS,FLAG,NOFLAG,ISSTUNNED };
+    
+    
+    public enum type {LESS,EQUALS,FLAG,NOFLAG,ISSTUNNED,PLAYERISCONFUSED,ENEMYISCONFUSED };
     public enum target { HEALTH, MANA, FLOAT };
     public string flag;
     public type Operation;
@@ -104,6 +106,10 @@ public class BattleCondition
 
         switch (Operation)
         {
+            case type.ENEMYISCONFUSED:
+                return Deck.Instance.enemy.confused;
+            case type.PLAYERISCONFUSED:
+                return Deck.Instance.PlayerConfused;            
             case type.ISSTUNNED:
                 return IsStunned();
             case type.NOFLAG:

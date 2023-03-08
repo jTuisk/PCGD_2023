@@ -145,14 +145,14 @@ public class BattleCardDataContainer : ScriptableObject
         }
     }
     public void ConfuseEnemy(){
-            if(!Deck.Instance.reversed){
+            if(!Deck.Instance.PlayerConfused){
                 Deck.Instance.enemy.confused=true;
             }else{
                 Deck.Instance.enemy.confused=false;
             }
     }
     public void ConfusePlayer(){
-        if(!Deck.Instance.reversed){
+        if(!Deck.Instance.enemy.confused){
             Deck.Instance.PlayerConfused=true;
         }else{
             Deck.Instance.PlayerConfused=false;
