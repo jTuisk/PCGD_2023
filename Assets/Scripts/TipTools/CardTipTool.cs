@@ -106,10 +106,12 @@ public class BattleCardTipTool : TipTool
     // The camera can still display the entire gameObject
     protected override void CalibratePositionUnderWorldPoint(Camera cam, GameObject gameObject)
     {
-        var topRightCornor = cam.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0f));
-        var bottomRightCornor = cam.ScreenToWorldPoint(new Vector3(Screen.width, 0f, 0f));
-        var topLeftCornor = cam.ScreenToWorldPoint(new Vector3(0f, Screen.height, 0f));
-        var bottomLeftCornor = cam.ScreenToWorldPoint(Vector3.zero);
+        float margin = 23f;
+
+        var topRightCornor = cam.ScreenToWorldPoint(new Vector3(Screen.width - margin, Screen.height - margin, 0f));
+        var bottomRightCornor = cam.ScreenToWorldPoint(new Vector3(Screen.width - margin, 0f + margin, 0f));
+        var topLeftCornor = cam.ScreenToWorldPoint(new Vector3(0f + margin, Screen.height - margin, 0f));
+        var bottomLeftCornor = cam.ScreenToWorldPoint( new Vector3(0f + margin, 0f + margin, 0f));
         
         var tipToolRect = GetMaxRectTransform(gameObject);
         Vector3[] objectCorners = new Vector3[4];
