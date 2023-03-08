@@ -29,7 +29,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   icon: {fileID: 21300000, guid: 70ffecba97b88374aa82408b78c483d1, type: 3}
-  name: Reverse
+  nameText: Reverse
   ISDOTMOD: 0
   desc: The world is upside down
   targetsEnemy: 1

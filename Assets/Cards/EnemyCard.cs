@@ -126,6 +126,17 @@ IEnumerator shake(){
         if(data.Picture!=null){
             img.sprite=data.Picture;
         }
+        List<StatusEffect>  status;
+        Debug.Log("getting value from key :"+this.name);
+       if(!Deck.Instance.ApplyStatusToEnemy.TryGetValue(this.name,out status)){
+            status=new List<StatusEffect>(); 
+       }
+        
+        
+           foreach(var stat in status){
+                Debug.Log(status);
+                stat.add();
+                }
         List<BattleCardDataContainer>  CardsToadd;
         Debug.Log("getting value from key :"+this.name);
        if(!Deck.Instance.CardsToAdd.TryGetValue(this.name,out CardsToadd)){

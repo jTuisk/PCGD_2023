@@ -47,6 +47,7 @@ public class Deck : MonoBehaviour
     public Dictionary<CreatureDataContainer, int> enemyAffectedByCombatRewards;
    
     public Dictionary<string,List<BattleCardDataContainer>> CardsToAdd=new Dictionary<string,List<BattleCardDataContainer>>();
+    public Dictionary<string,List<StatusEffect>> ApplyStatusToEnemy=new Dictionary<string,List<StatusEffect>>();
     
     private void FindAllCreatureContainers()
     {

@@ -29,7 +29,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   icon: {fileID: 21300000, guid: 51b2e00bcd9bfc4eeae9bac7ea8003f2, type: 3}
-  name: Vulnerable
+  nameText: Vulnerable
   ISDOTMOD: 0
   desc: Both you and the enemy take more DOT damage
   targetsEnemy: 1

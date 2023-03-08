@@ -12,7 +12,7 @@ public class StatusEffect:ScriptableObject
     public int duration = 1;
     public List<UnityEvent> effect = new List<UnityEvent>();
     public Sprite icon;
-    public string name;
+    public string nameText;
     public bool ISDOTMOD=false;
     public string desc;
     public bool targetsEnemy = false;
@@ -22,12 +22,22 @@ public class StatusEffect:ScriptableObject
         stat.duration = this.duration;
         stat.effect = this.effect;
         stat.id=this.name;
-        stat.name=this.name;
+        stat.name=this.nameText;
         stat.icon=this.icon;
         stat.ISDOTMOD=this.ISDOTMOD;
         stat.targetsEnemy=targetsEnemy;
         Deck.Instance.statuses.Add(stat);
         stat.desc=this.desc;
+    }
+    public void AddTobattleStart(string enemy){
+        List<StatusEffect> output;
+        Debug.Log("Adding status :"+this.name+" to "+enemy);
+        if(!Deck.Instance.ApplyStatusToEnemy.TryGetValue(enemy,out output)){
+            Deck.Instance.ApplyStatusToEnemy.TryAdd(enemy,new List<StatusEffect>());
+            Deck.Instance.ApplyStatusToEnemy[enemy].Add(this);
+        }else{
+            Deck.Instance.ApplyStatusToEnemy[enemy].Add(this);
+        }
     }
     public void remove(){
         for(int i =0; i<Deck.Instance.statuses.Count; i++){

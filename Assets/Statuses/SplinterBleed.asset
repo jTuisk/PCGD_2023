@@ -29,7 +29,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   icon: {fileID: 21300000, guid: 0900aac99b7e50646a90cd1aaeededa4, type: 3}
-  name: Splinter
+  nameText: Splinter Bleed
   ISDOTMOD: 0
   desc: Take 1 damage
   targetsEnemy: 0

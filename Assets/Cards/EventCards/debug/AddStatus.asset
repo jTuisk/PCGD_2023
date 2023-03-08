@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 800a222eec0efaf4682b867dcf1b7e2e, type: 3}
-  m_Name: enemyaddCard
+  m_Name: AddStatus
   m_EditorClassIdentifier: 
   eName: 
   eventText: 
@@ -23,16 +23,16 @@ MonoBehaviour:
       targetEvent:
         m_PersistentCalls:
           m_Calls:
-          - m_Target: {fileID: 11400000, guid: 6468a9ffd9380034e9176554e83e4a6f, type: 2}
-            m_TargetAssemblyTypeName: BattleCardDataContainer, Assembly-CSharp
-            m_MethodName: addForEnemy
+          - m_Target: {fileID: 11400000, guid: 41cae49597e4ce94c96252a9674dd332, type: 2}
+            m_TargetAssemblyTypeName: StatusEffect, Assembly-CSharp
+            m_MethodName: AddTobattleStart
             m_Mode: 5
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
               m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
               m_IntArgument: 0
               m_FloatArgument: 0
-              m_StringArgument: Chair Wizard
+              m_StringArgument: Amateur Wizard
               m_BoolArgument: 0
             m_CallState: 2
     conditions: []
