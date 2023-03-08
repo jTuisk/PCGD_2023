@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GenSpell
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: Casts a spell of 1-5dmg
+  effectDescriptor: Casts a spell dealing 1-5 Damage
   cardName: Cast a spell
   Damage: 0
   block: 0
@@ -122,7 +122,11 @@ MonoBehaviour:
     Reverse: 0
     Vulnerable: 0
     Other: 0
+    combo: 0
     DamageOverride: 1
+    HealOverride: 0
     DamageOverrideString: 1-5
+    HealOverrideString: 
   requiredCards: []
   specialEffectEvent: {fileID: 0}
+  CardImage: {fileID: 0}

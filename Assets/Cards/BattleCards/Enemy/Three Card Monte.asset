@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Three Card Monte
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 1
-  effectDescriptor: Confuse the enemy
+  effectDescriptor: Confuse the player for 1 turn
   cardName: Three Card Monte
   Damage: 0
   block: 0
@@ -58,7 +58,11 @@ MonoBehaviour:
     Reverse: 0
     Vulnerable: 0
     Other: 0
+    combo: 0
     DamageOverride: 0
+    HealOverride: 0
     DamageOverrideString: 
+    HealOverrideString: 
   requiredCards: []
   specialEffectEvent: {fileID: 0}
+  CardImage: {fileID: 0}

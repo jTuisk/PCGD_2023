@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GenPotion
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: Deal double damage from now on
+  effectDescriptor: Deals double damage for 20 turns
   cardName: Rage potion
   Damage: 0
   block: 0

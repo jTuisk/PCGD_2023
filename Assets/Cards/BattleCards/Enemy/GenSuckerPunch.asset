@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GenSuckerPunch
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: ' and stun player for 1 turn'
+  effectDescriptor: ', Stun player for 1 turn'
   cardName: Suckerpunch
   Damage: 2
   block: 0
@@ -46,7 +46,11 @@ MonoBehaviour:
     Reverse: 0
     Vulnerable: 0
     Other: 0
+    combo: 0
     DamageOverride: 0
+    HealOverride: 0
     DamageOverrideString: 
+    HealOverrideString: 
   requiredCards: []
   specialEffectEvent: {fileID: 0}
+  CardImage: {fileID: 0}
