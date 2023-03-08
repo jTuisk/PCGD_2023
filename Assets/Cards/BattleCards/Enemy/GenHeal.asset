@@ -46,8 +46,11 @@ MonoBehaviour:
     Reverse: 0
     Vulnerable: 0
     Other: 0
+    combo: 0
     DamageOverride: 0
+    HealOverride: 1
     DamageOverrideString: 
+    HealOverrideString: 2
   requiredCards: []
   specialEffectEvent: {fileID: 0}
   CardImage: {fileID: 0}
