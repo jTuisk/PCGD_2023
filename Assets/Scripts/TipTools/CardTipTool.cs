@@ -42,13 +42,33 @@ public class BattleCardTipTool : TipTool
         FindRenderingCamera();
         #endregion
 
+        # region Disable Raycast
+        // Disable all raycast target, so that it won't block any rays
+        var raycasters = tipToolObj.GetComponentsInChildren<GraphicRaycaster>();
+        for(int i = raycasters.Length - 1; i >=0; i --)
+        {
+            Destroy(raycasters[i]);
+        }
+
+        var images = tipToolObj.GetComponentsInChildren<Image>();
+        foreach(var img in images)
+        {
+            img.raycastTarget = false;
+        }
+        
+        var textMeshPros = tipToolObj.GetComponentsInChildren<TMPro.TextMeshProUGUI>();
+        foreach(var text in textMeshPros)
+        {
+            text.raycastTarget = false;
+        }
+
+        # endregion
         // Set Inactive
         DisplayOnPinterExit(null);
     }
     
-    void Update()
+    new void Update()
     {
-        // Debug.Log(canShow);
         CalculateBorder();
         if(CanShow())
         {
