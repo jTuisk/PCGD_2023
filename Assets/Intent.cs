@@ -30,6 +30,8 @@ public class Intent : Card
     public TMPro.TextMeshProUGUI VulnerableText;
         public Image StunImage;
     public TMPro.TextMeshProUGUI StunText;
+            public Image ComboImage;
+    public TMPro.TextMeshProUGUI ComboText;
     
     
     override
@@ -55,33 +57,47 @@ public class Intent : Card
         temp.a=1f;
         APImage.color=temp;
         APImage.sprite=APSprite;
+        int effectCount=0;
         if(data.enemyCardData.Dot>0){
             DotImage.gameObject.SetActive(true);
             DotText.text=""+data.enemyCardData.Dot;
+            effectCount++;
         }
         if(data.enemyCardData.Confusion>0){
             iConfusion.gameObject.SetActive(true);
             confusionText.text=""+data.enemyCardData.Confusion;
+            effectCount+=2;
         }
         if(data.enemyCardData.Reverse>0){
             ReverseImage.gameObject.SetActive(true);
             ReverseText.text=""+data.enemyCardData.Reverse;
+            effectCount++;
         }
         if(data.enemyCardData.Vulnerable>0){
             VulnerableImage.gameObject.SetActive(true);
             VulnerableText.text=""+data.enemyCardData.Vulnerable;
+            effectCount++;
         }
         if(data.enemyCardData.stun>0){
             StunImage.gameObject.SetActive(true);
             StunText.text=""+data.enemyCardData.stun;
+            effectCount++;
         }
-        if(data.Damage>0){
+        if(data.enemyCardData.combo>0){
+            ComboImage.gameObject.SetActive(true);
+            ComboText.text=""+data.enemyCardData.combo;
+            effectCount++;
+        }
+        
+        if(data.Damage>0|data.enemyCardData.DamageOverride){
             idamage.gameObject.SetActive(true);
-            dText.text=""+data.Damage*Deck.Instance.PlayerDamageModifier;
+            dText.text=""+(data.enemyCardData.DamageOverride?data.enemyCardData.DamageOverrideString:data.Damage*Deck.Instance.PlayerDamageModifier);
+            if(data.enemyCardData.DamageOverride){effectCount++;}
         }
-        if(data.Damage<0){
+        if(data.Damage<0|data.enemyCardData.HealOverride){
             iHeal.gameObject.SetActive(true);
-            hText.text=""+(data.enemyCardData.DamageOverride?data.enemyCardData.DamageOverrideString:-data.Damage*Deck.Instance.PlayerDamageModifier);
+            hText.text=""+(data.enemyCardData.HealOverride?data.enemyCardData.HealOverrideString:-data.Damage*Deck.Instance.PlayerDamageModifier);
+            if(data.enemyCardData.HealOverride){effectCount++;}
         }
         if(data.magic>0){
             iMana.gameObject.SetActive(true);
@@ -93,7 +109,7 @@ public class Intent : Card
         }else{
             iblock.gameObject.SetActive(false);
         }
-        if(this.effect.GetPersistentEventCount()>0|this.conditionalEffects.Count>0){
+        if((effectCount<this.effect.GetPersistentEventCount()+this.conditionalEffects.Count)&&(this.effect.GetPersistentEventCount()>0|this.conditionalEffects.Count>0)){
             iSpecial.gameObject.SetActive(true);
         }
     }

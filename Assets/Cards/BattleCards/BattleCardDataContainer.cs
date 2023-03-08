@@ -32,8 +32,11 @@ public class BattleCardDataContainer : ScriptableObject
         public int Reverse;
         public int Vulnerable;
         public int Other;
+        public int combo;
         public bool DamageOverride=false;
+        public bool HealOverride=false;
         public string DamageOverrideString;
+        public string HealOverrideString;
 
     }
 
