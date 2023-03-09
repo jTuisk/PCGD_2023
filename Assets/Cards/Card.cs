@@ -341,8 +341,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         description.text = (Damage > 0 ? "Deal " + Damage * damageModifier + " Damage" : "")
                                 + (block > 0 ? " Block " + block * blockModifier + " Damage" : "")
-                                + (magic > 0 ? " gain " + magic * magicModifier + " mana" : "")
-                                + (magic < 0 ? " Costs " + (-magic * costModifier) + " mana" : "")
+                                + (magic > 0 ? " Gain " + magic * magicModifier + " Mana" : "")
                                 + BattleCardData.effectDescriptor;
         
     }
