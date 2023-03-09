@@ -283,7 +283,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         // enlarge the card scale;
         var scale = CardHandler.Instance.cardOriginalScale;
         this.gameObject.transform.localScale = new Vector3(scale, scale, scale);
-        gameObject.GetComponentInChildren<Canvas>().sortingOrder=0;
+        gameObject.GetComponentInChildren<Canvas>().sortingOrder=5;
     }
     private void DestroyFocused(){
         // enlarge the card scale;

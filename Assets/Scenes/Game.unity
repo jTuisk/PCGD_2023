@@ -763,7 +763,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: -20
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &336210355
 RectTransform:
@@ -2136,6 +2136,7 @@ GameObject:
   - component: {fileID: 879904360}
   - component: {fileID: 879904359}
   - component: {fileID: 879904358}
+  - component: {fileID: 879904361}
   m_Layer: 5
   m_Name: EnemyList
   m_TagString: Untagged
@@ -2227,6 +2228,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 879904356}
   m_CullTransparentMesh: 1
+--- !u!223 &879904361
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879904356}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: -1
+  m_TargetDisplay: 0
 --- !u!1 &947121649
 GameObject:
   m_ObjectHideFlags: 0
@@ -2673,6 +2695,7 @@ GameObject:
   - component: {fileID: 1052016116}
   - component: {fileID: 1052016118}
   - component: {fileID: 1052016117}
+  - component: {fileID: 1052016119}
   m_Layer: 5
   m_Name: BackgroundImage
   m_TagString: Untagged
@@ -2738,6 +2761,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1052016115}
   m_CullTransparentMesh: 1
+--- !u!225 &1052016119
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052016115}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1065630284
 GameObject:
   m_ObjectHideFlags: 0
@@ -4754,12 +4789,12 @@ Canvas:
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
-  m_OverrideSorting: 0
+  m_OverrideSorting: 1
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_TargetDisplay: 0
 --- !u!114 &1829093440
 MonoBehaviour:
