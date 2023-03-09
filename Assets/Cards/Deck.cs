@@ -240,6 +240,7 @@ public class Deck : MonoBehaviour
         if(!reversed){
             if(PlayerDamageModifier*amount>=0){
                 Hp -= Mathf.Max(0,(int)(PlayerDamageModifier*amount)-block);
+                block=Mathf.Max(0,(int)(block-PlayerDamageModifier*amount));
                 ExplosionManager.Instance.PlaySwordAnimation(Mathf.Max(0,(int)(PlayerDamageModifier*amount)-block));
             }else{
                 Hp-=(int)(PlayerDamageModifier*amount);
@@ -252,6 +253,7 @@ public class Deck : MonoBehaviour
             }else{
                 Hp+=(int)(PlayerDamageModifier*amount);
                 ExplosionManager.Instance.PlaySwordAnimation(Mathf.Max(0,(int)(PlayerDamageModifier*amount)-block));
+                block=Mathf.Max(0,(int)(block-PlayerDamageModifier*amount));
             }
         }
         if(Hp<=0){
