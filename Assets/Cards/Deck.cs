@@ -162,7 +162,7 @@ public class Deck : MonoBehaviour
 
         }
         for(int i=0; i<5;i++){
-            var temp=BossBattlePool[Random.Range(0, BossBattlePool.Count - 1)];
+            var temp=BossBattlePool[Random.Range(0, BossBattlePool.Count )];
             BossBattles.Add(temp);
             BossBattlePool.Remove(temp);
             var imagetemp = Instantiate(bossImage);
@@ -180,7 +180,7 @@ public class Deck : MonoBehaviour
         BossBattles = new List<EventCardData>();
         for (int i = 0; i < 5; i++)
         {
-            var temp = BossBattlePool[Random.Range(0, BossBattlePool.Count - 1)];
+            var temp = BossBattlePool[Random.Range(0, BossBattlePool.Count )];
             BossBattles.Add(temp);
             BossBattlePool.Remove(temp);
         }
@@ -426,7 +426,7 @@ public class Deck : MonoBehaviour
     {
         for(int i=0; i < list.Count; i++)
         {
-            swap(i, Random.Range(0, list.Count), list);
+            swap(i, Random.Range(0, list.Count-i), list);
 
         }
     }
