@@ -74,14 +74,14 @@ public class StatusEffect:ScriptableObject
         }
     }
     public void Confuse(){
-        if(targetsEnemy){
+        if(StatusEffectInstance.getActiveTargetsEnemy()){
             ConfuseEnemy();
         }else{
             ConfusePlayer();
         }
     }
     public void Stun() {
-        if(targetsEnemy){
+        if(StatusEffectInstance.getActiveTargetsEnemy()){
             Deck.Instance.enemy.stunned = true;
     }else{
         Deck.Instance.stunned=true;
@@ -98,7 +98,7 @@ public class StatusEffect:ScriptableObject
     }
         public void DoubleDamageModifier()
     {
-        if(!targetsEnemy){
+        if(!StatusEffectInstance.getActiveTargetsEnemy()){
         Deck.Instance.enemy.EnemyDamageModifier *= 2;
     }else{
         Deck.Instance.PlayerDamageModifier *= 2;
@@ -122,7 +122,7 @@ public class StatusEffect:ScriptableObject
     }
             public void MultiplyDamageModifier(float amount)
     {
-        if(targetsEnemy){
+        if(StatusEffectInstance.getActiveTargetsEnemy()){
         Deck.Instance.enemy.EnemyDamageModifier *= amount;
         
     }else{
@@ -132,7 +132,7 @@ public class StatusEffect:ScriptableObject
     
     }
     public void lucky(){
-        if(targetsEnemy){
+        if(StatusEffectInstance.getActiveTargetsEnemy()){
             Deck.Instance.enemy.Lucky=true;
         }else{
             Deck.Instance.Lucky=true;
@@ -147,7 +147,7 @@ public class StatusEffect:ScriptableObject
         Deck.Instance.enemy.takeDamage((int)(amount*Deck.Instance.dotDamageMultiplier));
     }
     public void Damage(int amount){
-        if(targetsEnemy){
+        if(StatusEffectInstance.getActiveTargetsEnemy()){
             Deck.Instance.enemy.takeDamage((int)(amount*Deck.Instance.dotDamageMultiplier));
 
         }else{
@@ -160,7 +160,7 @@ public class StatusEffect:ScriptableObject
         Deck.Instance.takeDamage((int)(amount*Deck.Instance.playerDotDamageMultiplier));
     }
     public void MultiplydotDamageMultiplier(float amount){
-        if(targetsEnemy){
+        if(StatusEffectInstance.getActiveTargetsEnemy()){
         Deck.Instance.dotDamageMultiplier*=amount;
     }else{
         Deck.Instance.playerDotDamageMultiplier*=amount;

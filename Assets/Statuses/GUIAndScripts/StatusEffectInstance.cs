@@ -16,9 +16,11 @@ public class StatusEffectInstance
     public Sprite icon;
     public bool ISDOTMOD;
     public string desc;
+    private static bool ActiveTargetsEnemy; 
     public bool targetsEnemy;
     public void trigger()
     {
+        ActiveTargetsEnemy=targetsEnemy;
         if(id.Equals("StunEnemy")&&Deck.Instance.enemy.stunned){return;}
         if(id.Equals("StunPlayer")&&Deck.Instance.stunned){return;}
         foreach (var i in effect)
@@ -29,6 +31,9 @@ public class StatusEffectInstance
         duration -= 1;
 
 
+    }
+    public static bool getActiveTargetsEnemy(){
+        return ActiveTargetsEnemy;
     }
     public void multiplyStatusLength(float amount){
         duration=(int)(amount*duration);    
