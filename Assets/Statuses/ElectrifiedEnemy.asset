@@ -28,7 +28,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 0900aac99b7e50646a90cd1aaeededa4, type: 3}
   nameText: Electrified
   ISDOTMOD: 0
   desc: Takes 2 Damage at the end of your turn
