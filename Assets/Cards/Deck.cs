@@ -426,7 +426,7 @@ public class Deck : MonoBehaviour
     {
         for(int i=0; i < list.Count; i++)
         {
-            swap(i, Random.Range(0, list.Count-i), list);
+            swap(i, Random.Range(i, list.Count), list);
 
         }
     }
