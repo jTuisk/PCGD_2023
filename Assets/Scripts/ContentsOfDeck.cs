@@ -220,24 +220,31 @@ public class ContentsOfDeck : MonoBehaviour
 
     private void HandlePlayerInput()
     {
-        if (Input.GetKeyUp(KeyCode.Mouse0) && _currentTask != DeckTask.view)
+        if (Input.GetKeyUp(KeyCode.Mouse0))
         {
-            PointerEventData eventData = new PointerEventData(EventSystem.current);
-            eventData.position = Input.mousePosition;
-
-            List<RaycastResult> raysastResults = new List<RaycastResult>();
-            EventSystem.current.RaycastAll(eventData, raysastResults);
-
-            if (raysastResults.Count > 0)
+            if (_currentTask != DeckTask.view)
             {
-                if(raysastResults[0].gameObject != null)
+                PointerEventData eventData = new PointerEventData(EventSystem.current);
+                eventData.position = Input.mousePosition;
+
+                List<RaycastResult> raysastResults = new List<RaycastResult>();
+                EventSystem.current.RaycastAll(eventData, raysastResults);
+
+                if (raysastResults.Count > 0)
                 {
-                    Card card = raysastResults[0].gameObject.GetComponentInParent<Card>();
-                    if (card != null)
+                    if (raysastResults[0].gameObject != null)
                     {
-                        AddOrRemoveCardFromSelectedList(card);
+                        Card card = raysastResults[0].gameObject.GetComponentInParent<Card>();
+                        if (card != null)
+                        {
+                            AddOrRemoveCardFromSelectedList(card);
+                        }
                     }
                 }
+            }
+            else
+            {
+                FinishDeckTask();
             }
         }
     }
