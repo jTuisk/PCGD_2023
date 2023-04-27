@@ -7,7 +7,8 @@ public class ButtonFlicker : MonoBehaviour
 {
     // Start is called before the first frame update
     Image image;
-    float timer;
+    protected float timer;
+    protected float t;
     public float flickerSpeed;
     public Color normalColor;
     public Color flickerColor;
@@ -22,12 +23,12 @@ public class ButtonFlicker : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         if (Flickering)
         {
             timer += Time.deltaTime * flickerSpeed; // increase the timer by delta time times flicker speed
-            float t = Mathf.Abs(Mathf.Sin(timer)); // get a value between 0 and 1 based on the sine of the timer
+            t = Mathf.Abs(Mathf.Sin(timer)); // get a value between 0 and 1 based on the sine of the timer
             image.color = Color.Lerp(normalColor, flickerColor, t); // interpolate between normal and flicker colors based on t
             transform.localScale = Vector3.Lerp(minScale, maxScale, t);
         }

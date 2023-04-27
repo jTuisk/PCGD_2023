@@ -3694,6 +3694,7 @@ GameObject:
   - component: {fileID: 1373997087}
   - component: {fileID: 1373997086}
   - component: {fileID: 1373997085}
+  - component: {fileID: 1373997088}
   m_Layer: 5
   m_Name: EndTurn
   m_TagString: Untagged
@@ -3816,6 +3817,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1373997083}
   m_CullTransparentMesh: 1
+--- !u!114 &1373997088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373997083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b952f4596d4855e48809c1cbe0084b94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flickerSpeed: 2
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  flickerColor: {r: 1, g: 1, b: 1, a: 0.6509804}
+  Flickering: 1
+  maxScale: {x: 1.3, y: 1.3, z: 1.3}
 --- !u!1 &1396521910
 GameObject:
   m_ObjectHideFlags: 0
@@ -5764,6 +5782,7 @@ MonoBehaviour:
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   flickerColor: {r: 1, g: 1, b: 1, a: 0.79607844}
   Flickering: 1
+  maxScale: {x: 1.3, y: 1.3, z: 1.3}
 --- !u!1 &2108426446
 GameObject:
   m_ObjectHideFlags: 0
