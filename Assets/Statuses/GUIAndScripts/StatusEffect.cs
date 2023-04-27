@@ -58,7 +58,7 @@ public class StatusEffect:ScriptableObject
         }
         }
     }
-        private void ConfuseEnemy(){
+        public void ConfuseEnemy(){
             if(!Deck.Instance.PlayerConfused){
                 Deck.Instance.enemy.confused=true;
             }else{
@@ -66,7 +66,7 @@ public class StatusEffect:ScriptableObject
             }
     }
 
-    private void ConfusePlayer(){
+    public void ConfusePlayer(){
         if(!Deck.Instance.enemy.confused){
             Deck.Instance.PlayerConfused=true;
         }else{
