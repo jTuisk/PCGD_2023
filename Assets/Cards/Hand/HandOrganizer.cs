@@ -89,10 +89,12 @@ public class HandOrganizer : MonoBehaviour
                     heldCard=-1;
                 }
 
+
                 //when player releases card and its y position is above 700 and the player can afford it play the card
-                if (child.position.y > 5 && child.position.x < 700 && card.inHand == true && timer <= 0)
+                if (child.position.y > -6f && child.position.x < 700 && card.inHand == true && timer <= 0)
                 {
-                    Debug.Log("play Card");
+
+                    Debug.Log(child.position.y + "play Card");
                     if (Deck.Instance.mana + card.magic >= 0)
                     {
                         
