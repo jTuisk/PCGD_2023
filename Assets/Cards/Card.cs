@@ -40,7 +40,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     enum mode  {DEFAULT,PLAY,ACTIVE,PLAYABLE}
     mode outlineMode= mode.DEFAULT;
     Vector3 Defaultsize = new Vector3(1, 1, 1);
-    Vector3 Bigsize = new Vector3(1.1f, 1.1f, 1.1f);
+    Vector3 Bigsize = new Vector3(1f, 1f, 1f);
     public void outlineColor()
     {
         //CardHighlightLineImage.transform.localScale = Bigsize;
