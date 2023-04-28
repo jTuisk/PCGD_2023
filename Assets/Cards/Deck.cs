@@ -15,6 +15,7 @@ public class Deck : MonoBehaviour
     public GameObject CardBasePrefab;
     public List<BattleCardDataContainer> cardPrefabs;
     public List<int> deckList;
+    public List<int> Bit1deckList;
     public List<string> flags;
     public int money = 0;
     public int mana = 0;
@@ -152,7 +153,15 @@ public class Deck : MonoBehaviour
     {
         int index = 0;
         //inits all cards specified by their index
-        foreach (var i in deckList)
+        List<int> dl;
+        if (isbit1Final) {
+            dl = Bit1deckList;
+        }
+        else
+        {
+            dl = deckList;
+        }
+        foreach (var i in dl)
         {
             var j = Instantiate(CardBasePrefab).GetComponent<Card>();
             j.name += index; index++;
