@@ -12,7 +12,7 @@ public class HandOrganizer : MonoBehaviour
      */
     private float timer = 0f; 
     private GameControl gameControl;
-
+    public static float playHeight = -6f;
     // Called when the player draw a card from the deck, the card will then move from deck to hand
     public GameObject tpMessage;
     /*void DrawACard()
@@ -90,8 +90,8 @@ public class HandOrganizer : MonoBehaviour
                 }
 
 
-                //when player releases card and its y position is above 700 and the player can afford it play the card
-                if (child.position.y > -6f && child.position.x < 700 && card.inHand == true && timer <= 0)
+                //when player releases card and its y position is above playheight and the player can afford it play the card
+                if (child.position.y > playHeight && child.position.x < 700 && card.inHand == true && timer <= 0)
                 {
 
                     Debug.Log(child.position.y + "play Card");

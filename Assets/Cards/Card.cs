@@ -32,7 +32,68 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public GameObject CardHighlightLine;
     public Color DefaultHighlightLineColor;
+    public Color PlayableHighlightLineColor;
+    public Color PlayHighlightLineColor;
+    public Color ActiveHighlightLineColor;
+    public Image CardHighlightLineImage;
+    public CanvasGroup cg;
+    enum mode  {DEFAULT,PLAY,ACTIVE,PLAYABLE}
+    mode outlineMode= mode.DEFAULT;
+    Vector3 Defaultsize = new Vector3(1, 1, 1);
+    Vector3 Bigsize = new Vector3(1.1f, 1.1f, 1.1f);
+    public void outlineColor()
+    {
+        //CardHighlightLineImage.transform.localScale = Bigsize;
+        switch (outlineMode) {
+            
+            case mode.PLAY:
+                CardHighlightLineImage.color = PlayHighlightLineColor;
+                cg.alpha = PlayHighlightLineColor.a;
+                break;
+            case mode.ACTIVE:
+                CardHighlightLineImage.color = ActiveHighlightLineColor;
+                cg.alpha = ActiveHighlightLineColor.a;
+                break;
+            case mode.PLAYABLE:
+                CardHighlightLineImage.color = PlayableHighlightLineColor;
+                cg.alpha = PlayableHighlightLineColor.a;
+                break;
+            case mode.DEFAULT:
+                CardHighlightLineImage.color = DefaultHighlightLineColor;
+                cg.alpha = DefaultHighlightLineColor.a;
+                //CardHighlightLineImage.transform.localScale = Defaultsize;
+                break;
+        }
+    }
+    public bool canPlay()
+    {
+        if (actionCost * actionCostMultiplier <= Deck.Instance.actionPoints && -magic <= Deck.Instance.mana) { return true; } else
+        {
+            return false;
+        }
 
+    }
+    public void updateHandHighlightColor()
+    {
+        if (status==BelongTo.PlayerHand)
+        {
+            if (canPlay())
+            {
+                outlineMode = mode.PLAYABLE;
+                if (transform.position.y > HandOrganizer.playHeight)
+                {
+                    outlineMode = mode.PLAY;
+                    
+
+                }
+                return;
+
+            }
+        
+
+        }
+            outlineMode = mode.DEFAULT; 
+    } 
     public void Playcard()
     {
         if(exaust){
@@ -198,6 +259,8 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         if (this.transform.parent != null) {
             moveToHand();
+            updateHandHighlightColor();
+            outlineColor();
             reset = false;
         } else{
             inHand=false;
