@@ -200,38 +200,65 @@ public class Deck : MonoBehaviour
     internal int bosses=0;
     int dayindex = 0;
     bool finalBattle = false;
-    public void DrawEventCard()
-    {
-        Debug.Log(15+">="+(bossCounter + bosses));
-        if(bossCounter+bosses<=15){
-            if(bossCounter<=10 &&(bosses>=5|Random.value<0.50)){
-                Instantiate(eventBase).GetComponent<EventCard>().CreateEventCard(EventDeck[Random.Range(0, EventDeck.Count - 1)]);
-                bossCounter+=1;
-            }else{
-                Instantiate(eventBase).GetComponent<EventCard>().CreateEventCard(BossBattles[bosses]);
-                Destroy(ShowbossList.transform.GetChild(0).gameObject);
-                bosses+=1;
-            }
-        }else{
 
-            if (!finalBattle)
+
+    public List<EventCardData> Bit1Final;
+    public bool isbit1Final = true; 
+    public void DrawEventCardBit1FinalOverride()
+    {
+        if (Bit1Final.Count > 0)
+        {
+            Instantiate(eventBase).GetComponent<EventCard>().CreateEventCard(Bit1Final[0]);
+            Bit1Final.RemoveAt(0);
+        }
+        else
+        {
+            SceneLoader.LoadGameVictory();
+        }
+    }
+        public void DrawEventCard()
+    {
+        if (!isbit1Final)
+        {
+            Debug.Log(15 + ">=" + (bossCounter + bosses));
+            if (bossCounter + bosses <= 15)
             {
-                Instantiate(eventBase).GetComponent<EventCard>().CreateEventCard(finalbossPool[Random.Range(0, finalbossPool.Count)]);
-                finalBattle = true;
+                if (bossCounter <= 10 && (bosses >= 5 | Random.value < 0.50))
+                {
+                    Instantiate(eventBase).GetComponent<EventCard>().CreateEventCard(EventDeck[Random.Range(0, EventDeck.Count - 1)]);
+                    bossCounter += 1;
+                }
+                else
+                {
+                    Instantiate(eventBase).GetComponent<EventCard>().CreateEventCard(BossBattles[bosses]);
+                    Destroy(ShowbossList.transform.GetChild(0).gameObject);
+                    bosses += 1;
+                }
             }
             else
             {
-                if( !day.SwitchDay(dayindex))
+
+                if (!finalBattle)
                 {
-                    return;
+                    Instantiate(eventBase).GetComponent<EventCard>().CreateEventCard(finalbossPool[Random.Range(0, finalbossPool.Count)]);
+                    finalBattle = true;
                 }
-                bosses = 0;
-                dayindex++;
-                bossCounter = 0;
-                ResetBosses();
+                else
+                {
+                    if (!day.SwitchDay(dayindex))
+                    {
+                        return;
+                    }
+                    bosses = 0;
+                    dayindex++;
+                    bossCounter = 0;
+                    ResetBosses();
+                }
             }
         }
-        
+        else {
+            DrawEventCardBit1FinalOverride();
+        }
         eventVisible = true;
     }
     public bool PlayerConfused=false;

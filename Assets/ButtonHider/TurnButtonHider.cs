@@ -52,7 +52,7 @@ public class TurnButtonHider : MonoBehaviour
                 //deckImage.SetActive(false);
                 discardPileImage.SetActive(false);
                 endTurnButton.SetActive(false);
-                deckText.text = "Cards left in event deck: " + (16-Deck.Instance.bossCounter-Deck.Instance.bosses);
+                deckText.text = "Cards left in event deck: " + (Deck.Instance.isbit1Final? $"{Deck.Instance.Bit1Final.Count}" : (16-Deck.Instance.bossCounter-Deck.Instance.bosses));
             }
             else
             {
