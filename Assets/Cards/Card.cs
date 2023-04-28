@@ -65,6 +65,37 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 break;
         }
     }
+    public float tiltFactor = 300f;
+    private float tiltSpeed = 0.3f;
+    float tiltTime = 0f;
+    public float tiltDept = 25;
+    Quaternion tiltTarget=Quaternion.Euler(0,0,0);
+    public void updateTilt()
+    {
+        if (status == BelongTo.PlayerHand)
+        {
+            Vector3 deltaPos = prevPos - transform.position;
+            float tiltX = Mathf.Max(-tiltDept,Mathf.Min(tiltDept, -deltaPos.y * tiltFactor));
+            float tiltZ = Mathf.Max(-tiltDept, Mathf.Min(tiltDept, deltaPos.x * tiltFactor));
+
+            // create a quaternion from the tilt angles
+            Quaternion tilt = Quaternion.Euler(tiltX, tiltZ, 0);
+            // assign the quaternion to the card's local rotation
+            tiltTime += Time.deltaTime;
+            if (tilt != tiltTarget)
+            {
+                tiltTarget = tilt;
+                tiltTime = 0;
+            }
+            transform.localRotation = Quaternion.Lerp(transform.localRotation, tiltTarget, tiltTime/tiltSpeed);
+            if (tiltTime >= tiltSpeed)
+            {
+                tiltTime = 0;
+            }
+            
+            //transform.localRotation = Quaternion.Euler(deltaPos.y*80, deltaPos.x*10, 0);
+        }
+        }
     public bool canPlay()
     {
         if (actionCost * actionCostMultiplier <= Deck.Instance.actionPoints && -magic <= Deck.Instance.mana) { return true; } else
@@ -255,8 +286,11 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     // Update is called once per frame
     private bool reset=false;
+    Vector3 prevPos=new Vector3(0,0,0);
     void Update()
     {
+        updateTilt();
+        prevPos = transform.position;
         if (this.transform.parent != null) {
             moveToHand();
             updateHandHighlightColor();
