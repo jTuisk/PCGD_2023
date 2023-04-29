@@ -104,6 +104,24 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         }
 
     }
+    public bool conditionsFulfilled() { 
+        foreach(BattleCardMenuItem i in conditionalEffects) {
+            bool exec = true;
+            foreach(BattleCondition condition in i.conditions)
+            {
+                
+                if (!condition.Evaluate()) {
+                    exec = false;
+                }
+            }
+            if (exec)
+            {
+                return true;
+            }
+        }
+        return false;
+    
+    }
     public void updateHandHighlightColor()
     {
         if (status==BelongTo.PlayerHand)
@@ -111,6 +129,9 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             if (canPlay())
             {
                 outlineMode = mode.PLAYABLE;
+                if (conditionsFulfilled()) {
+                    outlineMode = mode.ACTIVE;
+                }
                 if (transform.position.y > HandOrganizer.playHeight)
                 {
                     outlineMode = mode.PLAY;
