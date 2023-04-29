@@ -53,6 +53,7 @@ public class ContentsOfDeck : MonoBehaviour
     [Header("Text")]
     [SerializeField] TextMeshProUGUI _titleTMP;
     [SerializeField] TextMeshProUGUI _actionButtonTMP;
+    [SerializeField] ButtonFlicker _actionButtonFlicker;
 
 
     [Header("Others")]
@@ -410,23 +411,27 @@ public class ContentsOfDeck : MonoBehaviour
             case DeckTask.selectStartDeck:
                 SetTitleText("Create custom Deck");
                 buttonText = _selectedCards.Count != _maximumNumberOfSelectedCards ? $"{_selectedCards.Count} / {_maximumNumberOfSelectedCards}" : "Finish deck";
+                _actionButtonFlicker.Flickering = _selectedCards.Count == _maximumNumberOfSelectedCards;
                 SetActionButtonText(buttonText);
                 break;
 
             case DeckTask.removeCardFromDeck:
                 SetTitleText("Remove cards");
                 buttonText = _selectedCards.Count != _maximumNumberOfSelectedCards ? $"{_selectedCards.Count} / {_maximumNumberOfSelectedCards}" : "Remove cards";
+                _actionButtonFlicker.Flickering = _selectedCards.Count == _maximumNumberOfSelectedCards;
                 SetActionButtonText(buttonText);
                 break;
 
             case DeckTask.discardPileToHand:
                 SetTitleText("Select cards");
                 buttonText = _selectedCards.Count != _maximumNumberOfSelectedCards ? $"{_selectedCards.Count} / {_maximumNumberOfSelectedCards}" : "Select cards";
+                _actionButtonFlicker.Flickering = _selectedCards.Count == _maximumNumberOfSelectedCards;
                 SetActionButtonText(buttonText);
                 break;
 
             default:
                 SetTitleText();
+                _actionButtonFlicker.Flickering = _selectedCards.Count == _maximumNumberOfSelectedCards;
                 SetActionButtonText();
                 break;
         }
