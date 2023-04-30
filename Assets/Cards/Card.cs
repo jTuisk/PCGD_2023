@@ -303,6 +303,9 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         SetHighlightAlpha(0f);
         SetHighlightColor(DefaultHighlightLineColor);
+        Material m = new Material(CardHighlightLineImage.material);
+        CardHighlightLineImage.material = m;
+        CardHighlightLineImage.material.SetFloat("_ID",Random.Range(0,2000));
     }
 
     // Update is called once per frame
