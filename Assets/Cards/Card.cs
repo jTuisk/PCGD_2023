@@ -70,6 +70,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     float tiltTime = 0f;
     public float tiltDept = 25;
     Quaternion tiltTarget=Quaternion.Euler(0,0,0);
+    Quaternion Startrot = Quaternion.Euler(0, 0, 0);
     public void updateTilt()
     {
         if (status == BelongTo.PlayerHand)
@@ -94,6 +95,10 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             }
             
             //transform.localRotation = Quaternion.Euler(deltaPos.y*80, deltaPos.x*10, 0);
+        }
+        else
+        {
+            transform.localRotation = Startrot;
         }
         }
     public bool canPlay()
