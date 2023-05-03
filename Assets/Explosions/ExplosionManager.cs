@@ -82,14 +82,18 @@ public class ExplosionManager : MonoBehaviour
         var t=i.GetComponentInChildren<TMPro.TextMeshProUGUI>();
         t.text=(block>0?"+":"-") +Mathf.Abs(block);
         i.transform.position=armorExplosionTarget.position;
-    }}
+            AudioManager.Instance.PlayOneShot(AudioManager.AudioEffects.shield);
+        }
+    }
     public void PlayArmorAnimation(int block,Vector3 pos){
         if(Mathf.Abs(block)>0){
         var i=Instantiate(armorExplosion);
         var t=i.GetComponentInChildren<TMPro.TextMeshProUGUI>();
         t.text=(block>0?"+":"-") +Mathf.Abs(block);
         i.transform.position=pos;
-    }}
+            AudioManager.Instance.PlayOneShot(AudioManager.AudioEffects.shield);
+        }
+    }
         public void PlayManaAnimation(int mana){
         if(Mathf.Abs(mana)>0){
         var i=Instantiate(manaExplosion);
