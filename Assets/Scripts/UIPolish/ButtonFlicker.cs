@@ -29,7 +29,7 @@ public class ButtonFlicker : MonoBehaviour
         {
             timer += Time.deltaTime * flickerSpeed; // increase the timer by delta time times flicker speed
             t = Mathf.Abs(Mathf.Sin(timer)); // get a value between 0 and 1 based on the sine of the timer
-            image.color = Color.Lerp(normalColor, flickerColor, t); // interpolate between normal and flicker colors based on t
+            //image.color = Color.Lerp(normalColor, flickerColor, t); // interpolate between normal and flicker colors based on t
             transform.localScale = Vector3.Lerp(minScale, maxScale, t);
         }
         else
