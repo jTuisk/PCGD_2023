@@ -80,21 +80,22 @@ IEnumerator shake(){
     Vector3 startScale=sprite.transform.localScale;
     float speed=20;
     for(int i=0;i<speed;i++){
-        sprite.transform.position=startPos-new Vector3(0,Mathf.Lerp(0,5,(float)((i*1.0)/speed)),0);
-        sprite.transform.localScale=startScale-new Vector3(0,Mathf.Lerp(0,0.2f,(float)((i*1.0)/speed)),0);
+        //sprite.transform.position=startPos-new Vector3(0,Mathf.Lerp(0,5,(float)((i*1.0)/speed)),0);
+        sprite.transform.localScale=startScale-new Vector3(-Mathf.Lerp(0, 0.2f, (float)((i * 1.0) / speed)), Mathf.Lerp(0,0.2f,(float)((i*1.0)/speed)),0);
         yield return null;
     }
     for(int i=0;i<speed;i++){
-        sprite.transform.position=startPos-new Vector3(0,Mathf.Lerp(0,5,1.0f-((float)(i*1.0/speed))),0);
-        sprite.transform.localScale=startScale-new Vector3(0,Mathf.Lerp(0,0.2f,1.0f-((float)(i*1.0/speed))),0);
+        //sprite.transform.position=startPos-new Vector3(0,Mathf.Lerp(0,5,1.0f-((float)(i*1.0/speed))),0);
+        sprite.transform.localScale=startScale-new Vector3(Mathf.Lerp(0,0.2f,1.0f-((float)(i*1.0/speed))), -Mathf.Lerp(0, 0.2f, 1.0f - ((float)(i * 1.0 / speed))), 0);
         yield return null;
     }
 }
     public void takeDamage(int amount) {
         if(amount>0){
             StartCoroutine("shake");
+            CameraEffectManager._instance.shake();
             //Instantiate(DamageText).GetComponent<DamageText>().changeTextString(""+(amount*EnemyDamageModifier-block));
-            ExplosionManager.Instance.PlaySwordAnimation((int)(amount*EnemyDamageModifier-block),new Vector3(0,0,0));
+            ExplosionManager.Instance.PlaySwordAnimation((int)(amount*EnemyDamageModifier-block),transform.position-new Vector3(5f,0,0));
         }else{
             ExplosionManager.Instance.PlayHealthAnimation((int)(-amount*EnemyDamageModifier),new Vector3(0,0,0));
         }

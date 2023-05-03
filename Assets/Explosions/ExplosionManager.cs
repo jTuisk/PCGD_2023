@@ -57,6 +57,7 @@ public class ExplosionManager : MonoBehaviour
         var t=i.GetComponentInChildren<TMPro.TextMeshProUGUI>();
         t.text=("-") +Mathf.Abs(damage);
         i.transform.position=heartExplosionTarget.position;
+            AudioManager.Instance.PlayOneShot(AudioManager.AudioEffects.dealDamage);
     }}
     public void PlaySwordAnimation(int damage,Vector3 pos){
         if(Mathf.Abs(damage)>0){
@@ -64,7 +65,9 @@ public class ExplosionManager : MonoBehaviour
         var t=i.GetComponentInChildren<TMPro.TextMeshProUGUI>();
         t.text=("-") +Mathf.Abs(damage);
         i.transform.position=pos;
-    }}
+        AudioManager.Instance.PlayOneShot(AudioManager.AudioEffects.dealDamage);
+        }
+    }
         public void PlayHealthAnimation(int damage,Vector3 pos){
         if(Mathf.Abs(damage)>0){
         var i=Instantiate(heartExplosion);
