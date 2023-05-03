@@ -124,7 +124,9 @@ public class Intent : Card
     }
     // Update is called once per frame
     void Update()
-    {       
+    {
+
+        updateState();
         UpdateDamageText();
     }
 }

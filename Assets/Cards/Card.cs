@@ -393,7 +393,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public void OnPointerExit(PointerEventData eventData)
     {
         hovered = false;
-        //CardHandler.Instance.RemoveCurrentFocusedCard();
+        CardHandler.Instance.RemoveCurrentFocusedCard();
         //DisplayOnPointerExit(eventData);
     }
 
@@ -489,7 +489,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             }   
             }else if (!ChangeState)
         {
-            CardHandler.Instance.RemoveCurrentFocusedCard();
+            //CardHandler.Instance.RemoveCurrentFocusedCard();
             DisplayOnPointerExit(null);
             ChangeState = true;
         }
