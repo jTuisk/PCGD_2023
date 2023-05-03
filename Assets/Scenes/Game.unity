@@ -3873,7 +3873,7 @@ MonoBehaviour:
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   flickerColor: {r: 1, g: 1, b: 1, a: 0.6509804}
   Flickering: 1
-  maxScale: {x: 1.3, y: 1.3, z: 1.3}
+  maxScale: {x: 1.11803, y: 1.11803, z: 1.11803}
 --- !u!1 &1396521910
 GameObject:
   m_ObjectHideFlags: 0
@@ -5419,7 +5419,7 @@ MonoBehaviour:
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   flickerColor: {r: 1, g: 1, b: 1, a: 0.8352941}
   Flickering: 1
-  maxScale: {x: 1.3, y: 1.3, z: 1.3}
+  maxScale: {x: 1.11803, y: 1.11803, z: 1.11803}
 --- !u!1 &2061986644
 GameObject:
   m_ObjectHideFlags: 0
@@ -5840,7 +5840,7 @@ MonoBehaviour:
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   flickerColor: {r: 1, g: 1, b: 1, a: 0.79607844}
   Flickering: 1
-  maxScale: {x: 1.3, y: 1.3, z: 1.3}
+  maxScale: {x: 1.11803, y: 1.11803, z: 1.11803}
 --- !u!1 &2108426446
 GameObject:
   m_ObjectHideFlags: 0
