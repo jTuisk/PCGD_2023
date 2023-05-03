@@ -309,4 +309,9 @@ IEnumerator shake(){
         }
         sprite.transform.position=startpos;
     }
+    IEnumerator stunnedAnimation()
+    {
+        //Anticipation
+        yield return 0;
+    }
 }

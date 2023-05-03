@@ -4663,6 +4663,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1660827336}
   m_CullTransparentMesh: 1
+--- !u!1 &1715163332
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1715163333}
+  m_Layer: 0
+  m_Name: StunAnimationTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1715163333
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715163332}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -919.7, y: -478.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1903212949}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1734335229
 GameObject:
   m_ObjectHideFlags: 0
@@ -4982,6 +5013,8 @@ MonoBehaviour:
   armorExplosionTarget: {fileID: 838721074}
   manaExplosion: {fileID: 7065928661677174765, guid: 0c07bb88ab97daeebbb42889b647d6f9, type: 3}
   manaExplosionTarget: {fileID: 1293751137}
+  StunAnimation: {fileID: 2332050747790252199, guid: cd9c7e6d08411d140b7b0d5e24c95d4a, type: 3}
+  StunAnimationTarget: {fileID: 1715163333}
 --- !u!4 &1903212949
 Transform:
   m_ObjectHideFlags: 0
@@ -4993,7 +5026,8 @@ Transform:
   m_LocalPosition: {x: 910.5, y: 490.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1715163333}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

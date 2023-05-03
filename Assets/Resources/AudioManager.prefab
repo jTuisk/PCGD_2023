@@ -315,6 +315,7 @@ MonoBehaviour:
   getManaAudioEffect: {fileID: 8300000, guid: 2061c5d9d4748ea459f6e3b0392f0e0c, type: 3}
   loseManaAudioEffect: {fileID: 8300000, guid: 4c996ae232a07734db5f161d78a6faa2, type: 3}
   shuffleDeckAudioEffect: {fileID: 8300000, guid: 1753f1837cf3bbe04999c5373d28639e, type: 3}
+  stunEffect: {fileID: 8300000, guid: 8cbb0d39d840f1641838a128537ef0b7, type: 3}
   battleBGM: {fileID: 8300000, guid: dcbf88d3ed3e547689fe6f2c17e29b32, type: 3}
   eventCardDraw: {fileID: 8300000, guid: 54614f55684bdc086bc7b7c5c6f6832e, type: 3}
   eventCardSlide: {fileID: 8300000, guid: 26228d20c1933974e9d7d3d75f892881, type: 3}

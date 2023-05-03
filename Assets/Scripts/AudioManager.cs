@@ -23,6 +23,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip getManaAudioEffect;
     public AudioClip loseManaAudioEffect;
     public AudioClip shuffleDeckAudioEffect;
+    public AudioClip stunEffect;
 
     public AudioClip battleBGM; 
 
@@ -40,7 +41,7 @@ public class AudioManager : MonoBehaviour
     [HideInInspector]
     public enum AudioEffects {exploreCard, flipCard, playCard, 
         healSelf, getMana, loseMana, dealDamage, 
-        shuffleDeck};
+        shuffleDeck,stun};
 
     public void PlayOneShot(AudioEffects audio)
     {
@@ -86,6 +87,11 @@ public class AudioManager : MonoBehaviour
                 sfxAudioSource.PlayOneShot(shuffleDeckAudioEffect);
                 break;
             }
+            case (AudioEffects.stun):
+                {
+                    sfxAudioSource.PlayOneShot(stunEffect);
+                    break;
+                }
             default: break;
         }
     }

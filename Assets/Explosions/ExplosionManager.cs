@@ -24,6 +24,9 @@ public class ExplosionManager : MonoBehaviour
     public Transform armorExplosionTarget;
     public GameObject manaExplosion;
     public Transform manaExplosionTarget;
+
+    public GameObject StunAnimation;
+    public Transform StunAnimationTarget;
     public void playCard(Card card){
         if(card.block!=0){
             PlayArmorAnimation(card.block);
@@ -31,6 +34,13 @@ public class ExplosionManager : MonoBehaviour
         if(card.magic!=0){
             PlayManaAnimation(card.magic);
         }
+    }
+    public void PlayStunAnimation()
+    {
+            var i = Instantiate(StunAnimation);
+            i.transform.position = StunAnimationTarget.position;
+        AudioManager.Instance.PlayOneShot(AudioManager.AudioEffects.stun);
+        
     }
     public void PlayHealthAnimation(int damage){
         if(Mathf.Abs(damage)>0){
