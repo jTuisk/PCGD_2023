@@ -2053,6 +2053,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardTag: Card
   cardScaleInEnermyDeck: 0.3
+  heldCard: {fileID: 0}
   cardScaleInEnermyDeckWhenHovering: 1.5
   cardScaleInPlayerHandWhenHovering: 1.2
   IntentTipPanel: {fileID: 4233883916310150930, guid: 3c052fac7305ccf99b412ab59e25a6c1, type: 3}
@@ -3889,7 +3890,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1396521911
 RectTransform:
   m_ObjectHideFlags: 0
