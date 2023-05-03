@@ -12,7 +12,7 @@ public class CardHandler : MonoBehaviour
     private Card currentFocusedCard; // Hovered by mouse
     private GameObject currentFocusedCardObj;
     public float cardScaleInEnermyDeck = 0.3f;
-
+    public Card heldCard;
     public float cardScaleInEnermyDeckWhenHovering = 1.5f;
     public float cardScaleInPlayerHandWhenHovering = 1.2f;
 

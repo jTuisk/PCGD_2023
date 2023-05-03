@@ -77,7 +77,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         {
             Vector3 deltaPos = prevPos - transform.position;
             float tiltX = Mathf.Max(-tiltDept,Mathf.Min(tiltDept, -deltaPos.y * tiltFactor));
-            float tiltZ = Mathf.Max(-tiltDept, Mathf.Min(tiltDept, deltaPos.x * tiltFactor));
+            float tiltZ = Mathf.Max(-tiltDept*2f, Mathf.Min(tiltDept*2f, deltaPos.x * tiltFactor*2f));
 
             // create a quaternion from the tilt angles
             Quaternion tilt = Quaternion.Euler(tiltX, tiltZ, 0);
@@ -318,6 +318,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     Vector3 prevPos=new Vector3(0,0,0);
     void Update()
     {
+        updateState();
         updateTilt();
         prevPos = transform.position;
         if (this.transform.parent != null) {
@@ -384,14 +385,16 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        CardHandler.Instance.SetCurrentFocusedCard(this);
-        DisplayOnPointerEnter(eventData);
-        PlayAudioOnPointerEnter(eventData);
+        hovered = true;
+        //CardHandler.Instance.SetCurrentFocusedCard(this);
+        //DisplayOnPointerEnter(eventData);
+        //PlayAudioOnPointerEnter(eventData);
     }
     public void OnPointerExit(PointerEventData eventData)
     {
-        CardHandler.Instance.RemoveCurrentFocusedCard();
-        DisplayOnPointerExit(eventData);
+        hovered = false;
+        //CardHandler.Instance.RemoveCurrentFocusedCard();
+        //DisplayOnPointerExit(eventData);
     }
 
 
@@ -471,4 +474,28 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                                 + BattleCardData.effectDescriptor;
         
     }
+
+
+        bool hovered=false;
+        bool ChangeState=true;
+        public void updateState() {
+            if (hovered || CardHandler.Instance.heldCard == this) {
+            if (ChangeState)
+            {
+                CardHandler.Instance.SetCurrentFocusedCard(this);
+                DisplayOnPointerEnter(null);
+                PlayAudioOnPointerEnter(null);
+                ChangeState = false;
+            }   
+            }else if (!ChangeState)
+        {
+            CardHandler.Instance.RemoveCurrentFocusedCard();
+            DisplayOnPointerExit(null);
+            ChangeState = true;
+        }
+        }
+
+
+
+
 }

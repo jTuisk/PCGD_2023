@@ -49,6 +49,7 @@ public class HandOrganizer : MonoBehaviour
 
     void Update()
     {
+        CardHandler.Instance.heldCard = null;
         if (timer > 0)
             timer -= Time.deltaTime;
 
@@ -81,6 +82,14 @@ public class HandOrganizer : MonoBehaviour
                 {
                     child.position = mousepos;
                 }
+
+
+                CardHandler.Instance.heldCard = child.gameObject.GetComponent<Card>();
+                //var scale = CardHandler.Instance.cardScaleInPlayerHandWhenHovering;
+                //child.transform.localScale = new Vector3(scale, scale, scale);
+               // child.gameObject.GetComponentInChildren<Canvas>().sortingOrder = 20;
+            
+            
             }
             else
             {
