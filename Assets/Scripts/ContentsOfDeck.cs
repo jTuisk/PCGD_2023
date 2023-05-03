@@ -376,12 +376,12 @@ public class ContentsOfDeck : MonoBehaviour
             case DeckTask.selectStartDeck:
             case DeckTask.removeCardFromDeck:
             case DeckTask.discardPileToHand:
-                _closeButton.SetActive(false);
+                //_closeButton.SetActive(false);
                 _actionButton.SetActive(true);
                 break;
 
             default:
-                _closeButton.SetActive(true);
+                //_closeButton.SetActive(true);
                 _actionButton.SetActive(false);
                 break;
         }
