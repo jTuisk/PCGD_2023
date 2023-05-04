@@ -199,7 +199,7 @@ public class AudioManager : MonoBehaviour
         SetDefaultVolumeValue("MusicVol");
         SetDefaultVolumeValue("SFXVol");
     }
-    float DecibelToLinear(float decibel)
+    public float DecibelToLinear(float decibel)
     {
         return Mathf.Pow(10f, decibel / 20f);
     }
