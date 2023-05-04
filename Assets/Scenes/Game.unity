@@ -1793,6 +1793,7 @@ MonoBehaviour:
   enemyGO: {fileID: 0}
   HighlightColor: {r: 1, g: 0, b: 0, a: 1}
   timer: 1
+  displayedCards: []
 --- !u!1 &682821118
 GameObject:
   m_ObjectHideFlags: 0

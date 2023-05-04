@@ -8,6 +8,7 @@ public class StatusAnimator : MonoBehaviour
     public List<StatusVisual> statusImages=new List<StatusVisual>();
     public GameObject StatusObjectPrefab;
     public Transform enemyStatusPanel;
+     int Rowheight=3;
      void Start()
      {
          StartCoroutine(LateStart(0.1f));
@@ -81,17 +82,31 @@ return (NonLinInterpolationUtil.Interpolate((t1/tmax),NonLinInterpolationUtil.Ea
         t1+=Time.deltaTime;
         int index=0;
         int enemyIndex=0;
-        foreach(var i in statusImages){
+        int enemyimages = 0;
+        int images = 0;
+        foreach (var i in statusImages)
+        {
+            if (i.stat.targetsEnemy)
+            {
+                enemyimages++;
+            }
+            else
+            {
+                images++;
+            }
+        }
+            foreach (var i in statusImages){
             var y=(i.transform.position.y-transform.position.y);
             y=Bounce(y);
             //Debug.Log(y);
             if (!i.stat.targetsEnemy)
             {
-                i.transform.position = new Vector3(transform.position.x - ((statusImages.Count / 2.0f) * distance) + (index * distance), transform.position.y + y, transform.position.z);
+                i.transform.position = new Vector3((transform.position.x - ((Mathf.Min(3, images) / 2.0f) * distance)) + ((index % 3) * distance), (index / 3) * Rowheight + transform.position.y + y, transform.position.z);
+                //i.transform.position = new Vector3(transform.position.x - (((images%3 )/ 2.0f) * distance) + (index * distance), (index/3)*distance+transform.position.y + y, transform.position.z);
                 index++;
             }
             else {
-                i.transform.position = new Vector3(enemyStatusPanel.position.x - ((statusImages.Count / 2.0f) * distance) + (enemyIndex * distance), enemyStatusPanel.position.y + y, enemyStatusPanel.position.z);
+                i.transform.position = new Vector3((enemyStatusPanel.position.x - ((Mathf.Min(3,enemyimages) / 2.0f) * distance)) + ((enemyIndex % 3) * distance), (enemyIndex / 3) * Rowheight + enemyStatusPanel.position.y+y , enemyStatusPanel.position.z);
                 enemyIndex++;
             }
         }
