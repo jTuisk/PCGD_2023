@@ -85,6 +85,7 @@ public class ContentsOfDeck : MonoBehaviour
         HandlePlayerInput();
         UpdateUIText();
         HandleActionButton();
+        updatePosition();
     }
 
     private void GetCardsInGame()
@@ -128,7 +129,7 @@ public class ContentsOfDeck : MonoBehaviour
             DisplayCards(finalDeck);
         }*/
     }
-
+    [SerializeField]List<GameObject> displayedCards = new List<GameObject>();
     private void DisplayListOfCards(List<GameObject> listOfCards)
     {
         float cardZvalue = 0f;
@@ -149,12 +150,38 @@ public class ContentsOfDeck : MonoBehaviour
                     break;
 
                 GameObject cardGO = listOfCards[cardIndex];
+                displayedCards.Add(cardGO);
                 Vector3 cardFinalPosition = new Vector3(gridStartPosition.x + (j * _columnWidth), currentRowPosition, cardZvalue);
                 cardGO.transform.position = cardFinalPosition;
             }
         }
     }
+    Vector2 gridOffset = new Vector2(0,0);
+    public void updatePosition()
+    {
+        float cardZvalue = 0f;
 
+        Vector2 gridStartPosition = _gridStartPosition+gridOffset;
+
+        int totalRows = displayedCards.Count / _numbersOfCardsInRow + 1;
+
+        for (int i = 0; i < totalRows; i++)
+        {
+            float currentRowPosition = gridStartPosition.y - (i * _rowHeight);
+
+            for (int j = 0; j < _numbersOfCardsInRow; j++)
+            {
+                int cardIndex = i * _numbersOfCardsInRow + j;
+
+                if (cardIndex >= displayedCards.Count)
+                    break;
+
+                GameObject cardGO = displayedCards[cardIndex];
+                Vector3 cardFinalPosition = new Vector3(gridStartPosition.x + (j * _columnWidth), currentRowPosition, cardZvalue);
+                cardGO.transform.position = cardFinalPosition;
+            }
+        }
+    } 
     private List<GameObject> GetHandCards()
     {
         List<GameObject> handCards = new List<GameObject>();
@@ -218,11 +245,40 @@ public class ContentsOfDeck : MonoBehaviour
             enemyGO.SetActive(disable);
         }
     }
-
+    private bool mouseHeldDown = false;
+    Vector3 prevMousepos;
     private void HandlePlayerInput()
     {
+        float totalRowHeight = (displayedCards.Count / _numbersOfCardsInRow + 1) * _rowHeight;
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            mouseHeldDown = true;
+            Vector3 mousePos = Input.mousePosition;
+            // Set the z value to 10
+            mousePos.z = 10f;
+            Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
+            prevMousepos = worldPos;
+
+        }
+
+        if (mouseHeldDown)
+        {
+            Vector3 mousePos = Input.mousePosition;
+            // Set the z value to 10
+            mousePos.z = 10f;
+            Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
+
+
+
+            gridOffset.y = Mathf.Clamp(gridOffset.y-(prevMousepos - worldPos).y,0,totalRowHeight);
+
+            prevMousepos = worldPos;
+        }
+        gridOffset.y = Mathf.Clamp(gridOffset.y - Input.mouseScrollDelta.y, 0, totalRowHeight);
+
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
+            mouseHeldDown = false;
             if (_currentTask != DeckTask.view)
             {
                 PointerEventData eventData = new PointerEventData(EventSystem.current);
@@ -248,10 +304,14 @@ public class ContentsOfDeck : MonoBehaviour
                 FinishDeckTask();
             }
         }
+
     }
 
     public void FinishDeckTask()
     {
+        gridOffset.y = 0;
+        mouseHeldDown = false;
+        displayedCards = new List<GameObject>();
         Debug.Log("FinishTask: " + _currentTask);
         switch (_currentTask)
         {
