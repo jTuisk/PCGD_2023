@@ -61,7 +61,7 @@ public class OptionsPanel : MonoBehaviour
     {
         masterSliderText.text = Mathf.RoundToInt(masterSlider.value).ToString();
         var mixerVolValue = masterSlider.value - 80;
-        mainMixer.SetFloat("MasterVol", mixerVolValue);
+        mainMixer.SetFloat("MasterVol", AudioManager.Instance.LinearToDecibel((mixerVolValue + 80) / 100));
         PlayerPrefs.SetFloat("MasterVol", mixerVolValue);
     }
 
@@ -69,7 +69,7 @@ public class OptionsPanel : MonoBehaviour
     {
         musicSliderText.text = Mathf.RoundToInt(musicSlider.value).ToString();
         var mixerVolValue = musicSlider.value - 80;
-        mainMixer.SetFloat("MusicVol", mixerVolValue);
+        mainMixer.SetFloat("MusicVol", AudioManager.Instance.LinearToDecibel((mixerVolValue+80)/100));
         PlayerPrefs.SetFloat("MusicVol", mixerVolValue);
     }
 
@@ -77,7 +77,7 @@ public class OptionsPanel : MonoBehaviour
     {
         sfxSliderText.text = Mathf.RoundToInt(sfxSlider.value).ToString();
         var mixerVolValue = sfxSlider.value - 80;
-        mainMixer.SetFloat("SFXVol", mixerVolValue);
+        mainMixer.SetFloat("SFXVol", AudioManager.Instance.LinearToDecibel((mixerVolValue + 80) / 100));
         PlayerPrefs.SetFloat("SFXVol", mixerVolValue);
     }
 

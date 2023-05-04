@@ -199,17 +199,24 @@ public class AudioManager : MonoBehaviour
         SetDefaultVolumeValue("MusicVol");
         SetDefaultVolumeValue("SFXVol");
     }
-
+    float DecibelToLinear(float decibel)
+    {
+        return Mathf.Pow(10f, decibel / 20f);
+    }
+    public float LinearToDecibel(float linear)
+    {
+        return  20f*Mathf.Log10(linear);
+    }
     private void SetDefaultVolumeValue(string name)
     {
         if(PlayerPrefs.HasKey(name))
         {
-            mainMixer.SetFloat(name, PlayerPrefs.GetFloat(name));
+            mainMixer.SetFloat(name, AudioManager.Instance.LinearToDecibel((PlayerPrefs.GetFloat(name) + 80) / 100));
         }
         else
         {
             var mixerVolValue = -10f;
-            mainMixer.SetFloat(name, mixerVolValue);
+            mainMixer.SetFloat(name, AudioManager.Instance.LinearToDecibel((mixerVolValue + 80) / 100));
             PlayerPrefs.SetFloat(name, mixerVolValue);
         }
     }
