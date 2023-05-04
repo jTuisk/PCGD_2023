@@ -250,6 +250,7 @@ public class ContentsOfDeck : MonoBehaviour
     private void HandlePlayerInput()
     {
         float totalRowHeight = (displayedCards.Count / _numbersOfCardsInRow + 1) * _rowHeight;
+        totalRowHeight = Mathf.Max(0, totalRowHeight - (2.5f * _rowHeight)  );
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             mouseHeldDown = true;
