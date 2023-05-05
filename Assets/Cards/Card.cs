@@ -36,6 +36,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public Color PlayHighlightLineColor;
     public Color ActiveHighlightLineColor;
     public Image CardHighlightLineImage;
+    public Image InnerCardHighlightLineImage;
     public CanvasGroup cg;
     enum mode  {DEFAULT,PLAY,ACTIVE,PLAYABLE}
     mode outlineMode= mode.DEFAULT;
@@ -49,18 +50,22 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             case mode.PLAY:
                 CardHighlightLineImage.color = PlayHighlightLineColor;
                 cg.alpha = PlayHighlightLineColor.a;
+                InnerCardHighlightLineImage.color = PlayHighlightLineColor;
                 break;
             case mode.ACTIVE:
                 CardHighlightLineImage.color = ActiveHighlightLineColor;
                 cg.alpha = ActiveHighlightLineColor.a;
+                InnerCardHighlightLineImage.color = ActiveHighlightLineColor;
                 break;
             case mode.PLAYABLE:
                 CardHighlightLineImage.color = PlayableHighlightLineColor;
                 cg.alpha = PlayableHighlightLineColor.a;
+                InnerCardHighlightLineImage.color = PlayableHighlightLineColor;
                 break;
             case mode.DEFAULT:
                 CardHighlightLineImage.color = DefaultHighlightLineColor;
                 cg.alpha = DefaultHighlightLineColor.a;
+                InnerCardHighlightLineImage.color = DefaultHighlightLineColor;
                 //CardHighlightLineImage.transform.localScale = Defaultsize;
                 break;
         }
@@ -441,6 +446,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             if(CardHighlightLine.TryGetComponent<Image>(out image))
             {
                 image.color = newColor;
+                InnerCardHighlightLineImage.color = newColor;
             }
         }
     }
