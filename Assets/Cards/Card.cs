@@ -83,6 +83,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             Vector3 deltaPos = prevPos - transform.position;
             float tiltX = Mathf.Max(-tiltDept,Mathf.Min(tiltDept, -deltaPos.y * tiltFactor));
             float tiltZ = Mathf.Max(-tiltDept*2f, Mathf.Min(tiltDept*2f, deltaPos.x * tiltFactor*2f));
+            //float tiltY = Mathf.Max(-tiltDept, Mathf.Min(tiltDept, deltaPos.x * tiltFactor ));
 
             // create a quaternion from the tilt angles
             Quaternion tilt = Quaternion.Euler(tiltX, tiltZ, 0);
@@ -105,6 +106,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         {
             transform.localRotation = Startrot;
         }
+        prevPos = transform.position;
         }
     public bool canPlay()
     {
