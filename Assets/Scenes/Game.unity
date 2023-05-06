@@ -3824,7 +3824,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 417463226}
         m_TargetAssemblyTypeName: Deck, Assembly-CSharp
-        m_MethodName: inBattleEndTurn
+        m_MethodName: EndTurnCoroutineStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -50,6 +50,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             case mode.PLAY:
                 CardHighlightLineImage.color = PlayHighlightLineColor;
                 cg.alpha = PlayHighlightLineColor.a;
+                
                 InnerCardHighlightLineImage.color = PlayHighlightLineColor;
                 break;
             case mode.ACTIVE:
@@ -462,6 +463,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             if (CardHighlightLine.TryGetComponent<CanvasGroup>(out canvasGroup))
             {
                 canvasGroup.alpha = newAlpha;
+                InnerCardHighlightLineImage.color = new Color(InnerCardHighlightLineImage.color.r, InnerCardHighlightLineImage.color.g, InnerCardHighlightLineImage.color.b,newAlpha);
             }
         }
     }

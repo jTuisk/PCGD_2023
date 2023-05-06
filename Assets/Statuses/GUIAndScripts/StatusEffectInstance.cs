@@ -16,6 +16,7 @@ public class StatusEffectInstance
     public Sprite icon;
     public bool ISDOTMOD;
     public string desc;
+    public bool triggered = false;
     private static bool ActiveTargetsEnemy; 
     public bool targetsEnemy;
     public void trigger()

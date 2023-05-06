@@ -14,7 +14,7 @@ public class InputManager : MonoBehaviour
     void Update() {
 
         if (Deck.Instance.inBattle&&Deck.Instance.enemyTurn&&Input.GetKeyDown(KeyCode.Space)) { Debug.Log("Space key was pressed.");
-            Deck.Instance.inBattleEndTurn();
+            StartCoroutine(Deck.Instance.inBattleEndTurn());
         }
 
 

@@ -77,6 +77,7 @@ return (NonLinInterpolationUtil.Interpolate((t1/tmax),NonLinInterpolationUtil.Ea
         
         }
     }
+    Vector3 V1 = new Vector3(1, 1, 1);
     void Update()
     {
         t1+=Time.deltaTime;
@@ -99,6 +100,14 @@ return (NonLinInterpolationUtil.Interpolate((t1/tmax),NonLinInterpolationUtil.Ea
             var y=(i.transform.position.y-transform.position.y);
             y=Bounce(y);
             //Debug.Log(y);
+            if (i.stat.triggered)
+            {
+                i.transform.localScale += Time.deltaTime*Vector3.one;
+            }
+            else
+            {
+                i.transform.localScale = Vector3.one;
+            }
             if (!i.stat.targetsEnemy)
             {
                 i.transform.position = new Vector3((transform.position.x - ((Mathf.Min(3, images) / 2.0f) * distance)) + ((index % 3) * distance), (index / 3) * Rowheight + transform.position.y + y, transform.position.z);

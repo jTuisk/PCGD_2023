@@ -300,14 +300,18 @@ public class Deck : MonoBehaviour
             Hp = MaxHp;
         }
     }
-    
-    public void inBattleEndTurn()
+    public void EndTurnCoroutineStart()
+    {
+        StartCoroutine(inBattleEndTurn());
+    }
+    public IEnumerator inBattleEndTurn()
     {
         enemyTurn=false;
         enemy.block=0;
         PlayerDamageModifier = 1;
         enemy.Lucky=false;
-        ApplyStatusEffects(StatusActivation.ENEMYTURNSTART);
+        yield return ApplyStatusEffects(StatusActivation.DOTMOD);
+        yield return ApplyStatusEffects(StatusActivation.ENEMYTURNSTART);
         statusCleanup();
         PutHandInDiscardPile();
         //run at the end of the turn
@@ -333,7 +337,7 @@ public class Deck : MonoBehaviour
             
             }
 
-            Invoke("inBattleStartTurn",1.5f);
+            StartCoroutine(inBattleStartTurn());
             //inBattleStartTurn();
             Debug.Log("HP: " + Hp);
             
@@ -558,21 +562,38 @@ public class Deck : MonoBehaviour
 internal bool enemyTurn=true;
 
 public enum StatusActivation{PLAYERTURNSTART,ENEMYTURNSTART,DOTMOD}
-public void ApplyStatusEffects(StatusActivation StA){
+public IEnumerator ApplyStatusEffects(StatusActivation StA){
             
             for( int i=0; i<statuses.Count; i++){
             var status = statuses[i];
             if(StA==StatusActivation.DOTMOD){
             
             if(status.ISDOTMOD){
-                status.trigger();
+                    for (int j = 0; j < 200; j++)
+                    {
+
+                        status.triggered = true;
+                        yield return 0;
+                    }
+                    status.triggered = false;
+                    status.trigger();
+
+
             
             }}
             if(StA==StatusActivation.ENEMYTURNSTART){
             
             if(status.targetsEnemy&&!status.ISDOTMOD){
-                status.trigger();
-            
+                    for (int j = 0; j < 200; j++)
+                    {
+
+                        status.triggered = true;
+                        yield return 0;
+                    }
+                    status.triggered = false;
+
+                    status.trigger();
+                        
             }
 
 
@@ -580,7 +601,14 @@ public void ApplyStatusEffects(StatusActivation StA){
             if(StA==StatusActivation.PLAYERTURNSTART&&!status.ISDOTMOD){
             if (!status.targetsEnemy)
             {
-                status.trigger();
+                    for (int j = 0; j < 200; j++)
+                    {
+
+                        status.triggered = true;
+                        yield return 0;
+                    }
+                    status.triggered = false;
+                    status.trigger();
             }
 
 
@@ -596,32 +624,34 @@ public void statusCleanup(){
             }}
 }
 
-    public void inBattleStartTurn()
+    public IEnumerator inBattleStartTurn()
     {
 
-        enemyTurn=true;
+        
 
         reversed=false;
         gainAPOnExhaust=0;
         dotDamageMultiplier=1;
-        playerDotDamageMultiplier=1;
-        ApplyStatusEffects(StatusActivation.DOTMOD);
+
+
+        enemyTurn = true;
         if (enemy != null)
         {
 
             enemy.EnemyDamageModifier = 1;
-        }else{return;}
-        if(Deck.Instance.enemy.HP<=0){return;}
+        }else{yield break;}
+        if(Deck.Instance.enemy.HP<=0){yield break;}
         Lucky=false;        
         //run at the start of the turn
         DrawCardInHand(CardsDrawnAtStartOfTurn);
         actionPoints = MaxactionPoints;
-        ApplyStatusEffects(StatusActivation.PLAYERTURNSTART);
+        StartCoroutine(ApplyStatusEffects(StatusActivation.PLAYERTURNSTART));
+        playerDotDamageMultiplier = 1;
         if (stunned)
         {
             stunned = false;
-            inBattleEndTurn();
-            return;
+            StartCoroutine(inBattleEndTurn());
+            yield break;
         }
 
     }
