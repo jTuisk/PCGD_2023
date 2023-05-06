@@ -645,13 +645,12 @@ public void statusCleanup(){
         //run at the start of the turn
         DrawCardInHand(CardsDrawnAtStartOfTurn);
         actionPoints = MaxactionPoints;
-        StartCoroutine(ApplyStatusEffects(StatusActivation.PLAYERTURNSTART));
+        yield return StartCoroutine(ApplyStatusEffects(StatusActivation.PLAYERTURNSTART));
         playerDotDamageMultiplier = 1;
         if (stunned)
         {
             stunned = false;
             StartCoroutine(inBattleEndTurn());
-            yield break;
         }
 
     }
