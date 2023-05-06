@@ -15,6 +15,9 @@ public class HandOrganizer : MonoBehaviour
     public static float playHeight = -6f;
     // Called when the player draw a card from the deck, the card will then move from deck to hand
     public GameObject tpMessage;
+    public GameObject flyingcard;
+    public Transform discardpos;
+    
     /*void DrawACard()
     {
         //pick a card randomly from the deck (deck.BattleDeck)
@@ -111,7 +114,12 @@ public class HandOrganizer : MonoBehaviour
                         {
                             Deck.Instance.actionPoints -= (int)(card.actionCost*card.actionCostMultiplier);
                             card.Playcard();
+
                             if(!card.exaust){
+                                Instantiate(flyingcard);
+                                var f = flyingcard.GetComponent<FlyTo>();
+                                f.shakeTarget = discardpos;
+                                    f.target=discardpos.position;
                                 Deck.Instance.BattleDiscardPile.Add(card);
                             }else{
                                 Deck.Instance.ExaustPile.Add(card);

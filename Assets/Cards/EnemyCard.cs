@@ -41,8 +41,10 @@ public class EnemyCard : MonoBehaviour
 
     [Header("Others")]
     [SerializeField] bool autoUpdate = false;
+    Vector3 startpos ;
     void Start()
     {
+        startpos = sprite.transform.position;
         RepositionSprite();
         RescaleSprite();
         img =sprite.GetComponent<Image>();
@@ -277,7 +279,7 @@ IEnumerator shake(){
     }
     IEnumerator attackAnimation(){
         //Anticipation
-        Vector3 startpos=sprite.transform.position;
+        
         float time=0;
         while(time<attackAnimationDuration/3){
         time+=Time.deltaTime;

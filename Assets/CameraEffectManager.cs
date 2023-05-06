@@ -62,6 +62,41 @@ IEnumerator ScreenShake(float duration, float magnitude)
         transform.position = originalPos;
         transform.rotation = originalRot;
     }
+
+    public IEnumerator ObjectShake(Transform t,float duration, float magnitude)
+    {
+        Vector3 originalPos = t.transform.position;
+        Quaternion originalRot = t.transform.rotation;
+
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            // Generate a random offset
+            float x = Random.Range(-1f, 1f) * magnitude;
+            float y = Random.Range(-1f, 1f) * magnitude;
+            float z = Random.Range(-1f, 1f) * magnitude;
+
+            // Apply the offset to the camera position
+            t.transform.position = new Vector3(originalPos.x + x, originalPos.y + y, originalPos.z + z);
+
+            // Generate a random angle
+            float angle = Random.Range(-1f, 1f) * magnitude;
+
+            // Apply the angle to the camera rotation
+            t.transform.rotation = Quaternion.Euler(originalRot.eulerAngles + new Vector3(0f, 0f, angle));
+
+            // Update the elapsed time
+            elapsed += Time.deltaTime;
+
+            // Wait for the next frame
+            yield return null;
+        }
+
+        // Restore the original position and rotation of the camera
+        t.transform.position = originalPos;
+        t.transform.rotation = originalRot;
+    }
     // Update is called once per frame
     void Update()
     {

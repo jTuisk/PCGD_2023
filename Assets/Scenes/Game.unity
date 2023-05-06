@@ -860,9 +860,9 @@ RectTransform:
   m_Father: {fileID: 1829093436}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 816, y: 517}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -1104, y: -23}
   m_SizeDelta: {x: 1632, y: 1034}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &359755209
@@ -3737,6 +3737,37 @@ MonoBehaviour:
   tipToolPrefab: {fileID: 4248273751574209381, guid: a60aa9c1682c9a2439566d5f18be59f4, type: 3}
   displayText: Health Points
   canShow: 0
+--- !u!1 &1329050094
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1329050095}
+  m_Layer: 0
+  m_Name: DiscardPilepos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1329050095
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329050094}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -31.38, y: 4.29, z: -0.3256751}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1373997083
 GameObject:
   m_ObjectHideFlags: 0
@@ -4045,6 +4076,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tpMessage: {fileID: 7037418072275712077, guid: 740789ceaf16fa908b7c62c6a765ae71, type: 3}
+  flyingcard: {fileID: 4705737129328614810, guid: 52815a0c15612b946a205aac940c2a94, type: 3}
+  discardpos: {fileID: 1329050095}
   cardDistanceScalar: 0.75
   HitboxSize: 5
 --- !u!1 &1554494669
