@@ -234,6 +234,35 @@ IEnumerator shake(){
         float anim=NonLinInterpolationUtil.QuadraticBounce(ref idletime,idleMaxtime,ref idleDir);
         sprite.transform.localScale= new Vector3(creatureDataContainer.pictureScale.x, creatureDataContainer.pictureScale.y - anim*0.05f,creatureDataContainer.pictureScale.z); //creatureDataContainer.pictureScale.y
     }
+    
+    public IEnumerator Death()
+    {
+        for (int i = 0; i < 300; i++)
+        {
+            yield return 1;
+        }
+        Deck.Instance.enemy = null;
+        Deck.Instance.inBattle = false;
+        Deck.Instance.ResetDeck();
+
+        if (combatReward != null)
+        {
+            var combatRewardObj = Instantiate(combatReward);
+            combatRewardObj.GetComponent<CombatReward>().OnCreate(creatureDataContainer);
+
+            Deck.Instance.inReward = true;
+            Deck.Instance.eventVisible = true;
+        }
+        else if (postBattleEvent != null)
+        {
+            Instantiate(Deck.Instance.eventBase).GetComponent<EventCard>().CreateEventCard(postBattleEvent);
+            Deck.Instance.eventVisible = true;
+        }
+        Destroy(gameObject);
+        AudioManager.Instance.PlayDrawEventCardBGM();
+
+    }
+    bool dead = false;
     void Update()
     {
         reorganize();  //Remove after testing;
@@ -243,27 +272,11 @@ IEnumerator shake(){
         //Cange gamestate back to drawing event cards if player wins battle
         //REMOVE
         //text.text = damage + "\n" + HP;
-        if (HP <= 0&&Deck.Instance.enemyTurn)
+        if (HP <= 0&&Deck.Instance.enemyTurn&&!dead)
         {
-            Deck.Instance.enemy = null;
-            Deck.Instance.inBattle = false;
-            Deck.Instance.ResetDeck();
+            dead = true;
+            StartCoroutine(Death());
 
-            if(combatReward != null)
-            {
-                var combatRewardObj = Instantiate(combatReward);
-                combatRewardObj.GetComponent<CombatReward>().OnCreate(creatureDataContainer);
-
-                Deck.Instance.inReward = true;
-                Deck.Instance.eventVisible = true;
-            }
-            else if (postBattleEvent != null)
-            {
-                Instantiate(Deck.Instance.eventBase).GetComponent<EventCard>().CreateEventCard(postBattleEvent);
-                Deck.Instance.eventVisible = true;
-            }
-            Destroy(gameObject);
-            AudioManager.Instance.PlayDrawEventCardBGM();
         }
 
         if (autoUpdate)
