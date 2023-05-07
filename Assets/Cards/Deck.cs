@@ -318,12 +318,16 @@ public class Deck : MonoBehaviour
         if (enemy != null)
         {
             if(enemy.cards.Count!=0){
-                    if(!enemy.stunned&&enemy.HP>0){
-                        enemy.StartCoroutine("attackAnimation");
-                }
-                else
+                if (enemy.HP > 0)
                 {
-                    ExplosionManager.Instance.PlayStunAnimation();
+                    if (!enemy.stunned )
+                    {
+                        enemy.StartCoroutine("attackAnimation");
+                    }
+                    else
+                    {
+                        ExplosionManager.Instance.PlayStunAnimation();
+                    }
                 }
                 if (enemy.HP > 0)
                 {

@@ -505,6 +505,7 @@ MonoBehaviour:
   Lucky: 0
   damage: 0
   DamageText: {fileID: 7037418072275712077, guid: d26709527594e5e61903767d5a3e74cf, type: 3}
+  VictoryText: {fileID: 2091824725337701594, guid: 96647f6d6a1e4a84591866b7079450ea, type: 3}
   cards: []
   text: {fileID: 0}
   DeckSize: {fileID: 8672054049774407259}

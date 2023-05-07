@@ -13,6 +13,7 @@ public class EnemyCard : MonoBehaviour
     public bool Lucky=false;
     public int damage = 0;
     public GameObject DamageText;
+    public  GameObject VictoryText;
     public List<Card> cards;
     public TMPro.TextMeshProUGUI text; 
 
@@ -237,10 +238,14 @@ IEnumerator shake(){
     
     public IEnumerator Death()
     {
+        var victory=Instantiate(VictoryText);
+
         for (int i = 0; i < 300; i++)
         {
             yield return 1;
         }
+        Destroy(victory);
+
         Deck.Instance.enemy = null;
         Deck.Instance.inBattle = false;
         Deck.Instance.ResetDeck();
