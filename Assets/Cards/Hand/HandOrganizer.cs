@@ -53,6 +53,10 @@ public class HandOrganizer : MonoBehaviour
     void Update()
     {
         CardHandler.Instance.heldCard = null;
+        if (Deck.Instance.stunned||!Deck.Instance.enemyTurn)
+        {
+            return;
+        }
         if (timer > 0)
             timer -= Time.deltaTime;
 

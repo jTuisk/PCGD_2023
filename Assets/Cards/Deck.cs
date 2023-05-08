@@ -650,6 +650,7 @@ public void statusCleanup(){
         if(Deck.Instance.enemy.HP<=0){yield break;}
         Lucky=false;        
         //run at the start of the turn
+
         DrawCardInHand(CardsDrawnAtStartOfTurn);
         actionPoints = MaxactionPoints;
         yield return StartCoroutine(ApplyStatusEffects(StatusActivation.PLAYERTURNSTART));
