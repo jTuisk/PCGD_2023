@@ -19,6 +19,7 @@ public void init(StatusEffectInstance status,StatusAnimator animator){
     if(status.icon=null){
             statImage.sprite=defaultSprite;
         }
+        statImage.SetNativeSize();
 }
 
     // Update is called once per frame

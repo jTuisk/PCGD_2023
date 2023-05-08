@@ -70,7 +70,7 @@ public class ContentsOfDeck : MonoBehaviour
         }
         Instance = this;
     }
-
+    Vector3 titleStartPos;
     private void Start()
     {
         gameObject.SetActive(!hideAtStart);
@@ -84,7 +84,10 @@ public class ContentsOfDeck : MonoBehaviour
             {
                 DisplayCards(DeckTask.selectStartDeck, 7);
             }
+            titleStartPos = _titleTMP.transform.position;
         }
+
+
     }
 
     private void Update()
@@ -169,9 +172,8 @@ public class ContentsOfDeck : MonoBehaviour
         float cardZvalue = 0f;
 
         Vector2 gridStartPosition = _gridStartPosition+gridOffset;
-
         int totalRows = displayedCards.Count / _numbersOfCardsInRow + 1;
-
+        _titleTMP.transform.position = (Vector2)titleStartPos + gridOffset;
         for (int i = 0; i < totalRows; i++)
         {
             float currentRowPosition = gridStartPosition.y - (i * _rowHeight);

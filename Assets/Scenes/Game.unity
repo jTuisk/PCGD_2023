@@ -4081,7 +4081,7 @@ MonoBehaviour:
   tpMessage: {fileID: 7037418072275712077, guid: 740789ceaf16fa908b7c62c6a765ae71, type: 3}
   flyingcard: {fileID: 4705737129328614810, guid: 52815a0c15612b946a205aac940c2a94, type: 3}
   discardpos: {fileID: 1329050095}
-  cardDistanceScalar: 0.75
+  cardDistanceScalar: 0.8
   HitboxSize: 5
 --- !u!1 &1554494669
 GameObject:
@@ -4562,8 +4562,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 120
+  m_fontSizeBase: 120
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
