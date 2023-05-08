@@ -1037,7 +1037,8 @@ MonoBehaviour:
   ShowbossList: {fileID: 879904356}
   bossImage: {fileID: 8918279709535173016, guid: f4826b6d2b6476fb6a614b284f5bb7eb, type: 3}
   Bit1Final:
-  - {fileID: 11400000, guid: 8a691fe5a485be348b66845a3b4d7962, type: 2}
+  - {fileID: 11400000, guid: c0b6621080b53fa41b816fbc11713950, type: 2}
+  - {fileID: 11400000, guid: f42f8fb085b039b4582e9968f3f98dc8, type: 2}
   - {fileID: 11400000, guid: 7ff2c095b5bd9dd4c87e4e9b15d756c0, type: 2}
   - {fileID: 11400000, guid: 856adb58d203670c3ac6cbb4342d076b, type: 2}
   isbit1Final: 1
