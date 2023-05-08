@@ -38,11 +38,11 @@ public class AudioManager : MonoBehaviour
     public AudioClip winGameAudioClip;
 
     public AudioClip bossLaughter;
-
+    public AudioClip VictoryBeep;
     [HideInInspector]
     public enum AudioEffects {exploreCard, flipCard, playCard, 
         healSelf, getMana, loseMana, dealDamage, 
-        shuffleDeck,stun,shield};
+        shuffleDeck,stun,shield,VictoryBeeb};
 
     public void PlayOneShot(AudioEffects audio)
     {
@@ -98,6 +98,11 @@ public class AudioManager : MonoBehaviour
                     sfxAudioSource.PlayOneShot(shieldEffect);
                     break;
                 }
+            case (AudioEffects.VictoryBeeb):
+                {
+                    sfxAudioSource.PlayOneShot(VictoryBeep);
+                    break;
+                }
             default: break;
         }
     }
@@ -145,6 +150,10 @@ public class AudioManager : MonoBehaviour
     {
         musicAudioSource.Stop();
         musicAudioSource.PlayOneShot(winGameAudioClip);
+    }
+    public void stopMusic()
+    {
+        musicAudioSource.Stop();
     }
 
     public void PlayMainMenuBGM()

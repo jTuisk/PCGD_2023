@@ -326,3 +326,4 @@ MonoBehaviour:
   GameOverAudioClip: {fileID: 8300000, guid: df1498906f40c194b92cf4aa0bf706ac, type: 3}
   winGameAudioClip: {fileID: 8300000, guid: 9c07c9bb2cd71664e90d60dcdf36a211, type: 3}
   bossLaughter: {fileID: 8300000, guid: b9c42af1ede7fdc4f913677a2d1c99bd, type: 3}
+  VictoryBeep: {fileID: 8300000, guid: 5cbdc95a0185b874097cd3664e18b2c7, type: 3}

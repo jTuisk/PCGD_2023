@@ -235,13 +235,15 @@ IEnumerator shake(){
         float anim=NonLinInterpolationUtil.QuadraticBounce(ref idletime,idleMaxtime,ref idleDir);
         sprite.transform.localScale= new Vector3(creatureDataContainer.pictureScale.x, creatureDataContainer.pictureScale.y - anim*0.05f,creatureDataContainer.pictureScale.z); //creatureDataContainer.pictureScale.y
     }
-    
+
     public IEnumerator Death()
     {
         var victory=Instantiate(VictoryText);
-
+        AudioManager.Instance.stopMusic();
+        AudioManager.Instance.PlayOneShot(AudioManager.AudioEffects.VictoryBeeb);
         for (int i = 0; i < 300; i++)
         {
+            img.color = new Color(img.color.r, img.color.g, img.color.b,Mathf.Lerp(0,1,(300f-i)/300));
             yield return 1;
         }
         Destroy(victory);
