@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Gag Bubblegum
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: Electrify enemy for 6 turns
+  effectDescriptor: Apply Electrified to the enemy, dealing 1 Damage for 6 turns
   cardName: Gag Bubblegum
   Damage: 0
   block: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Double Trouble
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: Doubles the length of all status effects, Exhaust
+  effectDescriptor: Doubles the length of ALL status effects, Exhaust
   cardName: Double Trouble
   Damage: 0
   block: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Four Leaf Clover
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: You become lucky for three turns, Exhaust
+  effectDescriptor: You become Lucky for 3 turns, Exhaust
   cardName: Four Leaf Clover
   Damage: 0
   block: 0

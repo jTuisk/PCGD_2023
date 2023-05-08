@@ -76,7 +76,14 @@ public class ContentsOfDeck : MonoBehaviour
         gameObject.SetActive(!hideAtStart);
         if (!hideAtStart)
         {
-            DisplayCards(DeckTask.selectStartDeck, 7);
+            if (Deck.Instance.isbit1Final)
+            {
+                DisplayCards(DeckTask.selectStartDeck, 5);
+            }
+            else
+            {
+                DisplayCards(DeckTask.selectStartDeck, 7);
+            }
         }
     }
 

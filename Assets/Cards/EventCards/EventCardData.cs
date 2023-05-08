@@ -89,7 +89,9 @@ public class EventCardData : ScriptableObject
             Deck.Instance.mana = 0;
     }
     public void StartSelectDeck(int n){
+
         ContentsOfDeck.Instance.DisplayCards(ContentsOfDeck.DeckTask.selectStartDeck, (uint) n);
+    
     }
 
     public void RemoveCard(int n){

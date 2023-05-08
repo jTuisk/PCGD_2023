@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Recovery Drink
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: Discarded exhaust cards return to deck, 2x card costs, Exhaust
+  effectDescriptor: Recover exhausted cards, double the cost of cards in your hand,
+    Exhaust
   cardName: Recovery Drink
   Damage: 0
   block: 0
