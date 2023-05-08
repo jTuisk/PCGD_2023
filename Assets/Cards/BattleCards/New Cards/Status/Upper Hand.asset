@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Upper Hand
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: ' and extra 4 damage to enemy if they are stunned'
+  effectDescriptor: ' and an extra 4 Damage if the enemy is stunned'
   cardName: Upper Hand
   Damage: 2
   block: 0
@@ -59,8 +59,11 @@ MonoBehaviour:
     Reverse: 0
     Vulnerable: 0
     Other: 0
+    combo: 0
     DamageOverride: 0
+    HealOverride: 0
     DamageOverrideString: 
+    HealOverrideString: 
   requiredCards: []
   specialEffectEvent: {fileID: 0}
   CardImage: {fileID: 21300000, guid: 52d808f39ab0a934a88ef908efeeb8ef, type: 3}

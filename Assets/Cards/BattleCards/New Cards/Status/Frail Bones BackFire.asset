@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Frail Bones BackFire
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: Add vulnerability status to DoT to you
+  effectDescriptor: dd vulnerability status to DoT to youu
   cardName: Frail Bones
   Damage: 0
   block: 0
