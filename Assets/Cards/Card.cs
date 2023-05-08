@@ -120,8 +120,15 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public bool conditionsFulfilled() { 
         foreach(BattleCardMenuItem i in conditionalEffects) {
             bool exec = true;
-            foreach(BattleCondition condition in i.conditions)
+            foreach(Effect j in i.ConditionalEffects) {
+                if (j.possibility<0.99&& !Deck.Instance.Lucky)
+                {
+                    return false;
+                }
+            }
+            foreach (BattleCondition condition in i.conditions)
             {
+
                 
                 if (!condition.Evaluate()) {
                     exec = false;

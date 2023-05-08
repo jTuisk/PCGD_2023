@@ -35,7 +35,7 @@ public class HandOrganizer : MonoBehaviour
     }*/
 
     // Start is called before the first frame update
-    public float cardDistanceScalar=0.5f;
+    public float cardDistanceScalar=10.8f;
     void Start()
     {
         gameControl = Object.FindObjectOfType<GameControl>();
