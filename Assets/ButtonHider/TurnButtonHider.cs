@@ -12,7 +12,8 @@ public class TurnButtonHider : MonoBehaviour
     public GameObject discardPileImage;
     public Image EventdeckImage;
     public TMPro.TextMeshProUGUI deckText;
-
+    public GameObject AP;
+    public GameObject armor;
     void Start()
     {
         
@@ -21,9 +22,20 @@ public class TurnButtonHider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Deck.Instance.block > 0)
+        {
+            armor.SetActive(true);
+        }
+        else
+        {
+            armor.SetActive(false);
+        }
+
         //hide inactive UI Elements
         if (Deck.Instance.inBattle)
         {
+            EventdeckImage.gameObject.SetActive(false);
+            AP.gameObject.SetActive(true);
             if (!ContentsOfDeck.Instance.gameObject.activeSelf)
             {
                 if (Deck.Instance.enemyTurn && Deck.Instance.enemy.HP>0)
@@ -46,6 +58,8 @@ public class TurnButtonHider : MonoBehaviour
         }
         else
         {
+            AP.gameObject.SetActive(false);
+            EventdeckImage.gameObject.SetActive(true);
             if (!ContentsOfDeck.Instance.gameObject.activeSelf)
             {
                 EventdeckImage.gameObject.SetActive(true);

@@ -523,7 +523,7 @@ MonoBehaviour:
   otherCardScale: 0.25
   cardsYoffSet: -2.25
   autoUpdate: 0
-  VictoryBeep: {fileID: 8300000, guid: 82d183a493ab7d248ae7eb6e114b8a6d, type: 3}
+  VictoryButtonPressed: 0
 --- !u!114 &619731333286080710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1031,7 +1031,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5643327608106977964
 RectTransform:
   m_ObjectHideFlags: 0

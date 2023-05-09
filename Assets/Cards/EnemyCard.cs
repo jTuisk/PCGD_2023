@@ -62,15 +62,18 @@ public class EnemyCard : MonoBehaviour
     {
         sprite.transform.localScale = creatureDataContainer.pictureScale;
     }
-
-public void reorganize(){
+    bool dir;
+    float t=0;
+    public void reorganize(){
+        t += Time.deltaTime;
+        float y=NonLinInterpolationUtil.QuadraticBounce(ref t,1,ref dir);
     for(int j=0; j<enemyDeck.transform.childCount; j++){
         enemyDeck.transform.GetChild(j).GetComponent<Card>().status=Card.BelongTo.Enermy;
         if(j==0){
-            enemyDeck.transform.GetChild(j).transform.position = new Vector3(enemyDeck.transform.position.x + cardsYoffSet, enemyDeck.transform.position.y);
+            enemyDeck.transform.GetChild(j).transform.position = new Vector3(enemyDeck.transform.position.x + cardsYoffSet, 2*y+enemyDeck.transform.position.y);
             enemyDeck.transform.GetChild(j).transform.localScale = new Vector3(firstCardScale, firstCardScale, 1f);
         } else {
-            enemyDeck.transform.GetChild(j).transform.position = new Vector3(enemyDeck.transform.position.x + j * 5 + cardsYoffSet*j, enemyDeck.transform.position.y);
+            enemyDeck.transform.GetChild(j).transform.position = new Vector3(enemyDeck.transform.position.x + j * 5 + cardsYoffSet*j, y+enemyDeck.transform.position.y);
             enemyDeck.transform.GetChild(j).transform.localScale = new Vector3(otherCardScale, otherCardScale, 1f);
             }
     }
