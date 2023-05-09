@@ -311,11 +311,11 @@ MonoBehaviour:
   flipCardAudioEffect: {fileID: 8300000, guid: 9cd76216d04cbac4d8c17a78eee82fe4, type: 3}
   playCardAudioEffect: {fileID: 8300000, guid: 54614f55684bdc086bc7b7c5c6f6832e, type: 3}
   dealDamageAudioEffect: {fileID: 8300000, guid: 1c9f753a5afe8494bb56bfddc8c1e6f6, type: 3}
-  healSelfAudioEffect: {fileID: 0}
+  healSelfAudioEffect: {fileID: 8300000, guid: 942a51a969f1c2540bf16f4b539d7776, type: 3}
   getManaAudioEffect: {fileID: 8300000, guid: 2061c5d9d4748ea459f6e3b0392f0e0c, type: 3}
   loseManaAudioEffect: {fileID: 8300000, guid: 4c996ae232a07734db5f161d78a6faa2, type: 3}
   shuffleDeckAudioEffect: {fileID: 8300000, guid: 1753f1837cf3bbe04999c5373d28639e, type: 3}
-  stunEffect: {fileID: 8300000, guid: 8cbb0d39d840f1641838a128537ef0b7, type: 3}
+  stunEffect: {fileID: 8300000, guid: 44d387bb6a53672428c437b6787ac5c3, type: 3}
   shieldEffect: {fileID: 8300000, guid: c87c5b800ef335c49a2b4b13766f16b9, type: 3}
   battleBGM: {fileID: 8300000, guid: dcbf88d3ed3e547689fe6f2c17e29b32, type: 3}
   eventCardDraw: {fileID: 8300000, guid: 54614f55684bdc086bc7b7c5c6f6832e, type: 3}

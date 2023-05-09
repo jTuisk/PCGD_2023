@@ -50,22 +50,53 @@ public class ExplosionManager : MonoBehaviour
         i.transform.position=heartExplosionTarget.position;
     }
     }
-
+    GameObject playerDamageText;
     public void PlaySwordAnimation(int damage){
         if(Mathf.Abs(damage)>0){
-        var i=Instantiate(SwordExplosion);
+
+                var i=Instantiate(SwordExplosion);
         var t=i.GetComponentInChildren<TMPro.TextMeshProUGUI>();
-        t.text=("-") +Mathf.Abs(damage);
-        i.transform.position=heartExplosionTarget.position;
+            if (playerDamageText == null)
+            {
+
+
+                t.text = ("-") + Mathf.Abs(damage);
+
+            }
+            else
+            {
+                t.text = ("-") + (-int.Parse(playerDamageText.GetComponentInChildren<TMPro.TextMeshProUGUI>().text) + Mathf.Abs(damage));
+                Destroy(playerDamageText);
+            }
+            playerDamageText = i;
+            i.transform.position=heartExplosionTarget.position;
             AudioManager.Instance.PlayOneShot(AudioManager.AudioEffects.dealDamage);
     }}
+    GameObject damagetext;
     public void PlaySwordAnimation(int damage,Vector3 pos){
-        if(Mathf.Abs(damage)>0){
-        var i=Instantiate(SwordExplosion);
-        var t=i.GetComponentInChildren<TMPro.TextMeshProUGUI>();
-        t.text=("-") +Mathf.Abs(damage);
-        i.transform.position=pos;
-        AudioManager.Instance.PlayOneShot(AudioManager.AudioEffects.dealDamage);
+
+        if (Mathf.Abs(damage) > 0)
+        {
+            if (damagetext == null)
+            {
+                var i = Instantiate(SwordExplosion);
+                var t = i.GetComponentInChildren<TMPro.TextMeshProUGUI>();
+                t.text = ("-") + Mathf.Abs(damage);
+                i.transform.position = pos;
+                damagetext = i;
+
+                AudioManager.Instance.PlayOneShot(AudioManager.AudioEffects.dealDamage);
+            }else
+            {
+                var i = Instantiate(SwordExplosion);
+                var t = i.GetComponentInChildren<TMPro.TextMeshProUGUI>();
+                t.text = ("-") + (-int.Parse( damagetext.GetComponentInChildren<TMPro.TextMeshProUGUI>().text) +Mathf.Abs(damage));
+                Destroy(damagetext);
+                damagetext = null;
+                damagetext = i;
+                i.transform.position = pos;
+                AudioManager.Instance.PlayOneShot(AudioManager.AudioEffects.dealDamage);
+            }
         }
     }
         public void PlayHealthAnimation(int damage,Vector3 pos){
