@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CardGlow
+  m_Name: CardUnderGlow
   m_Shader: {fileID: -6465566751694194690, guid: c6f337214c2195c4ba6f4b68e7c04e02, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -54,7 +54,7 @@ Material:
     - _ID: 1
     - _Strenght: 1
     - _factor: 1
-    - _speed: 1
+    - _speed: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
