@@ -166,7 +166,7 @@ public class ContentsOfDeck : MonoBehaviour
             }
         }
     }
-    Vector2 gridOffset = new Vector2(0,0);
+    Vector2 gridOffset = new Vector2(0,-4);
     public void updatePosition()
     {
         float cardZvalue = 0f;
@@ -280,11 +280,11 @@ public class ContentsOfDeck : MonoBehaviour
 
 
 
-            gridOffset.y = Mathf.Clamp(gridOffset.y-(prevMousepos - worldPos).y,0,totalRowHeight);
+            gridOffset.y = Mathf.Clamp(gridOffset.y-(prevMousepos - worldPos).y,-4,totalRowHeight);
 
             prevMousepos = worldPos;
         }
-        gridOffset.y = Mathf.Clamp(gridOffset.y - Input.mouseScrollDelta.y, 0, totalRowHeight);
+        gridOffset.y = Mathf.Clamp(gridOffset.y - Input.mouseScrollDelta.y, -4, totalRowHeight);
 
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
@@ -319,7 +319,7 @@ public class ContentsOfDeck : MonoBehaviour
 
     public void FinishDeckTask()
     {
-        gridOffset.y = 0;
+        gridOffset.y = -4;
         mouseHeldDown = false;
         displayedCards = new List<GameObject>();
         Debug.Log("FinishTask: " + _currentTask);
@@ -479,7 +479,7 @@ public class ContentsOfDeck : MonoBehaviour
         switch (_currentTask)
         {
             case DeckTask.selectStartDeck:
-                SetTitleText("Create custom Deck");
+                SetTitleText("Create your deck");
                 buttonText = _selectedCards.Count != _maximumNumberOfSelectedCards ? $"{_selectedCards.Count} / {_maximumNumberOfSelectedCards}" : "Finish deck";
                 _actionButtonFlicker.Flickering = _selectedCards.Count == _maximumNumberOfSelectedCards;
                 SetActionButtonText(buttonText);
