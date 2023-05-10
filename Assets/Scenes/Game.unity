@@ -1846,7 +1846,7 @@ MonoBehaviour:
   _actionButtonTMP: {fileID: 1569963687}
   _actionButtonFlicker: {fileID: 1947111266}
   enemyGO: {fileID: 0}
-  HighlightColor: {r: 0.11792451, g: 0.87611294, b: 1, a: 1}
+  HighlightColor: {r: 0.8773585, g: 0.23185895, b: 0.09518514, a: 1}
   timer: 1
   displayedCards: []
 --- !u!1 &682821118
