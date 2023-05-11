@@ -212,10 +212,10 @@ IEnumerator shake(){
         Deck.Instance.Shuffle(cards);
         
     }
-    public void Playcard(){
+    public IEnumerator Playcard(){
         if (stunned) {
             stunned = false;
-            return;
+            yield break;
         }
         if(enemyDeck.transform.childCount==0){
             Deck.Instance.Shuffle(cards);
@@ -233,7 +233,7 @@ IEnumerator shake(){
             
             enemyDeck.transform.GetChild(0).transform.position=new Vector2(10000,100000);
             enemyDeck.transform.GetChild(0).transform.parent=this.transform;
-            temp.EnemyPlayCard(this);
+            yield return temp.EnemyPlayCard(this);
             if(temp.exaust){
                 cards.Remove(temp);
                 Destroy(temp.gameObject);

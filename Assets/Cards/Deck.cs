@@ -331,7 +331,7 @@ public class Deck : MonoBehaviour
                 }
                 if (enemy.HP > 0)
                 {
-                    enemy.Playcard();
+                    yield return enemy.Playcard();
                 }
 
             }else{
@@ -576,47 +576,45 @@ public IEnumerator ApplyStatusEffects(StatusActivation StA){
             if(StA==StatusActivation.DOTMOD){
             
             if(status.ISDOTMOD){
-                    for (int j = 0; j < 200; j++)
-                    {
+                    
 
-                        status.triggered = true;
-                        yield return 0;
-                    }
+                    status.triggered = true;
+                    yield return new WaitForSeconds(0.5f);
+
                     status.triggered = false;
                     status.trigger();
+                    yield return new WaitForSeconds(0.5f);
 
 
-            
-            }}
+                }
+            }
             if(StA==StatusActivation.ENEMYTURNSTART){
             
             if(status.targetsEnemy&&!status.ISDOTMOD){
-                    for (int j = 0; j < 200; j++)
-                    {
+                    
 
                         status.triggered = true;
-                        yield return 0;
-                    }
+                    yield return new WaitForSeconds(0.5f);
+
                     status.triggered = false;
 
                     status.trigger();
-                        
-            }
+                    yield return new WaitForSeconds(0.5f);
+                }
 
 
             }
             if(StA==StatusActivation.PLAYERTURNSTART&&!status.ISDOTMOD){
             if (!status.targetsEnemy)
             {
-                    for (int j = 0; j < 200; j++)
-                    {
+                    
 
                         status.triggered = true;
-                        yield return 0;
-                    }
+                    yield return new WaitForSeconds(0.5f);
                     status.triggered = false;
                     status.trigger();
-            }
+                    yield return new WaitForSeconds(0.5f);
+                }
 
 
         }}

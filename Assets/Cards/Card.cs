@@ -209,14 +209,27 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         actionCostMultiplier=amount;
         apCost.text=actionCost+"";
     }
-    public void EnemyPlayCard(EnemyCard e){
-        e.block+=block;
-        ExplosionManager.Instance.PlayArmorAnimation(e.block,new Vector3(0,0,0));
-        if(!e.confused){
+    public IEnumerator EnemyPlayCard(EnemyCard e){
+        if (!e.confused)
+        {
             Deck.Instance.takeDamage(Damage);
-        }else{
+        }
+        else
+        {
             e.takeDamage(Damage);
         }
+        if (Damage != 0)
+        {
+            yield return new WaitForSeconds(1);
+        }
+        e.block+=block;
+        if (block > 0)
+        {
+            ExplosionManager.Instance.PlayArmorAnimation(e.block, new Vector3(0, 0, 0));
+            yield return new WaitForSeconds(1);
+        }
+
+
         foreach(BattleCardMenuItem i in conditionalEffects){
             bool exec=true;
             
@@ -227,13 +240,18 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             }
             if(exec){
                 BattleCardMenuItem.Activate(i.ConditionalEffects,i.independentRNG);
+                yield return new WaitForSeconds(1);
             }
             
         }
         // used cards from enermy go to discard pile?
         this.status = BelongTo.DiscardPile;
+   
         effect.Invoke();
-
+        if (effect.GetPersistentEventCount()>0)
+        {
+            yield return new WaitForSeconds(1);
+        }
     }
     public virtual void createCard(BattleCardDataContainer data, bool saveContainerData = true) {
 
