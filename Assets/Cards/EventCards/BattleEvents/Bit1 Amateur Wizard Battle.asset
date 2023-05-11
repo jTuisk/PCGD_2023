@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bit1 Amateur Wizard Battle
   m_EditorClassIdentifier: 
   BossImage: {fileID: 21300000, guid: a3f614b077334e44c92af3b57ca16de3, type: 3}
-  eName: 
+  eName: Amateur Wizard Battle
   eventText: "Your next opponent is...\nAmateur Wizard! \nGet ready!"
   options:
   - description: Start the battle

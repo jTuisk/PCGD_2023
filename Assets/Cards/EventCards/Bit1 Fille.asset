@@ -13,10 +13,15 @@ MonoBehaviour:
   m_Name: Bit1 Fille
   m_EditorClassIdentifier: 
   BossImage: {fileID: 0}
-  eName: Bit 1 Filler
-  eventText: Lorem Ipsum
+  eName: Wishing Well
+  eventText: You decide to visit the local sights before your final battle of the
+    day. As you are navigating your way through the city, you seem to have missed
+    a turn somewhere as you have ended up in a sketchy back alley. However, there
+    seems to be an old, faintly glowing well at the end of it. You decide to try
+    your luck as you throw a coin inside it. The well begins to glow intensely, and
+    you suddenly feel like you're more than ready to face your opponent!
   options:
-  - description: Fill up
+  - description: Feel the Health and Mana boost!
     independentRNG: 0
     effects:
     - name: 
@@ -55,7 +60,7 @@ MonoBehaviour:
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
               m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 10
+              m_IntArgument: 6
               m_FloatArgument: 0
               m_StringArgument: 
               m_BoolArgument: 0

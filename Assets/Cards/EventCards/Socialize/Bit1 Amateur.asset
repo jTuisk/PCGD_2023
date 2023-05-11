@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: Bit1 Amateur
   m_EditorClassIdentifier: 
   BossImage: {fileID: 0}
-  eName: 
-  eventText: Get mana
+  eName: Amateur Wizard Encounter
+  eventText: '"Hey man, you fought a good fight. I feel like as I ain''t in the running
+    anymore, I might as well help you out on your journey. Nobody likes the current
+    champion, they really got to go, you know what I''m saying?"'
   options:
-  - description: yas
+  - description: Get 8 Mana from Amateur Wizard
     independentRNG: 0
     effects:
     - name: 
@@ -36,6 +38,10 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
+    conditions: []
+  - description: Humbly decline their offer
+    independentRNG: 0
+    effects: []
     conditions: []
   ReplaceFrom: {fileID: 0}
   ReplaceTo: {fileID: 0}

@@ -14,12 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BossImage: {fileID: 0}
   eName: You won the fight!
-  eventText: 'Yo man, dat was INSANE...
-
-    Take my gun man, yo ass could win da
-    whole ting!'
+  eventText: '"Yo... My guy... You ain''t here to play! Man, I knew I should''ve
+    brought more, erhm, magic for my piece."'
   options:
-  - description: Obtain Gun Magic!
+  - description: Acquire their weapon
     independentRNG: 0
     effects:
     - name: 
@@ -40,7 +38,7 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
     conditions: []
-  - description: Head to the bar with Geomancer
+  - description: Chat with Amateur Wizard
     independentRNG: 0
     effects:
     - name: 
@@ -48,7 +46,7 @@ MonoBehaviour:
       targetEvent:
         m_PersistentCalls:
           m_Calls:
-          - m_Target: {fileID: 11400000, guid: 96d99d3d74a01e44c90439d885e0a6c1, type: 2}
+          - m_Target: {fileID: 11400000, guid: 20f2ceea2784e0844a89607d49c63810, type: 2}
             m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
             m_MethodName: Trigger
             m_Mode: 1
@@ -61,7 +59,7 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
     conditions: []
-  - description: Go see Amateur Wizard
+  - description: Go looking for Geomancer
     independentRNG: 0
     effects:
     - name: 
@@ -69,7 +67,7 @@ MonoBehaviour:
       targetEvent:
         m_PersistentCalls:
           m_Calls:
-          - m_Target: {fileID: 11400000, guid: 20f2ceea2784e0844a89607d49c63810, type: 2}
+          - m_Target: {fileID: 11400000, guid: 96d99d3d74a01e44c90439d885e0a6c1, type: 2}
             m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
             m_MethodName: Trigger
             m_Mode: 1
