@@ -197,7 +197,7 @@ public class EventCard : MonoBehaviour
         // Calculate the deck_image's local position under cardBack's parent
         // First, get deck_image localPosition under its parent Canvas
         Vector2 deckImageLocalPos;
-        var eventDeckImage = GameObject.Find("Canvas/EventDeck/EventDeck Image");
+        var eventDeckImage = GameObject.Find("Canvas/EventDeck/EventDeckImage");
         if(eventDeckImage != null)
         {
             deckImageLocalPos = eventDeckImage.transform.localPosition;
@@ -206,7 +206,7 @@ public class EventCard : MonoBehaviour
         {
             deckImageLocalPos = deckAnchor.transform.position;
         }
-        
+        /*
         // Second, covert localPosition to worldPosition according to EventCard's canvas
         // Which is different from deck_image's world position
         var canvasObj = this.gameObject.transform.GetComponentInChildren<Canvas>().gameObject;
@@ -220,8 +220,8 @@ public class EventCard : MonoBehaviour
             Camera.main,
             out deckRelativeLocalPos
         );
-
-        eventCardBack.transform.localPosition = deckRelativeLocalPos;
+        */
+        eventCardBack.transform.position = eventDeckImage.transform.position;
         eventCardBack.transform.localScale = new Vector3(cardMinimalSize, cardMinimalSize, cardMinimalSize);
         eventCardBack.transform.eulerAngles = slideStartRotation;
         
@@ -237,12 +237,12 @@ public class EventCard : MonoBehaviour
         AudioManager.Instance.PlayEventCardSlideSound();
 
         var slideStartTime = Time.time;
-        var slideStartPos = eventCardBack.transform.localPosition;
+        var slideStartPos = eventCardBack.transform.position;
 
         do {
-            eventCardBack.transform.localPosition = Vector3.Lerp(
+            eventCardBack.transform.position = Vector3.Lerp(
                 slideStartPos, 
-                eventCardFront.transform.localPosition,
+                eventCardFront.transform.position,
                 (Time.time - slideStartTime)/slideAnimDuration);
 
             eventCardBack.transform.eulerAngles = Vector3.Lerp(

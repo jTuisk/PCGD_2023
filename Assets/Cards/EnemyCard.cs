@@ -253,7 +253,7 @@ IEnumerator shake(){
         sprite.transform.localScale= new Vector3(creatureDataContainer.pictureScale.x, creatureDataContainer.pictureScale.y - anim*0.05f,creatureDataContainer.pictureScale.z); //creatureDataContainer.pictureScale.y
     }
     public bool VictoryButtonPressed=false;
-    public void WinBattle() { VictoryButtonPressed = true; }
+    public void WinBattle() { Deck.Instance.bossesDefeated += 1; VictoryButtonPressed = true; }
     public void WinGame()
     {
         SceneLoader.LoadGameVictory();
