@@ -13,10 +13,18 @@ MonoBehaviour:
   m_Name: Bit1 Geomancer
   m_EditorClassIdentifier: 
   BossImage: {fileID: 0}
-  eName: 
-  eventText: Stun geomancer with hangover
+  eName: Geomancer Encounter
+  eventText: 'You manage to track Geomancer down; they are at the bar.
+
+    As you
+    enter, they seem to know you''re coming as they''re staring at you intensely.
+
+    "You.
+    Get over here and grab a beverage. I''d like to get personal with the poor, puny
+    magician, who has the unpleasant role of getting crushed in battle by me. Barkeep,
+    another round!"'
   options:
-  - description: do it
+  - description: Accept the offer (Geomancer becomes stunned)
     independentRNG: 0
     effects:
     - name: 
@@ -36,6 +44,10 @@ MonoBehaviour:
               m_StringArgument: Geomancer
               m_BoolArgument: 0
             m_CallState: 2
+    conditions: []
+  - description: Back out of the bar
+    independentRNG: 0
+    effects: []
     conditions: []
   ReplaceFrom: {fileID: 0}
   ReplaceTo: {fileID: 0}
