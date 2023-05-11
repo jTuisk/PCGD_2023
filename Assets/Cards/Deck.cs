@@ -343,7 +343,7 @@ public class Deck : MonoBehaviour
             enemy.damage = Random.Range(enemy.MinDamageRange, enemy.MaxDamageRange);
             
             }
-
+            yield return 1;
             StartCoroutine(inBattleStartTurn());
             //inBattleStartTurn();
             Debug.Log("HP: " + Hp);
@@ -657,6 +657,9 @@ public void statusCleanup(){
         playerDotDamageMultiplier = 1;
         if (stunned)
         {
+            ExplosionManager.Instance.PlayStunAnimation();
+            yield return new WaitForSeconds(1);
+            
             stunned = false;
             StartCoroutine(inBattleEndTurn());
         }

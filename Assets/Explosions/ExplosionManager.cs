@@ -42,6 +42,13 @@ public class ExplosionManager : MonoBehaviour
         AudioManager.Instance.PlayOneShot(AudioManager.AudioEffects.stun);
         
     }
+    public void PlayStunAnimation(Vector3 pos)
+    {
+        var i = Instantiate(StunAnimation);
+        i.transform.position = StunAnimationTarget.position;
+        AudioManager.Instance.PlayOneShot(AudioManager.AudioEffects.stun);
+
+    }
     public void PlayHealthAnimation(int damage){
         if(Mathf.Abs(damage)>0){
         var i=Instantiate(heartExplosion);

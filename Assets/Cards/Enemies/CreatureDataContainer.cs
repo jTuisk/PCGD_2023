@@ -17,6 +17,7 @@ public class CreatureDataContainer : ScriptableObject
     public Sprite Picture;
     public Vector3 pictureDefaultPosition = Vector3.zero;
     public Vector3 pictureScale = Vector3.one;
+    public bool lastBoss;
     public void Spawn()
     {
         Deck.Instance.enemy = Instantiate(CreatureBase).GetComponent<EnemyCard>();

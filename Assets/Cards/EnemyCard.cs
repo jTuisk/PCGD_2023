@@ -129,8 +129,10 @@ IEnumerator shake(){
         }
     }
     int maxHP;
+    bool lastBoss;
     public void Create(CreatureDataContainer data)
     {
+        lastBoss = data.lastBoss;
         creatureDataContainer = data;
         // check if the battle card is banned by a previous battle reward
         int affectedBattleCardIndex = (Deck.Instance.enemyAffectedByCombatRewards.ContainsKey(data))?
@@ -252,6 +254,10 @@ IEnumerator shake(){
     }
     public bool VictoryButtonPressed=false;
     public void WinBattle() { VictoryButtonPressed = true; }
+    public void WinGame()
+    {
+        SceneLoader.LoadGameVictory();
+    }
     public IEnumerator Death()
     {
         var victory=Instantiate(VictoryText);
@@ -263,7 +269,15 @@ IEnumerator shake(){
             img.color = new Color(img.color.r, img.color.g, img.color.b,Mathf.Lerp(0,1,(300f-i)/300));
             yield return 1;
         }
-        GameObject.Find("Victory/Canvas/VictoryButton").GetComponent<Button>().onClick.AddListener(WinBattle);
+        if (!lastBoss)
+        {
+            GameObject.Find("Victory/Canvas/VictoryButton").GetComponent<Button>().onClick.AddListener(WinBattle);
+        }
+        else
+        {
+            GameObject.Find("Victory/Canvas/VictoryButton").GetComponent<Button>().onClick.AddListener(WinGame);
+        }
+        
         while (!VictoryButtonPressed)
         {
             yield return 0;
