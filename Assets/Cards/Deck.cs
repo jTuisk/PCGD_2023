@@ -243,7 +243,7 @@ public class Deck : MonoBehaviour
                 else
                 {
                     Instantiate(eventBase).GetComponent<EventCard>().CreateEventCard(BossBattles[bosses]);
-                    Destroy(ShowbossList.transform.GetChild(0).gameObject);
+                    //Destroy(ShowbossList.transform.GetChild(0).gameObject);
                     bosses += 1;
                 }
             }
