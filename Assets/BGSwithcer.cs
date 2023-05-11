@@ -21,7 +21,7 @@ public class BGSwithcer : MonoBehaviour
     void Update()
     {
         BG_Frame.SetActive(!Deck.Instance.inBattle);
-        enemylist.SetActive(!Deck.Instance.inBattle);
+        //enemylist.SetActive(!Deck.Instance.inBattle);
         if (bg.EVENT!=state&&Deck.Instance.inBattle!=true){
             state=bg.EVENT;
             this.transform.GetChild(0).gameObject.SetActive(false);

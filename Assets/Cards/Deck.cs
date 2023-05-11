@@ -18,6 +18,7 @@ public class Deck : MonoBehaviour
     public List<int> Bit1deckList;
     public List<string> flags;
     public int money = 0;
+    public int bossesDefeated = 0;
     public int mana = 0;
     public float dotDamageMultiplier=1;
     public float playerDotDamageMultiplier=1;
@@ -174,12 +175,14 @@ public class Deck : MonoBehaviour
             var temp=BossBattlePool[Random.Range(0, BossBattlePool.Count )];
             BossBattles.Add(temp);
             BossBattlePool.Remove(temp);
+            /**
             var imagetemp = Instantiate(bossImage);
             Vector3 s=imagetemp.transform.localScale;
             imagetemp.GetComponent<Image>().sprite=temp.BossImage;
             imagetemp.transform.parent=ShowbossList.transform;
             imagetemp.transform.localScale=s;
-        }
+        **/
+           }
 
         FindAllCreatureContainers();
         AudioManager.Instance.PlayDrawEventCardBGM();
