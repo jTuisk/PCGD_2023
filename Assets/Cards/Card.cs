@@ -240,7 +240,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             }
             if(exec){
                 BattleCardMenuItem.Activate(i.ConditionalEffects,i.independentRNG);
-                yield return new WaitForSeconds(1);
+                //yield return new WaitForSeconds(1);
             }
             
         }
