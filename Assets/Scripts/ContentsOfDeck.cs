@@ -58,6 +58,7 @@ public class ContentsOfDeck : MonoBehaviour
 
     [Header("Others")]
     [SerializeField] GameObject enemyGO;
+    [ColorUsageAttribute(true, true)]
     [SerializeField] Color HighlightColor = Color.red;
     [SerializeField] float timer = 1f;
 
