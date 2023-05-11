@@ -51,6 +51,7 @@ public class EnemyCard : MonoBehaviour
         img =sprite.GetComponent<Image>();
         Debug.Log(img);
         Deck.Instance.battleStart();
+
     }
 
     private void RepositionSprite()
@@ -62,18 +63,24 @@ public class EnemyCard : MonoBehaviour
     {
         sprite.transform.localScale = creatureDataContainer.pictureScale;
     }
-    bool dir;
-    float t=0;
+    //bool dir;
+    List<float> t=new List<float>();
+    List<bool> dirs = new List<bool>();
     public void reorganize(){
-        t += Time.deltaTime;
-        float y=NonLinInterpolationUtil.QuadraticBounce(ref t,1,ref dir);
+
     for(int j=0; j<enemyDeck.transform.childCount; j++){
-        enemyDeck.transform.GetChild(j).GetComponent<Card>().status=Card.BelongTo.Enermy;
+            t[j] += Time.deltaTime*0.7f;
+            float temp = t[j];
+            bool dir = dirs[j];
+            float y = NonLinInterpolationUtil.QuadraticBounce(ref temp, 1, ref dir);
+            t[j] = temp;
+            dirs[j] = dir;
+            enemyDeck.transform.GetChild(j).GetComponent<Card>().status=Card.BelongTo.Enermy;
         if(j==0){
-            enemyDeck.transform.GetChild(j).transform.position = new Vector3(enemyDeck.transform.position.x + cardsYoffSet, 2*y+enemyDeck.transform.position.y);
+            enemyDeck.transform.GetChild(j).transform.position = new Vector3(enemyDeck.transform.position.x + cardsYoffSet, y+enemyDeck.transform.position.y);
             enemyDeck.transform.GetChild(j).transform.localScale = new Vector3(firstCardScale, firstCardScale, 1f);
         } else {
-            enemyDeck.transform.GetChild(j).transform.position = new Vector3(enemyDeck.transform.position.x + j * 5 + cardsYoffSet*j, y+enemyDeck.transform.position.y);
+            enemyDeck.transform.GetChild(j).transform.position = new Vector3(enemyDeck.transform.position.x + j * 5 + cardsYoffSet*j, y*0.5f+enemyDeck.transform.position.y);
             enemyDeck.transform.GetChild(j).transform.localScale = new Vector3(otherCardScale, otherCardScale, 1f);
             }
     }
@@ -193,6 +200,11 @@ IEnumerator shake(){
         }
         
         decks=enemyDeck.transform.childCount;
+        for (int i = 0; i < decks; i++)
+        {
+            t.Add(1-i*(1f/decks));
+            dirs.Add(false);
+        }
         reorganize();
         
         Deck.Instance.Shuffle(cards);

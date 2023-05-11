@@ -149,9 +149,9 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             if (canPlay())
             {
                 outlineMode = mode.PLAYABLE;
-                if (conditionsFulfilled()) {
-                    outlineMode = mode.ACTIVE;
-                }
+                //if (conditionsFulfilled()) {
+                //    outlineMode = mode.ACTIVE;
+                //}
                 if (transform.position.y > HandOrganizer.playHeight)
                 {
                     outlineMode = mode.PLAY;
