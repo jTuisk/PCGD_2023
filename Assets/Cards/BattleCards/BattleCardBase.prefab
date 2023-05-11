@@ -279,7 +279,7 @@ MonoBehaviour:
   ManaImage: {fileID: 3776955659698842536}
   CardHighlightLine: {fileID: 9101367839708890936}
   DefaultHighlightLineColor: {r: 0, g: 0, b: 0, a: 0}
-  PlayableHighlightLineColor: {r: 0.12224099, g: 0.47201118, b: 0.6320754, a: 1}
+  PlayableHighlightLineColor: {r: 0.40936598, g: 0.118592024, b: 0.6132076, a: 1}
   PlayHighlightLineColor: {r: 0.7490196, g: 0.1882353, b: 0, a: 1}
   ActiveHighlightLineColor: {r: 0.27450982, g: 0, b: 0.7490196, a: 1}
   CardHighlightLineImage: {fileID: 8861807702397559201}
