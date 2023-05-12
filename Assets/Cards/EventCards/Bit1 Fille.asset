@@ -21,7 +21,7 @@ MonoBehaviour:
     your luck as you throw a coin inside it. The well begins to glow intensely, and
     you suddenly feel like you're more than ready to face your opponent!
   options:
-  - description: Feel the Health and Mana boost!
+  - description: Get a Health and Mana boost!
     independentRNG: 0
     effects:
     - name: 
@@ -60,7 +60,7 @@ MonoBehaviour:
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
               m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 6
+              m_IntArgument: 4
               m_FloatArgument: 0
               m_StringArgument: 
               m_BoolArgument: 0

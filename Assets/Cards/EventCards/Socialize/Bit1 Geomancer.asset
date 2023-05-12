@@ -14,17 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BossImage: {fileID: 0}
   eName: Geomancer Encounter
-  eventText: 'You manage to track Geomancer down; they are at the bar.
+  eventText: 'You manage to track the Geomancer down; they are at the bar.
 
-    As you
-    enter, they seem to know you''re coming as they''re staring at you intensely.
+    As
+    you enter, they seem to know you''re coming as they''re staring at you intensely.
 
     "You.
     Get over here and grab a beverage. I''d like to get personal with the poor, puny
     magician, who has the unpleasant role of getting crushed in battle by me. Barkeep,
     another round!"'
   options:
-  - description: Accept the offer (Geomancer becomes stunned)
+  - description: Accept the offer
     independentRNG: 0
     effects:
     - name: 
@@ -42,6 +42,18 @@ MonoBehaviour:
               m_IntArgument: 0
               m_FloatArgument: 0
               m_StringArgument: Geomancer
+              m_BoolArgument: 0
+            m_CallState: 2
+          - m_Target: {fileID: 11400000, guid: 767e0e88aace7cc449dfea3cbafc8906, type: 2}
+            m_TargetAssemblyTypeName: EventCardData, Assembly-CSharp
+            m_MethodName: Trigger
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
     conditions: []

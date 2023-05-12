@@ -18,7 +18,7 @@ MonoBehaviour:
     anymore, I might as well help you out on your journey. Nobody likes the current
     champion, they really got to go, you know what I''m saying?"'
   options:
-  - description: Get 8 Mana from Amateur Wizard
+  - description: Get 5 Mana from Amateur Wizard
     independentRNG: 0
     effects:
     - name: 
@@ -33,7 +33,7 @@ MonoBehaviour:
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
               m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 10
+              m_IntArgument: 5
               m_FloatArgument: 0
               m_StringArgument: 
               m_BoolArgument: 0
