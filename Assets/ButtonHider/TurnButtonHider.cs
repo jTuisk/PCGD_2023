@@ -38,7 +38,7 @@ public class TurnButtonHider : MonoBehaviour
             AP.gameObject.SetActive(true);
             if (!ContentsOfDeck.Instance.gameObject.activeSelf)
             {
-                if (Deck.Instance.enemyTurn && Deck.Instance.enemy.HP>0)
+                if (!Deck.Instance.stunned&&Deck.Instance.enemyTurn && Deck.Instance.enemy.HP>0)
                 {
                     endTurnButton.SetActive(true);
                 }
