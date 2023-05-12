@@ -32,7 +32,7 @@ public class Intent : Card
     public TMPro.TextMeshProUGUI StunText;
             public Image ComboImage;
     public TMPro.TextMeshProUGUI ComboText;
-    
+    public Sprite SpecialEffect;
     
     override
     public void createCard(BattleCardDataContainer data, bool saveContainerData = true)
@@ -52,6 +52,7 @@ public class Intent : Card
         ManaCost.text="";
         CardName.text=data.cardName;
         conditionalEffects=data.conditionalEffects;
+        SpecialEffect = data.enemyCardData.SpecialAnimation;
         //var temp=APImage.color;
         
         //temp.a=1f;

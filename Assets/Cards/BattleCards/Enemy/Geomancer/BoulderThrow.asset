@@ -75,6 +75,7 @@ MonoBehaviour:
     HealOverride: 0
     DamageOverrideString: 
     HealOverrideString: 
+    SpecialAnimation: {fileID: 21300000, guid: 1cd67fcaca975a9459a7bc403387d5c9, type: 3}
   requiredCards: []
   specialEffectEvent: {fileID: 0}
   CardImage: {fileID: 0}

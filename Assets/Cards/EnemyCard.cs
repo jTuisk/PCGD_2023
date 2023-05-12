@@ -215,11 +215,19 @@ IEnumerator shake(){
         Deck.Instance.Shuffle(cards);
         
     }
+    public IEnumerator swapImage(Sprite n)
+    {
+        var temp = img.sprite;
+        img.sprite = n;
+        yield return new WaitForSeconds(1);
+        img.sprite = temp;
+    }
     public IEnumerator Playcard(){
         if (stunned) {
             stunned = false;
             yield break;
         }
+        
         if(enemyDeck.transform.childCount==0){
             Deck.Instance.Shuffle(cards);
             int j=0;
@@ -232,8 +240,11 @@ IEnumerator shake(){
             }
             reorganize();
         }else{
-            var temp=enemyDeck.transform.GetChild(0).GetComponent<Card>();
-            
+            var temp=enemyDeck.transform.GetChild(0).GetComponent<Intent>();
+            if (temp.SpecialEffect != null)
+            {
+                StartCoroutine(swapImage(temp.SpecialEffect));
+            }
             enemyDeck.transform.GetChild(0).transform.position=new Vector2(10000,100000);
             enemyDeck.transform.GetChild(0).transform.parent=this.transform;
             yield return temp.EnemyPlayCard(this);

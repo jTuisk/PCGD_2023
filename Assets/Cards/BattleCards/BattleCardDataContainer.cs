@@ -37,7 +37,7 @@ public class BattleCardDataContainer : ScriptableObject
         public bool HealOverride=false;
         public string DamageOverrideString;
         public string HealOverrideString;
-
+        public Sprite SpecialAnimation;
     }
 
     public EnemyCardData enemyCardData;
