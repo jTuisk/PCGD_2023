@@ -642,7 +642,7 @@ public void statusCleanup(){
         dotDamageMultiplier=1;
 
 
-        enemyTurn = true;
+
         if (enemy != null)
         {
 
@@ -654,6 +654,7 @@ public void statusCleanup(){
 
         actionPoints = MaxactionPoints;
         yield return StartCoroutine(ApplyStatusEffects(StatusActivation.PLAYERTURNSTART));
+        enemyTurn = true;
         if (!stunned)
         {
             DrawCardInHand(CardsDrawnAtStartOfTurn);
