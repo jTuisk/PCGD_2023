@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cat in a Hat
   m_EditorClassIdentifier: 
   IsEnemySpecialCard: 0
-  effectDescriptor: Apply Cat Scratches to the enemy, dealing 2 Damage for 3 turns
+  effectDescriptor: Apply Cat Scratches to the enemy, dealing 1 Damage for 3 turns
   cardName: Cat in a Hat
   Damage: 0
   block: 0

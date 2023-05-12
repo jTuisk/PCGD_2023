@@ -13,9 +13,18 @@ MonoBehaviour:
   m_Name: Bit1 Geomancer Yes
   m_EditorClassIdentifier: 
   BossImage: {fileID: 0}
-  eName: 
-  eventText: 
-  options: []
+  eName: Geomancer Under the Table
+  eventText: 'You decide to take up on their offer and join them at the table.
+
+    As
+    it turns out, the mighty Geomancer can''t really hold their liquor as they end
+    up passing out on your feet after a couple of drinks. Bet they''ll be still quite
+    dazed during the battle...'
+  options:
+  - description: Pack up and head back to the arena
+    independentRNG: 0
+    effects: []
+    conditions: []
   ReplaceFrom: {fileID: 0}
   ReplaceTo: {fileID: 0}
   replaceEvent: {fileID: 0}
