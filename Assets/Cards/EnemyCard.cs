@@ -245,6 +245,10 @@ IEnumerator shake(){
             {
                 StartCoroutine(swapImage(temp.SpecialEffect));
             }
+            if (temp.AudioOnPlay != null)
+            {
+                AudioManager.Instance.playCustomSound(temp.AudioOnPlay);
+            }
             enemyDeck.transform.GetChild(0).transform.position=new Vector2(10000,100000);
             enemyDeck.transform.GetChild(0).transform.parent=this.transform;
             yield return temp.EnemyPlayCard(this);

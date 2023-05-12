@@ -50,6 +50,7 @@ public class Intent : Card
         effect = data.effect;
         apCost.text=actionCost+"";
         ManaCost.text="";
+        AudioOnPlay = data.AudioOnPlay;
         CardName.text=data.cardName;
         conditionalEffects=data.conditionalEffects;
         SpecialEffect = data.enemyCardData.SpecialAnimation;

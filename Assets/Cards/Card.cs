@@ -38,6 +38,8 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public Image CardHighlightLineImage;
     public Image InnerCardHighlightLineImage;
     public CanvasGroup cg;
+
+    public AudioClip AudioOnPlay;
     enum mode  {DEFAULT,PLAY,ACTIVE,PLAYABLE}
     mode outlineMode= mode.DEFAULT;
     Vector3 Defaultsize = new Vector3(1, 1, 1);
@@ -257,6 +259,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         if (saveContainerData)
             BattleCardData = data;
         CardSprite = data.CardImage;
+        AudioOnPlay = data.AudioOnPlay;
         CardImage.sprite = CardSprite;
         Damage = data.Damage;
         block = data.block;

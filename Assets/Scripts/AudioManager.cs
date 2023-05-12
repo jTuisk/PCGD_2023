@@ -169,7 +169,9 @@ public class AudioManager : MonoBehaviour
         musicAudioSource.PlayOneShot(GameOverAudioClip);
         musicAudioSource.PlayOneShot(bossLaughter);
     }
-
+    public void playCustomSound(AudioClip audio) {
+        sfxAudioSource.PlayOneShot(audio);
+    }
 
     public void playBattleBGM(){
         musicAudioSource.loop=true;

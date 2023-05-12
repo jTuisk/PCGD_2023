@@ -63,6 +63,7 @@ MonoBehaviour:
   exaust: 0
   hasSpecialEffect: 0
   cardsMustBeInHand: 0
+  AudioOnPlay: {fileID: 8300000, guid: e7c808d5fc105d247b7b390ad7031f1a, type: 3}
   enemyCardData:
     stun: 0
     Dot: 0

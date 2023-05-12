@@ -38,8 +38,9 @@ public class BattleCardDataContainer : ScriptableObject
         public string DamageOverrideString;
         public string HealOverrideString;
         public Sprite SpecialAnimation;
-        public AudioClip AudioOnPlay;
     }
+
+    public AudioClip AudioOnPlay;
 
     public EnemyCardData enemyCardData;
     public List<BattleCardDataContainer> requiredCards;
