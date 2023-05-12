@@ -45,9 +45,10 @@ public class EnemyCard : MonoBehaviour
     Vector3 startpos ;
     void Start()
     {
-        startpos = sprite.transform.position;
         RepositionSprite();
         RescaleSprite();
+        startpos = sprite.transform.position;
+
         img =sprite.GetComponent<Image>();
         Debug.Log(img);
         Deck.Instance.battleStart();
