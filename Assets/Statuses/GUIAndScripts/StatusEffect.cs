@@ -37,7 +37,26 @@ public class StatusEffect:ScriptableObject
         }else{
             stat.targetsEnemy=targetsEnemy;
         }}
-        Deck.Instance.statuses.Add(stat);
+        if (stat.id.Contains("Stun")) {
+            bool foundMatch = false;
+        foreach(StatusEffectInstance i in Deck.Instance.statuses)
+            {
+                if (stat.targetsEnemy==i.targetsEnemy && i.id.Contains("Stun"))
+                {
+                    i.duration += stat.duration;
+                    foundMatch = true;
+                    break;
+                }
+            }
+            if (!foundMatch)
+            {
+                Deck.Instance.statuses.Add(stat);
+            }
+        }
+        else
+        {
+            Deck.Instance.statuses.Add(stat);
+        }
         stat.desc=this.desc;
     }
     public void AddTobattleStart(string enemy){
