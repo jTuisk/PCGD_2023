@@ -648,13 +648,14 @@ public void statusCleanup(){
 
             enemy.EnemyDamageModifier = 1;
         }else{yield break;}
-        if(Deck.Instance.enemy.HP<=0){yield break;}
+
         Lucky=false;
         //run at the start of the turn
 
         actionPoints = MaxactionPoints;
         yield return StartCoroutine(ApplyStatusEffects(StatusActivation.PLAYERTURNSTART));
         enemyTurn = true;
+        if (Deck.Instance.enemy.HP <= 0) { yield break; }
         if (!stunned)
         {
             DrawCardInHand(CardsDrawnAtStartOfTurn);
