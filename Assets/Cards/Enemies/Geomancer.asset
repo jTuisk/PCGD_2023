@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e49b428c96ccf764f904a73dac0e4738, type: 3}
   m_Name: Geomancer
   m_EditorClassIdentifier: 
-  HP: 40
+  HP: 44
   MaxDamageRange: 6
   MinDamageRange: 1
   deck:

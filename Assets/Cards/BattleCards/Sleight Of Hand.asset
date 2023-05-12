@@ -15,7 +15,7 @@ MonoBehaviour:
   IsEnemySpecialCard: 0
   effectDescriptor: 
   cardName: Sleight Of Hand
-  Damage: 3
+  Damage: 2
   block: 0
   magic: 0
   money: 0
@@ -27,6 +27,7 @@ MonoBehaviour:
   exaust: 0
   hasSpecialEffect: 0
   cardsMustBeInHand: 0
+  AudioOnPlay: {fileID: 0}
   enemyCardData:
     stun: 0
     Dot: 0
@@ -39,6 +40,7 @@ MonoBehaviour:
     HealOverride: 0
     DamageOverrideString: 
     HealOverrideString: 
+    SpecialAnimation: {fileID: 0}
   requiredCards: []
   specialEffectEvent: {fileID: 0}
   CardImage: {fileID: 21300000, guid: d3450b3c87792fd41b9f17e5ced948aa, type: 3}

@@ -27,7 +27,7 @@ MonoBehaviour:
   - independentRNG: 0
     ConditionalEffects:
     - name: 2 damage
-      possibility: 0.4
+      possibility: 0.6
       targetEvent:
         m_PersistentCalls:
           m_Calls:
@@ -44,7 +44,7 @@ MonoBehaviour:
               m_BoolArgument: 0
             m_CallState: 2
     - name: 4 dmg
-      possibility: 0.5
+      possibility: 0.3
       targetEvent:
         m_PersistentCalls:
           m_Calls:
@@ -81,6 +81,7 @@ MonoBehaviour:
   exaust: 0
   hasSpecialEffect: 0
   cardsMustBeInHand: 0
+  AudioOnPlay: {fileID: 0}
   enemyCardData:
     stun: 0
     Dot: 0
@@ -93,6 +94,7 @@ MonoBehaviour:
     HealOverride: 0
     DamageOverrideString: 
     HealOverrideString: 
+    SpecialAnimation: {fileID: 0}
   requiredCards: []
   specialEffectEvent: {fileID: 0}
   CardImage: {fileID: 21300000, guid: b60792ce9c2dd1640b3cc729f355387c, type: 3}
