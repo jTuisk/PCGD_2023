@@ -108,7 +108,7 @@ IEnumerator shake(){
             StartCoroutine("shake");
             CameraEffectManager._instance.shake();
             //Instantiate(DamageText).GetComponent<DamageText>().changeTextString(""+(amount*EnemyDamageModifier-block));
-            ExplosionManager.Instance.PlaySwordAnimation((int)(amount*EnemyDamageModifier-block),transform.position-new Vector3(5f,0,0));
+            ExplosionManager.Instance.PlaySwordAnimation((int)Mathf.Max(amount*EnemyDamageModifier-block,0),transform.position-new Vector3(5f,0,0));
         }else{
             ExplosionManager.Instance.PlayHealthAnimation((int)(-amount*EnemyDamageModifier),new Vector3(0,0,0));
         }
@@ -118,7 +118,9 @@ IEnumerator shake(){
         }else{
             HP = Mathf.Min((int) (HP +block- amount * Deck.Instance.PlayerDamageModifier),amount>0?HP:HP-amount);
         }
-            ExplosionManager.Instance.PlayArmorAnimation(-(amount-(amount-block)),new Vector3(0,0,0));
+
+                ExplosionManager.Instance.PlayArmorAnimation((int)-(block - Mathf.Max(0, block - amount * EnemyDamageModifier)), new Vector3(0, 0, 0));
+            
             if(amount>0){
             block=Mathf.Max(0,block-amount);}
         }else{
