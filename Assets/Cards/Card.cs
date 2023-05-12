@@ -218,7 +218,8 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         {
             e.takeDamage(Damage);
         }
-        if (Damage != 0)
+        effect.Invoke();
+        if (Damage != 0|| effect.GetPersistentEventCount() > 0)
         {
             yield return new WaitForSeconds(1);
         }
@@ -247,11 +248,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         // used cards from enermy go to discard pile?
         this.status = BelongTo.DiscardPile;
    
-        effect.Invoke();
-        if (effect.GetPersistentEventCount()>0)
-        {
-            yield return new WaitForSeconds(1);
-        }
+
     }
     public virtual void createCard(BattleCardDataContainer data, bool saveContainerData = true) {
 
