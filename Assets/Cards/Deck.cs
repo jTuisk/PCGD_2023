@@ -586,7 +586,7 @@ public IEnumerator ApplyStatusEffects(StatusActivation StA){
 
                     status.triggered = false;
                     status.trigger();
-                    yield return new WaitForSeconds(0.5f);
+                    //yield return new WaitForSeconds(0.3f);
 
 
                 }
@@ -602,7 +602,7 @@ public IEnumerator ApplyStatusEffects(StatusActivation StA){
                     status.triggered = false;
 
                     status.trigger();
-                    yield return new WaitForSeconds(0.5f);
+                    yield return new WaitForSeconds(0.3f);
                 }
 
 
@@ -616,7 +616,7 @@ public IEnumerator ApplyStatusEffects(StatusActivation StA){
                     yield return new WaitForSeconds(0.5f);
                     status.triggered = false;
                     status.trigger();
-                    yield return new WaitForSeconds(0.5f);
+                    //yield return new WaitForSeconds(0.3f);
                 }
 
 
