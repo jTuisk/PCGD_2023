@@ -282,11 +282,7 @@ IEnumerator shake(){
         victory.name = "Victory";
         AudioManager.Instance.stopMusic();
         AudioManager.Instance.PlayOneShot(AudioManager.AudioEffects.VictoryBeeb);
-        for (int i = 0; i < 300; i++)
-        {
-            img.color = new Color(img.color.r, img.color.g, img.color.b,Mathf.Lerp(0,1,(300f-i)/300));
-            yield return 1;
-        }
+
         if (!lastBoss)
         {
             GameObject.Find("Victory/Canvas/VictoryButton").GetComponent<Button>().onClick.AddListener(WinBattle);
@@ -295,7 +291,11 @@ IEnumerator shake(){
         {
             GameObject.Find("Victory/Canvas/VictoryButton").GetComponent<Button>().onClick.AddListener(WinGame);
         }
-        
+        for (int i = 0; i < 100; i++)
+        {
+            img.color = new Color(img.color.r, img.color.g, img.color.b,Mathf.Lerp(0,1,(100f-i)/100));
+            yield return 1;
+        }
         while (!VictoryButtonPressed)
         {
             yield return 0;
