@@ -32,6 +32,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip eventCardSlide;
     public AudioClip eventCardFlip;
     public AudioClip eventCardBGM;
+    public AudioClip EraseSound;
 
     public AudioClip mainMenuBGM;
     public AudioClip GameOverAudioClip;
@@ -42,7 +43,7 @@ public class AudioManager : MonoBehaviour
     [HideInInspector]
     public enum AudioEffects {exploreCard, flipCard, playCard, 
         healSelf, getMana, loseMana, dealDamage, 
-        shuffleDeck,stun,shield,VictoryBeeb};
+        shuffleDeck,stun,shield,VictoryBeeb,Erase};
 
     public void PlayOneShot(AudioEffects audio)
     {
@@ -103,10 +104,19 @@ public class AudioManager : MonoBehaviour
                     sfxAudioSource.PlayOneShot(VictoryBeep);
                     break;
                 }
+            case (AudioEffects.Erase):
+                {
+                    sfxAudioSource.PlayOneShot(EraseSound);
+                    break;
+                }
             default: break;
         }
     }
-
+    public IEnumerator PlayDelayedSound(AudioEffects audio,float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        PlayOneShot(audio);
+    }
     public void PlayCardEffectsWhenCardPlayed(Card card)
     {
         if(card.Damage > 0)

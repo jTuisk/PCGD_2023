@@ -164,7 +164,8 @@ public class BattleCardDataContainer : ScriptableObject
         {
             var c = Deck.Instance.BattleDeck[UnityEngine.Random.Range(0, Deck.Instance.BattleDeck.Count)];
             Deck.Instance.BattleDeckRemove(c);
-            Destroy(c.gameObject);
+            //Destroy(c.gameObject);
+            ExplosionManager.Instance.PlayEraseAnimation(c.gameObject);
         }
     }
     public void ConfuseEnemy(){

@@ -322,6 +322,7 @@ MonoBehaviour:
   eventCardSlide: {fileID: 8300000, guid: 26228d20c1933974e9d7d3d75f892881, type: 3}
   eventCardFlip: {fileID: 8300000, guid: 9e2710cfa377f2141a15d5f86959af5b, type: 3}
   eventCardBGM: {fileID: 8300000, guid: 924cd26b142801a4d9e47c248433721e, type: 3}
+  EraseSound: {fileID: 8300000, guid: 925189d10a52db04f95877e471d26615, type: 3}
   mainMenuBGM: {fileID: 8300000, guid: b5260adcbc20dfb40a6d69d3e0410b58, type: 3}
   GameOverAudioClip: {fileID: 8300000, guid: df1498906f40c194b92cf4aa0bf706ac, type: 3}
   winGameAudioClip: {fileID: 8300000, guid: 9c07c9bb2cd71664e90d60dcdf36a211, type: 3}

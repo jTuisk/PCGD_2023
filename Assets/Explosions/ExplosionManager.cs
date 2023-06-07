@@ -24,6 +24,7 @@ public class ExplosionManager : MonoBehaviour
     public Transform armorExplosionTarget;
     public GameObject manaExplosion;
     public Transform manaExplosionTarget;
+    public GameObject EraseAnimation;
 
     public GameObject StunAnimation;
     public Transform StunAnimationTarget;
@@ -34,6 +35,15 @@ public class ExplosionManager : MonoBehaviour
         if(card.magic!=0){
             PlayManaAnimation(card.magic);
         }
+    }
+    
+    public void PlayEraseAnimation(GameObject Erased)
+    {
+        var i = Instantiate(EraseAnimation);
+        i.transform.position = StunAnimationTarget.position;
+        StartCoroutine(AudioManager.Instance.PlayDelayedSound(AudioManager.AudioEffects.Erase,1.5f));
+        Erased.transform.position= StunAnimationTarget.position+new Vector3(3,-3,0);
+        Destroy(Erased,3.5f);
     }
     public void PlayStunAnimation()
     {
@@ -80,6 +90,7 @@ public class ExplosionManager : MonoBehaviour
             AudioManager.Instance.PlayOneShot(AudioManager.AudioEffects.dealDamage);
     }}
     GameObject damagetext;
+    
     public void PlaySwordAnimation(int damage,Vector3 pos){
 
         if (Mathf.Abs(damage) > 0)

@@ -1276,7 +1276,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f42f8fb085b039b4582e9968f3f98dc8, type: 2}
   - {fileID: 11400000, guid: 7ff2c095b5bd9dd4c87e4e9b15d756c0, type: 2}
   - {fileID: 11400000, guid: 856adb58d203670c3ac6cbb4342d076b, type: 2}
-  isbit1Final: 1
+  isbit1Final: 0
   PlayerConfused: 0
 --- !u!4 &417463227
 Transform:
@@ -5466,6 +5466,7 @@ MonoBehaviour:
   armorExplosionTarget: {fileID: 838721074}
   manaExplosion: {fileID: 7065928661677174765, guid: 0c07bb88ab97daeebbb42889b647d6f9, type: 3}
   manaExplosionTarget: {fileID: 1293751137}
+  EraseAnimation: {fileID: 2332050747790252199, guid: 4c987722cdc05f646aa38560f5596eec, type: 3}
   StunAnimation: {fileID: 2332050747790252199, guid: cd9c7e6d08411d140b7b0d5e24c95d4a, type: 3}
   StunAnimationTarget: {fileID: 1715163333}
 --- !u!4 &1903212949
